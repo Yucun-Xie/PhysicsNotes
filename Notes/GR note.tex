@@ -1,0 +1,169 @@
+\documentclass[12pt]{extarticle}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{framed}
+\usepackage[normalem]{ulem}
+\usepackage{indentfirst}
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage[italicdiff]{physics}
+\usepackage[T1]{fontenc}
+\usepackage{wrapfig}
+\usepackage{lmodern,mathrsfs}
+\usepackage[inline,shortlabels]{enumitem}
+\setlist{topsep=2pt,itemsep=2pt,parsep=0pt,partopsep=0pt}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage[letterpaper, top=0.5in,bottom=0.2in, left=0.5in, right=0.5in, footskip=0.3in, includefoot]{geometry}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz,tikz-3dplot,tikz-cd,tkz-tab,tkz-euclide,pgf,pgfplots}
+\pgfplotsset{compat=newest}
+\usepackage{multicol}
+\usepackage[bottom,multiple]{footmisc} 
+\usepackage[backend=bibtex,style=numeric]{biblatex}
+\addbibresource{bibliography}
+\usepackage{hyperref}
+\usepackage[nameinlink]{cleveref} 
+
+
+
+\newtheoremstyle{mystyle}{}{}{}{}{\sffamily\bfseries}{.}{ }{}
+\newtheoremstyle{cstyle}{}{}{}{}{\sffamily\bfseries}{.}{ }{\thmnote{#3}}
+
+\theoremstyle{mystyle}{\newtheorem{definition}{Definition}[section]}
+%\theoremstyle{mystyle}{\newtheorem{proposition}[definition]{Proposition}}
+\theoremstyle{mystyle}{\newtheorem{theorem}[definition]{Theorem}}
+%\theoremstyle{mystyle}{\newtheorem{lemma}[definition]{Lemma}}
+%\theoremstyle{mystyle}{\newtheorem{corollary}[definition]{Corollary}}
+\theoremstyle{mystyle}{\newtheorem*{remark}{Remark}}
+%\theoremstyle{mystyle}{\newtheorem*{remarks}{Remarks}}
+\theoremstyle{mystyle}{\newtheorem*{example}{Example}}
+\theoremstyle{mystyle}{\newtheorem*{examples}{Examples}}
+%\theoremstyle{definition}{\newtheorem*{exercise}{Exercise}}
+\theoremstyle{cstyle}{\newtheorem*{cthm}{}}
+
+
+\tcolorboxenvironment{definition}{boxrule=0pt,boxsep=0pt,colback={red!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{red},sharp corners,before skip=10pt,after skip=10pt,breakable}
+%\tcolorboxenvironment{proposition}{boxrule=0pt,boxsep=0pt,colback={Orange!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{Orange},sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{theorem}{boxrule=0pt,boxsep=0pt,colback={blue!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{blue},sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{example}{boxrule=0pt,boxsep=0pt,colback={Green!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{Green},sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{examples}{boxrule=0pt,boxsep=0pt,colback={violet!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{violet},sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{proof}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{CadetBlue!80!white},left=8pt,right=8pt,sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{remark}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{Cyan},left=8pt,right=8pt,before skip=10pt,after skip=10pt,breakable}
+%\tcolorboxenvironment{remarks}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{Green},left=8pt,right=8pt,before skip=10pt,after skip=10pt,breakable}
+%\tcolorboxenvironment{example}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{Black},left=8pt,right=8pt,sharp corners,before skip=10pt,after skip=10pt,breakable}
+%\tcolorboxenvironment{examples}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{Black},left=8pt,right=8pt,sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{cthm}{boxrule=0pt,boxsep=0pt,colback={gray!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{gray},sharp corners,before skip=10pt,after skip=10pt,breakable}
+
+
+\usepackage[explicit]{titlesec}
+\titleformat{\section}{\fontsize{24}{30}\sffamily\bfseries}{\thesection}{20pt}{#1}
+\titleformat{\subsection}{\fontsize{16}{18}\sffamily\bfseries}{\thesubsection}{12pt}{#1}
+\titleformat{\subsubsection}{\fontsize{10}{12}\sffamily\large\bfseries}{\thesubsubsection}{8pt}{#1}
+
+\titlespacing*{\section}{0pt}{5pt}{5pt}
+\titlespacing*{\subsection}{0pt}{5pt}{5pt}
+\titlespacing*{\subsubsection}{0pt}{5pt}{5pt}
+
+%\newcommand{\sectionbreak}{\clearpage} %Start every section on a new page
+
+%\newcommand{\Disp}{\displaystyle}
+%\newcommand{\qe}{\hfill\(\bigtriangledown\)}
+\DeclareMathAlphabet\mathbfcal{OMS}{cmsy}{b}{n}
+\setlength{\parindent}{0.2in}
+\setlength{\parskip}{0pt}
+\setlength{\columnseprule}{0pt}
+
+\title{\huge\sffamily\bfseries GR notes}
+\author{\Large\sffamily Yucun Xie}
+\date{\sffamily \today}
+
+\begin{document}
+
+\setlength{\abovedisplayskip}{3pt}
+\setlength{\belowdisplayskip}{3pt}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{0pt}
+\maketitle
+
+%Custom colors for different environments
+\definecolor{contcol1}{HTML}{72E094}
+\definecolor{contcol2}{HTML}{24E2D6}
+\definecolor{convcol1}{HTML}{C0392B}
+\definecolor{convcol2}{HTML}{8E44AD}
+
+\begin{tcolorbox}[title=Contents, fonttitle=\huge\sffamily\bfseries\selectfont,interior style={left color=contcol1!40!white,right color=contcol2!40!white},frame style={left color=contcol1!80!white,right color=contcol2!80!white},coltitle=black,top=2mm,bottom=2mm,left=2mm,right=2mm,drop fuzzy shadow,enhanced,breakable]
+\makeatletter
+\@starttoc{toc}
+\makeatother
+\end{tcolorbox}
+
+\vspace*{10mm}
+
+\begin{tcolorbox}[title=Conventions, fonttitle=\large\sffamily\bfseries\selectfont,interior style={left color=convcol1!40!white,right color=convcol2!40!white},frame style={left color=convcol1!80!white,right color=convcol2!80!white},coltitle=black,top=2mm,bottom=2mm,left=2mm,right=2mm,drop fuzzy shadow,enhanced,breakable]
+\begin{enumerate}
+
+\item Greek index (e.g. $\alpha, \beta, \mu, \nu$) take value from \{0, 1, 2, 3\}.
+\item Events denoted by cursive capitals  (e.g. $\mathscr{A}, \mathscr{B}, \mathscr{E}$).
+\item $(x^0, x^1, x^2, x^3) \equiv (t, x, y, z) \equiv x^{\alpha}$
+\item Latin index (e.g.$ i, j, k$) take value from \{1, 2, 3\}.
+\item New unit that speed of light $c=1$
+
+\end{enumerate}
+\end{tcolorbox}
+
+\newpage
+
+\section{Special Relativity}
+
+
+\subsection{4-Dimensional Spacetime}
+\begin{definition}
+    Inertial coordinate \\
+    The coordinate system must satisfy three property to be consider inertial coordinat:
+    \begin{enumerate}
+        \item The distance between two points are independent of time.
+        \item The clocks at every points ticking off time coordinate $t$ at same rate.
+        \item The geometry of space is always Euclidean (flat).
+    \end{enumerate}
+\end{definition}
+
+\begin{figure}[ht]
+    \begin{center}
+        \begin{tikzpicture}[scale = 0.75]
+            %\draw[orange, thick] (-5,0) -- (5,0);
+            %\draw[orange, thick] (0,-5) -- (0,5);
+
+            \draw[thick,->] (0,-5) -- (0,5) node[anchor=north west] {$t$};
+            \draw[thick,->] (-5,0) -- (5,0) node[anchor=south east] {$x$};
+            \filldraw[red] (-1,-1) circle (2pt) node[anchor=north west]
+            {$\mathscr{A}$};
+            \filldraw[red] (3,4) circle (2pt) node[anchor=north west]
+            {\(\mathscr{B}\)};
+            \draw[step=1cm,gray,very thin] (-4.9,-4.9) grid (4.9,4.9);
+
+            \end{tikzpicture}
+            \caption[]{two events with coordinate $(-1, -1, 0, 0)$ and $(4, 3, 0, 0)$.}
+    \end{center}
+\end{figure}
+
+The event in 4-D spacetime is define by a set of coordinate \((t, x, y, z)\). 
+For simplicity, we assume those events have $y=0, z=0$ so that we can draw a 2D graph to represent them.\\
+Analog to Euclidean geometry, just like the euclidean distance \(\Delta l^2 = \Delta x^2 + \Delta y^2 + \Delta z^2\), we define the 
+\textbf{spacetime interval} $\Delta s = - \Delta t^2 + \Delta x^2 + \Delta y^2 + \Delta z^2$.
+
+\begin{remark}\leavevmode
+There are a lot different conventions to define the sign of interval, here we just use the popular one \((-,+,+,+)\).
+\end{remark}
+\begin{example}\leavevmode % This is needed to start the list in the next line so it won't be misaligned
+    \\Interval for the two events in Figure 1 is $\Delta s = - \Delta t^2 + \Delta x^2 + \Delta y^2 + \Delta z^2 = -9$.
+\end{example}
+
+
+
+
+%\newpage
+
+%\appendix
+
+
+\end{document}
