@@ -134,11 +134,12 @@
             %\draw[orange, thick] (0,-5) -- (0,5);
 
             \draw[thick,->] (0,-5) -- (0,5) node[anchor=north west] {$t$};
-            \draw[thick,->] (-5,0) -- (5,0) node[anchor=south east] {$x$};
-            \filldraw[red] (-1,-1) circle (2pt) node[anchor=north west]
-            {$\mathscr{A}$};
-            \filldraw[red] (3,4) circle (2pt) node[anchor=north west]
-            {\(\mathscr{B}\)};
+            \draw[orange, thick] (-5,-5) -- (5,5);
+            \draw[orange, thick] (-5,5) -- (5,-5);
+            \draw[thick] (-5,0) -- (5,0) node[anchor=south east] {$x$};
+            \filldraw[red] (-1,-1) circle (2pt) node[anchor=north west] {$\mathscr{A}$};
+            \filldraw[red] (0,0) circle (2pt) node[anchor=north west] {$\mathscr{O}$};            
+            \filldraw[red] (3,4) circle (2pt) node[anchor=north west] {\(\mathscr{B}\)};
             \draw[step=1cm,gray,very thin] (-4.9,-4.9) grid (4.9,4.9);
 
             \end{tikzpicture}
@@ -146,7 +147,7 @@
     \end{center}
 \end{figure}
 
-The event in 4-D spacetime is define by a set of coordinate \((t, x, y, z)\). 
+The event in 4-D spacetime is defined by a set of coordinate \((t, x, y, z)\). 
 For simplicity, we assume those events have $y=0, z=0$ so that we can draw a 2D graph to represent them.\\
 Analog to Euclidean geometry, just like the euclidean distance \(\Delta l^2 = \Delta x^2 + \Delta y^2 + \Delta z^2\), we define the 
 \textbf{spacetime interval} $\Delta s^2 = - \Delta t^2 + \Delta x^2 + \Delta y^2 + \Delta z^2$.
@@ -157,6 +158,12 @@ There are a lot different conventions to define the sign of interval, here we ju
 \begin{example}\leavevmode % This is needed to start the list in the next line so it won't be misaligned
     \\Interval for the two events in Figure 1 is $\Delta s^2 = - \Delta t^2 + \Delta x^2 + \Delta y^2 + \Delta z^2 = -9$.
 \end{example}
+Due to universal speed of light, interval is invariant change of inertial coordinate, this means that $\Delta s^2 =\Delta \bar{s}^2$ 
+%which $\Delta \bar{s}^2$ is $\Delta s^2$ in another inertial coordinate system.\\
+When the interval is less than 0, we call it \textbf{timelike}  
+The $x^{\mu}=\{x^0,x^1,x^2,x^3\}$
+
+$ds^2 = g_{\mu \nu} x^{\mu} x^{\nu}=\sum_{\mu=0}^{3} \sum_{\nu=0}^{3}g_{\mu \nu} x^{\mu} x^{\nu}$ 
 
 
 
