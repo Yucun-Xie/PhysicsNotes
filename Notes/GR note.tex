@@ -19,8 +19,8 @@
 \pgfplotsset{compat=newest}
 \usepackage{multicol}
 \usepackage[bottom,multiple]{footmisc} 
-\usepackage[backend=bibtex,style=numeric]{biblatex}
-\addbibresource{bibliography}
+%\usepackage[backend=bibtex,style=numeric]{biblatex}
+%\addbibresource{bibliography}
 \usepackage{hyperref}
 \usepackage[nameinlink]{cleveref} 
 
@@ -143,7 +143,7 @@
             \draw[step=1cm,gray,very thin] (-4.9,-4.9) grid (4.9,4.9);
 
             \end{tikzpicture}
-            \caption[]{two events with coordinate $(-1, -1, 0, 0)$ and $(4, 3, 0, 0)$.}
+            \caption[]{two events with coordinate $(-1, -1, 0, 0)$ and $(4, 3, 0, 0)$. Orange line is light's worldline.}
     \end{center}
 \end{figure}
 
@@ -160,7 +160,9 @@ There are a lot different conventions to define the sign of interval, here we ju
 \end{example}
 Due to universal speed of light, interval is invariant change of inertial coordinate, this means that $\Delta s^2 =\Delta \bar{s}^2$ 
 %which $\Delta \bar{s}^2$ is $\Delta s^2$ in another inertial coordinate system.\\
-When the interval is less than 0, we call it \textbf{timelike}  
+When the interval $\Delta s^2$ is less than 0, we call it \textbf{timelike}; 
+When the interval $\Delta s^2$ is equal to 0, we call it \textbf{lightlike} or null;
+When the interval $\Delta s^2$ is greater than 0, we call it \textbf{spacelike}.
 The $x^{\mu}=\{x^0,x^1,x^2,x^3\}$
 
 $ds^2 = g_{\mu \nu} x^{\mu} x^{\nu}=\sum_{\mu=0}^{3} \sum_{\nu=0}^{3}g_{\mu \nu} x^{\mu} x^{\nu}$ 
