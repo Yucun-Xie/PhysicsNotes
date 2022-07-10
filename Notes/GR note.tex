@@ -114,6 +114,42 @@
 
 \newpage
 
+
+
+
+\section{Differential Geometry}
+
+\subsection{Connection}
+\begin{proof}
+    Here is a proof shows that connection not a tensor by show connection does not obey tensor transformation law.
+    \begin{align*}
+        \begin{split}
+    \nabla_{\beta'}e_{\alpha'} & = \Gamma^{\gamma'}_{\alpha'\beta'}e_{\gamma'} \\
+    &= \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\nabla_{\lambda}(\frac{\partial x^{\mu}}{\partial x^{\alpha'}}e_{\mu})\\
+    &= \frac{\partial x^{\lambda}}{\partial x^{\beta'}}(\frac{\partial}{\partial x^{\lambda}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}}e_{\mu}
+    + \frac{\partial x^{\mu}}{\partial x^{\alpha'}} \Gamma ^{\gamma}_{\mu\lambda} e_{\gamma})\\
+    &= \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\frac{\partial}{\partial x^{\lambda}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}}e_{\mu}
+    + \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}} \Gamma ^{\gamma}_{\mu\lambda} e_{\gamma}\\
+    &= \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\frac{\partial}{\partial x^{\lambda}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}}\frac{\partial x^{\gamma'}}{\partial x^{\mu}}e_{\gamma'}
+    + \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}} \frac{\partial x^{\gamma'}}{\partial x^{\gamma}} \Gamma ^{\gamma}_{\mu\lambda}  e_{\gamma'}\\
+        \end{split}
+    \end{align*}
+    \\
+    which yield \[\Gamma^{\gamma'}_{\alpha'\beta'} = \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\frac{\partial}{\partial x^{\lambda}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}}\frac{\partial x^{\gamma'}}{\partial x^{\mu}}
+    + \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}} \frac{\partial x^{\gamma'}}{\partial x^{\gamma}} \Gamma ^{\gamma}_{\mu\lambda}\]
+    There is an extra term in transformation of connection, so connection is not a tensor.
+\end{proof}
+
+\subsection{Geodesics}
+\subsection{Riemann Tensor}
+\section{Gravitation}
+
+
+
+\newpage
+\appendix
+\addcontentsline{toc}{section}{Appendix~}
+
 \section{Special Relativity}
 
 
@@ -168,44 +204,13 @@ When the interval $\Delta s^2$ is less than 0, we call the seperation bewteen ev
 When the interval $\Delta s^2$ is equal to 0, we call it \textbf{lightlike} or null;
 When the interval $\Delta s^2$ is greater than 0, we call it \textbf{spacelike}.
 %The $x^{\mu}=\{x^0,x^1,x^2,x^3\} =\{t, x, y, z\}$ is a set of coordinate.
-
 \subsection{Tensor}
 
 \subsection{Energy and Momentum}
 
-\section{Differential Geometry}
-\subsection{Geodesics}
-\subsection{Riemann Tensor}
-\subsection{Connection}
-\begin{proof}
-    Here is a proof shows that connection not a tensor by show connection does not obey tensor transformation law.
-    \begin{align*}
-        \begin{split}
-    \nabla_{\beta'}e_{\alpha'} & = \Gamma^{\gamma'}_{\alpha'\beta'}e_{\gamma'} \\
-    &= \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\nabla_{\lambda}(\frac{\partial x^{\mu}}{\partial x^{\alpha'}}e_{\mu})\\
-    &= \frac{\partial x^{\lambda}}{\partial x^{\beta'}}(\frac{\partial}{\partial x^{\lambda}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}}e_{\mu}
-    + \frac{\partial x^{\mu}}{\partial x^{\alpha'}} \Gamma ^{\gamma}_{\mu\lambda} e_{\gamma})\\
-    &= \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\frac{\partial}{\partial x^{\lambda}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}}e_{\mu}
-    + \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}} \Gamma ^{\gamma}_{\mu\lambda} e_{\gamma}\\
-    &= \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\frac{\partial}{\partial x^{\lambda}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}}\frac{\partial x^{\gamma'}}{\partial x^{\mu}}e_{\gamma'}
-    + \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}} \frac{\partial x^{\gamma'}}{\partial x^{\gamma}} \Gamma ^{\gamma}_{\mu\lambda}  e_{\gamma'}\\
-        \end{split}
-    \end{align*}
-    \\
-    which yield \[\Gamma^{\gamma'}_{\alpha'\beta'} = \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\frac{\partial}{\partial x^{\lambda}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}}\frac{\partial x^{\gamma'}}{\partial x^{\mu}}
-    + \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}} \frac{\partial x^{\gamma'}}{\partial x^{\gamma}} \Gamma ^{\gamma}_{\mu\lambda}\]
-    There is an extra term in transformation of connection, so connection is not a tensor.
-\end{proof}
-
-
-
-\newpage
-\appendix
-\addcontentsline{toc}{section}{Appendix~}
+\section{Skipped proof}
 
 \section{Topology Space}
-
-\newpage
 
 \section{Manifolds}
 
