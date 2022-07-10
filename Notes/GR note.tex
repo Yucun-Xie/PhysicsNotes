@@ -1,8 +1,8 @@
-\documentclass[12pt]{extarticle}
-\usepackage[english]{babel}
+\documentclass[12pt]{article}
+%\usepackage[english]{babel}
 \usepackage{graphicx}
-\usepackage{framed}
-\usepackage[normalem]{ulem}
+%\usepackage{framed}
+%\usepackage[normalem]{ulem}
 \usepackage{indentfirst}
 \usepackage{amsmath,amsthm,amssymb,amsfonts}
 \usepackage[italicdiff]{physics}
@@ -23,7 +23,7 @@
 %\addbibresource{bibliography}
 \usepackage{hyperref}
 \usepackage[nameinlink]{cleveref} 
-
+\usepackage[titletoc, toc, page]{appendix}
 
 
 \newtheoremstyle{mystyle}{}{}{}{}{\sffamily\bfseries}{.}{ }{}
@@ -68,10 +68,10 @@
 
 %\newcommand{\Disp}{\displaystyle}
 %\newcommand{\qe}{\hfill\(\bigtriangledown\)}
-\DeclareMathAlphabet\mathbfcal{OMS}{cmsy}{b}{n}
-\setlength{\parindent}{0.2in}
-\setlength{\parskip}{0pt}
-\setlength{\columnseprule}{0pt}
+%\DeclareMathAlphabet\mathbfcal{OMS}{cmsy}{b}{n}
+%\setlength{\parindent}{0.2in}
+%\setlength{\parskip}{0pt}
+%\setlength{\columnseprule}{0pt}
 
 \title{\huge\sffamily\bfseries GR notes}
 \author{\Large\sffamily Yucun Xie}
@@ -117,7 +117,7 @@
 \section{Special Relativity}
 
 
-\subsection{4-Dimensional Spacetime}
+\subsection{Spacetime}
 \begin{definition}
     Inertial coordinate \\
     The coordinate system must satisfy three property to be consider inertial coordinat:
@@ -159,15 +159,23 @@ There are a lot different conventions to define the sign of interval, here we ju
 \begin{example}\leavevmode % This is needed to start the list in the next line so it won't be misaligned
     \\Interval for the two events in Figure 1 is $\Delta s^2 = - \Delta t^2 + \Delta x^2 + \Delta y^2 + \Delta z^2 = -9$.
 \end{example}
-Due to universal speed of light, interval is invariant change of inertial coordinate, this means that $\Delta s^2 =\Delta \bar{s}^2$ 
+The universality speed of light means that $\frac{\Delta r}{\Delta t} = \frac{\sqrt{\Delta x^2+ \Delta y^2 + \Delta z^2}}{\Delta t}=1$ are always hold, then we can then write the interval 
+$\Delta s^2 = - \Delta t^2 + \Delta x^2 + \Delta y^2 + \Delta z^2 = 0$. This experimental fact yield all law of special relativity.
+%Due to universal speed of light, interval is invariant change of inertial coordinate, this means that $\Delta s^2 =\Delta \bar{s}^2$ 
 %which $\Delta \bar{s}^2$ is $\Delta s^2$ in another inertial coordinate system.\\
-When the interval $\Delta s^2$ is less than 0, we call it \textbf{timelike}; 
+\\
+When the interval $\Delta s^2$ is less than 0, we call the seperation bewteen events is \textbf{timelike}; 
 When the interval $\Delta s^2$ is equal to 0, we call it \textbf{lightlike} or null;
 When the interval $\Delta s^2$ is greater than 0, we call it \textbf{spacelike}.
-The $x^{\mu}=\{x^0,x^1,x^2,x^3\} =\{t, x, y, z\}$ is a set of coordinate.
+%The $x^{\mu}=\{x^0,x^1,x^2,x^3\} =\{t, x, y, z\}$ is a set of coordinate.
 
+\subsection{Tensor}
+
+\subsection{Energy and Momentum}
 
 \section{Differential Geometry}
+\subsection{Geodesics}
+\subsection{Riemann Tensor}
 \subsection{Connection}
 \begin{proof}
     Here is a proof shows that connection not a tensor by show connection does not obey tensor transformation law.
@@ -191,9 +199,14 @@ The $x^{\mu}=\{x^0,x^1,x^2,x^3\} =\{t, x, y, z\}$ is a set of coordinate.
 
 
 
-%\newpage
+\newpage
+\appendix
+\addcontentsline{toc}{section}{Appendix~}
 
-%\appendix
+\section{Topology Space}
 
+\newpage
+
+\section{Manifolds}
 
 \end{document}
