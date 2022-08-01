@@ -92,24 +92,24 @@
 \definecolor{convcol2}{HTML}{8E44AD}
 
 \begin{tcolorbox}[title=Contents, fonttitle=\huge\sffamily\bfseries\selectfont,interior style={left color=contcol1!40!white,right color=contcol2!40!white},frame style={left color=contcol1!80!white,right color=contcol2!80!white},coltitle=black,top=2mm,bottom=2mm,left=2mm,right=2mm,drop fuzzy shadow,enhanced,breakable]
-\makeatletter
-\@starttoc{toc}
-\makeatother
+  \makeatletter
+  \@starttoc{toc}
+  \makeatother
 \end{tcolorbox}
 
 \vspace*{10mm}
 
 \begin{tcolorbox}[title=Conventions, fonttitle=\large\sffamily\bfseries\selectfont,interior style={left color=convcol1!40!white,right color=convcol2!40!white},frame style={left color=convcol1!80!white,right color=convcol2!80!white},coltitle=black,top=2mm,bottom=2mm,left=2mm,right=2mm,drop fuzzy shadow,enhanced,breakable]
-\begin{enumerate}
+  \begin{enumerate}
 
-\item Greek index (e.g. $\alpha, \beta, \mu, \nu$) take value from \{0, 1, 2, 3\}.
-\item Events denoted by cursive capitals  (e.g. $\mathscr{A}, \mathscr{B}, \mathscr{E}$).
-\item $(x^0, x^1, x^2, x^3) \equiv (t, x, y, z) \equiv x^{\alpha}$
-\item Latin index (e.g.$ i, j, k$) take value from \{1, 2, 3\}.
-\item New unit that speed of light $c=1$
-\item Einstein summation convention $ds^2 = g_{\mu \nu} x^{\mu} x^{\nu}=\sum_{\mu=0}^{3} \sum_{\nu=0}^{3}g_{\mu \nu} x^{\mu} x^{\nu}$ 
+    \item Greek index (e.g. $\alpha, \beta, \mu, \nu$) take value from \{0, 1, 2, 3\}.
+    \item Events denoted by cursive capitals  (e.g. $\mathscr{A}, \mathscr{B}, \mathscr{E}$).
+    \item $(x^0, x^1, x^2, x^3) \equiv (t, x, y, z) \equiv x^{\alpha}$
+    \item Latin index (e.g.$ i, j, k$) take value from \{1, 2, 3\}.
+    \item New unit that speed of light $c=1$
+    \item Einstein summation convention $ds^2 = g_{\mu \nu} x^{\mu} x^{\nu}=\sum_{\mu=0}^{3} \sum_{\nu=0}^{3}g_{\mu \nu} x^{\mu} x^{\nu}$
 
-\end{enumerate}
+  \end{enumerate}
 \end{tcolorbox}
 
 \newpage
@@ -121,23 +121,23 @@
 
 \subsection{Connection}
 \begin{proof}
-    Here is a proof shows that connection not a tensor by show connection does not obey tensor transformation law.
-    \begin{align*}
-        \begin{split}
-    \nabla_{\beta'}e_{\alpha'} & = \Gamma^{\gamma'}_{\alpha'\beta'}e_{\gamma'} \\
-    &= \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\nabla_{\lambda}(\frac{\partial x^{\mu}}{\partial x^{\alpha'}}e_{\mu})\\
-    &= \frac{\partial x^{\lambda}}{\partial x^{\beta'}}(\frac{\partial}{\partial x^{\lambda}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}}e_{\mu}
-    + \frac{\partial x^{\mu}}{\partial x^{\alpha'}} \Gamma ^{\gamma}_{\mu\lambda} e_{\gamma})\\
-    &= \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\frac{\partial}{\partial x^{\lambda}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}}e_{\mu}
-    + \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}} \Gamma ^{\gamma}_{\mu\lambda} e_{\gamma}\\
-    &= \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\frac{\partial}{\partial x^{\lambda}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}}\frac{\partial x^{\gamma'}}{\partial x^{\mu}}e_{\gamma'}
-    + \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}} \frac{\partial x^{\gamma'}}{\partial x^{\gamma}} \Gamma ^{\gamma}_{\mu\lambda}  e_{\gamma'}\\
-        \end{split}
-    \end{align*}
-    \\
-    which yield \[\Gamma^{\gamma'}_{\alpha'\beta'} = \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\frac{\partial}{\partial x^{\lambda}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}}\frac{\partial x^{\gamma'}}{\partial x^{\mu}}
+  Here is a proof shows that connection not a tensor by show connection does not obey tensor transformation law.
+  \begin{align*}
+    \begin{split}
+      \nabla_{\beta'}e_{\alpha'} & = \Gamma^{\gamma'}_{\alpha'\beta'}e_{\gamma'} \\
+      &= \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\nabla_{\lambda}(\frac{\partial x^{\mu}}{\partial x^{\alpha'}}e_{\mu})\\
+      &= \frac{\partial x^{\lambda}}{\partial x^{\beta'}}(\frac{\partial}{\partial x^{\lambda}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}}e_{\mu}
+      + \frac{\partial x^{\mu}}{\partial x^{\alpha'}} \Gamma ^{\gamma}_{\mu\lambda} e_{\gamma})\\
+      &= \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\frac{\partial}{\partial x^{\lambda}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}}e_{\mu}
+      + \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}} \Gamma ^{\gamma}_{\mu\lambda} e_{\gamma}\\
+      &= \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\frac{\partial}{\partial x^{\lambda}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}}\frac{\partial x^{\gamma'}}{\partial x^{\mu}}e_{\gamma'}
+      + \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}} \frac{\partial x^{\gamma'}}{\partial x^{\gamma}} \Gamma ^{\gamma}_{\mu\lambda}  e_{\gamma'}\\
+    \end{split}
+  \end{align*}
+  \\
+  which yield \[\Gamma^{\gamma'}_{\alpha'\beta'} = \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\frac{\partial}{\partial x^{\lambda}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}}\frac{\partial x^{\gamma'}}{\partial x^{\mu}}
     + \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}} \frac{\partial x^{\gamma'}}{\partial x^{\gamma}} \Gamma ^{\gamma}_{\mu\lambda}\]
-    There is an extra term in transformation of connection, so connection is not a tensor.
+  There is an extra term in transformation of connection, so connection is not a tensor.
 \end{proof}
 
 \subsection{Geodesics}
@@ -155,52 +155,52 @@
 
 \subsection{Spacetime}
 \begin{definition}
-    Inertial coordinate \\
-    The coordinate system must satisfy three property to be consider inertial coordinat:
-    \begin{enumerate}
-        \item The distance between two points are independent of time.
-        \item The clocks at every points ticking off time coordinate $t$ at same rate.
-        \item The geometry of space is always Euclidean (flat).
-    \end{enumerate}
+  Inertial coordinate \\
+  The coordinate system must satisfy three property to be consider inertial coordinat:
+  \begin{enumerate}
+    \item The distance between two points are independent of time.
+    \item The clocks at every points ticking off time coordinate $t$ at same rate.
+    \item The geometry of space is always Euclidean (flat).
+  \end{enumerate}
 \end{definition}
 
 \begin{figure}[ht]
-    \begin{center}
-        \begin{tikzpicture}[scale = 0.75]
-            %\draw[orange, thick] (-5,0) -- (5,0);
-            %\draw[orange, thick] (0,-5) -- (0,5);
+  \begin{center}
+    \begin{tikzpicture}[scale = 0.75]
+      %\draw[orange, thick] (-5,0) -- (5,0);
+      %\draw[orange, thick] (0,-5) -- (0,5);
 
-            \draw[thick,->] (0,-5) -- (0,5) node[anchor=north west] {$t$};
-            \draw[orange, thick] (-5,-5) -- (5,5);
-            \draw[orange, thick] (-5,5) -- (5,-5);
-            \draw[thick] (-5,0) -- (5,0) node[anchor=south east] {$x$};
-            \filldraw[red] (-1,-1) circle (2pt) node[anchor=north west] {$\mathscr{A}$};
-            \filldraw[red] (0,0) circle (2pt) node[anchor=north west] {$\mathscr{O}$};            
-        \filldraw[red] (3,4) circle (2pt) node[anchor=north west] {\(\mathscr{B}\)};
-            \draw[step=1cm,gray,very thin] (-4.9,-4.9) grid (4.9,4.9);
+      \draw[thick,->] (0,-5) -- (0,5) node[anchor=north west] {$t$};
+      \draw[orange, thick] (-5,-5) -- (5,5);
+      \draw[orange, thick] (-5,5) -- (5,-5);
+      \draw[thick] (-5,0) -- (5,0) node[anchor=south east] {$x$};
+      \filldraw[red] (-1,-1) circle (2pt) node[anchor=north west] {$\mathscr{A}$};
+      \filldraw[red] (0,0) circle (2pt) node[anchor=north west] {$\mathscr{O}$};
+      \filldraw[red] (3,4) circle (2pt) node[anchor=north west] {\(\mathscr{B}\)};
+      \draw[step=1cm,gray,very thin] (-4.9,-4.9) grid (4.9,4.9);
 
-            \end{tikzpicture}
-            \caption[]{two events with coordinate $(-1, -1, 0, 0)$ and $(4, 3, 0, 0)$. Orange line is light's worldline.}
-    \end{center}
+    \end{tikzpicture}
+    \caption[]{two events with coordinate $(-1, -1, 0, 0)$ and $(4, 3, 0, 0)$. Orange line is light's worldline.}
+  \end{center}
 \end{figure}
 
-The event in 4-D spacetime is defined by a set of coordinate \((t, x, y, z)\). 
+The event in 4-D spacetime is defined by a set of coordinate \((t, x, y, z)\).
 For simplicity, we assume those events have $y=0, z=0$ so that we can draw a 2D graph to represent them.\\
-Analog to Euclidean geometry, just like the euclidean distance \(\Delta l^2 = \Delta x^2 + \Delta y^2 + \Delta z^2\), we define the 
+Analog to Euclidean geometry, just like the euclidean distance \(\Delta l^2 = \Delta x^2 + \Delta y^2 + \Delta z^2\), we define the
 \textbf{spacetime interval} $\Delta s^2 = - \Delta t^2 + \Delta x^2 + \Delta y^2 + \Delta z^2$.
 
 \begin{remark}\leavevmode
-There are a lot different conventions to define the sign of interval, here we just use the popular one \((-,+,+,+)\).
+  There are a lot different conventions to define the sign of interval, here we just use the popular one \((-,+,+,+)\).
 \end{remark}
 \begin{example}\leavevmode % This is needed to start the list in the next line so it won't be misaligned
-    \\Interval for the two events in Figure 1 is $\Delta s^2 = - \Delta t^2 + \Delta x^2 + \Delta y^2 + \Delta z^2 = -9$.
+  \\Interval for the two events in Figure 1 is $\Delta s^2 = - \Delta t^2 + \Delta x^2 + \Delta y^2 + \Delta z^2 = -9$.
 \end{example}
-The universality speed of light means that $\frac{\Delta r}{\Delta t} = \frac{\sqrt{\Delta x^2+ \Delta y^2 + \Delta z^2}}{\Delta t}=1$ are always hold, then we can then write the interval 
+The universality speed of light means that $\frac{\Delta r}{\Delta t} = \frac{\sqrt{\Delta x^2+ \Delta y^2 + \Delta z^2}}{\Delta t}=1$ are always hold, then we can then write the interval
 $\Delta s^2 = - \Delta t^2 + \Delta x^2 + \Delta y^2 + \Delta z^2 = 0$. This experimental fact yield all law of special relativity.
 %Due to universal speed of light, interval is invariant change of inertial coordinate, this means that $\Delta s^2 =\Delta \bar{s}^2$ 
 %which $\Delta \bar{s}^2$ is $\Delta s^2$ in another inertial coordinate system.\\
 \\
-When the interval $\Delta s^2$ is less than 0, we call the seperation bewteen events is \textbf{timelike}; 
+When the interval $\Delta s^2$ is less than 0, we call the seperation bewteen events is \textbf{timelike};
 When the interval $\Delta s^2$ is equal to 0, we call it \textbf{lightlike} or null;
 When the interval $\Delta s^2$ is greater than 0, we call it \textbf{spacelike}.
 %The $x^{\mu}=\{x^0,x^1,x^2,x^3\} =\{t, x, y, z\}$ is a set of coordinate.
@@ -216,15 +216,17 @@ When the interval $\Delta s^2$ is greater than 0, we call it \textbf{spacelike}.
 \section{Property for some tensors}
 %Property for tensor used in GR:
 \begin{align*}
-    \begin{split}
-        T_{ij} &= T_{ji}\\
-        g_{\mu\nu} &= g_{\nu\mu}\\
-        R_{\alpha\beta\mu\nu} &= -R_{\beta\alpha\mu\nu}\\
-        R_{\alpha\beta\mu\nu} &= -R_{\alpha\beta\nu\mu}\\
-        R_{\alpha\beta\mu\nu} &= R_{\mu\nu\alpha\beta}\\
-        R_{\alpha\beta\mu\nu} + R_{\alpha\nu\beta\mu} + R_{\alpha\mu\nu\beta} &= 0 \\
-        R_{\alpha\beta} &= R_{\beta\alpha}
-    \end{split}
+  \begin{split}
+    F_{\mu\nu} &= - F_{\nu\mu}\\
+    T_{ij} &= T_{ji}\\
+    g_{\mu\nu} &= g_{\nu\mu}\\
+    \Gamma ^{\lambda}_{\mu\nu} &= \Gamma^{\lambda}_{\nu\mu}\\
+    R_{\alpha\beta\mu\nu} &= -R_{\beta\alpha\mu\nu}\\
+    R_{\alpha\beta\mu\nu} &= -R_{\alpha\beta\nu\mu}\\
+    R_{\alpha\beta\mu\nu} &= R_{\mu\nu\alpha\beta}\\
+    R_{\alpha\beta\mu\nu} + R_{\alpha\nu\beta\mu} + R_{\alpha\mu\nu\beta} &= 0 \\
+    R_{\alpha\beta} &= R_{\beta\alpha}
+  \end{split}
 \end{align*}
 
 \end{document}
