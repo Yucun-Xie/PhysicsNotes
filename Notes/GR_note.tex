@@ -176,7 +176,7 @@
             \draw[thick] (-5,0) -- (5,0) node[anchor=south east] {$x$};
             \filldraw[red] (-1,-1) circle (2pt) node[anchor=north west] {$\mathscr{A}$};
             \filldraw[red] (0,0) circle (2pt) node[anchor=north west] {$\mathscr{O}$};            
-            \filldraw[red] (3,4) circle (2pt) node[anchor=north west] {\(\mathscr{B}\)};
+        \filldraw[red] (3,4) circle (2pt) node[anchor=north west] {\(\mathscr{B}\)};
             \draw[step=1cm,gray,very thin] (-4.9,-4.9) grid (4.9,4.9);
 
             \end{tikzpicture}
@@ -213,13 +213,17 @@ When the interval $\Delta s^2$ is greater than 0, we call it \textbf{spacelike}.
 \section{Topological Space}
 
 \section{Manifolds}
-\section{Skipped proof}
-Property for tensor used in GR:
+\section{Property for some tensors}
+%Property for tensor used in GR:
 \begin{align*}
     \begin{split}
         T_{ij} &= T_{ji}\\
         g_{\mu\nu} &= g_{\nu\mu}\\
         R_{\alpha\beta\mu\nu} &= -R_{\beta\alpha\mu\nu}\\
+        R_{\alpha\beta\mu\nu} &= -R_{\alpha\beta\nu\mu}\\
+        R_{\alpha\beta\mu\nu} &= R_{\mu\nu\alpha\beta}\\
+        R_{\alpha\beta\mu\nu} + R_{\alpha\nu\beta\mu} + R_{\alpha\mu\nu\beta} &= 0 \\
+        R_{\alpha\beta} &= R_{\beta\alpha}
     \end{split}
 \end{align*}
 
