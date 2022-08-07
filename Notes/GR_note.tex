@@ -195,10 +195,10 @@ Because partial differentiation is not covariance, we are looking for another ki
 Here let me show that partial derivative not covariance and then construct a covariant one which we can apply to our curved spacetime.
 \begin{align*}
   \begin{split}
-    A_{\mu,\nu} &= \frac{\partial A_{\mu}}{\partial x^{\nu}} = \frac{\partial}{\partial x^{\nu}} 
+    A_{\mu,\nu} &= \frac{\partial A_{\mu}}{\partial x^{\nu}} = \frac{\partial}{\partial x^{\nu}}
     \left( A_{\mu}\frac{\partial x^{\alpha}}{\partial x^{\mu}}\right)\\
     &= \frac{\partial A_\alpha}{\partial x^{\mu}}\frac{\partial x^{\alpha}}{\partial x^{\mu}}+
-    \underbrace{A_{\alpha} \frac{\partial^2 x^{\alpha}}{\partial x^{\mu} \partial x^{\nu}}}_\text{Not a tensor} 
+    \underbrace{A_{\alpha} \frac{\partial^2 x^{\alpha}}{\partial x^{\mu} \partial x^{\nu}}}_\text{Not a tensor}
   \end{split}
 \end{align*}
 By using the connection coeffienct below, which also not a tensor, we can eliminate the none tensorial part of partial derivative.
@@ -224,13 +224,57 @@ This is called \textbf{covariant derivative}, two non tensorial parts add togeth
     + \frac{\partial x^{\beta}}{\partial x^{\beta'}}\frac{\partial x^{\alpha}}{\partial x^{\alpha'}} \frac{\partial x^{\gamma'}}{\partial x^{\gamma}} \Gamma ^{\gamma}_{\alpha\beta}\]
   There is an extra term in transformation of connection, so connection is not a tensor.
 \end{proof}
+Our connection is flat and torsion free, which mean \[g_{\mu\nu;\alpha} = 0\] and\[S_{\mu\nu} = \Gamma_{[\mu\nu]}^{\lambda} = 0 \]
+Which \(S_{\mu\nu}\) is torsion tensor.
+\subsubsection{Intrinsic Differentiation}
+\subsubsection{Lie Differentiation}
+\subsection{Parallel Transport}
+In a curved manifold, there is no natural way to transport a vector form one point to another. 
+Recall that vector is defined in the tangent space and each point on the manifold has a different tangent space.
+Then we need connection between tangent space to transport vectors in curved manifold.
+For \textbf{parallel transport} a vector, we want each infinitesimal step of transport maintain the vector parallel.
+Which required intrinsic derivative vanish.\[\frac{DV^{\mu}}{D\lambda} = 
+\frac{dV^{\mu}}{d\lambda}+ \Gamma^{\mu}_{\alpha\nu}V^{\alpha}\frac{dx^{\nu}}{d\lambda} = 0\]
+\(\lambda\) is \textbf{affine parameter}, which is the parameter alone the curve.
 
-\subsection{Geodesics}
+\subsection{Metric Tensor}
+\textbf{Metric tensor} is one of the most important tensor in general relativity, 
+which direct lead to the all structures of the spacetime. 
+\begin{example}
+  The connection coeffienct can be direct calculate from metric tensor.
+  \[\Gamma_{\mu\nu}^{\lambda} = \frac{1}{2}g^{\lambda\sigma}(\partial_{\mu}g_{\nu\sigma}+ \partial_{\nu}g_{\sigma\mu}
+  - \partial_{\sigma}g_{\mu\nu})\]
+\end{example}
+The \textbf{metric space} is a kind of space have notion of distance, 
+our Riemannian manifold is an example of metric space.
+Distance is define through metric tensor.\[ds^2 = g_{\mu \nu} x^{\mu} x^{\nu}\]
+Which also lead to proper time through this path \(d\tau^2 = - ds^2\).
+
 \subsection{Riemann Tensor}
 
 \section{Gravitation}
 \subsection{Equivalence Principle}
-\subsection{General Covariance Principle}
+\begin{definition}
+  \begin{enumerate}
+    \item Inertial mass is define through Newton's second law, \(m = F/a\).
+    \item Gravitational mass is defined through Newton's aw of gravity \(m = Fr^2/GM\).
+  \end{enumerate}
+\end{definition}
+There are two equivalence principle, weak equivalence principle and strong equivalence principle
+(or Einstein equivalence principle).
+\begin{definition}
+  Weak Principle of Equivalence state that inertial mass are always equals to gravitational mass.
+\end{definition}
+Einstein extended this idea to a stronger statement, which is \textbf{Strong Equivalence Principle}.
+Which state that observer is unable to distinguish acceleration and gravitational field by local experiment. 
+This lead the idea of \textbf{local inertial frame}, which is correspondence to the property of manifold (local flatness).
+With equivalence principle, we can explain deflection of light and gravitational redshift in gravitational field.\\
+\textbf{General Covariance Principle} state that if a tensorial equation hold in a gravitiational field yield that
+\begin{enumerate}
+  \item hold in absence of gravity.
+  \item hold under coordinate transformation.
+\end{enumerate}
+\subsection{Geodesics}
 \subsection{Einstein's Equation}
 
 \section{Black Holes}
