@@ -134,7 +134,7 @@ Mathematically, specetime is a \textbf{manifold}.
   Cartesian product $X \times Y$ is set of all possible ordered pairs of element which one from $X$ and one from $Y$.
 \end{definition}
 Subset of points within a manifold form curves and surfaces. 
-Our spacetime is a 4-dimensianl \textbf{pseudo-Riemannian manifold}
+Our spacetime is a 4-dimensional \textbf{pseudo-Riemannian manifold}
 which is a differentiable manifold with some additional structures.
 \begin{remark}
   Manifolds also have a important property which a n-dimensional manifold locally \textbf{homeomorphism} to $\mathbb{R}^n$. See the discussion of
@@ -151,14 +151,46 @@ Tensor is a quantity that have same form in all coordinate system.
 Tensor does not have components naturally, but when we choose specific coordinate system, we can write down its components.
 Tensor have \textbf{Covariance}, which mean it follow a specific transformation law.
 
-\subsubsection{Tensor Notation}
+\subsubsection{Vector and Dual Vector}
+At each point $P$ of a n-dimensional differentiable manifold, there is a n-dimensional vector space 
+which basis is defined by directional derivative at $P$ for curves passing through $P$. 
+This vector space is called \textbf{tangent space}. This space contains all \textbf{vectors} at point $P$.
+There is also another vector space whose basis is defined by evaluating the gradients of curves passing through $P$ at $P$.
+This space is called \textbf{cotangent space}, which contains all \textbf{dual vectors} at point $P$.\\
+Vectors and dual vectors are local to a point.\\
+Set of all tangent space in a manifold form a \textbf{tangent bundle}, and set of all cotangent space on a manifold
+form a \textbf{cotangent bundle}. They are example of \textbf{fiber bundle}.
+\begin{definition}
+  fiber bundle is a manifold which is locally the cartesian product of base space and fiber space, but not globally.
+\end{definition}
 
+\subsubsection{Tensor Notation}
+A tensor with \(k\) upper indices and \(l\) lower indices 
+\[T^{\mu^1 \mu^2 \mu^3 \cdots \mu^k}_{\nu^1\nu^2\nu^2\cdots \nu^l}\]
+is the cartesian product of k vectors and l dual vector. Which map k dual vectors and l vectors to a real number.
+
+
+\subsubsection{Tensor Transformation Law}
+When we changing coordinate system, tensor components transform follow \textbf{tensor transformation law}.
+\begin{definition}
+  Tensor components in new coordinate system \((\alpha'\beta'\mu'\nu'\cdots)\) can be express as 
+  \[T^{\alpha'\beta'\cdots}_{\mu'\nu'\cdots} = 
+    \frac{\partial x^{\mu}}{\partial x^{\mu'}}\frac{\partial x^{\nu}}{\partial x^{\nu'}}\frac{\partial x^{\alpha'}}{\partial x^{\alpha}}
+  \frac{\partial x^{\beta'}}{\partial x^{\beta}} \cdots
+  T^{\alpha\beta\cdots}_{\mu\nu\cdots}\]
+\end{definition}
+Each upper indice is covariance with coordinate transform, each lower indice is contravariance with cooordiante transform.
+If some quantity obey tensor transformation law, it is a tensor. If a tensorial equation is hold in one coordinate system,
+it is hold in all coordinate 
+system because both side are following same law to transform.
 
 \subsection{Connection}
 Connection is an additional structure inposed into manifold. 
 There is no naturally defined connection between tangent space at each point on a manifold,
 so we can define this additional structure. 
 The manifold equip with a flat, torsion-free connection is called \textbf{affine manifold}.
+\subsubsection{Covariant Differentiation}
+
 \begin{proof}
   Here is a proof shows that connection not a tensor by show connection does not obey tensor transformation law.
   \begin{align*}
@@ -207,9 +239,11 @@ which we treat the gravitational field as a perturbation of flat spacetime metri
 
 
 \subsection{Spacetime}
+In spacial relativity, we discard the absolute concept of time, in contrast, we add time to our coordinate system, 
+now we have a 4-dimensional \textbf{spacetime}.
 \begin{definition}
   Inertial coordinate \\
-  The coordinate system must satisfy three property to be consider inertial coordinat:
+  The coordinate system must satisfy three property to be consider inertial coordinate:
   \begin{enumerate}
     \item The distance between two points are independent of time.
     \item The clocks at every points ticking off time coordinate $t$ at same rate.
@@ -266,6 +300,8 @@ When the interval $\Delta s^2$ is greater than 0, we call it \textbf{spacelike}.
 %\section{Skipped proof}
 
 \section{Topological Space}
+
+\section{Lie Algebra}
 
 
 \section{Property for some tensors}
