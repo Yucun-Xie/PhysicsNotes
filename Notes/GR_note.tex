@@ -114,16 +114,38 @@
 
 \newpage
 
-
-
-
+%begin here ---------------------------------------------------------------------------------------------
 \section{Differential Geometry}
+\subsection{Manifolds}
+Mathematically, specetime is a \textbf{manifold}.
+\begin{definition}
+  An n-dimensional manifold is a set that can be parameterized continuously by n independent real coordinates for each point.
+  If a manifold is differentiable at each point, it is a \textbf{differentiable manifold}.
+\end{definition}
+\begin{definition}
+  A coordinate system (also called chart) is n labels uniquely with each point of an n-dimensional manifold through a one-to-one mapping from
+  $\mathbb{R}^n$ to $M$.\\
+  Generally, more than one charts are required to cover entire manifold, which called \textbf{atlas}.
+\end{definition}
+\begin{definition}
+  Cartesian product $X \times Y$ is set of all possible ordered pairs of element which one from $X$ and one from $Y$.
+\end{definition}
+Subset of points within a manifold for curves and surfaces. Our spacetime is a 4-dimensianl \textbf{pseudo Riemannian manifold}
+which is a manifold with some additional structures.
+\begin{remark}
+  Manifolds also have a important property which is locally \textbf{homeomorphism} to $\mathbb{R}^n$. See the discussion of
+  topology for definition of homeomorphism.
+\end{remark}
 \subsection{Tensor}
 Tensor is a quantity that have same form in all coordinate system.
 Tensor does not have components naturally, but when we choose specific coordinate system, we can write down its components.
-
+Tensor have \textbf{Lorentz Covariance}, which mean it follow a specific transformation law.
 
 \subsection{Connection}
+Connection is an additional structure inposed into manifold. 
+There is no naturally defined connection between tangent space at each point on a manifold,
+so we can define this additional structure. 
+The manifold equip with a flat, torsion-free connection is called \textbf{affine manifold}.
 \begin{proof}
   Here is a proof shows that connection not a tensor by show connection does not obey tensor transformation law.
   \begin{align*}
@@ -146,8 +168,20 @@ Tensor does not have components naturally, but when we choose specific coordinat
 
 \subsection{Geodesics}
 \subsection{Riemann Tensor}
-\section{Gravitation}
 
+\section{Gravitation}
+\subsection{Equivalence Principle}
+\subsection{General Covariance Principle}
+\subsection{Einstein's Equation}
+
+\section{Black Holes}
+\subsection{Schwarzschild}
+\subsection{Kerr}
+
+\section{Gravitational Radiation}
+\subsection{Linearized Gravity}
+\subsection{Effect of GW on matter}
+\section{Cosmology}
 
 
 \newpage
@@ -217,26 +251,7 @@ When the interval $\Delta s^2$ is greater than 0, we call it \textbf{spacelike}.
 
 \section{Topological Space}
 
-\section{Manifolds}
-Mathematically, specetime is a \textbf{manifold}.
-\begin{definition}
-  An n-dimensional manifold is a set that can be parameterized continuously by n independent real coordinates for each point.
-  If a manifold is differentiable at each point, it is a \textbf{differentiable manifold}.
-\end{definition}
-\begin{definition}
-  A coordinate system (also called chart) is n labels uniquely with each point of an n-dimensional manifold through a one-to-one mapping from
-  $\mathbb{R}^n$ to $M$.\\
-  Generally, more than one charts are required to cover entire manifold, which called \textbf{atlas}.
-\end{definition}
-\begin{definition}
-  Cartesian product $X \times Y$ is set of all possible ordered pairs of element which one from $X$ and one from $Y$.
-\end{definition}
-Subset of points within a manifold for curves and surfaces. Our spacetime is a 4-dimensianl \textbf{pseudo Riemannian manifold}
-which is a manifold with some additional property and structures.
-\begin{remark}
-  Manifolds also have a important property which is locally \textbf{homeomorphism} to $\mathbb{R}^n$. See the discussion of
-  topology for definition of homeomorphism.
-\end{remark}
+
 \section{Property for some tensors}
 %Property for tensor used in GR:
 \begin{align*}
@@ -244,7 +259,7 @@ which is a manifold with some additional property and structures.
     F_{\mu\nu} &= - F_{\nu\mu}\\
     T_{ij} &= T_{ji}\\
     g_{\mu\nu} &= g_{\nu\mu}\\
-    \Gamma ^{\lambda}_{\mu\nu} &= \Gamma^{\lambda}_{\nu\mu}\\
+    \Gamma ^{\lambda}_{\mu\nu} &= \Gamma^{\lambda}_{\nu\mu} \text{ (Torsion free connection)}\\
     R_{\alpha\beta\mu\nu} &= -R_{\beta\alpha\mu\nu}\\
     R_{\alpha\beta\mu\nu} &= -R_{\alpha\beta\nu\mu}\\
     R_{\alpha\beta\mu\nu} &= R_{\mu\nu\alpha\beta}\\
