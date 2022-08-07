@@ -118,6 +118,10 @@
 
 
 \section{Differential Geometry}
+\subsection{Tensor}
+Tensor is a quantity that have same form in all coordinate system.
+Tensor does not have components naturally, but when we choose specific coordinate system, we can write down its components.
+
 
 \subsection{Connection}
 \begin{proof}
@@ -160,7 +164,7 @@
   \begin{enumerate}
     \item The distance between two points are independent of time.
     \item The clocks at every points ticking off time coordinate $t$ at same rate.
-    \item The geometry of space is always Euclidean (flat).
+    \item The geometry of space is always flat.
   \end{enumerate}
 \end{definition}
 
@@ -204,7 +208,7 @@ When the interval $\Delta s^2$ is less than 0, we call the seperation bewteen ev
 When the interval $\Delta s^2$ is equal to 0, we call it \textbf{lightlike} or null;
 When the interval $\Delta s^2$ is greater than 0, we call it \textbf{spacelike}.
 %The $x^{\mu}=\{x^0,x^1,x^2,x^3\} =\{t, x, y, z\}$ is a set of coordinate.
-\subsection{Tensor}
+
 
 \subsection{Energy and Momentum}
 
@@ -213,6 +217,21 @@ When the interval $\Delta s^2$ is greater than 0, we call it \textbf{spacelike}.
 \section{Topological Space}
 
 \section{Manifolds}
+Mathematically, specetime is a \textbf{manifold}. 
+\begin{definition}
+  An n-dimensional manifold is a set that can be parameterized continuously by n independent real coordinates for each point.
+  If a manifold is differentiable at each point, it is a \textbf{differentiable manifold}.
+\end{definition}
+\begin{definition}
+  A coordinate system (also called chart) is n labels uniquely with each point of an n-dimensional manifold through a one-to-one mapping from 
+  $\mathbb{R}^n$ to $M$.\\
+  Generally, more than one charts are required to cover entire manifold, which called \textbf{atlas}.
+\end{definition}
+\begin{definition}
+  Cartesian product $X \times Y$ is set of all possible ordered pairs of element which one from $X$ and one from $Y$.
+\end{definition}
+Subset of points within a manifold for curves and surfaces. Our spacetime is a 4-dimensianl \textbf{pseudo Riemannian manifold}
+which is a manifold with some additional property and structures. 
 \section{Property for some tensors}
 %Property for tensor used in GR:
 \begin{align*}
