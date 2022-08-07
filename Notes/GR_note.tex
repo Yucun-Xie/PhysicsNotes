@@ -118,6 +118,7 @@
 
 %begin here ---------------------------------------------------------------------------------------------
 \section{Differential Geometry}
+
 \subsection{Manifolds}
 Mathematically, specetime is a \textbf{manifold}.
 \begin{definition}
@@ -132,16 +133,26 @@ Mathematically, specetime is a \textbf{manifold}.
 \begin{definition}
   Cartesian product $X \times Y$ is set of all possible ordered pairs of element which one from $X$ and one from $Y$.
 \end{definition}
-Subset of points within a manifold for curves and surfaces. Our spacetime is a 4-dimensianl \textbf{pseudo Riemannian manifold}
-which is a manifold with some additional structures.
+Subset of points within a manifold form curves and surfaces. 
+Our spacetime is a 4-dimensianl \textbf{pseudo-Riemannian manifold}
+which is a differentiable manifold with some additional structures.
 \begin{remark}
-  Manifolds also have a important property which is locally \textbf{homeomorphism} to $\mathbb{R}^n$. See the discussion of
-  topology for definition of homeomorphism.
+  Manifolds also have a important property which a n-dimensional manifold locally \textbf{homeomorphism} to $\mathbb{R}^n$. See the discussion of
+  topology for definition of homeomorphism. Basically this mean a small enough region on manifold is looks same as flat space.
+  For example, surface of the Earth is a 2-sphere $S^2$, but look at the ground around you, it seems flat.
 \end{remark}
+
+\subsubsection{Maps Between Manifolds}
+pullback 
+pushforward
+
 \subsection{Tensor}
 Tensor is a quantity that have same form in all coordinate system.
 Tensor does not have components naturally, but when we choose specific coordinate system, we can write down its components.
-Tensor have \textbf{Lorentz Covariance}, which mean it follow a specific transformation law.
+Tensor have \textbf{Covariance}, which mean it follow a specific transformation law.
+
+\subsubsection{Tensor Notation}
+
 
 \subsection{Connection}
 Connection is an additional structure inposed into manifold. 
@@ -153,18 +164,18 @@ The manifold equip with a flat, torsion-free connection is called \textbf{affine
   \begin{align*}
     \begin{split}
       \nabla_{\beta'}e_{\alpha'} & = \Gamma^{\gamma'}_{\alpha'\beta'}e_{\gamma'} \\
-      &= \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\nabla_{\lambda}(\frac{\partial x^{\mu}}{\partial x^{\alpha'}}e_{\mu})\\
-      &= \frac{\partial x^{\lambda}}{\partial x^{\beta'}}(\frac{\partial}{\partial x^{\lambda}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}}e_{\mu}
-      + \frac{\partial x^{\mu}}{\partial x^{\alpha'}} \Gamma ^{\gamma}_{\mu\lambda} e_{\gamma})\\
-      &= \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\frac{\partial}{\partial x^{\lambda}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}}e_{\mu}
-      + \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}} \Gamma ^{\gamma}_{\mu\lambda} e_{\gamma}\\
-      &= \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\frac{\partial}{\partial x^{\lambda}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}}\frac{\partial x^{\gamma'}}{\partial x^{\mu}}e_{\gamma'}
-      + \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}} \frac{\partial x^{\gamma'}}{\partial x^{\gamma}} \Gamma ^{\gamma}_{\mu\lambda}  e_{\gamma'}\\
+      &= \frac{\partial x^{\beta}}{\partial x^{\beta'}}\nabla_{\beta}(\frac{\partial x^{\alpha}}{\partial x^{\alpha'}}e_{\alpha})\\
+      &= \frac{\partial x^{\beta}}{\partial x^{\beta'}}(\frac{\partial}{\partial x^{\beta}}\frac{\partial x^{\alpha}}{\partial x^{\alpha'}}e_{\alpha}
+      + \frac{\partial x^{\alpha}}{\partial x^{\alpha'}} \Gamma ^{\gamma}_{\alpha\beta} e_{\gamma})\\
+      &= \frac{\partial x^{\beta}}{\partial x^{\beta'}}\frac{\partial}{\partial x^{\beta}}\frac{\partial x^{\alpha}}{\partial x^{\alpha'}}e_{\alpha}
+      + \frac{\partial x^{\beta}}{\partial x^{\beta'}}\frac{\partial x^{\alpha}}{\partial x^{\alpha'}} \Gamma ^{\gamma}_{\alpha\beta} e_{\gamma}\\
+      &= \frac{\partial x^{\beta}}{\partial x^{\beta'}}\frac{\partial}{\partial x^{\beta}}\frac{\partial x^{\alpha}}{\partial x^{\alpha'}}\frac{\partial x^{\gamma'}}{\partial x^{\alpha}}e_{\gamma'}
+      + \frac{\partial x^{\beta}}{\partial x^{\beta'}}\frac{\partial x^{\alpha}}{\partial x^{\alpha'}} \frac{\partial x^{\gamma'}}{\partial x^{\gamma}} \Gamma ^{\gamma}_{\alpha\beta}  e_{\gamma'}\\
     \end{split}
   \end{align*}
   \\
-  which yield \[\Gamma^{\gamma'}_{\alpha'\beta'} = \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\frac{\partial}{\partial x^{\lambda}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}}\frac{\partial x^{\gamma'}}{\partial x^{\mu}}
-    + \frac{\partial x^{\lambda}}{\partial x^{\beta'}}\frac{\partial x^{\mu}}{\partial x^{\alpha'}} \frac{\partial x^{\gamma'}}{\partial x^{\gamma}} \Gamma ^{\gamma}_{\mu\lambda}\]
+  which yield \[\Gamma^{\gamma'}_{\alpha'\beta'} = \frac{\partial x^{\beta}}{\partial x^{\beta'}}\frac{\partial}{\partial x^{\beta}}\frac{\partial x^{\alpha}}{\partial x^{\alpha'}}\frac{\partial x^{\gamma'}}{\partial x^{\alpha}}
+    + \frac{\partial x^{\beta}}{\partial x^{\beta'}}\frac{\partial x^{\alpha}}{\partial x^{\alpha'}} \frac{\partial x^{\gamma'}}{\partial x^{\gamma}} \Gamma ^{\gamma}_{\alpha\beta}\]
   There is an extra term in transformation of connection, so connection is not a tensor.
 \end{proof}
 
