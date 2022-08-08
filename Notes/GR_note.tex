@@ -189,7 +189,7 @@ There is no naturally defined connection between tangent space at each point on 
 so we can define this additional structure.
 The manifold equiped with a flat, torsion-free connection is called \textbf{affine manifold}.
 Connection coeffienct in a coordinate system is express as \textbf{Christoffel symbol} \(\Gamma^{\lambda}_{\alpha\beta}\).
-\subsubsection{Covariant Differentiation}
+\subsubsection{Covariant Derivative}
 Because partial differentiation is not covariance, we are looking for another kind of differentiation that is covariant.
 Here let me show that partial derivative not covariance and then construct a covariant one which we can apply to our curved spacetime.
 \begin{align*}
@@ -230,8 +230,11 @@ This is called \textbf{covariant derivative}, two non tensorial parts add togeth
 \end{proof}
 Our connection is flat and torsion free, which mean \[g_{\mu\nu;\alpha} = 0\] and\[S_{\mu\nu} = \Gamma_{[\mu\nu]}^{\lambda} = 0 \]
 Which \(S_{\mu\nu}\) is torsion tensor.
-\subsubsection{Intrinsic Differentiation}
-\subsubsection{Lie Differentiation}
+
+\subsubsection{Intrinsic Derivative}
+
+\subsubsection{Lie Derivative}
+
 \subsection{Parallel Transport}
 In a curved manifold, there is no natural way to transport a vector form one point to another. 
 Recall that vector is defined in the tangent space and each point on the manifold has a different tangent space.
@@ -356,7 +359,23 @@ When the interval $\Delta s^2$ is less than 0, we call the seperation bewteen ev
 When the interval $\Delta s^2$ is equal to 0, we call it \textbf{lightlike} or null;
 When the interval $\Delta s^2$ is greater than 0, we call it \textbf{spacelike}.
 %The $x^{\mu}=\{x^0,x^1,x^2,x^3\} =\{t, x, y, z\}$ is a set of coordinate.
-
+If there is another coordinate system, which move with speed \(v\) alone \(x\) direction of original frame,
+ we can draw this fram like the Figure 2 below.
+ \begin{figure}[ht]
+  \begin{center}
+      \begin{tikzpicture}[scale = 0.5]%Edit size here
+          \draw[thick] (0, -5) -- (0, 5) node[anchor=north west] {$\mathcal{O}$};
+          \draw[thick] (-5, 0) -- (5, 0) node[anchor=west] {$\mathcal{O}$ simultaneity};
+          \draw[blue, thick] (-2.5, -5) -- (2.5, 5) node[anchor=north west] {$\mathcal{O}'$};
+          \draw[blue, thick] (-5, -2.5) -- (5, 2.5) node[anchor=west] {$\mathcal{O}'$ simultaneity};
+          \draw[orange, thick, dashed] (-4,-4) -- (4,4);
+          %\draw[rotate around={45:(0,0)}] (-1.5,1.5) rectangle (1.5,-1.5);
+          %\draw(-1.4, -0.7) -- (0.7, 1.4);
+          %\draw(-0.7, -1.4) -- (1.4, 0.7);
+      \end{tikzpicture}
+      \caption[]{Frame \(\mathcal{O}'\) move alone x direction of \(\mathcal{O}\)}
+  \end{center}
+\end{figure}
 
 \subsection{Energy and Momentum}
 \subsection{Fluid}
