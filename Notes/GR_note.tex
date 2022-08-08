@@ -125,14 +125,13 @@ Mathematically, specetime is a \textbf{manifold}.
   An n-dimensional manifold is a set that can be parameterized continuously by n independent real coordinates for each point.
   If a manifold is differentiable at each point, it is a \textbf{differentiable manifold}.
 \end{definition}
+Differential geometry, as the name suggests, is geometry on differential manifolds.
 \begin{definition}
   A coordinate system (also called chart) is n labels uniquely with each point of an n-dimensional manifold through a one-to-one mapping from
   $\mathbb{R}^n$ to $M$.\\
   Generally, more than one charts are required to cover entire manifold, which called \textbf{atlas}.
 \end{definition}
-\begin{definition}
-  Cartesian product $X \times Y$ is set of all possible ordered pairs of element which one from $X$ and one from $Y$.
-\end{definition}
+
 Subset of points within a manifold form curves and surfaces.
 Our spacetime is a 4-dimensional \textbf{pseudo-Riemannian manifold}
 which is a differentiable manifold with some additional structures.
@@ -168,7 +167,7 @@ form a \textbf{cotangent bundle}. They are example of \textbf{fiber bundle}.
 A tensor with \(k\) upper indices and \(l\) lower indices
 \[T^{\mu^1 \mu^2 \mu^3 \cdots \mu^k}_{\nu^1\nu^2\nu^2\cdots \nu^l}\]
 is the cartesian product of k vectors and l dual vector. Which map k dual vectors and l vectors to a real number.
-
+\textbf{Cartesian product} $X \times Y$ is set of all possible ordered pairs of element which one from $X$ and one from $Y$.
 
 \subsubsection{Tensor Transformation Law}
 When we changing coordinate system, tensor components transform follow \textbf{tensor transformation law}.
@@ -202,7 +201,12 @@ Here let me show that partial derivative not covariance and then construct a cov
   \end{split}
 \end{align*}
 By using the connection coeffienct below, which also not a tensor, we can eliminate the none tensorial part of partial derivative.
-Which defined as \[A_{\mu;\nu} = A_{\mu,\nu} - \Gamma^{\lambda}_{\mu\nu}A_{\lambda}\]
+Which defined as follow.
+\begin{definition}
+  Covariant derivative of dual vector.
+  \[A_{\mu;\nu} = A_{\mu,\nu} - \Gamma^{\lambda}_{\mu\nu}A_{\lambda}\]
+\end{definition}
+
 This is called \textbf{covariant derivative}, two non tensorial parts add together to form a tensor.
 
 \begin{proof}
@@ -297,8 +301,9 @@ which we treat the gravitational field as a perturbation of flat spacetime metri
 
 
 \subsection{Spacetime}
-In spacial relativity, we discard the absolute concept of time, in contrast, we add time to our coordinate system,
-now we have a 4-dimensional \textbf{spacetime}. Our discussion is focus on inertial coordinate system.
+In spacial relativity, we discard the absolute concept of time, in contrast to Newton, there is no preferd reference frame
+and time is one of the coordinate.
+Now we have a 4-dimensional \textbf{spacetime}. Our discussion is focus on inertial coordinate system.
 \begin{definition}
   Inertial coordinate \\
   The coordinate system must satisfy three property to be consider inertial coordinate:
