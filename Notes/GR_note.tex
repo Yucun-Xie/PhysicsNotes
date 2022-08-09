@@ -121,17 +121,17 @@
 
 \subsection{Manifolds}
 Mathematically, specetime is a \textbf{manifold}.\\
-Manifold is a space can be continuously (no hole, tear, etc.) covered by multiple coordinate charts. 
-For example, think about a sphere, we can stretch a membrane with grid to cover it except one point, then we can 
+Manifold is a space can be continuously (no hole, tear, etc.) covered by multiple coordinate charts.
+For example, think about a sphere, we can stretch a membrane with grid to cover it except one point, then we can
 use another membrane to cover that one point. Sphere is a example of 2-D manifold, and membrane is example of coordinate chart.
 Informally, manifold is local flat.
 \begin{definition}
-  An n-dimensional manifold is is a mathematical structure consisting of 
+  An n-dimensional manifold is is a mathematical structure consisting of
   \begin{enumerate}
     \item a set \(M\) of elements, called \textbf{points}.
-    \item a countable family of subsets of \(M\), called \textbf{fundamental coordiante patches}, 
-    such that union of all of them is \(M\).
-    \item 
+    \item a countable family of subsets of \(M\), called \textbf{fundamental coordiante patches},
+          such that union of all of them is \(M\).
+    \item
   \end{enumerate}
   An n-dimensional manifold is a set that can be parameterized continuously by n independent real coordinates for each point.
   If a manifold is differentiable at each point, it is a \textbf{differentiable manifold}.
@@ -251,23 +251,23 @@ Which \(S_{\mu\nu}\) is torsion tensor.
 \subsubsection{Lie Derivative}
 
 \subsection{Parallel Transport}
-In a curved manifold, there is no natural way to transport a vector form one point to another. 
+In a curved manifold, there is no natural way to transport a vector form one point to another.
 Recall that vector is defined in the tangent space and each point on the manifold has a different tangent space.
 Then we need connection between tangent space to transport vectors in curved manifold.
 For \textbf{parallel transport} a vector, we want each infinitesimal step of transport maintain the vector parallel.
-Which required intrinsic derivative vanish.\[\frac{DV^{\mu}}{D\lambda} = 
-\frac{dV^{\mu}}{d\lambda}+ \Gamma^{\mu}_{\alpha\nu}V^{\alpha}\frac{dx^{\nu}}{d\lambda} = 0\]
+Which required intrinsic derivative vanish.\[\frac{DV^{\mu}}{D\lambda} =
+  \frac{dV^{\mu}}{d\lambda}+ \Gamma^{\mu}_{\alpha\nu}V^{\alpha}\frac{dx^{\nu}}{d\lambda} = 0\]
 \(\lambda\) is \textbf{affine parameter}, which is the parameter alone the curve.
 
 \subsection{Metric Space}
-\textbf{Metric tensor} is one of the most important tensor in general relativity, 
-which direct lead to the all structures of the spacetime. 
+\textbf{Metric tensor} is one of the most important tensor in general relativity,
+which direct lead to the all structures of the spacetime.
 \begin{example}
   The connection coeffienct can be direct calculate from metric tensor.
   \[\Gamma_{\mu\nu}^{\lambda} = \frac{1}{2}g^{\lambda\sigma}(\partial_{\mu}g_{\nu\sigma}+ \partial_{\nu}g_{\sigma\mu}
-  - \partial_{\sigma}g_{\mu\nu})\]
+    - \partial_{\sigma}g_{\mu\nu})\]
 \end{example}
-The \textbf{metric space} is a kind of space have notion of distance, 
+The \textbf{metric space} is a kind of space have notion of distance,
 our Riemannian manifold is an example of metric space.
 Distance is define through metric tensor.\[ds^2 = g_{\mu \nu} dx^{\mu} dx^{\nu}\]
 Which also lead to proper time through this path \(d\tau^2 = - ds^2\).
@@ -288,7 +288,7 @@ There are two equivalence principle, weak equivalence principle and strong equiv
   Weak Principle of Equivalence state that inertial mass are always equals to gravitational mass.
 \end{definition}
 Einstein extended this idea to a stronger statement, which is \textbf{Strong Equivalence Principle}.
-Which state that observer is unable to distinguish acceleration and gravitational field by local experiment. 
+Which state that observer is unable to distinguish acceleration and gravitational field by local experiment.
 This lead the idea of \textbf{local inertial frame}, which is correspondence to the property of manifold (local flatness).
 With equivalence principle, we can explain deflection of light and gravitational redshift in gravitational field.\\
 \textbf{General Covariance Principle} state that if a tensorial equation hold in a gravitiational field yield that
@@ -375,20 +375,20 @@ When the interval $\Delta s^2$ is equal to 0, we call it \textbf{lightlike} or n
 When the interval $\Delta s^2$ is greater than 0, we call it \textbf{spacelike}.
 %The $x^{\mu}=\{x^0,x^1,x^2,x^3\} =\{t, x, y, z\}$ is a set of coordinate.
 If there is another coordinate system, which move with speed \(v\) alone \(x\) direction of original frame,
- we can draw this fram like the Figure 2 below.
- \begin{figure}[ht]
+we can draw this fram like the Figure 2 below.
+\begin{figure}[ht]
   \begin{center}
-      \begin{tikzpicture}[scale = 0.5]%Edit size here
-          \draw[thick] (0, -5) -- (0, 5) node[anchor=north west] {$\mathcal{O}$};
-          \draw[thick] (-5, 0) -- (5, 0) node[anchor=west] {$\mathcal{O}$ simultaneity};
-          \draw[blue, thick] (-2.5, -5) -- (2.5, 5) node[anchor=north west] {$\mathcal{O}'$};
-          \draw[blue, thick] (-5, -2.5) -- (5, 2.5) node[anchor=west] {$\mathcal{O}'$ simultaneity};
-          \draw[orange, thick, dashed] (-4,-4) -- (4,4);
-          %\draw[rotate around={45:(0,0)}] (-1.5,1.5) rectangle (1.5,-1.5);
-          %\draw(-1.4, -0.7) -- (0.7, 1.4);
-          %\draw(-0.7, -1.4) -- (1.4, 0.7);
-      \end{tikzpicture}
-      \caption[]{Frame \(\mathcal{O}'\) move alone x direction of \(\mathcal{O}\)}
+    \begin{tikzpicture}[scale = 0.5]%Edit size here
+      \draw[thick] (0, -5) -- (0, 5) node[anchor=north west] {$\mathcal{O}$};
+      \draw[thick] (-5, 0) -- (5, 0) node[anchor=west] {$\mathcal{O}$ simultaneity};
+      \draw[blue, thick] (-2.5, -5) -- (2.5, 5) node[anchor=north west] {$\mathcal{O}'$};
+      \draw[blue, thick] (-5, -2.5) -- (5, 2.5) node[anchor=west] {$\mathcal{O}'$ simultaneity};
+      \draw[orange, thick, dashed] (-4,-4) -- (4,4);
+      %\draw[rotate around={45:(0,0)}] (-1.5,1.5) rectangle (1.5,-1.5);
+      %\draw(-1.4, -0.7) -- (0.7, 1.4);
+      %\draw(-0.7, -1.4) -- (1.4, 0.7);
+    \end{tikzpicture}
+    \caption[]{Frame \(\mathcal{O}'\) move alone x direction of \(\mathcal{O}\)}
   \end{center}
 \end{figure}
 
