@@ -91,7 +91,11 @@
 \definecolor{convcol1}{HTML}{C0392B}
 \definecolor{convcol2}{HTML}{8E44AD}
 
-\begin{tcolorbox}[title=Contents, fonttitle=\huge\sffamily\bfseries\selectfont,interior style={left color=contcol1!40!white,right color=contcol2!40!white},frame style={left color=contcol1!80!white,right color=contcol2!80!white},coltitle=black,top=2mm,bottom=2mm,left=2mm,right=2mm,drop fuzzy shadow,enhanced,breakable]
+\begin{tcolorbox}[
+    title=Contents, fonttitle=\huge\sffamily\bfseries\selectfont,
+    interior style={left color=contcol1!40!white,right color=contcol2!40!white},
+    frame style={left color=contcol1!80!white,right color=contcol2!80!white},
+    coltitle=black,top=2mm,bottom=2mm,left=2mm,right=2mm,drop fuzzy shadow,enhanced,breakable]
   \makeatletter
   \@starttoc{toc}
   \makeatother
@@ -99,7 +103,11 @@
 
 \vspace*{10mm}
 
-\begin{tcolorbox}[title=Conventions, fonttitle=\large\sffamily\bfseries\selectfont,interior style={left color=convcol1!40!white,right color=convcol2!40!white},frame style={left color=convcol1!80!white,right color=convcol2!80!white},coltitle=black,top=2mm,bottom=2mm,left=2mm,right=2mm,drop fuzzy shadow,enhanced,breakable]
+\begin{tcolorbox}[
+    title=Conventions, fonttitle=\large\sffamily\bfseries\selectfont,
+    interior style={left color=convcol1!40!white,right color=convcol2!40!white},
+    frame style={left color=convcol1!80!white,right color=convcol2!80!white},
+    coltitle=black,top=2mm,bottom=2mm,left=2mm,right=2mm,drop fuzzy shadow,enhanced,breakable]
   \begin{enumerate}
 
     \item Greek index (e.g. $\alpha, \beta, \mu, \nu$) take value from \{0, 1, 2, 3\}.
@@ -124,17 +132,22 @@ Mathematically, specetime is a \textbf{manifold}.\\
 Manifold is a space can be continuously (no hole, tear, etc.) covered by multiple coordinate charts.
 For example, think about a sphere, we can stretch a membrane with grid to cover it except one point, then we can
 use another membrane to cover that one point. Sphere is a example of 2-D manifold, and membrane is example of coordinate chart.
-Informally, manifold is local flat.
+Informally, manifold is locally looks like \(\mathbb{R}^2\).
+For example, surface of the Earth is a 2-sphere $S^2$, but look at the ground around you, it seems flat.
 \begin{definition}
   An n-dimensional manifold is is a mathematical structure consisting of
   \begin{enumerate}
     \item a set \(M\) of elements, called \textbf{points}.
     \item a countable family of subsets of \(M\), called \textbf{fundamental coordiante patches},
           such that union of all of them is \(M\).
-    \item
+    \item a reversible mapping of each patch onto unit volumn of \(\mathbb{R}^n\). An n-tuple of numbers associated
+          in this way are called the \textbf{coordinates} of each point.
   \end{enumerate}
-  An n-dimensional manifold is a set that can be parameterized continuously by n independent real coordinates for each point.
-  If a manifold is differentiable at each point, it is a \textbf{differentiable manifold}.
+  In a more formal way, a n-dimensional manifold is a topological space that locally homeomorphic to n-dimensional Eucildean space.
+  See the discussion of topological space for definition of homeomorphism.\\
+  If a manifold is differentiable for m times at each point, it is a \textbf{differentiable manifold}, denote by \(C^m\).
+  If a manifold is inifinite differentiable at each point, denote by \(C^\infty\), called smooth manifold.
+  %An n-dimensional manifold is a set that can be parameterized continuously by n independent real coordinates for each point.
 \end{definition}
 Differential geometry, as the name suggests, is geometry on differential manifolds.
 \begin{definition}
@@ -143,27 +156,14 @@ Differential geometry, as the name suggests, is geometry on differential manifol
   Generally, more than one charts are required to cover entire manifold, which called \textbf{atlas}.
 \end{definition}
 
-Subset of points within a manifold form curves and surfaces.
-Our spacetime is a 4-dimensional \textbf{pseudo-Riemannian manifold}
-which is a differentiable manifold with some additional structures.
-\begin{remark}
-  Manifolds also have a important property which a n-dimensional manifold locally \textbf{homeomorphism} to $\mathbb{R}^n$. See the discussion of
-  topology for definition of homeomorphism. Basically this mean a small enough region on manifold is looks same as flat space.
-  For example, surface of the Earth is a 2-sphere $S^2$, but look at the ground around you, it seems flat.
-\end{remark}
-
-\subsubsection{Maps Between Manifolds}
-pullback
-pushforward
-
-\subsubsection{Exterior Derivative}
-
-\subsubsection{Integration}
-
-\subsection{Tensor}
-Tensor is a quantity that have same form in all coordinate system.
-Tensor does not have components naturally, but when we choose specific coordinate system, we can write down its components.
-Tensor have \textbf{Covariance}, which mean it follow a specific transformation law.
+Manifolds are very bascis structure, but they support following things on it.
+\begin{enumerate}
+  \item saclar field: \(\phi(x)\)
+  \item curves: \(x^{\mu}(\lambda)\)
+  \item surfaces: \(x^{\mu}(\lambda_1, \lambda_2)\)
+  \item tangent vector and dual vector.
+  \item tangent space and cotangent space.
+\end{enumerate}
 
 \subsubsection{Vector and Dual Vector}
 At each point $P$ of a n-dimensional differentiable manifold, there is a n-dimensional vector space
@@ -173,10 +173,24 @@ There is also another vector space whose basis is defined by evaluating the grad
 This space is called \textbf{cotangent space}, which contains all \textbf{dual vectors} at point $P$.\\
 Vectors and dual vectors are local to a point.\\
 Set of all tangent space in a manifold form a \textbf{tangent bundle}, and set of all cotangent space on a manifold
-form a \textbf{cotangent bundle}. They are example of \textbf{fiber bundle}.
-\begin{definition}
-  fiber bundle is a manifold which is locally the cartesian product of base space and fiber space, but not globally.
-\end{definition}
+form a \textbf{cotangent bundle}. They are example of \textbf{fiber bundle}.\\
+Fiber bundle is a manifold which is locally the cartesian product of base space and fiber space, but not globally.\\
+There is no definite way to transport a vector from one point to another on a manifold,
+because there is not relation between the tangent space at each point. To achecive this,
+we need impose an additional structure into manifold, which called connection.
+
+\subsubsection{Exterior Calculus}
+
+
+\subsubsection{Maps Between Manifolds}
+pullback
+pushforward
+
+
+\subsection{Tensor}
+Tensor is a quantity that have same form in all coordinate system.
+Tensor does not have components naturally, but when we choose specific coordinate system, we can write down its components.
+Tensor have \textbf{Covariance}, which mean it follow a specific transformation law.
 
 \subsubsection{Tensor Notation}
 A tensor with \(k\) upper indices and \(l\) lower indices
@@ -199,13 +213,16 @@ it is hold in all coordinate
 system because both side are following same law to transform.
 
 \subsection{Affine Space}
-Connection is an additional structure equiped into manifold.
-There is no naturally defined connection between tangent space at each point on a manifold,
-so we can define this additional structure.
-The manifold equiped with a flat, torsion-free connection is called \textbf{affine manifold}.
-Connection coeffienct in a coordinate system is express as \textbf{Christoffel symbol} \(\Gamma^{\lambda}_{\alpha\beta}\).
+Recall that we are unable to transform vector form one point to another on a manifold, 
+because we missing realation between tangent space at each point. So we introduce an additional structure called \textbf{connection}.
+Connection is an additional structure that connect the tangent space on each point of a manifold. 
+There is no naturally defined connection on a manifold, we have to define one, therefore connection on a manifold is not unique. 
+In general relativity our spacetime manifold equiped with a flat, torsion-free connection is called \textbf{affine connection}, then 
+our manifold is called affine manifold. Connection coeffienct in a coordinate system is express as \textbf{Christoffel symbol} \(\Gamma^{\lambda}_{\alpha\beta}\).\\
+In general, affine manifold is a manifold allowing \textbf{parallel transport} of vectors.
+
 \subsubsection{Covariant Derivative}
-Because partial differentiation is not covariance, we are looking for another kind of differentiation that is covariant.
+Partial eerivative is not covariance, we are looking for another kind of differentiation that is covariant.
 Here let me show that partial derivative not covariance and then construct a covariant one which we can apply to our curved spacetime.
 \begin{align*}
   \begin{split}
@@ -230,53 +247,60 @@ This is called \textbf{covariant derivative}, two non tensorial parts add togeth
     \begin{split}
       \nabla_{\beta'}e_{\alpha'} & = \Gamma^{\gamma'}_{\alpha'\beta'}e_{\gamma'} \\
       &= \frac{\partial x^{\beta}}{\partial x^{\beta'}}\nabla_{\beta}(\frac{\partial x^{\alpha}}{\partial x^{\alpha'}}e_{\alpha})\\
-      &= \frac{\partial x^{\beta}}{\partial x^{\beta'}}(\frac{\partial}{\partial x^{\beta}}\frac{\partial x^{\alpha}}{\partial x^{\alpha'}}e_{\alpha}
+      &= \frac{\partial x^{\beta}}{\partial x^{\beta'}}
+      (\frac{\partial}{\partial x^{\beta}}\frac{\partial x^{\alpha}}{\partial x^{\alpha'}}e_{\alpha}
       + \frac{\partial x^{\alpha}}{\partial x^{\alpha'}} \Gamma ^{\gamma}_{\alpha\beta} e_{\gamma})\\
-      &= \frac{\partial x^{\beta}}{\partial x^{\beta'}}\frac{\partial}{\partial x^{\beta}}\frac{\partial x^{\alpha}}{\partial x^{\alpha'}}e_{\alpha}
-      + \frac{\partial x^{\beta}}{\partial x^{\beta'}}\frac{\partial x^{\alpha}}{\partial x^{\alpha'}} \Gamma ^{\gamma}_{\alpha\beta} e_{\gamma}\\
-      &= \frac{\partial x^{\beta}}{\partial x^{\beta'}}\frac{\partial}{\partial x^{\beta}}\frac{\partial x^{\alpha}}{\partial x^{\alpha'}}\frac{\partial x^{\gamma'}}{\partial x^{\alpha}}e_{\gamma'}
-      + \frac{\partial x^{\beta}}{\partial x^{\beta'}}\frac{\partial x^{\alpha}}{\partial x^{\alpha'}} \frac{\partial x^{\gamma'}}{\partial x^{\gamma}} \Gamma ^{\gamma}_{\alpha\beta}  e_{\gamma'}\\
+      &= \frac{\partial x^{\beta}}{\partial x^{\beta'}}
+      \frac{\partial}{\partial x^{\beta}}\frac{\partial x^{\alpha}}{\partial x^{\alpha'}}e_{\alpha}
+      + \frac{\partial x^{\beta}}{\partial x^{\beta'}}
+      \frac{\partial x^{\alpha}}{\partial x^{\alpha'}} \Gamma ^{\gamma}_{\alpha\beta} e_{\gamma}\\
+      &= \frac{\partial x^{\beta}}{\partial x^{\beta'}}
+      \frac{\partial}{\partial x^{\beta}}\frac{\partial x^{\alpha}}{\partial x^{\alpha'}}\frac{\partial x^{\gamma'}}{\partial x^{\alpha}}e_{\gamma'}
+      + \frac{\partial x^{\beta}}{\partial x^{\beta'}}
+      \frac{\partial x^{\alpha}}{\partial x^{\alpha'}} \frac{\partial x^{\gamma'}}{\partial x^{\gamma}} \Gamma ^{\gamma}_{\alpha\beta}  e_{\gamma'}\\
     \end{split}
   \end{align*}
   \\
-  which yield \[\Gamma^{\gamma'}_{\alpha'\beta'} = \frac{\partial x^{\beta}}{\partial x^{\beta'}}\frac{\partial}{\partial x^{\beta}}\frac{\partial x^{\alpha}}{\partial x^{\alpha'}}\frac{\partial x^{\gamma'}}{\partial x^{\alpha}}
-    + \frac{\partial x^{\beta}}{\partial x^{\beta'}}\frac{\partial x^{\alpha}}{\partial x^{\alpha'}} \frac{\partial x^{\gamma'}}{\partial x^{\gamma}} \Gamma ^{\gamma}_{\alpha\beta}\]
+  which yield \[\Gamma^{\gamma'}_{\alpha'\beta'} = \frac{\partial x^{\beta}}{\partial x^{\beta'}}
+    \frac{\partial}{\partial x^{\beta}}\frac{\partial x^{\alpha}}{\partial x^{\alpha'}}\frac{\partial x^{\gamma'}}{\partial x^{\alpha}}
+    + \frac{\partial x^{\beta}}{\partial x^{\beta'}}
+    \frac{\partial x^{\alpha}}{\partial x^{\alpha'}}
+    \frac{\partial x^{\gamma'}}{\partial x^{\gamma}} \Gamma ^{\gamma}_{\alpha\beta}\]
   There is an extra term in transformation of connection, so connection is not a tensor.
 \end{proof}
 Our connection is flat and torsion free, which mean \[g_{\mu\nu;\alpha} = 0\] and\[S_{\mu\nu} = \Gamma_{[\mu\nu]}^{\lambda} = 0 \]
 Which \(S_{\mu\nu}\) is torsion tensor.
 
-\subsubsection{Intrinsic Derivative}
-
-\subsubsection{Lie Derivative}
-
-\subsection{Parallel Transport}
-In a curved manifold, there is no natural way to transport a vector form one point to another.
-Recall that vector is defined in the tangent space and each point on the manifold has a different tangent space.
-Then we need connection between tangent space to transport vectors in curved manifold.
+\subsubsection{Parallel Transport}
+Recall we defined connection allow us transport vectors on manifold.
 For \textbf{parallel transport} a vector, we want each infinitesimal step of transport maintain the vector parallel.
-Which required intrinsic derivative vanish.\[\frac{DV^{\mu}}{D\lambda} =
+Which required \textbf{intrinsic derivative} vanish.\[\frac{DV^{\mu}}{D\lambda} =
   \frac{dV^{\mu}}{d\lambda}+ \Gamma^{\mu}_{\alpha\nu}V^{\alpha}\frac{dx^{\nu}}{d\lambda} = 0\]
 \(\lambda\) is \textbf{affine parameter}, which is the parameter alone the curve.
 
 \subsection{Metric Space}
-\textbf{Metric tensor} is one of the most important tensor in general relativity,
+Now, in addition to affine manifold, we want a structure allowing measurement of distance on manifold. 
+The \textbf{metric space} is a kind of space have notion of distance. 
+\begin{definition}
+  A Riemannian manifold is an affine space equipped with a symmetric \textbf{metric tensor} \(g_{\mu\nu}\). 
+  which distance \(ds\) between two point with displacement \(dx^{\mu}\) is defined as following.
+  \[ds^2 \equiv g_{\mu \nu} dx^{\mu} dx^{\nu}\]
+\end{definition}
+Metric tensor is one of the most important tensor in general relativity,
 which direct lead to the all structures of the spacetime.
 \begin{example}
   The connection coeffienct can be direct calculate from metric tensor.
   \[\Gamma_{\mu\nu}^{\lambda} = \frac{1}{2}g^{\lambda\sigma}(\partial_{\mu}g_{\nu\sigma}+ \partial_{\nu}g_{\sigma\mu}
     - \partial_{\sigma}g_{\mu\nu})\]
 \end{example}
-The \textbf{metric space} is a kind of space have notion of distance,
-our Riemannian manifold is an example of metric space.
-Distance is define through metric tensor.\[ds^2 = g_{\mu \nu} dx^{\mu} dx^{\nu}\]
-Which also lead to proper time through this path \(d\tau^2 = - ds^2\).
+In general relativity, proper time is equivalence to distance in timelike direction \(d\tau^2 = - ds^2\).
 
 \subsubsection{Riemann Tensor}
 
 \section{Gravitation}
 \subsection{Equivalence Principle}
 \begin{definition}
+  \textbf{  }     
   \begin{enumerate}
     \item Inertial mass is define through Newton's second law, \(m = F/a\).
     \item Gravitational mass is defined through Newton's aw of gravity \(m = Fr^2/GM\).
@@ -400,6 +424,8 @@ we can draw this fram like the Figure 2 below.
 \section{Topological Space}
 
 \section{Lie Algebra}
+
+\subsection{Lie Derivative}
 
 
 \section{Property of some tensors}
