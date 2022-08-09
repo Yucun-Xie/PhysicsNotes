@@ -115,8 +115,8 @@
     \item $(x^0, x^1, x^2, x^3) \equiv (t, x, y, z) \equiv x^{\alpha}$.
     \item Latin index (e.g.$ i, j, k$) take value from \{1, 2, 3\}.
     \item Natural units ($c=1$).
-    \item Einstein summation convention $ds^2 = g_{\mu \nu} x^{\mu} x^{\nu}=
-            \sum_{\mu=0}^{3} \sum_{\nu=0}^{3}g_{\mu \nu} x^{\mu} x^{\nu}$.
+    \item Einstein summation convention $ds^2 = g_{\mu \nu} dx^{\mu} dx^{\nu}=
+            \sum_{\mu=0}^{3} \sum_{\nu=0}^{3}g_{\mu \nu} dx^{\mu} dx^{\nu}$.
     \item Metric sign $(-, +, +, +)$.
 
   \end{enumerate}
@@ -296,6 +296,13 @@ which direct lead to the all structures of the spacetime.
 In general relativity, proper time is equivalence to distance in timelike direction \(d\tau^2 = - ds^2\).
 
 \subsubsection{Riemann Tensor}
+Now, we have everything we need to define the \textbf{curvature}. Think about transport a vector \(V^\rho\) 
+around a infinitesimal loop on a curved manifold, the loop is defined by two vector \(dA^\mu\) and \(dB^\nu\). 
+Then, the change on \(V^\rho\) can be express as \[\delta V^\rho = R^{\rho}_{\sigma\mu\nu}V^{\sigma}dA^{\mu}dB^{\nu}\]
+\begin{definition}
+  \(R^{\rho}_{\sigma\mu\nu}\) is known as \textbf{Riemann curvature tensor}, or just Riemann tensor, 
+  can be express through connection coeffienct: \[R^{\rho}_{\sigma\mu\nu} = \partial_{\mu} \Gamma^{\rho}_{\nu\sigma}\]
+\end{definition}
 
 \section{Gravitation}
 \subsection{Equivalence Principle}
