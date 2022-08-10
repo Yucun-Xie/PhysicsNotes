@@ -27,7 +27,7 @@
 
 
 \newtheoremstyle{mystyle}{}{}{}{}{\sffamily\bfseries}{.}{ }{}
-\newtheoremstyle{cstyle}{}{}{}{}{\sffamily\bfseries}{.}{ }{\thmnote{#3}}
+\newtheoremstyle{cstyle}{}{}{}{}{\sffamily\bfseries}{}{ }{\thmnote{#3}}
 
 \theoremstyle{mystyle}{\newtheorem{definition}{Definition}[section]}
 %\theoremstyle{mystyle}{\newtheorem{proposition}[definition]{Proposition}}
@@ -180,9 +180,10 @@ because there is not relation between the tangent space at each point. To acheci
 we need impose an additional structure into manifold, which called connection.
 
 \subsubsection{Exterior Calculus}
-
+@TODO
 
 \subsubsection{Maps Between Manifolds}
+@TODO
 pullback
 pushforward
 
@@ -213,11 +214,11 @@ it is hold in all coordinate
 system because both side are following same law to transform.
 
 \subsection{Affine Space}
-Recall that we are unable to transform vector form one point to another on a manifold, 
+Recall that we are unable to transform vector form one point to another on a manifold,
 because we missing realation between tangent space at each point. So we introduce an additional structure called \textbf{connection}.
-Connection is an additional structure that connect the tangent space on each point of a manifold. 
-There is no naturally defined connection on a manifold, we have to define one, therefore connection on a manifold is not unique. 
-In general relativity our spacetime manifold equiped with a flat, torsion-free connection is called \textbf{affine connection}, then 
+Connection is an additional structure that connect the tangent space on each point of a manifold.
+There is no naturally defined connection on a manifold, we have to define one, therefore connection on a manifold is not unique.
+In general relativity our spacetime manifold equiped with a flat, torsion-free connection is called \textbf{affine connection}, then
 our manifold is called affine manifold. Connection coeffienct in a coordinate system is express as \textbf{Christoffel symbol} \(\Gamma^{\lambda}_{\alpha\beta}\).\\
 In general, affine manifold is a manifold allowing \textbf{parallel transport} of vectors.
 
@@ -279,10 +280,10 @@ Which required \textbf{intrinsic derivative} vanish.\[\frac{DV^{\mu}}{D\lambda} 
 \(\lambda\) is \textbf{affine parameter}, which is the parameter alone the curve.
 
 \subsection{Metric Space}
-Now, in addition to affine manifold, we want a structure allowing measurement of distance on manifold. 
-The \textbf{metric space} is a kind of space have notion of distance. 
+Now, in addition to affine manifold, we want a structure allowing measurement of distance on manifold.
+The \textbf{metric space} is a kind of space have notion of distance.
 \begin{definition}
-  A Riemannian manifold is an affine space equipped with a symmetric \textbf{metric tensor} \(g_{\mu\nu}\). 
+  A Riemannian manifold is an affine space equipped with a symmetric \textbf{metric tensor} \(g_{\mu\nu}\).
   which distance \(ds\) between two point with displacement \(dx^{\mu}\) is defined as following.
   \[ds^2 \equiv g_{\mu \nu} dx^{\mu} dx^{\nu}\]
 \end{definition}
@@ -296,18 +297,55 @@ which direct lead to the all structures of the spacetime.
 In general relativity, proper time is equivalence to distance in timelike direction \(d\tau^2 = - ds^2\).
 
 \subsubsection{Riemann Tensor}
-Now, we have everything we need to define the \textbf{curvature}. Think about transport a vector \(V^\rho\) 
-around a infinitesimal loop on a curved manifold, the loop is defined by two vector \(dA^\mu\) and \(dB^\nu\). 
-Then, the change on \(V^\rho\) can be express as \[\delta V^\rho = R^{\rho}_{\sigma\mu\nu}V^{\sigma}dA^{\mu}dB^{\nu}\]
+Now, we have everything we need to define the \textbf{curvature}. Think about transport a vector \(V^\rho\)
+around a infinitesimal loop on a curved manifold, the loop is defined by two vector \(dA^\mu\) and \(dB^\nu\).
+Then, the change on \(V^\rho\) can be express as \[\delta V^\rho = R^{\rho}_{\ \sigma\mu\nu}V^{\sigma}dA^{\mu}dB^{\nu}\]
 \begin{definition}
-  \(R^{\rho}_{\sigma\mu\nu}\) is known as \textbf{Riemann curvature tensor}, or just Riemann tensor, 
-  can be express through connection coeffienct: \[R^{\rho}_{\sigma\mu\nu} = \partial_{\mu} \Gamma^{\rho}_{\nu\sigma}\]
+  \(R^{\rho}_{\ \sigma\mu\nu}\) is known as \textbf{Riemann curvature tensor}, or just Riemann tensor,
+  can be express through connection coeffienct: \[R^{\rho}_{\ \sigma\mu\nu} =
+    \partial_{\mu} \Gamma^{\rho}_{\nu\sigma} -
+    \partial_{\nu} \Gamma^{\rho}_{\mu\sigma} +
+    \Gamma^{\rho}_{\mu\lambda}\Gamma^{\lambda}_{\nu\sigma} -
+    \Gamma^{\rho}_{\nu\lambda}\Gamma^{\lambda}_{\mu\sigma}
+  \]
+\end{definition}
+There are some property in Riemann tensor.
+\begin{cthm}
+  \begin{align*}
+    \begin{split}
+      R_{\alpha\beta\mu\nu} &= -R_{\beta\alpha\mu\nu}\\
+      R_{\alpha\beta\mu\nu} &= -R_{\alpha\beta\nu\mu}\\
+      R_{\alpha\beta\mu\nu} &= R_{\mu\nu\alpha\beta}\\
+      R_{\alpha\beta\mu\nu} + R_{\alpha\nu\beta\mu} + R_{\alpha\mu\nu\beta} &= 0 \\
+      \nabla_{\left[ \lambda \right.} R_{\left.\alpha\beta \right] \mu\nu} &= 0 \\
+    \end{split}
+  \end{align*}
+  The last line above is called \textbf{Bianchi identity}.
+\end{cthm}
+\begin{definition}
+  From Riemann tensor, we can construct a symmetric rank 2 tensor, \textbf{Ricci tensor}
+  by contract first and third indice of Riemann tensor.
+  \[R_{\mu\nu} = R_{\nu\mu} = R^{\lambda}_{\ \mu\lambda\nu}\]
+  Furthermore, we can take the trace of Ricci tensor, to get \textbf{Ricci scalar} or scalar curvature.
+  \[R = g^{\mu\nu}R_{\mu\nu}\]
 \end{definition}
 
+We can recover the Riemann tensor from scalar curvature through metric tensor.
+\[R_{\alpha\beta\mu\nu} = \frac{R}{2}(g_{\alpha\mu}g_{\beta\nu}-g_{\beta\mu}g_{\alpha\nu})\]
+
+From Bianchi identity \(\nabla_{\left[ \lambda \right.} R_{\left.\alpha\beta \right] \mu\nu} = 0\), 
+we can find that \[\nabla_{\mu}(R^{\mu\nu}-\frac{1}{2}g^{\mu\nu}R) = 0\]
+We see divergence of this tensor vanish, therefore, we define a new tensor named \textbf{Einstein tensor},
+\[G^{\mu\nu}=R^{\mu\nu}-\frac{1}{2}g^{\mu\nu}R. \]
+
+
+
+
 \section{Gravitation}
+
 \subsection{Equivalence Principle}
 \begin{definition}
-  \textbf{  }     
+  \textbf{  }
   \begin{enumerate}
     \item Inertial mass is define through Newton's second law, \(m = F/a\).
     \item Gravitational mass is defined through Newton's aw of gravity \(m = Fr^2/GM\).
@@ -435,7 +473,7 @@ we can draw this fram like the Figure 2 below.
 \subsection{Lie Derivative}
 
 
-\section{Property of some tensors}
+\section{Summary}
 %Property for tensor used in GR:
 \begin{align*}
   \begin{split}
