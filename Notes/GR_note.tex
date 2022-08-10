@@ -26,7 +26,7 @@
 \usepackage[titletoc, toc, page]{appendix}
 
 
-\newtheoremstyle{mystyle}{}{}{}{}{\sffamily\bfseries}{.}{ }{}
+\newtheoremstyle{mystyle}{}{}{}{}{\sffamily\bfseries}{.\\}{ }{}
 \newtheoremstyle{cstyle}{}{}{}{}{\sffamily\bfseries}{}{ }{\thmnote{#3}}
 
 \theoremstyle{mystyle}{\newtheorem{definition}{Definition}[section]}
@@ -146,15 +146,13 @@ For example, surface of the Earth is a 2-sphere $S^2$, but look at the ground ar
   In a more formal way, a n-dimensional manifold is a topological space that locally homeomorphic to n-dimensional Eucildean space.
   See the discussion of topological space for definition of homeomorphism.\\
   If a manifold is differentiable for m times at each point, it is a \textbf{differentiable manifold}, denote by \(C^m\).
-  If a manifold is inifinite differentiable at each point, denote by \(C^\infty\), called smooth manifold.
-  %An n-dimensional manifold is a set that can be parameterized continuously by n independent real coordinates for each point.
-\end{definition}
-Differential geometry, as the name suggests, is geometry on differential manifolds.
-\begin{definition}
+  If a manifold is inifinite differentiable at each point, denote by \(C^\infty\), called smooth manifold.\\
   A coordinate system (also called chart) is n labels uniquely with each point of an n-dimensional manifold through a one-to-one mapping from
   $\mathbb{R}^n$ to $M$.\\
   Generally, more than one charts are required to cover entire manifold, which called \textbf{atlas}.
+  %An n-dimensional manifold is a set that can be parameterized continuously by n independent real coordinates for each point.
 \end{definition}
+Differential geometry, as the name suggests, is geometry on differential manifolds.
 
 Manifolds are very bascis structure, but they support following things on it.
 \begin{enumerate}
@@ -337,8 +335,11 @@ From Bianchi identity \(\nabla_{\left[ \lambda \right.} R_{\left.\alpha\beta \ri
 we can find that \[\nabla_{\mu}(R^{\mu\nu}-\frac{1}{2}g^{\mu\nu}R) = 0\]
 We see divergence of this tensor vanish, therefore, we define a new tensor named \textbf{Einstein tensor},
 \[G^{\mu\nu}=R^{\mu\nu}-\frac{1}{2}g^{\mu\nu}R. \]
-
-
+The trace-free part of Riemann tensor, is called \textbf{Weyl tensor}, can be define as following.
+\begin{definition}
+  Weyl tensor. @TODO
+  \[C_{\rho\sigma\mu\nu} = \]
+\end{definition}
 
 
 \section{Gravitation}
@@ -372,22 +373,71 @@ With equivalence principle, we can explain deflection of light and gravitational
   \item hold under coordinate transformation.
 \end{enumerate}
 Therefore, we can write our classical equations in tensorial form, then they will hold in general relativity.
+\begin{example}
+  Tensorial Maxwell's equations:
+  \begin{align*}
+    \begin{split}
+      \partial_{\mu}F^{\nu\mu} &= J^{\nu}\\
+      \partial_{\left[ \mu\right.}F_{\left. \nu\lambda \right]} &= 0
+    \end{split}
+  \end{align*}
+\end{example}
 
 \subsection{Geodesics}
 
-\subsection{Einstein's Equation}
+\textbf{Geodesic} is generalization of straight line in curved spacetime, which is the trajectory of inertial moving particle. 
+More specifically, geodesic is a path parallel-transport its own tangent vector. 
+Recall our equation of parallel transport, \(\frac{DV^{\mu}}{D\lambda} =
+\frac{dV^{\mu}}{d\lambda}+ \Gamma^{\mu}_{\alpha\nu}V^{\alpha}\frac{dx^{\nu}}{d\lambda} = 0\) and replace \(V\) 
+by tangent vector of the path \(\frac{dx^{\mu}}{d\lambda}\). We get 
+\[\frac{D}{D\lambda}\frac{dx^{\mu}}{d\lambda} =
+\frac{d}{d\lambda}\frac{dx^{\mu}}{d\lambda}+ \Gamma^{\mu}_{\alpha\nu}\frac{dx^{\alpha}}{d\lambda}\frac{dx^{\nu}}{d\lambda} = 0\]\\
+This is famous \textbf{geodesic equation}, all path satisfy this equation is a geodesic.
+\begin{definition}
+  Geodesic equation.
+  \[\frac{d^2 x^{\mu}}{d\lambda^2}+ \Gamma^{\mu}_{\alpha\nu}\frac{dx^{\alpha}}{d\lambda}\frac{dx^{\nu}}{d\lambda} = 0\]
+\end{definition}
+Geodesic always maximized the proper time. Think about twin paradox in special relativity, the twin stay on Earth approximately move alone geodesic, 
+but the twin travel away at tuning point isn't.
 
-\section{Black Holes}
-\subsection{Schwarzschild}
-\subsection{Kerr}
+\subsection{Einstein's Equation}
+@TODO
+\section{Relativistic Star}
+\subsection{Schwarzschild Solution}
+The first exact solution to Einstein's equation by Karl Schwarzschild is named \textbf{Schwarzschild solution}, 
+which is the exterior solution to spherical star.
+This solution is solved by three boundary conditions.
+\begin{enumerate}
+  \item Static, which mean completely independent of time. More formally, metric tensor satisfy time translational symmetry and time reversal symmetry.
+  \item Vacuum, which mean outside the star, implying vanish of energy-momentum tensor. This mean the solution is not vaild in the interior of star.
+  \item Spherical symmetry, which mean for given radius, the spacetime should be the same.
+\end{enumerate}
+
+\begin{cthm}
+  The line element take form 
+  \[ds^2 = -\left(1 - \frac{r_\mathrm{s}}{r} \right)\,dt^2 + \left(1-\frac{r_\mathrm{s}}{r}\right)^{-1} \,dr^2 + r^2 d\Omega^2\]\\
+  which \(r_\mathrm{s} = 2GM\) and \(d\Omega^2 = \left(d\theta^2 + \sin^2\theta \, d\phi^2\right)\).
+
+\end{cthm}
+\subsubsection{Black hole}
+
+\subsection{Kerr Solution}
+
+\subsubsection{Dragging of Inertial Frame}
+
+\subsubsection{Ergosphere}
 
 \section{Gravitational Radiation}
 \subsection{Linearized Gravity}
 When the gravitational field are weak, the metric take following form :\[g_{\mu\nu} = \eta_{\mu\nu} + h_{\mu\nu} \]
 which we treat the gravitational field as a perturbation of flat spacetime metric.
-\subsection{Effect of GW on matter}
+\subsection{Gravitational Wave}
+\subsubsection{Effect of Gravitational Wave on matter}
+\subsubsection{Source of Gravitational Wave}
 \section{Cosmology}
-
+\subsection{Roberson-Walker Metric}
+\subsection{Friedmann Equation}
+\subsection{Inflation}
 
 \newpage
 \appendix
@@ -482,7 +532,7 @@ we can draw this fram like the Figure 2 below.
 \subsection{Lie Derivative}
 
 
-\section{Summary}
+\section{Summary of Formula}
 %Property for tensor used in GR:
 \begin{align*}
   \begin{split}
