@@ -343,19 +343,25 @@ We see divergence of this tensor vanish, therefore, we define a new tensor named
 
 \section{Gravitation}
 
+Our spacetime not a simply Riemannian manifold, but a \textbf{pseudo-Riemannian manifold}, which more general Riemannian manifold.
+Riemannian manifold require metric tensor being positive definite, which mean all eigenvalue of metric tensor is positive.
+For pseudo-Riemannian manifold, the metric eigenvalue can be either positive or negative, called indefinite.
+\begin{remark}
+  The eigenvalue of metric can not be zero, if a eigenvalue is zero, the metric will be degenerate and have no inverse.
+\end{remark}
+
+More specifically, our spacetime is \textbf{Lorentzian manifold}, which is a pseudo-Riemannian manifold with only one negative eigenvalue.
+Lorentzian manifold allow us to classify tangent vectors into timelike, spacelike, and lightlike.
 \subsection{Equivalence Principle}
 \begin{definition}
   \textbf{  }
   \begin{enumerate}
-    \item Inertial mass is define through Newton's second law, \(m = F/a\).
+    \item Inertial mass is defined through Newton's second law, \(m = F/a\).
     \item Gravitational mass is defined through Newton's aw of gravity \(m = Fr^2/GM\).
   \end{enumerate}
 \end{definition}
 There are two equivalence principle, weak equivalence principle and strong equivalence principle
-(or Einstein equivalence principle).
-\begin{definition}
-  Weak Principle of Equivalence state that inertial mass are always equals to gravitational mass.
-\end{definition}
+(or Einstein equivalence principle). Weak Principle of Equivalence state that inertial mass are always equals to gravitational mass.
 Einstein extended this idea to a stronger statement, which is \textbf{Strong Equivalence Principle}.
 Which state that observer is unable to distinguish acceleration and gravitational field by local experiment.
 This lead the idea of \textbf{local inertial frame}, which is correspondence to the property of manifold (local flatness).
@@ -365,7 +371,10 @@ With equivalence principle, we can explain deflection of light and gravitational
   \item hold in absence of gravity.
   \item hold under coordinate transformation.
 \end{enumerate}
+Therefore, we can write our classical equations in tensorial form, then they will hold in general relativity.
+
 \subsection{Geodesics}
+
 \subsection{Einstein's Equation}
 
 \section{Black Holes}
