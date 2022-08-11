@@ -177,8 +177,6 @@ There is no definite way to transport a vector from one point to another on a ma
 because there is not relation between the tangent space at each point. To achecive this,
 we need impose an additional structure into manifold, which called connection.
 
-\subsubsection{Exterior Calculus}
-@TODO
 
 \subsubsection{Maps Between Manifolds}
 @TODO
@@ -211,6 +209,20 @@ If some quantity obey tensor transformation law, it is a tensor. If a tensorial 
 it is hold in all coordinate
 system because both side are following same law to transform.
 
+\subsubsection{Exterior Calculus}
+A covariant totally antisymmetric rank \((0,p)\) tensor is called differential \(p\)-form. This is the reason why dual vector is sometime called 1-form. 
+We can generate new differential forms by take antisymmetric part of tensor product, which called \textbf{wedge product}.
+\begin{example}
+  The wedge product of two one form is \[(A\wedge B)_{\mu\nu}= 2A_{\left[\mu\right.}B_{\left.\nu\right]}\].
+\end{example} 
+The \textbf{exterior derivative} can generate \(p+1\)-form from \(p\)-form.
+\begin{definition}
+  Exterior derivative of a \(p\)-form \(A\) is define as following.
+  \[dA = (p+1)\partial_{\left[\mu_1\right.}A_{\left.\mu_2\mu_3\cdots\mu_{p+1}\right]}\]
+\end{definition}
+A differential \(p\)-form \(A\) is \textbf{closed} if \(dA =0\), and \textbf{exact} if exist another differential form which \(dB = A\).
+We see that definition of exterior derivative does not require any additional structure. 
+The reason of define differential form is that we can have derivative and integral without help of additional structure on manifold.
 \subsection{Affine Space}
 Recall that we are unable to transform vector form one point to another on a manifold,
 because we missing realation between tangent space at each point. So we introduce an additional structure called \textbf{connection}.
@@ -382,6 +394,8 @@ Therefore, we can write our classical equations in tensorial form, then they wil
     \end{split}
   \end{align*}
 \end{example}
+In general, we can just replace the partial derivative by covariant derivative, and replace flat spactime metric by \(g_{\mu\nu}\), 
+then it will valid in curved spacetime.
 
 \subsection{Geodesics}
 
