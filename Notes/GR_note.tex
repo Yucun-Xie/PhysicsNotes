@@ -228,7 +228,7 @@ Recall that we are unable to transform vector form one point to another on a man
 because we missing realation between tangent space at each point. So we introduce an additional structure called \textbf{connection}.
 Connection is an additional structure that connect the tangent space on each point of a manifold.
 There is no naturally defined connection on a manifold, we have to define one, therefore connection on a manifold is not unique.
-In general relativity our spacetime manifold equiped with a flat, torsion-free connection is called \textbf{affine connection}, then
+In general relativity our spacetime manifold equiped with a metric compatible, torsion-free connection is called \textbf{affine connection}, then
 our manifold is called affine manifold. Connection coeffienct in a coordinate system is express as \textbf{Christoffel symbol} \(\Gamma^{\lambda}_{\alpha\beta}\).\\
 In general, affine manifold is a manifold allowing \textbf{parallel transport} of vectors.
 
@@ -279,7 +279,7 @@ This is called \textbf{covariant derivative}, two non tensorial parts add togeth
     \frac{\partial x^{\gamma'}}{\partial x^{\gamma}} \Gamma ^{\gamma}_{\alpha\beta}\]
   There is an extra term in transformation of connection, so connection is not a tensor.
 \end{proof}
-Our connection is flat and torsion free, which mean \[g_{\mu\nu;\alpha} = 0\] and\[S_{\mu\nu} = \Gamma_{[\mu\nu]}^{\lambda} = 0 \]
+Our connection is metric compatible and torsion free, which mean \[g_{\mu\nu;\alpha} = 0\] and\[S_{\mu\nu} = \Gamma_{[\mu\nu]}^{\lambda} = 0 \]
 Which \(S_{\mu\nu}\) is torsion tensor.
 
 \subsubsection{Parallel Transport}
