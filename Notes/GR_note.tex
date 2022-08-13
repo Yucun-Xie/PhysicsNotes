@@ -223,14 +223,15 @@ The \textbf{exterior derivative} can generate \(p+1\)-form from \(p\)-form.
 A differential \(p\)-form \(A\) is \textbf{closed} if \(dA =0\), and \textbf{exact} if exist another differential form which \(dB = A\).
 We see that definition of exterior derivative does not require any additional structure. 
 The reason of define differential form is that we can have derivative and integral without help of additional structure on manifold.
-\subsection{Affine Space}
+
+\subsection{Affine Connection}
 Recall that we are unable to transform vector form one point to another on a manifold,
 because we missing realation between tangent space at each point. So we introduce an additional structure called \textbf{connection}.
 Connection is an additional structure that connect the tangent space on each point of a manifold.
 There is no naturally defined connection on a manifold, we have to define one, therefore connection on a manifold is not unique.
-In general relativity our spacetime manifold equiped with a metric compatible, torsion-free connection is called \textbf{affine connection}, then
-our manifold is called affine manifold. Connection coeffienct in a coordinate system is express as \textbf{Christoffel symbol} \(\Gamma^{\lambda}_{\alpha\beta}\).\\
-In general, affine manifold is a manifold allowing \textbf{parallel transport} of vectors.
+In general relativity our spacetime manifold equiped with a metric compatible, torsion-free connection is called \textbf{affine connection}. 
+Connection coeffienct in a coordinate system is express as \textbf{Christoffel symbol} \(\Gamma^{\lambda}_{\alpha\beta}\).\\
+In general, manifold with connection is a manifold allowing \textbf{parallel transport} of vectors.
 
 \subsubsection{Covariant Derivative}
 Partial eerivative is not covariance, we are looking for another kind of differentiation that is covariant.
@@ -290,10 +291,10 @@ Which required \textbf{intrinsic derivative} vanish.\[\frac{DV^{\mu}}{D\lambda} 
 \(\lambda\) is \textbf{affine parameter}, which is the parameter alone the curve.
 
 \subsection{Metric Space}
-Now, in addition to affine manifold, we want a structure allowing measurement of distance on manifold.
+Now, in addition to affine connection, we want a structure allowing measurement of distance on manifold.
 The \textbf{metric space} is a kind of space have notion of distance.
 \begin{definition}
-  A Riemannian manifold is an affine space equipped with a symmetric \textbf{metric tensor} \(g_{\mu\nu}\).
+  A Riemannian manifold is an manifold with connection and equipped with a symmetric \textbf{metric tensor} \(g_{\mu\nu}\).
   which distance \(ds\) between two point with displacement \(dx^{\mu}\) is defined as following.
   \[ds^2 \equiv g_{\mu \nu} dx^{\mu} dx^{\nu}\]
 \end{definition}
