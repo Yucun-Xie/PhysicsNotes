@@ -311,6 +311,7 @@ In general relativity, proper time is equivalence to distance in timelike direct
 Now, we have everything we need to define the \textbf{curvature}. Think about transport a vector \(V^\rho\)
 around a infinitesimal loop on a curved manifold, the loop is defined by two vector \(dA^\mu\) and \(dB^\nu\).
 Then, the change on \(V^\rho\) can be express as \[\delta V^\rho = R^{\rho}_{\ \sigma\mu\nu}V^{\sigma}dA^{\mu}dB^{\nu}\]
+
 \begin{definition}
   \(R^{\rho}_{\ \sigma\mu\nu}\) is known as \textbf{Riemann curvature tensor}, or just Riemann tensor,
   can be express through connection coeffienct: \[R^{\rho}_{\ \sigma\mu\nu} =
@@ -321,6 +322,7 @@ Then, the change on \(V^\rho\) can be express as \[\delta V^\rho = R^{\rho}_{\ \
   \]
 \end{definition}
 There are some property in Riemann tensor.
+
 \begin{cthm}
   \begin{align*}
     \begin{split}
@@ -333,6 +335,7 @@ There are some property in Riemann tensor.
   \end{align*}
   The last line above is called \textbf{Bianchi identity}.
 \end{cthm}
+
 \begin{definition}
   From Riemann tensor, we can construct a symmetric rank 2 tensor, \textbf{Ricci tensor}
   by contract first and third indice of Riemann tensor.
@@ -349,6 +352,7 @@ we can find that \[\nabla_{\mu}(R^{\mu\nu}-\frac{1}{2}g^{\mu\nu}R) = 0\]
 We see divergence of this tensor vanish, therefore, we define a new tensor named \textbf{Einstein tensor},
 \[G^{\mu\nu}=R^{\mu\nu}-\frac{1}{2}g^{\mu\nu}R. \]
 The trace-free part of Riemann tensor, is called \textbf{Weyl tensor}, can be define as following.
+
 \begin{definition}
   Weyl tensor. @TODO
   \[C_{\rho\sigma\mu\nu} = \]
@@ -360,12 +364,14 @@ The trace-free part of Riemann tensor, is called \textbf{Weyl tensor}, can be de
 Our spacetime not a simply Riemannian manifold, but a \textbf{pseudo-Riemannian manifold}, which more general Riemannian manifold.
 Riemannian manifold require metric tensor being positive definite, which mean all eigenvalue of metric tensor is positive.
 For pseudo-Riemannian manifold, the metric eigenvalue can be either positive or negative, called indefinite.
+
 \begin{remark}
   The eigenvalue of metric can not be zero, if a eigenvalue is zero, the metric will be degenerate and have no inverse.
 \end{remark}
 
 More specifically, our spacetime is \textbf{Lorentzian manifold}, which is a pseudo-Riemannian manifold with only one negative eigenvalue.
 Lorentzian manifold allow us to classify tangent vectors into timelike, spacelike, and lightlike.
+
 \subsection{Equivalence Principle}
 \begin{definition}
   \textbf{  }
@@ -374,6 +380,7 @@ Lorentzian manifold allow us to classify tangent vectors into timelike, spacelik
     \item Gravitational mass is defined through Newton's aw of gravity \(m = Fr^2/GM\).
   \end{enumerate}
 \end{definition}
+
 There are two equivalence principle, weak equivalence principle and strong equivalence principle
 (or Einstein equivalence principle). Weak Principle of Equivalence state that inertial mass are always equals to gravitational mass.
 Einstein extended this idea to a stronger statement, which is \textbf{Strong Equivalence Principle}.
@@ -381,20 +388,23 @@ Which state that observer is unable to distinguish acceleration and gravitationa
 This lead the idea of \textbf{local inertial frame}, which is correspondence to the property of manifold (local flatness).
 With equivalence principle, we can explain deflection of light and gravitational redshift in gravitational field.\\
 \textbf{General Covariance Principle} state that if a tensorial equation hold in a gravitiational field yield that
+
 \begin{enumerate}
   \item hold in absence of gravity.
   \item hold under coordinate transformation.
 \end{enumerate}
 Therefore, we can write our classical equations in tensorial form, then they will hold in general relativity.
+
 \begin{example}
   Tensorial Maxwell's equations:
   \begin{align*}
     \begin{split}
-      \partial_{\mu}F^{\nu\mu} &= J^{\nu}\\
-      \partial_{\left[ \mu\right.}F_{\left. \nu\lambda \right]} &= 0
+      \nabla_{\mu}F^{\nu\mu} &= J^{\nu}\\
+      \nabla_{\left[ \mu\right.}F_{\left. \nu\lambda \right]} &= 0
     \end{split}
   \end{align*}
 \end{example}
+
 In general, we can just replace the partial derivative by covariant derivative, and replace flat spactime metric by \(g_{\mu\nu}\), 
 then it will valid in curved spacetime.
 
@@ -408,10 +418,12 @@ by tangent vector of the path \(\frac{dx^{\mu}}{d\lambda}\). We get
 \[\frac{D}{D\lambda}\frac{dx^{\mu}}{d\lambda} =
 \frac{d}{d\lambda}\frac{dx^{\mu}}{d\lambda}+ \Gamma^{\mu}_{\alpha\nu}\frac{dx^{\alpha}}{d\lambda}\frac{dx^{\nu}}{d\lambda} = 0\]\\
 This is famous \textbf{geodesic equation}, all path satisfy this equation is a geodesic.
+
 \begin{definition}
   Geodesic equation.
   \[\frac{d^2 x^{\mu}}{d\lambda^2}+ \Gamma^{\mu}_{\alpha\nu}\frac{dx^{\alpha}}{d\lambda}\frac{dx^{\nu}}{d\lambda} = 0\]
 \end{definition}
+
 Geodesic always maximized the proper time. Think about twin paradox in special relativity, the twin stay on Earth approximately move alone geodesic, 
 but the twin travel away at tuning point isn't.
 
@@ -420,10 +432,13 @@ but the twin travel away at tuning point isn't.
 \subsection{Einstein's Equation}
 @TODO
 \section{Relativistic Star}
+
 \subsection{Schwarzschild Solution}
+
 The first exact solution to Einstein's equation by Karl Schwarzschild is named \textbf{Schwarzschild solution}, 
 which is the exterior solution to spherical star.
 This solution is solved by three boundary conditions.
+
 \begin{enumerate}
   \item Static, which mean completely independent of time. More formally, metric tensor satisfy time translational symmetry and time reversal symmetry.
   \item Vacuum, which mean outside the star, implying vanish of energy-momentum tensor. This mean the solution is not vaild in the interior of star.
@@ -440,6 +455,12 @@ This solution is solved by three boundary conditions.
 \subsubsection{Maximal Extension}
 
 \subsection{Kerr Solution}
+
+\begin{enumerate}
+  \item Stationary, which metric tensor satisfy time translational symmetry.
+  \item Vacuum, which mean outside the star, implying vanish of energy-momentum tensor. This mean the solution is not vaild in the interior of star.
+  \item Axissymmetry, which mean for given \(r\) and \(\theta\), metric components are the same.
+\end{enumerate}
 
 \subsubsection{Dragging of Inertial Frame}
 
@@ -462,10 +483,11 @@ which we treat the gravitational field as a perturbation of flat spacetime metri
 
 \newpage
 \appendix
+
+
 \addcontentsline{toc}{section}{Appendix~}
 
 \section{Special Relativity}
-
 
 \subsection{Spacetime}
 In spacial relativity, we discard the absolute concept of time, in contrast to Newton, there is no preferd reference frame
