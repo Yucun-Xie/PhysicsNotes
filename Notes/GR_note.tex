@@ -357,7 +357,28 @@ The trace-free part of Riemann tensor, is called \textbf{Weyl tensor}, can be de
   Weyl tensor. @TODO
   \[C_{\rho\sigma\mu\nu} = \]
 \end{definition}
+\subsection{Geodesics}
 
+\textbf{Geodesic} is generalization of straight line in curved spacetime, which is the trajectory of inertial moving particle. 
+More specifically, geodesic is a path parallel-transport its own tangent vector. 
+Recall our equation of parallel transport, \(\frac{DV^{\mu}}{D\lambda} =
+\frac{dV^{\mu}}{d\lambda}+ \Gamma^{\mu}_{\alpha\nu}V^{\alpha}\frac{dx^{\nu}}{d\lambda} = 0\) and replace \(V\) 
+by tangent vector of the path \(\frac{dx^{\mu}}{d\lambda}\). We get 
+\[\frac{D}{D\lambda}\frac{dx^{\mu}}{d\lambda} =
+\frac{d}{d\lambda}\frac{dx^{\mu}}{d\lambda}+ \Gamma^{\mu}_{\alpha\nu}\frac{dx^{\alpha}}{d\lambda}\frac{dx^{\nu}}{d\lambda} = 0\]\\
+This is famous \textbf{geodesic equation}, all path satisfy this equation is a geodesic.
+
+\begin{definition}
+  Geodesic equation.
+  \[\frac{d^2 x^{\mu}}{d\lambda^2}+ \Gamma^{\mu}_{\alpha\nu}\frac{dx^{\alpha}}{d\lambda}\frac{dx^{\nu}}{d\lambda} = 0\]
+\end{definition}
+
+Geodesic always maximized the proper time. Think about twin paradox in special relativity, the twin stay on Earth approximately move alone geodesic, 
+but the twin travel away at tuning point isn't.
+
+\subsection{Killing Vector Field}
+
+\subsection{Geodesic Deviation}
 
 \section{Gravitation}
 
@@ -408,29 +429,21 @@ Therefore, we can write our classical equations in tensorial form, then they wil
 In general, we can just replace the partial derivative by covariant derivative, and replace flat spactime metric by \(g_{\mu\nu}\), 
 then it will valid in curved spacetime.
 
-\subsection{Geodesics}
 
-\textbf{Geodesic} is generalization of straight line in curved spacetime, which is the trajectory of inertial moving particle. 
-More specifically, geodesic is a path parallel-transport its own tangent vector. 
-Recall our equation of parallel transport, \(\frac{DV^{\mu}}{D\lambda} =
-\frac{dV^{\mu}}{d\lambda}+ \Gamma^{\mu}_{\alpha\nu}V^{\alpha}\frac{dx^{\nu}}{d\lambda} = 0\) and replace \(V\) 
-by tangent vector of the path \(\frac{dx^{\mu}}{d\lambda}\). We get 
-\[\frac{D}{D\lambda}\frac{dx^{\mu}}{d\lambda} =
-\frac{d}{d\lambda}\frac{dx^{\mu}}{d\lambda}+ \Gamma^{\mu}_{\alpha\nu}\frac{dx^{\alpha}}{d\lambda}\frac{dx^{\nu}}{d\lambda} = 0\]\\
-This is famous \textbf{geodesic equation}, all path satisfy this equation is a geodesic.
-
-\begin{definition}
-  Geodesic equation.
-  \[\frac{d^2 x^{\mu}}{d\lambda^2}+ \Gamma^{\mu}_{\alpha\nu}\frac{dx^{\alpha}}{d\lambda}\frac{dx^{\nu}}{d\lambda} = 0\]
-\end{definition}
-
-Geodesic always maximized the proper time. Think about twin paradox in special relativity, the twin stay on Earth approximately move alone geodesic, 
-but the twin travel away at tuning point isn't.
-
-\subsection{Killing Vector Field}
 
 \subsection{Einstein's Equation}
-@TODO
+From Poisson equation for Newtonian potential:
+\[\nabla^2 \phi = 4 \pi G \rho\]
+To make a relativistic version of this eqution, we can replace the gravitational potential by the metric and replace the mass density by energy-momentum tensor.
+\[\nabla^2 g_{\mu\nu} = c T_{\mu\nu}\]
+But the second derivative of metric is vanish by metric compatibility of connection, therefore we want something construct from second derivative of metric which not vanish.
+Riemann tensor fit this requirement but not have the right numbers of indices, so we can use Ricci tensor. 
+\[R_{\mu\nu} = c T_{\mu\nu}\]
+But, this still not right, recall the conservation of energy, \(\nabla^{\mu}T_{\mu\nu} = 0\), Ricci not fit this requirement. 
+Now, we need a rank 2 tensor that conserve and fit the requirement above. We do have one, Einstein tensor:
+\[\nabla^{\mu}G_{\mu\nu} = 0\]
+Then our equation read \[R_{\mu\nu} -\frac{1}{2}Rg_{\mu\nu} = cT_{\mu\nu}\]
+This is the famous Einstein field equation. We can recover the constant by require eqution back to Newtonian limit.
 \section{Relativistic Star}
 
 \subsection{Schwarzschild Solution}
@@ -451,7 +464,9 @@ This solution is solved by three boundary conditions.
   which \(r_\mathrm{s} = 2GM\) and \(d\Omega^2 = \left(d\theta^2 + \sin^2\theta \, d\phi^2\right)\).
 \end{cthm}
 \subsubsection{Interior Solution}
+
 \subsubsection{Black hole}
+
 \subsubsection{Maximal Extension}
 
 \subsection{Kerr Solution}
