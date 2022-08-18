@@ -73,7 +73,7 @@
 %\setlength{\parskip}{0pt}
 %\setlength{\columnseprule}{0pt}
 
-\title{\huge\sffamily\bfseries Gravitation}
+\title{\huge\sffamily\bfseries General Relativity}
 \author{\Large\sffamily Yucun Xie}
 \date{\sffamily \today}
 
@@ -498,20 +498,29 @@ We also able to calculate deflection of light by calculate lightlike geodesic fr
 Recall the Schwarzschild solution only valid outside the spherical star, not the interior, so there is no singularity and horizon in our Earth. 
 The interior solution can be solved by approximate the star by energy-momentum tensor of perfect fluid \(T_{\mu\nu} = (\rho + p)U_\mu U_\nu + pg_{\mu\nu}\), 
 and match the exterior solution at boundary. The interior solution of spherical star read \[ds^{2} =
--\frac{1}{4} \left( 3 \sqrt{1-\frac {r_s}{r_g}}-\sqrt{1-\frac{r^2 r_s}{r_g^3}} \right)^2 c^2 dt^2 + 
+-\frac{1}{4} \left( 3 \sqrt{1-\frac {r_s}{r_g}}-\sqrt{1-\frac{r^2 r_s}{r_g^3}} \right)^2 dt^2 + 
 \left( 1-\frac{r^2 r_s}{r_g^3} \right)^{-1} dr^2 + r^2 \left(d\theta^2 + \sin^2\theta \, d\varphi^2\right)\]
+Where \(r_{g}\) is the radius of surface.
 
 \subsubsection{Black hole}
 
 \subsubsection{Maximal Extension}
 
 \subsection{Kerr Solution}
-
+Kerr solution is the vacuum solution to the axissymmetry rotating star, by apply following conditions to Einstein equation.
 \begin{enumerate}
   \item Stationary, which metric tensor satisfy time translational symmetry.
   \item Vacuum, which mean outside the star, implying vanish of energy-momentum tensor. This mean the solution is not valid in the interior of star.
   \item Axissymmetry, which mean for given \(r\) and \(\theta\), metric components are the same.
 \end{enumerate}
+Kerr metric can be expressed in Boyer-Lindquist coordinates.
+\begin{cthm}
+  \[ds^{2} = 
+  -\left( 1 - \frac{2GM\; r}{\Sigma} \right) dt^{2} + \frac{\Sigma}{\Delta} dr^{2} + \Sigma d\theta^{2} + 
+  \left(r^2+ a^2 + \frac{2GM\; r a^{2}}{\Sigma} \sin^{2}\theta \right) \sin^{2}\theta \ d\phi^{2} - 
+  \frac{4GM\; ra \sin^{2} \theta}{\Sigma} dt \, d\phi\]\\
+  Where \(a = \frac{J}{Mc}\), \(\Sigma = r^{2} + a^{2} \cos^{2}\theta\), and \(\Delta = r^{2} - r_{s} r + a^{2}\).
+\end{cthm}
 
 \subsubsection{Dragging of Inertial Frame}
 
@@ -631,7 +640,7 @@ we can draw this fram like the Figure 2 below.
 \begin{align*}
   \begin{split}
     F_{\mu\nu} &= - F_{\nu\mu}\\
-    T_{ij} &= T_{ji}\\
+    T_{\mu\nu} &= T_{\nu\mu}\\
     g_{\mu\nu} &= g_{\nu\mu}\\
     \Gamma ^{\lambda}_{\mu\nu} &= \Gamma^{\lambda}_{\nu\mu} \text{ (Torsion free)}\\
     R_{\alpha\beta\mu\nu} &= -R_{\beta\alpha\mu\nu}\\
