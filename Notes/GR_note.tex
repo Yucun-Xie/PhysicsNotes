@@ -471,7 +471,7 @@ This solution is solved by three boundary conditions.
 
 \begin{enumerate}
   \item Static, which mean completely independent of time. More formally, metric tensor satisfy time translational symmetry and time reversal symmetry.
-  \item Vacuum, which mean outside the star, implying vanish of energy-momentum tensor. This mean the solution is not vaild in the interior of star.
+  \item Vacuum, which mean outside the star, implying vanish of energy-momentum tensor. This mean the solution is not valid in the interior of star.
   \item Spherical symmetry, which mean for given radius, the spacetime should be the same.
 \end{enumerate}
 
@@ -480,7 +480,26 @@ This solution is solved by three boundary conditions.
   \[ds^2 = -\left(1 - \frac{r_\mathrm{s}}{r} \right)\,dt^2 + \left(1-\frac{r_\mathrm{s}}{r}\right)^{-1} \,dr^2 + r^2 d\Omega^2\]\\
   which \(r_\mathrm{s} = 2GM\) and \(d\Omega^2 = \left(d\theta^2 + \sin^2\theta \, d\phi^2\right)\).
 \end{cthm}
+From this line element, we can notice a few property of Schwarzschild metric.
+\begin{enumerate}
+  \item Singularity at \(r = 2GM\) and \(r = 0\).
+  \item Change of sign of \(g_{tt}\) and \(g_{rr}\) at \(r = 2GM\).
+  \item Recover to Newtonian gravity at Newtonian limit.
+  \item Asymptotic flatness.
+\end{enumerate}
+
+The surface at \(r = 2GM\) is know as \textbf{Schwarzschild horizon}, this radius is know as Schwarzschild radius. 
+This leat to the idea of black hole, which nothing can escape from horizon (at least in classical limit, we will see later discussion of Hawking radiation). \\
+We can calculate the timelike geodesic form the metric, which implying planetary motion in general relativity, lead to famous result of precession of perihelion of Mercury. 
+We also able to calculate deflection of light by calculate lightlike geodesic from metric, this lead to the effect of \textbf{gravitational lensing}.
+
 \subsubsection{Interior Solution}
+
+Recall the Schwarzschild solution only valid outside the spherical star, not the interior, so there is no singularity and horizon in our Earth. 
+The interior solution can be solved by approximate the star by energy-momentum tensor of perfect fluid \(T_{\mu\nu} = (\rho + p)U_\mu U_\nu + pg_{\mu\nu}\), 
+and match the exterior solution at boundary. The interior solution of spherical star read \[ds^{2} =
+-\frac{1}{4} \left( 3 \sqrt{1-\frac {r_s}{r_g}}-\sqrt{1-\frac{r^2 r_s}{r_g^3}} \right)^2 c^2 dt^2 + 
+\left( 1-\frac{r^2 r_s}{r_g^3} \right)^{-1} dr^2 + r^2 \left(d\theta^2 + \sin^2\theta \, d\varphi^2\right)\]
 
 \subsubsection{Black hole}
 
@@ -490,7 +509,7 @@ This solution is solved by three boundary conditions.
 
 \begin{enumerate}
   \item Stationary, which metric tensor satisfy time translational symmetry.
-  \item Vacuum, which mean outside the star, implying vanish of energy-momentum tensor. This mean the solution is not vaild in the interior of star.
+  \item Vacuum, which mean outside the star, implying vanish of energy-momentum tensor. This mean the solution is not valid in the interior of star.
   \item Axissymmetry, which mean for given \(r\) and \(\theta\), metric components are the same.
 \end{enumerate}
 
