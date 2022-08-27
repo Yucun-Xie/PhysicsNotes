@@ -240,10 +240,12 @@ Here let me show that partial derivative not covariance and then construct a cov
   \begin{split}
     A_{\mu,\nu} &= \frac{\partial A_{\mu}}{\partial x^{\nu}} = \frac{\partial}{\partial x^{\nu}}
     \left( A_{\mu}\frac{\partial x^{\alpha}}{\partial x^{\mu}}\right)\\
-    &= \frac{\partial A_\alpha}{\partial x^{\mu}}\frac{\partial x^{\alpha}}{\partial x^{\mu}}+
+    &= \frac{\partial A_\alpha}{\partial x^{\nu}}\frac{\partial x^{\alpha}}{\partial x^{\mu}}+
+    A_{\alpha} \frac{\partial^2 x^{\alpha}}{\partial x^{\mu} \partial x^{\nu}}\\
+    &= A_{\alpha,\beta}\frac{\partial x^{\beta}}{\partial x^{\nu}}\frac{\partial x^{\alpha}}{\partial x^{\mu}} +
     \underbrace{A_{\alpha} \frac{\partial^2 x^{\alpha}}{\partial x^{\mu} \partial x^{\nu}}}_\text{Not a tensor}
   \end{split}
-\end{align*}
+\end{align*}\\
 By using the connection coeffienct below, which also not a tensor, we can eliminate the none tensorial part of partial derivative.
 Which defined as follow.
 \begin{definition}
