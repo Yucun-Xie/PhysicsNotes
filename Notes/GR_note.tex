@@ -428,25 +428,25 @@ Therefore, we can write our classical equations in tensorial form, then they wil
   \end{align*}
 \end{example}
 
-In general, we can just replace the partial derivative with covariant derivative, and replace flat spactime metric by \(g_{\mu\nu}\),
+In general, we can just replace the partial derivative with the covariant derivative, and replace the flat spacetime metric by \(g_{\mu\nu}\),
 then it will valid in curved spacetime.
 
 
 
 \subsection{Einstein's Equation}
-From Poisson equation for Newtonian potential:
+From the Poisson equation for Newtonian potential:
 \[\nabla^2 \phi = 4 \pi G \rho\]
-To make a relativistic version of this eqution, we can replace the gravitational potential by the metric and replace the mass density by energy-momentum tensor.
+To make a relativistic version of this equation, we can replace the gravitational potential with the metric and replace the mass density with the energy-momentum tensor.
 \[\nabla^2 g_{\mu\nu} = c T_{\mu\nu}\]
-But the second derivative of metric is vanish by metric compatibility of connection, therefore we want something construct from second derivative of metric which not vanish.
-Riemann tensor fit this requirement but not have the right numbers of indices, so we can use Ricci tensor.
+But the second derivative of the metric vanished by metric compatibility of connection, therefore we want something constructed from the second derivative of the metric which does not vanishes.
+Riemann tensor fits this requirement but does not have the right number of indices, so we can use the Ricci tensor.
 \[R_{\mu\nu} = c T_{\mu\nu}\]
 But, this still not right, recall the conservation of energy, \(\nabla^{\mu}T_{\mu\nu} = 0\), Ricci not fit this requirement.
-Now, we need a rank 2 tensor that conserve and fit the requirement above. We do have one, Einstein tensor:
+Now, we need a rank 2 tensor that conserved and fit the requirement above. We do have one, the Einstein tensor:
 \[\nabla^{\mu}G_{\mu\nu} = 0\]
 Then our equation read \[R_{\mu\nu} -\frac{1}{2}Rg_{\mu\nu} = cT_{\mu\nu}\]
-This is the famous Einstein field equation. We can recover the constant by requiring equation back to Newtonian limit.\\
-To revover Newtonian graivty, impose the following boundary conditions to the field equation:
+This is the famous Einstein field equation. We can recover the constant by requiring the equation back to the Newtonian limit.\\
+To recover Newtonian gravity, impose the following boundary conditions to the field equation:
 \begin{enumerate}
   \item Weak field (\(g_{\mu\nu} = \eta_{\mu\nu} + h_{\mu\nu}\) which \(\left|h_{\mu\nu}\right| \ll 1\))
   \item Stationary (time translational symmetry).
@@ -457,7 +457,7 @@ In this limit, the energy-momentum tensor simply \(T_{00} = \rho\) and all other
 Rearrange Einstein equation, we get \(R_{\mu\nu} = c\left( T_{\mu\nu} - \frac{1}{2}Tg_{\mu\nu} \right)\),
 plug \(T_{00} = \rho\) in to field equation, we get \(R_{00}=\frac{1}{2}c\rho\). \\
 From Riemann tensor in week field limit, we can see that \(R_{00}=-\frac{1}{2}\nabla^2 h_{00}\);
-compare to possion equation of Newtonian gravity, we know that \(c = 8\pi G\).
+compare to Possion equation of Newtonian gravity, we know that \(c = 8\pi G\).
 \begin{cthm}
   Einstein field equation.
   \[R_{\mu\nu} -\frac{1}{2}Rg_{\mu\nu} = 8\pi GT_{\mu\nu}\]
@@ -468,21 +468,21 @@ compare to possion equation of Newtonian gravity, we know that \(c = 8\pi G\).
 \subsection{Schwarzschild Solution}
 
 The first exact solution to Einstein's equation by Karl Schwarzschild is named \textbf{Schwarzschild solution},
-which is the exterior solution to spherical star.
+which is the exterior solution to a spherical star.
 This solution is solved by three boundary conditions.
 
 \begin{enumerate}
-  \item Static, which mean completely independent of time. More formally, metric tensor satisfy time translational symmetry and time reversal symmetry.
-  \item Vacuum, which mean outside the star, implying vanish of energy-momentum tensor. This mean the solution is not valid in the interior of star.
-  \item Spherical symmetry, which mean for given radius, the spacetime should be the same.
+  \item Static, which means completely independent of time. More formally, the metric tensor satisfies time translational symmetry and time reversal symmetry.
+  \item Vacuum, which means outside the star, implying vanish of the energy-momentum tensor. This means the solution is not valid in the interior of the star.
+  \item Spherical symmetry, which means for, given a radius, the spacetime should be the same.
 \end{enumerate}
 
 \begin{cthm}
-  The line element take form
+  The line element takez the form
   \[ds^2 = -\left(1 - \frac{r_\mathrm{s}}{r} \right)\,dt^2 + \left(1-\frac{r_\mathrm{s}}{r}\right)^{-1} \,dr^2 + r^2 d\Omega^2\]\\
   which \(r_\mathrm{s} = 2GM\) and \(d\Omega^2 = \left(d\theta^2 + \sin^2\theta \, d\phi^2\right)\).
 \end{cthm}
-From this line element, we can notice a few property of Schwarzschild metric.
+From this line element, we can notice a few properties of the Schwarzschild metric.
 \begin{enumerate}
   \item Singularity at \(r = 2GM\) and \(r = 0\).
   \item Change of sign of \(g_{tt}\) and \(g_{rr}\) at \(r = 2GM\).
@@ -492,28 +492,28 @@ From this line element, we can notice a few property of Schwarzschild metric.
 
 The surface at \(r = 2GM\) is known as \textbf{Schwarzschild horizon}, this radius is known as the Schwarzschild radius.
 This led to the idea of the black hole, in which nothing can escape from the horizon (at least in the classical limit, we will see later discussion of Hawking radiation). \\
-We can calculate the timelike geodesic from the metric, which implies planetary motion in general relativity, lead to famous result of precession of perihelion of Mercury.
-We also able to calculate deflection of light by calculate lightlike geodesic from metric, this lead to the effect of \textbf{gravitational lensing}.
+We can calculate the timelike geodesic from the metric, which implies planetary motion in general relativity, leading to the famous result of the precession of the perihelion of Mercury.
+We are also able to calculate the deflection of light by calculating lightlike geodesic from metric, this leads to the effect of \textbf{gravitational lensing}.
 
 \subsubsection{Interior Solution}
 
-Recall the Schwarzschild solution only valid outside the spherical star, not the interior, so there is no singularity and horizon in our Earth.
+Recall the Schwarzschild solution is only valid outside the spherical star, not the interior, so there is no singularity and horizon in our Earth.
 The interior solution can be solved by approximate the star by energy-momentum tensor of perfect fluid \(T_{\mu\nu} = (\rho + p)U_\mu U_\nu + pg_{\mu\nu}\),
-and match the exterior solution at boundary. The interior solution of spherical star read \[ds^{2} =
+and match the exterior solution at the boundary. The interior solution of spherical star read \[ds^{2} =
   -\frac{1}{4} \left( 3 \sqrt{1-\frac {r_s}{r_g}}-\sqrt{1-\frac{r^2 r_s}{r_g^3}} \right)^2 dt^2 +
   \left( 1-\frac{r^2 r_s}{r_g^3} \right)^{-1} dr^2 + r^2 \left(d\theta^2 + \sin^2\theta \, d\varphi^2\right)\]
-Where \(r_{g}\) is the radius of surface.
+Where \(r_{g}\) is the radius of the surface.
 
 \subsubsection{Black hole}
 
 \subsubsection{Maximal Extension}
 
 \subsection{Kerr Solution}
-Kerr solution is the vacuum solution to the axissymmetry rotating star, by apply following conditions to Einstein equation.
+Kerr solution is the vacuum solution to the axisymmetry rotating star, by applying the following conditions to the Einstein equation.
 \begin{enumerate}
-  \item Stationary, which metric tensor satisfy time translational symmetry.
-  \item Vacuum, which mean outside the star, implying vanish of energy-momentum tensor. This mean the solution is not valid in the interior of star.
-  \item Axissymmetry, which mean for given \(r\) and \(\theta\), metric components are the same.
+  \item Stationary, which metric tensor satisfies time translational symmetry.
+  \item Vacuum, which means outside the star, implying vanish of the energy-momentum tensor. This means the solution is not valid in the interior of the star.
+  \item Axissymmetry, which means for given \(r\) and \(\theta\), metric components are the same.
 \end{enumerate}
 Kerr metric can be expressed in Boyer-Lindquist coordinates.
 \begin{cthm}
