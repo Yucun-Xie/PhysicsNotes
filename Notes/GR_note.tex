@@ -143,7 +143,7 @@ For example, the surface of the Earth is a 2-sphere $S^2$, but look at the groun
     \item a reversible mapping of each patch onto the unit volume of \(\mathbb{R}^n\). An n-tuple of numbers associated
           in this way are called the \textbf{coordinates} of each point.
   \end{enumerate}
-  More formally, an n-dimensional manifold is a topological space that is locally homeomorphic to n-dimensional Euclidean space.
+  More formally, an n-dimensional manifold is a topological space that is locally homeomorphic to the n-dimensional Euclidean space.
   See the discussion of topological space for the definition of homeomorphism.\\
   If a manifold is differentiable for m times at each point, it is a \textbf{differentiable manifold}, denote by \(C^m\).
   If a manifold is infinitely differentiable at each point, denote by \(C^\infty\), called a smooth manifold.\\
@@ -170,12 +170,12 @@ This vector space is called \textbf{tangent space}. This space contains all \tex
 There is also another vector space whose basis is defined by evaluating the gradient of the scalar function at $P$.
 This space is called \textbf{cotangent space}, which contains all \textbf{dual vectors} at point $P$.\\
 Vectors and dual vectors are local to a point.\\
-Set of all tangent space in a manifold form a \textbf{tangent bundle}, and set of all cotangent space on a manifold
+Set of all tangent spaces in a manifold form a \textbf{tangent bundle}, and the set of all cotangent spaces on a manifold
 form a \textbf{cotangent bundle}. They are an example of \textbf{fiber bundle}.\\
 A fiber bundle is a manifold that is locally the cartesian product of base space and fiber space but not globally.\\
 There is no definite way to transport a vector from one point to another on a manifold
 because there is no relation between the tangent space at each point. To achieve this,
-we need to impose an additional structure into the manifold, which is called connection.
+we need to impose an additional structure into the manifold, which is called \textbf{connection}.
 
 
 \subsubsection{Maps Between Manifolds}
@@ -283,7 +283,7 @@ This is called \textbf{covariant derivative}, two non-tensorial parts added toge
   There is an extra term in the transformation of connection, so the connection is not a tensor.
 \end{proof}
 Our connection is metric compatible and torsion-free, which mean \[g_{\mu\nu;\alpha} = 0\] and\[S_{\mu\nu} = \Gamma_{[\mu\nu]}^{\lambda} = 0 \]
-Which \(S_{\mu\nu}\) is the torsion tensor.
+Where \(S_{\mu\nu}\) is the torsion tensor.
 
 \subsubsection{Parallel Transport}
 Recall we defined connection to allow us to transport vectors on the manifold.
@@ -379,6 +379,13 @@ Geodesic always maximized the proper time. Think about the twin paradox in speci
 but the twin travels away at the tuning point isn't.
 
 \subsection{Killing Vector Field}
+The symmetric property of spacetime is represented by \textbf{killing vector field}.
+\begin{definition}
+  A killing vector \(K\) satisfy the \textbf{killing equation}:\\
+  \[\mathcal{L}_{K}g_{\mu\nu}= 0\]\\
+  where \(\mathcal{L}_{K}\) is the Lie derivative alone \(K\). For the definition of Lie derivative, refer to the appendix.
+\end{definition}
+
 
 \subsection{Geodesic Deviation}
 
