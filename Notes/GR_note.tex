@@ -642,6 +642,28 @@ we can draw this fram like the Figure 2 below.
 \section{Lie Algebra}
 
 \subsection{Lie Derivative}
+Lie derivative is a more ``fundamental'' way to generalize derivative to a manifold compared to covariant derivative. \\
+To see why it is more fundamental, consider the \textbf{Lie bracket} 
+\begin{definition}
+  Lie bracket \\
+  \[\left[X, Y\right]^{\mu}= X^{\lambda}\nabla_{\lambda}Y^{\mu} - Y^{\lambda}\nabla_\lambda X^{\mu}\]\\
+  It is easy to check that the above expression is equivalent to 
+  \(\left[X, Y\right]^{\mu}= X^{\lambda}\partial_{\lambda}Y^{\mu} - Y^{\lambda}\partial_\lambda X^{\mu}\).
+\end{definition}
+
+Lie bracket is a special kind of \textbf{Lie derivative}. The above expression is equivalent to 
+\(\mathcal{L}_{X}Y^{\mu}\). We see that the Lie derivative does not rely on affine connection.
+
+The basic idea of Lie derivative is to use derivatives of an auxiliary vector field to 
+cancel the non-tensorial part of the partial derivative.
+
+Let's go step by step to see how the Lie derivative work.
+
+Consider a tensor on a manifold defined at point \(P\), it can be ``dragged'' to a nearby point \(Q\), alone 
+a curve of the congruence that generates by a vector field. 
+
+This step is called \textbf{Lie dragging}.
+
 
 \section{Penrose Diagram}
 \section{Summary of Formula}
