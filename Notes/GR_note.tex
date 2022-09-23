@@ -463,8 +463,8 @@ To recover Newtonian gravity, impose the following boundary conditions to the fi
 In this limit, the energy-momentum tensor simply \(T_{00} = \rho\) and all other components vanish.
 Rearrange Einstein equation, we get \(R_{\mu\nu} = c\left( T_{\mu\nu} - \frac{1}{2}Tg_{\mu\nu} \right)\),
 plug \(T_{00} = \rho\) in to field equation, we get \(R_{00}=\frac{1}{2}c\rho\). \\
-From Riemann tensor in week field limit, we can see that \(R_{00}=-\frac{1}{2}\nabla^2 h_{00}\);
-compare to Possion equation of Newtonian gravity, we know that \(c = 8\pi G\).
+From Riemann tensor in week field limit, we can see that \(R_{00}=-\frac{1}{2}\nabla^2 h_{00}\); 
+compare to the Poisson equation of Newtonian gravity, we know that \(c = 8\pi G\).
 \begin{cthm}
   Einstein field equation.
   \[R_{\mu\nu} -\frac{1}{2}Rg_{\mu\nu} = 8\pi GT_{\mu\nu}\]
@@ -485,7 +485,7 @@ This solution is solved by three boundary conditions.
 \end{enumerate}
 
 \begin{cthm}
-  The line element takez the form
+  The line element takes the form
   \[ds^2 = -\left(1 - \frac{r_\mathrm{s}}{r} \right)\,dt^2 + \left(1-\frac{r_\mathrm{s}}{r}\right)^{-1} \,dr^2 + r^2 d\Omega^2\]\\
   which \(r_\mathrm{s} = 2GM\) and \(d\Omega^2 = \left(d\theta^2 + \sin^2\theta \, d\phi^2\right)\).
 \end{cthm}
@@ -559,15 +559,15 @@ which we treat the gravitational field as a perturbation of flat spacetime metri
 \section{Special Relativity}
 
 \subsection{Spacetime}
-In spacial relativity, we discard the absolute concept of time, in contrast to Newton, there is no preferd reference frame
-and time is one of the coordinate.
-Now we have a 4-dimensional \textbf{spacetime}. Our discussion is focus on inertial coordinate system.
+In special relativity, we discard the absolute concept of time, in contrast to Newton, there is no preferred reference frame
+and time is one of the coordinates.
+Now we have a 4-dimensional \textbf{spacetime}. Our discussion is focused on the inertial coordinate system.
 \begin{definition}
   Inertial coordinate \\
-  The coordinate system must satisfy three property to be consider inertial coordinate:
+  The coordinate system must satisfy three properties to be considered inertial coordinate:
   \begin{enumerate}
-    \item The distance between two points are independent of time.
-    \item The clocks at every points ticking off time coordinate $t$ at same rate.
+    \item The distance between two points is independent of time.
+    \item The clocks at every points ticking off time coordinate $t$ at the same rate.
     \item The geometry of space is always flat.
   \end{enumerate}
   Basically, it is a coordinate system without acceleration.
@@ -589,17 +589,17 @@ Now we have a 4-dimensional \textbf{spacetime}. Our discussion is focus on inert
       \draw[step=1cm,gray,very thin] (-4.9,-4.9) grid (4.9,4.9);
 
     \end{tikzpicture}
-    \caption[]{two events with coordinate $(-1, -1, 0, 0)$ and $(4, 3, 0, 0)$. Orange line is light's worldline.}
+    \caption[]{two events with coordinate $(-1, -1, 0, 0)$ and $(4, 3, 0, 0)$. The orange line is light's worldline.}
   \end{center}
 \end{figure}
 
-The event in 4-D spacetime is defined by a set of coordinate \((t, x, y, z)\).
+The event in 4-D spacetime is defined by a set of coordinates \((t, x, y, z)\).
 For simplicity, we assume those events have $y=0, z=0$ so that we can draw a 2D graph to represent them.\\
 Analog to Euclidean geometry, just like the euclidean distance \(\Delta l^2 = \Delta x^2 + \Delta y^2 + \Delta z^2\), we define the
 \textbf{spacetime interval} $\Delta s^2 = - \Delta t^2 + \Delta x^2 + \Delta y^2 + \Delta z^2$.
 
 \begin{remark}\leavevmode
-  There are a lot different conventions to define the sign of interval, here we just use the popular one \((-,+,+,+)\).
+  There are a lot of different conventions to define the sign of interval, here we just use the popular one \((-,+,+,+)\).
 \end{remark}
 \begin{example}\leavevmode % This is needed to start the list in the next line so it won't be misaligned
   \\Interval for the two events in Figure 1 is $\Delta s^2 = - \Delta t^2 + \Delta x^2 + \Delta y^2 + \Delta z^2 = -9$.
@@ -607,15 +607,15 @@ Analog to Euclidean geometry, just like the euclidean distance \(\Delta l^2 = \D
 The universality speed of light means that $\frac{\Delta r}{\Delta t} = \frac{\sqrt{\Delta x^2+ \Delta y^2 + \Delta z^2}}{\Delta t}=1$
 are always hold, then we can then write the interval
 $\Delta s^2 = - \Delta t^2 + \Delta x^2 + \Delta y^2 + \Delta z^2 = 0$. This experimental fact yield all laws of special relativity.
-%Due to universal speed of light, interval is invariant change of inertial coordinate, this means that $\Delta s^2 =\Delta \bar{s}^2$ 
+%Due to the universal speed of light, the interval is an invariant change of inertial coordinate, this means that $\Delta s^2 =\Delta \bar{s}^2$ 
 %which $\Delta \bar{s}^2$ is $\Delta s^2$ in another inertial coordinate system.\\
 \\
-When the interval $\Delta s^2$ is less than 0, we call the seperation bewteen events is \textbf{timelike};
+When the interval $\Delta s^2$ is less than 0, we call the separation between events is \textbf{timelike};
 When the interval $\Delta s^2$ is equal to 0, we call it \textbf{lightlike} or null;
 When the interval $\Delta s^2$ is greater than 0, we call it \textbf{spacelike}.
 %The $x^{\mu}=\{x^0,x^1,x^2,x^3\} =\{t, x, y, z\}$ is a set of coordinate.
-If there is another coordinate system, which move with speed \(v\) alone \(x\) direction of original frame,
-we can draw this fram like the Figure 2 below.
+If there is another coordinate system, which moves with speed \(v\) alone \(x\) direction of the original frame,
+we can draw this frame like Figure 2 below.
 \begin{figure}[ht]
   \begin{center}
     \begin{tikzpicture}[scale = 0.5]%Edit size here
