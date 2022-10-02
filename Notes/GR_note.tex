@@ -13,7 +13,7 @@
 \setlist{topsep=2pt,itemsep=2pt,parsep=0pt,partopsep=0pt}
 \usepackage[dvipsnames]{xcolor}
 \usepackage[utf8]{inputenc}
-\usepackage[letterpaper, top=0.5in,bottom=0.2in, left=0.5in, right=0.5in, footskip=0.3in, includefoot]{geometry}
+%\usepackage[letterpaper, top=0.5in,bottom=0.2in, left=0.5in, right=0.5in, footskip=0.3in, includefoot]{geometry}
 \usepackage[most]{tcolorbox}
 \usepackage{tikz,tikz-3dplot,tikz-cd,tkz-tab,tkz-euclide,pgf,pgfplots}
 \pgfplotsset{compat=newest}
@@ -463,7 +463,7 @@ To recover Newtonian gravity, impose the following boundary conditions to the fi
 In this limit, the energy-momentum tensor simply \(T_{00} = \rho\) and all other components vanish.
 Rearrange Einstein equation, we get \(R_{\mu\nu} = c\left( T_{\mu\nu} - \frac{1}{2}Tg_{\mu\nu} \right)\),
 plug \(T_{00} = \rho\) in to field equation, we get \(R_{00}=\frac{1}{2}c\rho\). \\
-From Riemann tensor in week field limit, we can see that \(R_{00}=-\frac{1}{2}\nabla^2 h_{00}\); 
+From Riemann tensor in week field limit, we can see that \(R_{00}=-\frac{1}{2}\nabla^2 h_{00}\);
 compare to the Poisson equation of Newtonian gravity, we know that \(c = 8\pi G\).
 \begin{cthm}
   Einstein field equation.
@@ -508,7 +508,7 @@ Recall the Schwarzschild solution is only valid outside the spherical star, not 
 The interior solution can be solved by approximate the star by energy-momentum tensor of perfect fluid \(T_{\mu\nu} = (\rho + p)U_\mu U_\nu + pg_{\mu\nu}\),
 and match the exterior solution at the boundary. The interior solution of spherical star read \[ds^{2} =
   -\frac{1}{4} \left( 3 \sqrt{1-\frac {r_s}{r_g}}-\sqrt{1-\frac{r^2 r_s}{r_g^3}} \right)^2 dt^2 +
-  \left( 1-\frac{r^2 r_s}{r_g^3} \right)^{-1} dr^2 + r^2 \left(d\theta^2 + \sin^2\theta \, d\varphi^2\right)\]
+  \left( 1-\frac{r^2 r_s}{r_g^3} \right)^{-1} dr^2 + r^2 \mathrm{d}\Omega^2\]
 Where \(r_{g}\) is the radius of the surface.
 
 \subsubsection{Black hole}
@@ -525,9 +525,9 @@ Kerr solution is the vacuum solution to the axisymmetry rotating star, by applyi
 Kerr metric can be expressed in Boyer-Lindquist coordinates.
 \begin{cthm}
   \[ds^{2} =
-    -\left( 1 - \frac{2GM\; r}{\Sigma} \right) dt^{2} + \frac{\Sigma}{\Delta} dr^{2} + \Sigma d\theta^{2} +
-    \left(r^2+ a^2 + \frac{2GM\; r a^{2}}{\Sigma} \sin^{2}\theta \right) \sin^{2}\theta \ d\phi^{2} -
-    \frac{4GM\; ra \sin^{2} \theta}{\Sigma} dt \, d\phi\]\\
+    -\left( 1 - \frac{2GM\; r}{\Sigma} \right) dt^{2} + \frac{\Sigma}{\Delta} dr^{2} + \Sigma d\theta^{2}
+  \] \[+\left(r^2+ a^2 + \frac{2GM\; r a^{2}}{\Sigma} \sin^{2}\theta \right) \sin^{2}\theta \ d\phi^{2}\]
+  \[ -\frac{4GM\; ra \sin^{2} \theta}{\Sigma} dt \, d\phi\]\\
   Where \(a = \frac{J}{Mc}\), \(\Sigma = r^{2} + a^{2} \cos^{2}\theta\), and \(\Delta = r^{2} - r_{s} r + a^{2}\).
 \end{cthm}
 
@@ -570,7 +570,7 @@ Now we have a 4-dimensional \textbf{spacetime}. Our discussion is focused on the
     \item The clocks at every points ticking off time coordinate $t$ at the same rate.
     \item The geometry of space is always flat.
   \end{enumerate}
-  Basically, it is a coordinate system without acceleration.
+  It is a coordinate system without acceleration.
 \end{definition}
 
 \begin{figure}[ht]
@@ -643,24 +643,24 @@ we can draw this frame like Figure 2 below.
 
 \subsection{Lie Derivative}
 Lie derivative is a more ``fundamental'' way to generalize derivative to a manifold compared to covariant derivative. \\
-To see why it is more fundamental, consider the \textbf{Lie bracket} 
+To see why it is more fundamental, consider the \textbf{Lie bracket}
 \begin{definition}
   Lie bracket \\
   \[\left[X, Y\right]^{\mu}= X^{\lambda}\nabla_{\lambda}Y^{\mu} - Y^{\lambda}\nabla_\lambda X^{\mu}\]\\
-  It is easy to check that the above expression is equivalent to 
+  It is easy to check that the above expression is equivalent to
   \(\left[X, Y\right]^{\mu}= X^{\lambda}\partial_{\lambda}Y^{\mu} - Y^{\lambda}\partial_\lambda X^{\mu}\).
 \end{definition}
 
-Lie bracket is a special kind of \textbf{Lie derivative}. The above expression is equivalent to 
+Lie bracket is a special kind of \textbf{Lie derivative}. The above expression is equivalent to
 \(\mathcal{L}_{X}Y^{\mu}\). We see that the Lie derivative does not rely on affine connection.
 
-The basic idea of Lie derivative is to use derivatives of an auxiliary vector field to 
+The basic idea of Lie derivative is to use derivatives of an auxiliary vector field to
 cancel the non-tensorial part of the partial derivative.
 
 Let's go step by step to see how the Lie derivative work.
 
-Consider a tensor on a manifold defined at point \(P\), it can be ``dragged'' to a nearby point \(Q\), alone 
-a curve of the congruence that generates by a vector field. 
+Consider a tensor on a manifold defined at point \(P\), it can be ``dragged'' to a nearby point \(Q\), alone
+a curve of the congruence that generates by a vector field.
 
 This step is called \textbf{Lie dragging}.
 
