@@ -101,8 +101,8 @@
   \makeatother
 \end{tcolorbox}
 
-\vspace*{10mm}
 
+\newpage
 \begin{tcolorbox}[
     title=Conventions, fonttitle=\large\sffamily\bfseries\selectfont,
     interior style={left color=convcol1!40!white,right color=convcol2!40!white},
@@ -113,10 +113,10 @@
     \item Greek index (e.g. $\alpha, \beta, \mu, \nu$) take value from \{0, 1, 2, 3\}.
           %\item Events denoted by cursive capitals  (e.g. $\mathscr{A}, \mathscr{B}, \mathscr{E}$).
     \item $(x^0, x^1, x^2, x^3) \equiv (t, x, y, z) \equiv x^{\alpha}$.
-    \item Latin index (e.g.$ i, j, k$) take value from \{1, 2, 3\}.
+    \item Latin index (e.g. $ i, j, k$) take value from \{1, 2, 3\}.
     \item Natural units ($c=1$).
-    \item Einstein summation convention $ds^2 = g_{\mu \nu} dx^{\mu} dx^{\nu}=
-            \sum_{\mu=0}^{3} \sum_{\nu=0}^{3}g_{\mu \nu} dx^{\mu} dx^{\nu}$.
+    \item Einstein summation convention. \[ds^2 = g_{\mu \nu} dx^{\mu} dx^{\nu}=
+            \sum_{\mu=0}^{3} \sum_{\nu=0}^{3}g_{\mu \nu} dx^{\mu} dx^{\nu}\]
     \item Metric sign $(-, +, +, +)$.
 
   \end{enumerate}
@@ -213,7 +213,7 @@ system because both sides are following the same law to transform.
 A covariant totally antisymmetric rank \((0,p)\) tensor is called differential \(p\)-form. This is the reason why a dual vector is sometimes called 1-form.
 We can generate new differential forms by taking the antisymmetric part of the tensor product, which is called \textbf{wedge product}.
 \begin{example}
-  The wedge product of two one form is \[(A\wedge B)_{\mu\nu}= 2A_{\left[\mu\right.}B_{\left.\nu\right]}\].
+  The wedge product of two one form is \[(A\wedge B)_{\mu\nu}= 2A_{\left[\mu\right.}B_{\left.\nu\right]}\]
 \end{example}
 The \textbf{exterior derivative} can generate \(p+1\)-form from \(p\)-form.
 \begin{definition}
@@ -575,14 +575,14 @@ Now we have a 4-dimensional \textbf{spacetime}. Our discussion is focused on the
 
 \begin{figure}[ht]
   \begin{center}
-    \begin{tikzpicture}[scale = 0.75]
+    \begin{tikzpicture}[scale = 0.5]
       %\draw[orange, thick] (-5,0) -- (5,0);
       %\draw[orange, thick] (0,-5) -- (0,5);
 
       \draw[thick,->] (0,-5) -- (0,5) node[anchor=north west] {$t$};
       \draw[orange, thick] (-5,-5) -- (5,5);
       \draw[orange, thick] (-5,5) -- (5,-5);
-      \draw[thick] (-5,0) -- (5,0) node[anchor=south east] {$x$};
+      \draw[thick,->] (-5,0) -- (5,0) node[anchor=south east] {$x$};
       \filldraw[red] (-1,-1) circle (2pt) node[anchor=north west] {$\mathscr{A}$};
       \filldraw[red] (0,0) circle (2pt) node[anchor=north west] {$\mathscr{O}$};
       \filldraw[red] (3,4) circle (2pt) node[anchor=north west] {\(\mathscr{B}\)};
@@ -619,14 +619,12 @@ we can draw this frame like Figure 2 below.
 \begin{figure}[ht]
   \begin{center}
     \begin{tikzpicture}[scale = 0.5]%Edit size here
-      \draw[thick] (0, -5) -- (0, 5) node[anchor=north west] {$\mathcal{O}$};
-      \draw[thick] (-5, 0) -- (5, 0) node[anchor=west] {$\mathcal{O}$ simultaneity};
-      \draw[blue, thick] (-2.5, -5) -- (2.5, 5) node[anchor=north west] {$\mathcal{O}'$};
-      \draw[blue, thick] (-5, -2.5) -- (5, 2.5) node[anchor=west] {$\mathcal{O}'$ simultaneity};
-      \draw[orange, thick, dashed] (-4,-4) -- (4,4);
-      %\draw[rotate around={45:(0,0)}] (-1.5,1.5) rectangle (1.5,-1.5);
-      %\draw(-1.4, -0.7) -- (0.7, 1.4);
-      %\draw(-0.7, -1.4) -- (1.4, 0.7);
+      \draw[thick,->] (0, -5) -- (0, 5) node[anchor=north west] {$\mathcal{O}$};
+      \draw[thick,->] (-5, 0) -- (5, 0) node[anchor=west] {$\mathcal{O}$ simultaneity};
+      \draw[blue, thick,->] (-2.5, -5) -- (2.5, 5) node[anchor=north west] {$\mathcal{O}'$};
+      \draw[blue, thick,->] (-5, -2.5) -- (5, 2.5) node[anchor=west] {$\mathcal{O}'$ simultaneity};
+      \draw[orange, thick] (-5,-5) -- (5,5);
+      \draw[step=1cm,gray,very thin] (-4.9,-4.9) grid (4.9,4.9);
     \end{tikzpicture}
     \caption[]{Frame \(\mathcal{O}'\) move alone x direction of \(\mathcal{O}\)}
   \end{center}
