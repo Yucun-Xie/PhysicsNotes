@@ -37,10 +37,10 @@
 %\theoremstyle{mystyle}{\newtheorem{corollary}[definition]{Corollary}}
 \theoremstyle{mystyle}{\newtheorem*{remark}{Remark}}
 %\theoremstyle{mystyle}{\newtheorem*{remarks}{Remarks}}
-\theoremstyle{mystyle}{\newtheorem*{example}{Example}}
-\theoremstyle{mystyle}{\newtheorem*{examples}{Examples}}
+\theoremstyle{mystyle}{\newtheorem{example}{Example}[section]}
+\theoremstyle{mystyle}{\newtheorem{examples}{Examples}[section]}
 %\theoremstyle{definition}{\newtheorem*{exercise}{Exercise}}
-\theoremstyle{cstyle}{\newtheorem*{cthm}{}}
+\theoremstyle{mystyle}{\newtheorem{cthm}{}[section]}
 
 
 \tcolorboxenvironment{definition}{boxrule=0pt,boxsep=0pt,colback={red!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{red},sharp corners,before skip=10pt,after skip=10pt,breakable}
@@ -186,7 +186,7 @@ pushforward
 
 
 \subsection{Tensor}
-Tensor is a quantity that has the same form in all coordinate systems.
+A tensor is a quantity that has the same form in all coordinate systems.
 Tensor does not have components naturally, but when we choose a specific coordinate system, we can write down its components.
 Tensor has \textbf{Covariance}, which means it follows a specific transformation law.
 
@@ -206,7 +206,7 @@ When we change the coordinate system, tensor components transform following \tex
     T^{\alpha\beta\cdots}_{\mu\nu\cdots}\]
 \end{definition}
 Each upper indices is covariance with coordinate transform, each lower indices is contravariance with coordinate transform.
-If some quantity obeys tensor transformation law, it is a tensor. If a tensorial equation is held in one coordinate system,
+If some quantity obeys the tensor transformation law, it is a tensor. If a tensorial equation is held in one coordinate system,
 it is held in all coordinate
 system because both sides are following the same law to transform.
 
@@ -230,7 +230,7 @@ Recall that we are unable to transform vectors from one point to another on a ma
 because we missing the relation between tangent space at each point. So we introduce an additional structure called \textbf{connection}.
 Connection is an additional structure that connects the tangent space on each point of a manifold.
 There is no naturally defined connection on a manifold, we have to define one, therefore connection on a manifold is not unique.
-In general relativity, our spacetime manifold equipped with a metric compatible, torsion-free connection is called \textbf{affine connection}.
+In general relativity, our spacetime manifold equipped with a metric-compatible, torsion-free connection is called \textbf{affine connection}.
 Connection coeffienct in a coordinate system is express as \textbf{Christoffel symbol} \(\Gamma^{\lambda}_{\alpha\beta}\).\\
 In general, a manifold with connection is a manifold allowing \textbf{parallel transport} of vectors.
 
@@ -257,7 +257,7 @@ Which is defined as follows.
 This is called \textbf{covariant derivative}, two non-tensorial parts added together to form a tensor.
 
 \begin{proof}
-  Here is proof shows that connection is not a tensor by show connection does not obey tensor transformation law.
+  Here is proof shows that connection is not a tensor by show connection does not obey the tensor transformation law.
   \begin{align*}
     \begin{split}
       \nabla_{\beta'}e_{\alpha'} & = \Gamma^{\gamma'}_{\alpha'\beta'}e_{\gamma'} \\
@@ -289,7 +289,7 @@ Where \(S_{\mu\nu}\) is the torsion tensor.
 \subsubsection{Parallel Transport}
 Recall we defined connection to allow us to transport vectors on the manifold.
 For \textbf{parallel transport} a vector, we want each infinitesimal step of transport to maintain the vector parallel.
-Which required \textbf{intrinsic derivative} vanish.\[\frac{DV^{\mu}}{D\lambda} =
+Which required \textbf{intrinsic derivative} to vanish.\[\frac{DV^{\mu}}{D\lambda} =
   \frac{dV^{\mu}}{d\lambda}+ \Gamma^{\mu}_{\alpha\nu}V^{\alpha}\frac{dx^{\nu}}{d\lambda} = 0\]
 \(\lambda\) is \textbf{affine parameter}, which is the parameter along the curve.
 
@@ -297,7 +297,7 @@ Which required \textbf{intrinsic derivative} vanish.\[\frac{DV^{\mu}}{D\lambda} 
 Now, in addition to affine connection, we want a structure allowing measurement of distance on the manifold.
 The \textbf{metric space} is a kind of space with the notion of distance.
 \begin{definition}
-  A Riemannian manifold is an manifold with connection and equipped with a symmetric \textbf{metric tensor} \(g_{\mu\nu}\).
+  A Riemannian manifold is a manifold with a connection and equipped with a symmetric \textbf{metric tensor} \(g_{\mu\nu}\).
   which distance \(ds\) between two points with displacement \(dx^{\mu}\) is defined as the following.
   \[ds^2 \equiv g_{\mu \nu} dx^{\mu} dx^{\nu}\]
 \end{definition}
@@ -341,7 +341,7 @@ There is some property in the Riemann tensor.
 
 \begin{definition}
   From the Riemann tensor, we can construct a symmetric rank 2 tensor, \textbf{Ricci tensor}
-  by contract first and the third indices of Riemann tensor.
+  by contract first and the third indices of the Riemann tensor.
   \[R_{\mu\nu} = R_{\nu\mu} = R^{\lambda}_{\ \mu\lambda\nu}\]
   Furthermore, we can take the trace of the Ricci tensor, to get \textbf{Ricci scalar} or scalar curvature.
   \[R = g^{\mu\nu}R_{\mu\nu}\]
@@ -354,7 +354,7 @@ From Bianchi identity \(\nabla_{\left[ \lambda \right.} R_{\left.\alpha\beta \ri
 we can find that \[\nabla_{\mu}(R^{\mu\nu}-\frac{1}{2}g^{\mu\nu}R) = 0\]
 We see the divergence of this tensor vanish, therefore, we define a new tensor named \textbf{Einstein tensor},
 \[G^{\mu\nu}=R^{\mu\nu}-\frac{1}{2}g^{\mu\nu}R. \]
-The trace-free part of the Riemann tensor, is called \textbf{Weyl tensor}, can be defined as follows.
+The trace-free part of the Riemann tensor is called \textbf{Weyl tensor} and can be defined as follows.
 
 \begin{definition}
   Weyl tensor. @TODO
@@ -389,12 +389,12 @@ The symmetric property of spacetime is represented by \textbf{killing vector fie
 
 
 \subsection{Geodesic Deviation}
-
+\newpage
 \section{Gravitation}
 
 Our spacetime is not a simply Riemannian manifold, but a \textbf{pseudo-Riemannian manifold}, which more general Riemannian manifold.
-Riemannian manifold requires metric tensor to be positive definite, which means all eigenvalue of the metric tensor is positive.
-For pseudo-Riemannian manifold, the metric eigenvalue can be either positive or negative, called indefinitely.
+Riemannian manifold requires the metric tensor to be positive definite, which means all eigenvalue of the metric tensor is positive.
+For the pseudo-Riemannian manifold, the metric eigenvalue can be either positive or negative, called indefinitely.
 
 \begin{remark}
   The eigenvalue of the metric can not be zero, if an eigenvalue is zero, the metric will degenerate and have no inverse.
@@ -449,12 +449,12 @@ To make a relativistic version of this equation, we can replace the gravitationa
 But the second derivative of the metric vanished by metric compatibility of connection, therefore we want something constructed from the second derivative of the metric which does not vanishes.
 Riemann tensor fits this requirement but does not have the right number of indices, so we can use the Ricci tensor.
 \[R_{\mu\nu} = c T_{\mu\nu}\]
-But, this still not right, recall the conservation of energy, \(\nabla^{\mu}T_{\mu\nu} = 0\), Ricci not fit this requirement.
-Now, we need a rank 2 tensor that conserved and fit the requirement above. We do have one, the Einstein tensor:
+But, this is still not right, recall the conservation of energy, \(\nabla^{\mu}T_{\mu\nu} = 0\), the Ricci tensor does not fit this requirement.
+Now, we need a rank 2 tensor that is conserved and fit the requirement above. We do have one, the Einstein tensor:
 \[\nabla^{\mu}G_{\mu\nu} = 0\]
 Then our equation read \[R_{\mu\nu} -\frac{1}{2}Rg_{\mu\nu} = cT_{\mu\nu}\]
 This is the famous Einstein field equation. We can recover the constant by requiring the equation back to the Newtonian limit.\\
-To recover Newtonian gravity, impose the following boundary conditions to the field equation:
+To recover Newtonian gravity, impose the following boundary conditions on the field equation:
 \begin{enumerate}
   \item Weak field (\(g_{\mu\nu} = \eta_{\mu\nu} + h_{\mu\nu}\) which \(\left|h_{\mu\nu}\right| \ll 1\))
   \item Stationary (time translational symmetry).
@@ -464,13 +464,13 @@ To recover Newtonian gravity, impose the following boundary conditions to the fi
 In this limit, the energy-momentum tensor simply \(T_{00} = \rho\) and all other components vanish.
 Rearrange Einstein equation, we get \(R_{\mu\nu} = c\left( T_{\mu\nu} - \frac{1}{2}Tg_{\mu\nu} \right)\),
 plug \(T_{00} = \rho\) in to field equation, we get \(R_{00}=\frac{1}{2}c\rho\). \\
-From Riemann tensor in week field limit, we can see that \(R_{00}=-\frac{1}{2}\nabla^2 h_{00}\);
+From the Riemann tensor in week field limit, we can see that \(R_{00}=-\frac{1}{2}\nabla^2 h_{00}\);
 compare to the Poisson equation of Newtonian gravity, we know that \(c = 8\pi G\).
 \begin{cthm}
   Einstein field equation.
   \[R_{\mu\nu} -\frac{1}{2}Rg_{\mu\nu} = 8\pi GT_{\mu\nu}\]
 \end{cthm}
-
+\newpage
 \section{Relativistic Star}
 
 \subsection{Schwarzschild Solution}
@@ -481,7 +481,8 @@ This solution is solved by three boundary conditions.
 
 \begin{enumerate}
   \item Static, which means completely independent of time. More formally, the metric tensor satisfies time translational symmetry and time reversal symmetry.
-  \item Vacuum, which means outside the star, implying vanish of the energy-momentum tensor. This means the solution is not valid in the interior of the star.
+  \item Vacuum, which means the solution is only valid outside the star, implying vanish of the energy-momentum tensor. 
+  This means the solution is not valid in the interior of the star.
   \item Spherical symmetry, which means for, given a radius, the spacetime should be the same.
 \end{enumerate}
 
@@ -499,15 +500,15 @@ From this line element, we can notice a few properties of the Schwarzschild metr
 \end{enumerate}
 
 The surface at \(r = 2GM\) is known as \textbf{Schwarzschild horizon}, this radius is known as the Schwarzschild radius.
-This led to the idea of the black hole, in which nothing can escape from the horizon (at least in the classical limit, we will see later discussion of Hawking radiation). \\
+This led to the idea of the black hole, in which nothing can escape from the horizon (at least in the classical limit, we will see a later discussion of Hawking radiation). \\
 We can calculate the timelike geodesic from the metric, which implies planetary motion in general relativity, leading to the famous result of the precession of the perihelion of Mercury.
 We are also able to calculate the deflection of light by calculating lightlike geodesic from metric, this leads to the effect of \textbf{gravitational lensing}.
 
 \subsubsection{Interior Solution}
 
-Recall the Schwarzschild solution is only valid outside the spherical star, not the interior, so there is no singularity and horizon in our Earth.
-The interior solution can be solved by approximate the star by energy-momentum tensor of perfect fluid \(T_{\mu\nu} = (\rho + p)U_\mu U_\nu + pg_{\mu\nu}\),
-and match the exterior solution at the boundary. The interior solution of spherical star read \[ds^{2} =
+Recall the Schwarzschild solution is only valid outside the spherical star, not the interior, so there is no singularity and horizon on our Earth.
+The interior solution can be solved by approximating the star by energy-momentum tensor of perfect fluid \(T_{\mu\nu} = (\rho + p)U_\mu U_\nu + pg_{\mu\nu}\),
+and match the exterior solution at the boundary. The interior solution of a spherical star read \[ds^{2} =
   -\frac{1}{4} \left( 3 \sqrt{1-\frac {r_s}{r_g}}-\sqrt{1-\frac{r^2 r_s}{r_g^3}} \right)^2 dt^2 +
   \left( 1-\frac{r^2 r_s}{r_g^3} \right)^{-1} dr^2 + r^2 \mathrm{d}\Omega^2\]
 Where \(r_{g}\) is the radius of the surface.
@@ -520,7 +521,8 @@ Where \(r_{g}\) is the radius of the surface.
 Kerr solution is the vacuum solution to the axisymmetry rotating star, by applying the following conditions to the Einstein equation.
 \begin{enumerate}
   \item Stationary, which metric tensor satisfies time translational symmetry.
-  \item Vacuum, which means outside the star, implying vanish of the energy-momentum tensor. This means the solution is not valid in the interior of the star.
+  \item Vacuum, which means the solution is only valid for the region outside the star, implying vanish of the energy-momentum tensor. 
+  This means the solution is not valid in the interior of the star.
   \item Axissymmetry, which means for given \(r\) and \(\theta\), metric components are the same.
 \end{enumerate}
 Kerr metric can be expressed in Boyer-Lindquist coordinates.
@@ -537,14 +539,16 @@ Kerr metric can be expressed in Boyer-Lindquist coordinates.
 \subsubsection{Ergosphere}
 
 \subsubsection{Penrose Process}
-
+\newpage
 \section{Gravitational Radiation}
 \subsection{Linearized Gravity}
-When the gravitational field are weak, the metric take following form :\[g_{\mu\nu} = \eta_{\mu\nu} + h_{\mu\nu} \]
+When the gravitational field is weak, the metric takes the following form:\[g_{\mu\nu} = \eta_{\mu\nu} + h_{\mu\nu} \]
 which we treat the gravitational field as a perturbation of flat spacetime metric.
 \subsection{Gravitational Wave}
 \subsubsection{Effect of Gravitational Wave on matter}
 \subsubsection{Source of Gravitational Wave}
+
+\newpage
 
 \section{Cosmology}
 \subsection{Roberson-Walker Metric}
@@ -600,10 +604,10 @@ Analog to Euclidean geometry, just like the euclidean distance \(\Delta l^2 = \D
 \textbf{spacetime interval} $\Delta s^2 = - \Delta t^2 + \Delta x^2 + \Delta y^2 + \Delta z^2$.
 
 \begin{remark}\leavevmode
-  There are a lot of different conventions to define the sign of interval, here we just use the popular one \((-,+,+,+)\).
+  There are a lot of different conventions to define the sign of the spacetime interval, here we just use the popular one \((-,+,+,+)\).
 \end{remark}
 \begin{example}\leavevmode % This is needed to start the list in the next line so it won't be misaligned
-  \\Interval for the two events in Figure 1 is $\Delta s^2 = - \Delta t^2 + \Delta x^2 + \Delta y^2 + \Delta z^2 = -9$.
+  Interval for the two events in Figure 1 is $\Delta s^2 = - \Delta t^2 + \Delta x^2 + \Delta y^2 + \Delta z^2 = -9$.
 \end{example}
 The universality speed of light means that $\frac{\Delta r}{\Delta t} = \frac{\sqrt{\Delta x^2+ \Delta y^2 + \Delta z^2}}{\Delta t}=1$
 are always hold, then we can then write the interval
@@ -635,16 +639,17 @@ we can draw this frame like Figure 2 below.
 \subsection{Fluid}
 
 %\section{Skipped proof}
-
+\newpage
 \section{Topological Space}
-
+\newpage
 \section{Lie Algebra}
 
 \subsection{Lie Derivative}
 Lie derivative is a more ``fundamental'' way to generalize derivative to a manifold compared to covariant derivative. \\
 To see why it is more fundamental, consider the \textbf{Lie bracket}
 \begin{definition}
-  Lie bracket \\
+  Lie bracket 
+  \bigskip
   \[\left[X, Y\right]^{\mu}= X^{\lambda}\nabla_{\lambda}Y^{\mu} - Y^{\lambda}\nabla_\lambda X^{\mu}\]\\
   It is easy to check that the above expression is equivalent to
   \(\left[X, Y\right]^{\mu}= X^{\lambda}\partial_{\lambda}Y^{\mu} - Y^{\lambda}\partial_\lambda X^{\mu}\).
@@ -663,8 +668,47 @@ a curve of the congruence that generates by a vector field.
 
 This step is called \textbf{Lie dragging}.
 
+\newpage
 
 \section{Penrose Diagram}
+
+\newpage
+\section{Scalar Tensor Theory}
+A set of alternative models are known as \textbf{scalar-tensor theories}.
+These set of theories involves both the metric tensor and a scalar field, 
+and the scalar field couples to the curvature scalar directly. 
+The action of the theory can be written as a sum of a gravitational part, scalar field part, and matter part.
+\[S = S_{fR}+S_{\lambda}+S_{M}\]
+\begin{definition}
+  \begin{align*}
+    S_{fR}&= \int d^4x\sqrt{-g}f(\lambda)R\\
+    S_{\lambda}&= \int d^4x\sqrt{-g}\left[-\frac{1}{2}h(\lambda)g^{\mu\nu}(\partial_{\mu}\lambda)(\partial_{\nu}\lambda)-U(\lambda)\right]\\
+    S_{M}&= \int d^4x\sqrt{-g}\mathcal{L}_M(g_{\mu\nu},\psi_i)
+  \end{align*}
+\end{definition}
+We can always set \(h(\lambda)=1\) by change of variables, for convenience, I'll set it equal \(1\) in the following calculations. 
+To obtain the equation of motion, we can vary the action:
+\bigskip
+\begin{cthm}
+  \begin{align*}
+    \delta S_{fR}&= \int d^4x \sqrt{-g}f(\lambda)\left[\left(R_{\mu\nu}-\frac{1}{2}g_{\mu\nu}\right)\delta g^{\mu\nu}+
+  \nabla_{\sigma}\nabla^{\sigma}(g_{\mu\nu}\delta g^{\mu\nu})-\nabla_{\mu}\nabla_{\nu}(\delta g^{\mu\nu})\right]\\
+  &=\int d^4x \sqrt{-g}\left[fG_{\mu\nu}+g_{\mu\nu}\square f- \nabla_{\mu}\nabla_{\nu}f\right]\delta g^{\mu\nu}
+  \end{align*}
+\end{cthm}
+So the final equation of motion we have is 
+\begin{cthm}
+  \[G_{\mu\nu}= f^{-1}\left[\frac{1}{2}T^{(M)}_{\mu\nu}+ \frac{1}{2}T^{(\lambda)}_{\mu\nu}+\nabla_{\mu}\nabla_{\nu}f-g_{\mu\nu}\square f\right]\].
+  Where the energy-momentum tensor is defined as \[T_{\mu\nu}^{(i)}= \frac{-2}{\sqrt{-g}}\frac{\delta S_{(i)}}{\delta g^{\mu\nu}}\]
+\end{cthm}
+
+
+
+
+\section{Post-Newtonian Formalism}
+The post-Newtonian formalism is a calculational method to express Einstein's equation of gravity in terms of the lowest-order deviation from Newtonian gravity.
+The parameterized post-Newtonian formalism, 
+\newpage
 \section{Summary of Formula}
 %Property for tensor used in GR:
 \begin{align*}
