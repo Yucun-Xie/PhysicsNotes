@@ -30,17 +30,17 @@
 \newtheoremstyle{mystyle}{}{}{}{}{\sffamily\bfseries}{.\\}{ }{}
 \newtheoremstyle{cstyle}{}{}{}{}{\sffamily\bfseries}{}{ }{\thmnote{#3}}
 
-\theoremstyle{mystyle}{\newtheorem{definition}{Definition}[section]}
+\theoremstyle{mystyle}{\newtheorem{definition}{Definition}[subsection]}
 %\theoremstyle{mystyle}{\newtheorem{proposition}[definition]{Proposition}}
 \theoremstyle{mystyle}{\newtheorem{theorem}[definition]{Theorem}}
 %\theoremstyle{mystyle}{\newtheorem{lemma}[definition]{Lemma}}
 %\theoremstyle{mystyle}{\newtheorem{corollary}[definition]{Corollary}}
 \theoremstyle{mystyle}{\newtheorem*{remark}{Remark}}
 %\theoremstyle{mystyle}{\newtheorem*{remarks}{Remarks}}
-\theoremstyle{mystyle}{\newtheorem{example}{Example}[section]}
-\theoremstyle{mystyle}{\newtheorem{examples}{Examples}[section]}
+\theoremstyle{mystyle}{\newtheorem{example}{Example}[subsection]}
+\theoremstyle{mystyle}{\newtheorem{examples}{Examples}[subsection]}
 %\theoremstyle{definition}{\newtheorem*{exercise}{Exercise}}
-\theoremstyle{mystyle}{\newtheorem{cthm}{}[section]}
+\theoremstyle{mystyle}{\newtheorem{cthm}{}[subsection]}
 
 
 \tcolorboxenvironment{definition}{boxrule=0pt,boxsep=0pt,colback={red!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{red},sharp corners,before skip=10pt,after skip=10pt,breakable}
@@ -54,6 +54,7 @@
 %\tcolorboxenvironment{example}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{Black},left=8pt,right=8pt,sharp corners,before skip=10pt,after skip=10pt,breakable}
 %\tcolorboxenvironment{examples}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{Black},left=8pt,right=8pt,sharp corners,before skip=10pt,after skip=10pt,breakable}
 \tcolorboxenvironment{cthm}{boxrule=0pt,boxsep=0pt,colback={orange!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{orange},sharp corners,before skip=10pt,after skip=10pt,breakable}
+
 
 
 \usepackage[explicit]{titlesec}
@@ -481,8 +482,8 @@ This solution is solved by imposing the following boundary conditions:
 
 \begin{enumerate}
   \item Static, which means completely independent of time. More formally, the metric tensor satisfies time translational symmetry and time reversal symmetry.
-  \item Vacuum, which means the solution is only valid outside the star, implying vanish of the energy-momentum tensor. 
-  This means the solution is not valid in the interior of the star.
+  \item Vacuum, which means the solution is only valid outside the star, implying vanish of the energy-momentum tensor.
+        This means the solution is not valid in the interior of the star.
   \item Spherical symmetry, which means that, given a radius, the spacetime should be the same.
 \end{enumerate}
 
@@ -521,8 +522,8 @@ Where \(r_{g}\) is the radius of the surface.
 Kerr solution is the vacuum solution to the axisymmetry rotating star by applying the following conditions to the Einstein equation.
 \begin{enumerate}
   \item Stationary, which metric tensor satisfies time translational symmetry.
-  \item Vacuum, which means the solution is only valid for the region outside the star, implying vanish of the energy-momentum tensor. 
-  This means the solution is not valid in the interior of the star.
+  \item Vacuum, which means the solution is only valid for the region outside the star, implying vanish of the energy-momentum tensor.
+        This means the solution is not valid in the interior of the star.
   \item Axissymmetry, which means for given \(r\) and \(\theta\), metric components are the same.
 \end{enumerate}
 Kerr metric can be expressed in Boyer-Lindquist coordinates.
@@ -635,8 +636,133 @@ we can draw this frame like Figure 2 below.
   \end{center}
 \end{figure}
 
-\subsection{Energy and Momentum}
 \subsection{Fluid}
+
+\newpage
+\section{Classical Field Theory}
+Classical field theory is something you are supposed to know for QFT but is never formally taught, so I give a brief overview here.
+Field theory is very similar to Lagrangian mechanics; instead of the usual system,
+we now have a spacetime-dependent \textbf{fields} \(\Phi^i(x^\mu)\) (the \(i\) here is not tensor index),
+and the action becomes a \textbf{functional} of these fields. A functional is a ``function of function'', which map a function to a number,
+note that the functional is not simply a composition function, which maps number to number. \par
+In field theory, the Lagrangian is usually expressed as an integral over \textbf{Lagrange density},
+which are a function of the fields and their derivative.
+\begin{cthm}
+  \[L=\int d^3x\;\mathcal{L}(\Phi^i,\partial_{\mu}\Phi^i)\]
+\end{cthm}
+Then the action
+\begin{cthm}
+  \[S=\int dt\;L = \int d^4x\;\mathcal{L}(\Phi^i,\partial_{\mu}\Phi^i)\]
+\end{cthm}
+By varying the action, just like what we did in classical mechanics, we can obtain the equation of motion of field:
+\begin{cthm}
+  \begin{align*}
+    \delta S & = \int d^4x\left[\frac{\partial\mathcal{L}}{\partial \Phi^i}\delta\Phi^i+
+    \frac{\partial\mathcal{L}}{\partial(\partial_\mu \Phi^i)}\partial_\mu (\delta\Phi^i)\right] \\
+             & =\int d^4x\left[\frac{\partial\mathcal{L}}{\partial \Phi^i}-\partial_\mu
+      \frac{\partial\mathcal{L}}{\partial(\partial_\mu \Phi^i)}\right]\delta\Phi^i
+  \end{align*}
+\end{cthm}
+We have obtained the field version of \textbf{Euler-Lagrange equation}
+\begin{cthm}
+  \[\frac{\partial\mathcal{L}}{\partial \Phi^i}-\partial_\mu
+    \frac{\partial\mathcal{L}}{\partial(\partial_\mu \Phi^i)}=0\]
+\end{cthm}
+Let's consider a simple example, the real scalar field \[\phi:\ x^{\mu} \rightarrow \mathbb{R}\].
+The contribution of action are
+
+\begin{enumerate}
+  \item Kinetic term: \(\frac{1}{2}\dot{\phi}^2\)
+  \item Gradient term: \(\frac{1}{2}(\nabla\phi)^2\)
+  \item potential term: \(V(\phi)\)
+\end{enumerate}
+We could combine them into a Lorentz-invariant Lagrange density:
+\begin{cthm}
+  \[\mathcal{L}= \frac{1}{2}\eta^{\mu\nu}(\partial_{\mu}\phi)(\partial_{\nu}\phi)-V(\phi)\]
+\end{cthm}
+Apply the Euler-Lagrange equation; we then get the equation of motion:
+\begin{cthm}
+  \begin{align*}    & \eta^{\mu\nu}\partial_{\mu}\partial_{\nu}\phi+\frac{\mathrm{d}V(\phi)}{\mathrm{d}\phi} \\
+              =\  & \square\phi+\frac{\mathrm{d}V(\phi)}{\mathrm{d}\phi}                                   \\
+              =\  & 0
+  \end{align*}
+  Where \(\square\) is \textbf{d'Alembertian}.
+\end{cthm}
+\subsection{Klein-Gordon Field}
+If the scalar field is massive, the potential \(V(\phi)=\frac{1}{2}m^2\phi^2\),
+we obtained the \textbf{Klein-Gordon equation}:
+\begin{cthm}
+  \[(\square +m^2)\phi = 0\]
+\end{cthm}
+You will see this equation again and again in quantum field theory.
+\begin{remark}
+  The Klein-Gordon field could be analog to infinite many coupled infinitesimal harmonic oscillators,
+  each ``mass'' is affected by neighboring springs and has its kinetic energy.
+
+\end{remark}
+\subsection{Noether's Theorem}
+A Lagrangian may be invariant under some special type of transformation.
+For example, a Lagrangian for a complex scalar field
+\[\mathcal{L}= |\partial_\mu \phi|^2 -m^2|\phi|^2\]
+is invariant under transformation \(\phi \rightarrow e^{i\alpha}\phi\).
+We call this transformation a \textbf{symmetry} of the Lagrangian.
+When the parameter of transformation (\(alpha\) for this case) can be taken infinitesimal,
+we say this symmetry is \textbf{continuous}.
+We can explicit see that \(\frac{\delta \mathcal{L}}{\delta \alpha}=0\).
+\par By applying the Euler-Lagrange equation, we can deduce that \(\partial_\mu J_{\mu}=0\),
+where \(J_{\mu}\) is defined as follow:
+\begin{definition}
+  \[J_{\mu}= \sum_n\frac{\partial \mathcal{L}}{\partial(\partial_\mu \phi_n)}\frac{\delta\phi_n}{\delta \alpha}\]\\
+  \(J_{\mu}\) is known as \textbf{Noether current} or \textbf{conserved current}
+\end{definition}
+
+\begin{example}
+  For the above complex scalar field, we can calculate the conserved current:
+  \bigskip
+  \begin{align*}
+    J_{\mu}= & \sum_n\frac{\partial \mathcal{L}}{\partial(\partial_\mu \phi_n)}\frac{\delta\phi_n}{\delta \alpha} \\
+    =        & \frac{\partial \mathcal{L}}{\partial(\partial_\mu \phi)}\frac{\delta\phi}{\delta \alpha}
+    +\frac{\partial \mathcal{L}}{\partial(\partial_\mu \phi^*)}\frac{\delta\phi^*}{\delta \alpha}                 \\
+    =        & -i\left[\phi\partial_\mu\phi^*-\phi^* \partial_\mu\phi\right]
+  \end{align*}
+  We can check that \(\partial_\mu J_{\mu}=0\) explicitly:
+  \begin{align*}
+    \partial_\mu J_{\mu}= & -i\left[\phi\square\phi^*-\phi^* \square\phi\right] \\
+    =                     & 0
+  \end{align*}
+  Where we applied the equation of motion in the last step.
+\end{example}
+We call \(J_\mu\) conserved current because we can find conserved quantity by integral over its 0-component:
+\begin{definition}
+  \[Q=\int d^3x\;J_0\]
+  Where the \(Q\) is called \textbf{conserved charge} or \textbf{Noether's charge}
+\end{definition}[Conserved charge]
+We say \(Q\) is conserved because
+\begin{cthm}
+  \[\partial_tQ=\int d^3x \; \partial_t J_0 = \int d^3x\;\vec{\nabla}\cdot \vec{J} = 0.\]
+\end{cthm}
+The above argument is called \textbf{Noether's theorem}.
+\begin{theorem}[Noether's theorem]
+  If a Lagrangian has a continuous symmetry,
+  then exists a current associated with that symmetry that is 
+  conserved when the equations of motion are satisfied.
+\end{theorem}
+
+\subsection{Energy-momentum Tensor}
+The physics at spacetime point \(x\) should have same form at spacetime point \(y\),
+this argument arises a symmetry called \textbf{specetime translational symmetry}.
+By Noether's theorem, we can find the four conserved currents for this symmetry for an infinitesimal
+spacetime translation \(\xi^\mu\):
+\begin{cthm}
+ \[T_{\mu\nu}=\sum_n \frac{\partial \mathcal{L}}{\partial(\partial_{\mu}\phi_n)}\partial_\nu\phi_n-g_{\mu\nu}\mathcal{L}\]
+ 
+\(T_{\mu\nu}\) is called \textbf{energy-momentum tensor}.
+\end{cthm}
+Four conserved currents correspond to values of \(\nu\), and four conserved charges are energy and momentum.
+We can see that the energy density is the 00-component of \(T_{\mu\nu}\).
+
+
+
 
 %\section{Skipped proof}
 \newpage
@@ -648,7 +774,7 @@ we can draw this frame like Figure 2 below.
 Lie derivative is a more ``fundamental'' way to generalize derivative to a manifold than covariant derivative. \\
 To see why it is more fundamental, consider the \textbf{Lie bracket}
 \begin{definition}
-  Lie bracket 
+  Lie bracket
   \bigskip
   \[\left[X, Y\right]^{\mu}= X^{\lambda}\nabla_{\lambda}Y^{\mu} - Y^{\lambda}\nabla_\lambda X^{\mu}\]\\
   It is easy to check that the above expression is equivalent to
@@ -675,28 +801,28 @@ This step is called \textbf{Lie dragging}.
 \newpage
 \section{Scalar Tensor Theory}
 A set of alternative models are known as \textbf{scalar-tensor theories}.
-This set of theories involves both the metric tensor and a scalar field, 
-and the scalar field couples to the curvature scalar directly. 
+This set of theories involves both the metric tensor and a scalar field,
+and the scalar field couples to the curvature scalar directly.
 The action of the theory can be written as a sum of a gravitational part, scalar field part, and matter part.
 \[S = S_{fR}+S_{\lambda}+S_{M}\]
 \begin{definition}
   \begin{align*}
-    S_{fR}&= \int d^4x\sqrt{-g}f(\lambda)R\\
-    S_{\lambda}&= \int d^4x\sqrt{-g}\left[-\frac{1}{2}h(\lambda)g^{\mu\nu}(\partial_{\mu}\lambda)(\partial_{\nu}\lambda)-U(\lambda)\right]\\
-    S_{M}&= \int d^4x\sqrt{-g}\mathcal{L}_M(g_{\mu\nu},\psi_i)
+    S_{fR}      & = \int d^4x\sqrt{-g}f(\lambda)R                                                                                            \\
+    S_{\lambda} & = \int d^4x\sqrt{-g}\left[-\frac{1}{2}h(\lambda)g^{\mu\nu}(\partial_{\mu}\lambda)(\partial_{\nu}\lambda)-U(\lambda)\right] \\
+    S_{M}       & = \int d^4x\sqrt{-g}\mathcal{L}_M(g_{\mu\nu},\psi_i)
   \end{align*}
 \end{definition}
-We can always set \(h(\lambda)=1\) by change of variables; for convenience, I'll set it equal \(1\) in the following calculations. 
+We can always set \(h(\lambda)=1\) by change of variables; for convenience, I'll set it equal \(1\) in the following calculations.
 To obtain the equation of motion, we can vary the action:
 \bigskip
 \begin{cthm}
   \begin{align*}
-    \delta S_{fR}&= \int d^4x \sqrt{-g}f(\lambda)\left[\left(R_{\mu\nu}-\frac{1}{2}g_{\mu\nu}\right)\delta g^{\mu\nu}+
-  \nabla_{\sigma}\nabla^{\sigma}(g_{\mu\nu}\delta g^{\mu\nu})-\nabla_{\mu}\nabla_{\nu}(\delta g^{\mu\nu})\right]\\
-  &=\int d^4x \sqrt{-g}\left[fG_{\mu\nu}+g_{\mu\nu}\square f- \nabla_{\mu}\nabla_{\nu}f\right]\delta g^{\mu\nu}
+    \delta S_{fR} & = \int d^4x \sqrt{-g}f(\lambda)\left[\left(R_{\mu\nu}-\frac{1}{2}g_{\mu\nu}\right)\delta g^{\mu\nu}+
+    \nabla_{\sigma}\nabla^{\sigma}(g_{\mu\nu}\delta g^{\mu\nu})-\nabla_{\mu}\nabla_{\nu}(\delta g^{\mu\nu})\right]               \\
+                  & =\int d^4x \sqrt{-g}\left[fG_{\mu\nu}+g_{\mu\nu}\square f- \nabla_{\mu}\nabla_{\nu}f\right]\delta g^{\mu\nu}
   \end{align*}
 \end{cthm}
-So the final equation of motion we have is 
+So the final equation of motion we have is
 \begin{cthm}
   \[G_{\mu\nu}= f^{-1}\left[\frac{1}{2}T^{(M)}_{\mu\nu}+ \frac{1}{2}T^{(\lambda)}_{\mu\nu}+\nabla_{\mu}\nabla_{\nu}f-g_{\mu\nu}\square f\right]\].
   Where the energy-momentum tensor is defined as \[T_{\mu\nu}^{(i)}= \frac{-2}{\sqrt{-g}}\frac{\delta S_{(i)}}{\delta g^{\mu\nu}}\]
@@ -707,7 +833,7 @@ So the final equation of motion we have is
 
 \section{Post-Newtonian Formalism}
 The post-Newtonian formalism is a calculational method to express Einstein's equation of gravity in terms of the lowest-order deviation from Newtonian gravity.
-The parameterized post-Newtonian formalism, 
+The parameterized post-Newtonian formalism,
 \newpage
 \section{Summary of Formula}
 %Property for tensor used in GR:
