@@ -53,7 +53,7 @@
 %\tcolorboxenvironment{remarks}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{Green},left=8pt,right=8pt,before skip=10pt,after skip=10pt,breakable}
 %\tcolorboxenvironment{example}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{Black},left=8pt,right=8pt,sharp corners,before skip=10pt,after skip=10pt,breakable}
 %\tcolorboxenvironment{examples}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{Black},left=8pt,right=8pt,sharp corners,before skip=10pt,after skip=10pt,breakable}
-\tcolorboxenvironment{cthm}{boxrule=0pt,boxsep=0pt,colback={gray!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{gray},sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{cthm}{boxrule=0pt,boxsep=0pt,colback={orange!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{orange},sharp corners,before skip=10pt,after skip=10pt,breakable}
 
 
 \usepackage[explicit]{titlesec}
@@ -131,10 +131,10 @@
 \subsection{Manifolds}
 Mathematically, spacetime is a \textbf{manifold}.\\
 A manifold is a space that can be continuously (no hole, tear, etc.) covered by multiple coordinate charts.
-For example, think about a sphere, we can stretch a membrane with the grid to cover it except for one point, then we can
+For example, think about a sphere; we can stretch a membrane with the grid to cover it except for one point, then we can
 use another membrane to cover that one point. The sphere is an example of a 2-D manifold, and the membrane is an example of a coordinate chart.
 Informally, a manifold locally looks like \(\mathbb{R}^2\).
-For example, the surface of the Earth is a 2-sphere $S^2$, but look at the ground around you, it seems flat.
+For example, the surface of the Earth is a 2-sphere $S^2$, but look at the ground around you; it seems flat.
 \begin{definition}
   An n-dimensional manifold is a mathematical structure consisting of
   \begin{enumerate}
@@ -146,7 +146,7 @@ For example, the surface of the Earth is a 2-sphere $S^2$, but look at the groun
   \end{enumerate}
   More formally, an n-dimensional manifold is a topological space that is locally homeomorphic to the n-dimensional Euclidean space.
   See the discussion of topological space for the definition of homeomorphism.\\
-  If a manifold is differentiable for m times at each point, it is a \textbf{differentiable manifold}, denote by \(C^m\).
+  If a manifold is differentiable for m times at each point, it is a \textbf{differentiable manifold}, denoted by \(C^m\).
   If a manifold is infinitely differentiable at each point, denote by \(C^\infty\), called a smooth manifold.\\
   A coordinate system (also called a chart) is n labels uniquely with each point of an n-dimensional manifold through a one-to-one mapping from
   $\mathbb{R}^n$ to $M$.\\
@@ -205,10 +205,10 @@ When we change the coordinate system, tensor components transform following \tex
     \frac{\partial x^{\beta'}}{\partial x^{\beta}} \cdots
     T^{\alpha\beta\cdots}_{\mu\nu\cdots}\]
 \end{definition}
-Each upper indices is covariance with coordinate transform, each lower indices is contravariance with coordinate transform.
+Each upper indices is covariance with coordinate transform; each lower indices is contravariance with coordinate transform.
 If some quantity obeys the tensor transformation law, it is a tensor. If a tensorial equation is held in one coordinate system,
 it is held in all coordinate
-system because both sides are following the same law to transform.
+system because both sides follow the same law to transform.
 
 \subsubsection{Exterior Calculus}
 A covariant totally antisymmetric rank \((0,p)\) tensor is called differential \(p\)-form. This is the reason why a dual vector is sometimes called 1-form.
@@ -223,19 +223,19 @@ The \textbf{exterior derivative} can generate \(p+1\)-form from \(p\)-form.
 \end{definition}
 A differential \(p\)-form \(A\) is \textbf{closed} if \(dA =0\), and \textbf{exact} if exist another differential form which \(dB = A\).
 We see that definition of the exterior derivative does not require any additional structure.
-The reason of define differential form is that we can have derivative and integral without the help of additional structure on the manifold.
+The reason for defining differential form is that we can have derivative and integral without the help of additional structure on the manifold.
 
 \subsection{Affine Connection}
-Recall that we are unable to transform vectors from one point to another on a manifold
-because we missing the relation between tangent space at each point. So we introduce an additional structure called \textbf{connection}.
-Connection is an additional structure that connects the tangent space on each point of a manifold.
-There is no naturally defined connection on a manifold, we have to define one, therefore connection on a manifold is not unique.
+Recall that we cannot transform vectors from one point to another on a manifold
+because we miss the relation between tangent space at each point. So we introduce an additional structure called \textbf{connection}.
+The connection is an additional structure that connects the tangent space on each point of a manifold.
+There is no naturally defined connection on a manifold; we have to define one. Therefore connection on a manifold is not unique.
 In general relativity, our spacetime manifold equipped with a metric-compatible, torsion-free connection is called \textbf{affine connection}.
 Connection coeffienct in a coordinate system is express as \textbf{Christoffel symbol} \(\Gamma^{\lambda}_{\alpha\beta}\).\\
 In general, a manifold with connection is a manifold allowing \textbf{parallel transport} of vectors.
 
 \subsubsection{Covariant Derivative}
-The partial derivative is not covariance, we are looking for another kind of differentiation that is covariant.
+The partial derivative is not covariance; we are looking for another kind of differentiation that is covariant.
 Here let me show that partial derivative, not covariance, and then construct a covariant one that we can apply to our curved spacetime.
 \begin{align*}
   \begin{split}
@@ -302,16 +302,16 @@ The \textbf{metric space} is a kind of space with the notion of distance.
   \[ds^2 \equiv g_{\mu \nu} dx^{\mu} dx^{\nu}\]
 \end{definition}
 The metric tensor is one of the most important tensors in general relativity,
-which directly lead to the all structures of spacetime.
+which directly lead to all spacetime structures.
 \begin{example}
   The connection coefficient can be directly calculated from the metric tensor.
   \[\Gamma_{\mu\nu}^{\lambda} = \frac{1}{2}g^{\lambda\sigma}(\partial_{\mu}g_{\nu\sigma}+ \partial_{\nu}g_{\sigma\mu}
     - \partial_{\sigma}g_{\mu\nu})\]
 \end{example}
-In general relativity, proper time is equivalence to distance in timelike direction \(d\tau^2 = - ds^2\).
+In general relativity, proper time equates to distance in the timelike direction \(d\tau^2 = - ds^2\).
 
 \subsubsection{Riemann Tensor}
-Now, we have everything we need to define the \textbf{curvature}. Think about transporting a vector \(V^\rho\)
+We have everything we need to define the \textbf{curvature}. Think about transporting a vector \(V^\rho\)
 around an infinitesimal loop on a curved manifold, the loop is defined by two vectors \(dA^\mu\) and \(dB^\nu\).
 Then, the change on \(V^\rho\) can be express as \[\delta V^\rho = R^{\rho}_{\ \sigma\mu\nu}V^{\sigma}dA^{\mu}dB^{\nu}\]
 
@@ -340,10 +340,10 @@ There is some property in the Riemann tensor.
 \end{cthm}
 
 \begin{definition}
-  From the Riemann tensor, we can construct a symmetric rank 2 tensor, \textbf{Ricci tensor}
+  From the Riemann tensor, we can construct a symmetric rank-2 tensor, \textbf{Ricci tensor}
   by contract first and the third indices of the Riemann tensor.
   \[R_{\mu\nu} = R_{\nu\mu} = R^{\lambda}_{\ \mu\lambda\nu}\]
-  Furthermore, we can take the trace of the Ricci tensor, to get \textbf{Ricci scalar} or scalar curvature.
+  Furthermore, we can take the trace of the Ricci tensor to get \textbf{Ricci scalar} or scalar curvature.
   \[R = g^{\mu\nu}R_{\mu\nu}\]
 \end{definition}
 
@@ -352,7 +352,7 @@ We can recover the Riemann tensor from scalar curvature through metric tensor.
 
 From Bianchi identity \(\nabla_{\left[ \lambda \right.} R_{\left.\alpha\beta \right] \mu\nu} = 0\),
 we can find that \[\nabla_{\mu}(R^{\mu\nu}-\frac{1}{2}g^{\mu\nu}R) = 0\]
-We see the divergence of this tensor vanish, therefore, we define a new tensor named \textbf{Einstein tensor},
+We see the divergence of this tensor vanish. Therefore, we define a new tensor named \textbf{Einstein tensor},
 \[G^{\mu\nu}=R^{\mu\nu}-\frac{1}{2}g^{\mu\nu}R. \]
 The trace-free part of the Riemann tensor is called \textbf{Weyl tensor} and can be defined as follows.
 
@@ -376,8 +376,8 @@ This is famous \textbf{geodesic equation}, all path satisfy this equation is a g
   \[\frac{d^2 x^{\mu}}{d\lambda^2}+ \Gamma^{\mu}_{\alpha\nu}\frac{dx^{\alpha}}{d\lambda}\frac{dx^{\nu}}{d\lambda} = 0\]
 \end{definition}
 
-Geodesic always maximized the proper time. Think about the twin paradox in special relativity, the twin stays on Earth and approximately moves alone geodesic,
-but the twin travels away at the tuning point isn't.
+Geodesic always maximized the proper time. Think about the twin paradox in special relativity; the twin stays on Earth and approximately moves alone geodesic,
+but the twin travels away at the tuning point isn't move-alone geodesic.
 
 \subsection{Killing Vector Field}
 The symmetric property of spacetime is represented by \textbf{killing vector field}.
@@ -392,12 +392,12 @@ The symmetric property of spacetime is represented by \textbf{killing vector fie
 \newpage
 \section{Gravitation}
 
-Our spacetime is not a simply Riemannian manifold, but a \textbf{pseudo-Riemannian manifold}, which more general Riemannian manifold.
+Our spacetime is not simply a Riemannian manifold but a \textbf{pseudo-Riemannian manifold}, which is a more general Riemannian manifold.
 Riemannian manifold requires the metric tensor to be positive definite, which means all eigenvalue of the metric tensor is positive.
 For the pseudo-Riemannian manifold, the metric eigenvalue can be either positive or negative, called indefinitely.
 
 \begin{remark}
-  The eigenvalue of the metric can not be zero, if an eigenvalue is zero, the metric will degenerate and have no inverse.
+  The eigenvalue of the metric can not be zero; if an eigenvalue is zero, the metric will degenerate and have no inverse.
 \end{remark}
 
 More specifically, our spacetime is \textbf{Lorentzian manifold}, which is a pseudo-Riemannian manifold with only one negative eigenvalue.
@@ -421,7 +421,7 @@ With the equivalence principle, we can explain the deflection of light and gravi
 \textbf{General Covariance Principle} state that if a tensorial equation hold in a gravitational field yield that
 
 \begin{enumerate}
-  \item hold in absence of gravity.
+  \item hold in the absence of gravity.
   \item holds under a coordinate transformation.
 \end{enumerate}
 Therefore, we can write our classical equations in tensorial form, then they will hold in general relativity.
@@ -436,21 +436,21 @@ Therefore, we can write our classical equations in tensorial form, then they wil
   \end{align*}
 \end{example}
 
-In general, we can just replace the partial derivative with the covariant derivative, and replace the flat spacetime metric by \(g_{\mu\nu}\),
-then it will valid in curved spacetime.
+In general, we can replace the partial derivative with the covariant derivative and replace the flat spacetime metric by \(g_{\mu\nu}\),
+then it will be valid in curved spacetime.
 
 
 
 \subsection{Einstein's Equation}
 From the Poisson equation for Newtonian potential:
 \[\nabla^2 \phi = 4 \pi G \rho\]
-To make a relativistic version of this equation, we can replace the gravitational potential with the metric and replace the mass density with the energy-momentum tensor.
+To make a relativistic version of this equation, we can replace the gravitational potential with the metric and the mass density with the energy-momentum tensor.
 \[\nabla^2 g_{\mu\nu} = c T_{\mu\nu}\]
-But the second derivative of the metric vanished by metric compatibility of connection, therefore we want something constructed from the second derivative of the metric which does not vanishes.
+But the second derivative of the metric vanished by metric compatibility of connection. Therefore we want something constructed from the metric's second derivative that does not vanish.
 Riemann tensor fits this requirement but does not have the right number of indices, so we can use the Ricci tensor.
 \[R_{\mu\nu} = c T_{\mu\nu}\]
-But, this is still not right, recall the conservation of energy, \(\nabla^{\mu}T_{\mu\nu} = 0\), the Ricci tensor does not fit this requirement.
-Now, we need a rank 2 tensor that is conserved and fit the requirement above. We do have one, the Einstein tensor:
+But, this still doesn't seem right; recall the conservation of energy, \(\nabla^{\mu}T_{\mu\nu} = 0\); the Ricci tensor does not fit this requirement.
+We need a rank two tensor that is conserved and fits the requirement above. We do have one, the Einstein tensor:
 \[\nabla^{\mu}G_{\mu\nu} = 0\]
 Then our equation read \[R_{\mu\nu} -\frac{1}{2}Rg_{\mu\nu} = cT_{\mu\nu}\]
 This is the famous Einstein field equation. We can recover the constant by requiring the equation back to the Newtonian limit.\\
@@ -465,7 +465,7 @@ In this limit, the energy-momentum tensor simply \(T_{00} = \rho\) and all other
 Rearrange Einstein equation, we get \(R_{\mu\nu} = c\left( T_{\mu\nu} - \frac{1}{2}Tg_{\mu\nu} \right)\),
 plug \(T_{00} = \rho\) in to field equation, we get \(R_{00}=\frac{1}{2}c\rho\). \\
 From the Riemann tensor in week field limit, we can see that \(R_{00}=-\frac{1}{2}\nabla^2 h_{00}\);
-compare to the Poisson equation of Newtonian gravity, we know that \(c = 8\pi G\).
+Compared to the Poisson equation of Newtonian gravity, we know that \(c = 8\pi G\).
 \begin{cthm}
   Einstein field equation.
   \[R_{\mu\nu} -\frac{1}{2}Rg_{\mu\nu} = 8\pi GT_{\mu\nu}\]
@@ -477,13 +477,13 @@ compare to the Poisson equation of Newtonian gravity, we know that \(c = 8\pi G\
 
 The first exact solution to Einstein's equation by Karl Schwarzschild is named \textbf{Schwarzschild solution},
 which is the exterior solution to a spherical star.
-This solution is solved by three boundary conditions.
+This solution is solved by imposing the following boundary conditions:
 
 \begin{enumerate}
   \item Static, which means completely independent of time. More formally, the metric tensor satisfies time translational symmetry and time reversal symmetry.
   \item Vacuum, which means the solution is only valid outside the star, implying vanish of the energy-momentum tensor. 
   This means the solution is not valid in the interior of the star.
-  \item Spherical symmetry, which means for, given a radius, the spacetime should be the same.
+  \item Spherical symmetry, which means that, given a radius, the spacetime should be the same.
 \end{enumerate}
 
 \begin{cthm}
@@ -499,10 +499,10 @@ From this line element, we can notice a few properties of the Schwarzschild metr
   \item Asymptotic flatness.
 \end{enumerate}
 
-The surface at \(r = 2GM\) is known as \textbf{Schwarzschild horizon}, this radius is known as the Schwarzschild radius.
+The surface at \(r = 2GM\) is known as \textbf{Schwarzschild horizon}; this radius is known as the Schwarzschild radius.
 This led to the idea of the black hole, in which nothing can escape from the horizon (at least in the classical limit, we will see a later discussion of Hawking radiation). \\
 We can calculate the timelike geodesic from the metric, which implies planetary motion in general relativity, leading to the famous result of the precession of the perihelion of Mercury.
-We are also able to calculate the deflection of light by calculating lightlike geodesic from metric, this leads to the effect of \textbf{gravitational lensing}.
+We are also able to calculate the deflection of light by calculating lightlike geodesic from metric; this leads to the effect of \textbf{gravitational lensing}.
 
 \subsubsection{Interior Solution}
 
@@ -518,7 +518,7 @@ Where \(r_{g}\) is the radius of the surface.
 \subsubsection{Maximal Extension}
 
 \subsection{Kerr Solution}
-Kerr solution is the vacuum solution to the axisymmetry rotating star, by applying the following conditions to the Einstein equation.
+Kerr solution is the vacuum solution to the axisymmetry rotating star by applying the following conditions to the Einstein equation.
 \begin{enumerate}
   \item Stationary, which metric tensor satisfies time translational symmetry.
   \item Vacuum, which means the solution is only valid for the region outside the star, implying vanish of the energy-momentum tensor. 
@@ -564,7 +564,7 @@ which we treat the gravitational field as a perturbation of flat spacetime metri
 \section{Special Relativity}
 
 \subsection{Spacetime}
-In special relativity, we discard the absolute concept of time, in contrast to Newton, there is no preferred reference frame
+In special relativity, we discard the absolute concept of time; in contrast to Newton, there is no preferred reference frame
 and time is one of the coordinates.
 Now we have a 4-dimensional \textbf{spacetime}. Our discussion is focused on the inertial coordinate system.
 \begin{definition}
@@ -604,7 +604,7 @@ Analog to Euclidean geometry, just like the euclidean distance \(\Delta l^2 = \D
 \textbf{spacetime interval} $\Delta s^2 = - \Delta t^2 + \Delta x^2 + \Delta y^2 + \Delta z^2$.
 
 \begin{remark}\leavevmode
-  There are a lot of different conventions to define the sign of the spacetime interval, here we just use the popular one \((-,+,+,+)\).
+  There are a lot of different conventions to define the sign of the spacetime interval; here, we use the popular one \((-,+,+,+)\).
 \end{remark}
 \begin{example}\leavevmode % This is needed to start the list in the next line so it won't be misaligned
   Interval for the two events in Figure 1 is $\Delta s^2 = - \Delta t^2 + \Delta x^2 + \Delta y^2 + \Delta z^2 = -9$.
@@ -612,7 +612,7 @@ Analog to Euclidean geometry, just like the euclidean distance \(\Delta l^2 = \D
 The universality speed of light means that $\frac{\Delta r}{\Delta t} = \frac{\sqrt{\Delta x^2+ \Delta y^2 + \Delta z^2}}{\Delta t}=1$
 are always hold, then we can then write the interval
 $\Delta s^2 = - \Delta t^2 + \Delta x^2 + \Delta y^2 + \Delta z^2 = 0$. This experimental fact yield all laws of special relativity.
-%Due to the universal speed of light, the interval is an invariant change of inertial coordinate, this means that $\Delta s^2 =\Delta \bar{s}^2$ 
+%Due to the universal speed of light, the interval is an invariant change of inertial coordinate; this means that $\Delta s^2 =\Delta \bar{s}^2$ 
 %which $\Delta \bar{s}^2$ is $\Delta s^2$ in another inertial coordinate system.\\
 \\
 When the interval $\Delta s^2$ is less than 0, we call the separation between events is \textbf{timelike};
@@ -645,7 +645,7 @@ we can draw this frame like Figure 2 below.
 \section{Lie Algebra}
 
 \subsection{Lie Derivative}
-Lie derivative is a more ``fundamental'' way to generalize derivative to a manifold compared to covariant derivative. \\
+Lie derivative is a more ``fundamental'' way to generalize derivative to a manifold than covariant derivative. \\
 To see why it is more fundamental, consider the \textbf{Lie bracket}
 \begin{definition}
   Lie bracket 
@@ -675,7 +675,7 @@ This step is called \textbf{Lie dragging}.
 \newpage
 \section{Scalar Tensor Theory}
 A set of alternative models are known as \textbf{scalar-tensor theories}.
-These set of theories involves both the metric tensor and a scalar field, 
+This set of theories involves both the metric tensor and a scalar field, 
 and the scalar field couples to the curvature scalar directly. 
 The action of the theory can be written as a sum of a gravitational part, scalar field part, and matter part.
 \[S = S_{fR}+S_{\lambda}+S_{M}\]
@@ -686,7 +686,7 @@ The action of the theory can be written as a sum of a gravitational part, scalar
     S_{M}&= \int d^4x\sqrt{-g}\mathcal{L}_M(g_{\mu\nu},\psi_i)
   \end{align*}
 \end{definition}
-We can always set \(h(\lambda)=1\) by change of variables, for convenience, I'll set it equal \(1\) in the following calculations. 
+We can always set \(h(\lambda)=1\) by change of variables; for convenience, I'll set it equal \(1\) in the following calculations. 
 To obtain the equation of motion, we can vary the action:
 \bigskip
 \begin{cthm}
