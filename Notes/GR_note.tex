@@ -121,7 +121,7 @@
     \item Natural units ($c=1$).
     \item Einstein summation convention. \[ds^2 = g_{\mu \nu} dx^{\mu} dx^{\nu}=
             \sum_{\mu=0}^{3} \sum_{\nu=0}^{3}g_{\mu \nu} dx^{\mu} dx^{\nu}\]
-    \item Metric sign $(-, +, +, +)$.
+    \item Metric signature $(-, +, +, +)$.
 
   \end{enumerate}
 \end{tcolorbox}
@@ -138,7 +138,7 @@ For example, think about a sphere; we can stretch a membrane with the grid to co
 use another membrane to cover that one point. The sphere is an example of a 2-D manifold, and the membrane is an example of a coordinate chart.
 Informally, a manifold locally looks like \(\mathbb{R}^2\).
 For example, the surface of the Earth is a 2-sphere $S^2$, but look at the ground around you; it seems flat.
-\begin{definition}
+\begin{definition}[Manifolds]
   An n-dimensional manifold is a mathematical structure consisting of
   \begin{enumerate}
     \item a set \(M\) of elements, called \textbf{points}.
@@ -201,7 +201,7 @@ is the cartesian product of k vectors and l dual vectors. Which map k dual vecto
 
 \subsubsection{Tensor Transformation Law}
 When we change the coordinate system, tensor components transform following \textbf{tensor transformation law}.
-\begin{definition}
+\begin{definition}[Tensor transformation law]
   Tensor components in new coordinate system \((\alpha'\beta'\mu'\nu'\cdots)\) can be express as
   \[T^{\alpha'\beta'\cdots}_{\mu'\nu'\cdots} =
     \frac{\partial x^{\mu}}{\partial x^{\mu'}}\frac{\partial x^{\nu}}{\partial x^{\nu'}}\frac{\partial x^{\alpha'}}{\partial x^{\alpha}}
@@ -220,7 +220,7 @@ We can generate new differential forms by taking the antisymmetric part of the t
   The wedge product of two one form is \[(A\wedge B)_{\mu\nu}= 2A_{\left[\mu\right.}B_{\left.\nu\right]}\]
 \end{example}
 The \textbf{exterior derivative} can generate \(p+1\)-form from \(p\)-form.
-\begin{definition}
+\begin{definition}[Exterior derivative]
   Exterior derivative of a \(p\)-form \(A\) is defined as the following.
   \[dA = (p+1)\partial_{\left[\mu_1\right.}A_{\left.\mu_2\mu_3\cdots\mu_{p+1}\right]}\]
 \end{definition}
@@ -252,10 +252,10 @@ Here let me show that partial derivative, not covariance, and then construct a c
 \end{align*}\\
 By using the connection coefficient below, which is also not a tensor, we can eliminate the none tensorial part of the partial derivative.
 Which is defined as follows.
-\begin{definition}
+\begin{example}
   The covariant derivative of the dual vector.
   \[A_{\mu;\nu} = A_{\mu,\nu} - \Gamma^{\lambda}_{\mu\nu}A_{\lambda}\]
-\end{definition}
+\end{example}
 
 This is called \textbf{covariant derivative}, two non-tensorial parts added together to form a tensor.
 
@@ -299,7 +299,7 @@ Which required \textbf{intrinsic derivative} to vanish.\[\frac{DV^{\mu}}{D\lambd
 \subsection{Metric Space}
 Now, in addition to affine connection, we want a structure allowing measurement of distance on the manifold.
 The \textbf{metric space} is a kind of space with the notion of distance.
-\begin{definition}
+\begin{definition}[Riemannian manifold]
   A Riemannian manifold is a manifold with a connection and equipped with a symmetric \textbf{metric tensor} \(g_{\mu\nu}\).
   which distance \(ds\) between two points with displacement \(dx^{\mu}\) is defined as the following.
   \[ds^2 \equiv g_{\mu \nu} dx^{\mu} dx^{\nu}\]
@@ -318,7 +318,7 @@ We have everything we need to define the \textbf{curvature}. Think about transpo
 around an infinitesimal loop on a curved manifold, the loop is defined by two vectors \(dA^\mu\) and \(dB^\nu\).
 Then, the change on \(V^\rho\) can be express as \[\delta V^\rho = R^{\rho}_{\ \sigma\mu\nu}V^{\sigma}dA^{\mu}dB^{\nu}\]
 
-\begin{definition}
+\begin{definition}[Riemann tensor]
   \(R^{\rho}_{\ \sigma\mu\nu}\) is known as \textbf{Riemann curvature tensor}, or just Riemann tensor,
   can be express through connection coeffienct: \[R^{\rho}_{\ \sigma\mu\nu} =
     \partial_{\mu} \Gamma^{\rho}_{\nu\sigma} -
@@ -342,7 +342,7 @@ There is some property in the Riemann tensor.
   The last line above is called \textbf{Bianchi identity}.
 \end{cthm}
 
-\begin{definition}
+\begin{definition}[Ricci tensor]
   From the Riemann tensor, we can construct a symmetric rank-2 tensor, \textbf{Ricci tensor}
   by contract first and the third indices of the Riemann tensor.
   \[R_{\mu\nu} = R_{\nu\mu} = R^{\lambda}_{\ \mu\lambda\nu}\]
@@ -359,8 +359,8 @@ We see the divergence of this tensor vanish. Therefore, we define a new tensor n
 \[G^{\mu\nu}=R^{\mu\nu}-\frac{1}{2}g^{\mu\nu}R. \]
 The trace-free part of the Riemann tensor is called \textbf{Weyl tensor} and can be defined as follows.
 
-\begin{definition}
-  Weyl tensor. @TODO
+\begin{definition}[Weyl tensor]
+   @TODO
   \[C_{\rho\sigma\mu\nu} = \]
 \end{definition}
 \subsection{Geodesics}
@@ -374,8 +374,8 @@ by tangent vector of the path \(\frac{dx^{\mu}}{d\lambda}\). We get
   \frac{d}{d\lambda}\frac{dx^{\mu}}{d\lambda}+ \Gamma^{\mu}_{\alpha\nu}\frac{dx^{\alpha}}{d\lambda}\frac{dx^{\nu}}{d\lambda} = 0\]\\
 This is famous \textbf{geodesic equation}, all path satisfy this equation is a geodesic.
 
-\begin{definition}
-  Geodesic equation.
+\begin{definition}[Geodesic equation]
+  
   \[\frac{d^2 x^{\mu}}{d\lambda^2}+ \Gamma^{\mu}_{\alpha\nu}\frac{dx^{\alpha}}{d\lambda}\frac{dx^{\nu}}{d\lambda} = 0\]
 \end{definition}
 
@@ -384,7 +384,7 @@ but the twin travels away at the tuning point isn't move-alone geodesic.
 
 \subsection{Killing Vector Field}
 The symmetric property of spacetime is represented by \textbf{killing vector field}.
-\begin{definition}
+\begin{definition}[Killing vector fields]
   A killing vector \(K\) satisfy the \textbf{killing equation}:
   \[\mathcal{L}_{K}g_{\mu\nu}= 0\]\\
   where \(\mathcal{L}_{K}\) is the Lie derivative alone \(K\). For the definition of Lie derivative, refer to the appendix.
@@ -407,8 +407,8 @@ More specifically, our spacetime is \textbf{Lorentzian manifold}, which is a pse
 The Lorentzian manifold allows us to classify tangent vectors into timelike, spacelike, and lightlike.
 
 \subsection{Equivalence Principle}
-\begin{definition}
-  \textbf{  }
+\begin{definition}[Weak equivalence principle]
+The weak equivalence principle is stated as follow:
   \begin{enumerate}
     \item Inertial mass is defined through Newton's second law, \(m = F/a\).
     \item Gravitational mass is defined through Newton's law of gravity \(m = Fr^2/GM\).
@@ -420,7 +420,8 @@ There are two equivalence principles, the weak equivalence principle, and the st
 Einstein extended this idea to a stronger statement, which is \textbf{Strong Equivalence Principle}.
 Which state that observer is unable to distinguish acceleration and gravitational field by local experiment.
 This leads to the idea of \textbf{local inertial frame}, which is correspondence to the property of manifold (local flatness).
-With the equivalence principle, we can explain the deflection of light and gravitational redshift in the gravitational field.\\
+With the equivalence principle, we can explain the deflection of light and gravitational redshift in the gravitational field.
+
 \textbf{General Covariance Principle} state that if a tensorial equation hold in a gravitational field yield that
 
 \begin{enumerate}
@@ -456,7 +457,8 @@ But, this still doesn't seem right; recall the conservation of energy, \(\nabla^
 We need a rank two tensor that is conserved and fits the requirement above. We do have one, the Einstein tensor:
 \[\nabla^{\mu}G_{\mu\nu} = 0\]
 Then our equation read \[R_{\mu\nu} -\frac{1}{2}Rg_{\mu\nu} = cT_{\mu\nu}\]
-This is the famous Einstein field equation. We can recover the constant by requiring the equation back to the Newtonian limit.\\
+This is the famous Einstein field equation. We can recover the constant by requiring the equation back to the Newtonian limit.
+
 To recover Newtonian gravity, impose the following boundary conditions on the field equation:
 \begin{enumerate}
   \item Weak field (\(g_{\mu\nu} = \eta_{\mu\nu} + h_{\mu\nu}\) which \(\left|h_{\mu\nu}\right| \ll 1\))
@@ -503,7 +505,8 @@ From this line element, we can notice a few properties of the Schwarzschild metr
 \end{enumerate}
 
 The surface at \(r = 2GM\) is known as \textbf{Schwarzschild horizon}; this radius is known as the Schwarzschild radius.
-This led to the idea of the black hole, in which nothing can escape from the horizon (at least in the classical limit, we will see a later discussion of Hawking radiation). \\
+This led to the idea of the black hole, in which nothing can escape from the horizon (at least in the classical limit, we will see a later discussion of Hawking radiation). 
+
 We can calculate the timelike geodesic from the metric, which implies planetary motion in general relativity, leading to the famous result of the precession of the perihelion of Mercury.
 We are also able to calculate the deflection of light by calculating lightlike geodesic from metric; this leads to the effect of \textbf{gravitational lensing}.
 
@@ -570,8 +573,7 @@ which we treat the gravitational field as a perturbation of flat spacetime metri
 In special relativity, we discard the absolute concept of time; in contrast to Newton, there is no preferred reference frame
 and time is one of the coordinates.
 Now we have a 4-dimensional \textbf{spacetime}. Our discussion is focused on the inertial coordinate system.
-\begin{definition}
-  Inertial coordinate \\
+\begin{definition}[Inertial coordinate]
   The coordinate system must satisfy three properties to be considered inertial coordinate:
   \begin{enumerate}
     \item The distance between two points is independent of time.
