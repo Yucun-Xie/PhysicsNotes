@@ -5,6 +5,7 @@
 %\usepackage[normalem]{ulem}
 \usepackage{indentfirst}
 \usepackage{amsmath,amsthm,amssymb,amsfonts}
+\numberwithin{equation}{subsection}
 \usepackage[italicdiff]{physics}
 \usepackage[T1]{fontenc}
 \usepackage{wrapfig}
@@ -54,6 +55,8 @@
 %\tcolorboxenvironment{example}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{Black},left=8pt,right=8pt,sharp corners,before skip=10pt,after skip=10pt,breakable}
 %\tcolorboxenvironment{examples}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{Black},left=8pt,right=8pt,sharp corners,before skip=10pt,after skip=10pt,breakable}
 \tcolorboxenvironment{cthm}{boxrule=0pt,boxsep=0pt,colback={orange!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{orange},sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{equation}{boxrule=0pt,boxsep=0pt,colback={Magenta!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{Magenta},sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{align}{boxrule=0pt,boxsep=0pt,colback={Cyan!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{Cyan},sharp corners,before skip=10pt,after skip=10pt,breakable}
 
 
 
@@ -107,6 +110,21 @@
 
 
 \newpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \begin{tcolorbox}[
     title=Conventions, fonttitle=\large\sffamily\bfseries\selectfont,
     interior style={left color=convcol1!40!white,right color=convcol2!40!white},
@@ -127,6 +145,39 @@
 \end{tcolorbox}
 
 \newpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 %begin here ---------------------------------------------------------------------------------------------
 \section{Differential Geometry}
@@ -644,6 +695,10 @@ we can draw this frame like Figure 2 below.
 \subsection{Fluid}
 
 \newpage
+
+
+
+
 \section{Classical Field Theory}
 Classical field theory is something you are supposed to know for QFT but is never formally taught, so I give a brief overview here.
 Field theory is very similar to Lagrangian mechanics; instead of the usual system,
@@ -652,27 +707,27 @@ and the action becomes a \textbf{functional} of these fields. A functional is a 
 note that the functional is not simply a composition function, which maps number to number. \par
 In field theory, the Lagrangian is usually expressed as an integral over \textbf{Lagrange density},
 which are a function of the fields and their derivative.
-\begin{cthm}
-  \[L=\int d^3x\;\mathcal{L}(\Phi^i,\partial_{\mu}\Phi^i)\]
-\end{cthm}
+\begin{equation}
+  L=\int d^3x\;\mathcal{L}(\Phi^i,\p_{\mu}\Phi^i)
+\end{equation}
 Then the action
-\begin{cthm}
-  \[S=\int dt\;L = \int d^4x\;\mathcal{L}(\Phi^i,\partial_{\mu}\Phi^i)\]
-\end{cthm}
+\begin{equation}
+  S=\int dt\;L = \int d^4x\;\mathcal{L}(\Phi^i,\p_{\mu}\Phi^i)
+\end{equation}
 By varying the action, just like what we did in classical mechanics, we can obtain the equation of motion of field:
-\begin{cthm}
-  \begin{align*}
-    \delta S & = \int d^4x\left[\frac{\partial\mathcal{L}}{\partial \Phi^i}\delta\Phi^i+
-    \frac{\partial\mathcal{L}}{\partial(\partial_\mu \Phi^i)}\partial_\mu (\delta\Phi^i)\right] \\
-             & =\int d^4x\left[\frac{\partial\mathcal{L}}{\partial \Phi^i}-\partial_\mu
-      \frac{\partial\mathcal{L}}{\partial(\partial_\mu \Phi^i)}\right]\delta\Phi^i
-  \end{align*}
-\end{cthm}
+
+  \begin{align}
+    \delta S & = \int d^4x\left[\frac{\p\mathcal{L}}{\p \Phi^i}\delta\Phi^i+
+    \frac{\p\mathcal{L}}{\p(\p_\mu \Phi^i)}\p_\mu (\delta\Phi^i)\right]      \\
+             & =\int d^4x\left[\frac{\p\mathcal{L}}{\p \Phi^i}-\p_\mu
+      \frac{\p\mathcal{L}}{\p(\p_\mu \Phi^i)}\right]\delta\Phi^i
+  \end{align}
+
 We have obtained the field version of \textbf{Euler-Lagrange equation}
-\begin{cthm}
-  \[\frac{\partial\mathcal{L}}{\partial \Phi^i}-\partial_\mu
-    \frac{\partial\mathcal{L}}{\partial(\partial_\mu \Phi^i)}=0\]
-\end{cthm}
+\begin{definition}[Euler-Lagrange equation]
+  \[\frac{\p\mathcal{L}}{\p \Phi^i}-\p_\mu
+    \frac{\p\mathcal{L}}{\p(\p_\mu \Phi^i)}=0\]
+\end{definition}
 Let's consider a simple example, the real scalar field \[\phi:\ x^{\mu} \rightarrow \mathbb{R}\].
 The contribution of action are
 
@@ -682,42 +737,74 @@ The contribution of action are
   \item potential term: \(V(\phi)\)
 \end{enumerate}
 We could combine them into a Lorentz-invariant Lagrange density:
-\begin{cthm}
-  \[\mathcal{L}= \frac{1}{2}\eta^{\mu\nu}(\partial_{\mu}\phi)(\partial_{\nu}\phi)-V(\phi)\]
-\end{cthm}
+\begin{equation}
+  \mathcal{L}= \frac{1}{2}\eta^{\mu\nu}(\p_{\mu}\phi)(\p_{\nu}\phi)-V(\phi)
+\end{equation}
 Apply the Euler-Lagrange equation; we then get the equation of motion:
 \begin{cthm}
-  \begin{align*}    & \eta^{\mu\nu}\partial_{\mu}\partial_{\nu}\phi+\frac{\mathrm{d}V(\phi)}{\mathrm{d}\phi} \\
-              =\  & \square\phi+\frac{\mathrm{d}V(\phi)}{\mathrm{d}\phi}                                   \\
-              =\  & 0
+  \begin{align*}                & \eta^{\mu\nu}\p_{\mu}\p_{\nu}\phi+\frac{\mathrm{d}V(\phi)}{\mathrm{d}\phi} \\
+                          =\  & \square\phi+\frac{\mathrm{d}V(\phi)}{\mathrm{d}\phi}                       \\
+                          =\  & 0
   \end{align*}
   Where \(\square\) is \textbf{d'Alembertian}.
 \end{cthm}
 \subsection{Klein-Gordon Field}
 If the scalar field is massive, the potential \(V(\phi)=\frac{1}{2}m^2\phi^2\),
 we obtained the \textbf{Klein-Gordon equation}:
-\begin{cthm}
+\begin{definition}[Klein-Gordon equation]
   \[(\square +m^2)\phi = 0\]
-\end{cthm}
+\end{definition}
 You will see this equation again and again in quantum field theory.
 \begin{remark}
-  The Klein-Gordon field could be analog to infinite many coupled infinitesimal harmonic oscillators,
+  The Klein-Gordon field could be analog to infinite many coupled infinitesimal harmonic oscillators;
   each ``mass'' is affected by neighboring springs and has its kinetic energy.
-
 \end{remark}
+
+
+
+\subsection{Hamiltonian Field Theory}
+The Lagrangian field theory is naturally Lorentz invariant. However, we also need Hamiltonian formalism for the field theory
+because it is easier to transition from quantum mechanics.
+Let's first consider the classical definition of Hamiltonian, \[H=\sum p\dot{q}-L\].
+From the definition of Lagrangian, we can derive the conjugate momentum as follow:
+\begin{cthm}
+  \begin{align*}
+    p(x^i)\equiv & \;\frac{\p L}{\p \dot{\phi}(x^i)}
+    =\frac{\p}{\p \dot{\phi}(x^i)}\int \mathrm{d}^3x' \mathcal{L} \\
+    \propto      & \;\pi(x^i) \mathrm{d}^3x
+  \end{align*}
+  \bigskip
+  Where \[\pi \equiv \frac{\p \mathcal{L}}{\p \dot{\phi}}\]
+  is called \textbf{momentum density}
+\end{cthm}
+Therefore, the Hamiltonian for field theory is:
+\begin{definition}[Hamiltonian]
+  \begin{align*}
+    H= & \sum p(x^i)\phi(x^i)-L                             \\
+    =  & \int \id^3x\left[\pi \dot{\phi}-\mathcal{L}\right] \\
+    =  & \int \id^3x\;\mathcal{H}
+  \end{align*}
+  Where \(\mathcal{H}\) is called \tbf{Hamiltonian density}.
+\end{definition}
+
+\begin{example}
+  As a simple example, the Hamiltonian for the K-G field is:
+  \[H=\int\id^3x\;\mathcal{H}=\int\id^3x\left[\frac{1}{2}\pi^2+\frac{1}{2}(\nabla\phi)^2+\frac{1}{2}m^2\phi^2\right]\]
+\end{example}
+
 \subsection{Noether's Theorem}
 A Lagrangian may be invariant under some special type of transformation.
 For example, a Lagrangian for a complex scalar field
-\[\mathcal{L}= |\partial_\mu \phi|^2 -m^2|\phi|^2\]
+\[\mathcal{L}= |\p_\mu \phi|^2 -m^2|\phi|^2\]
 is invariant under transformation \(\phi \rightarrow e^{i\alpha}\phi\).
 We call this transformation a \textbf{symmetry} of the Lagrangian.
-When the parameter of transformation (\(alpha\) for this case) can be taken infinitesimal,
+When the parameter of transformation (\(\alpha\) for this case) can be taken infinitesimal,
 we say this symmetry is \textbf{continuous}.
 We can explicit see that \(\frac{\delta \mathcal{L}}{\delta \alpha}=0\).
-\par By applying the Euler-Lagrange equation, we can deduce that \(\partial_\mu J_{\mu}=0\),
+\par By applying the Euler-Lagrange equation, we can deduce that \(\p_\mu J_{\mu}=0\),
 where \(J_{\mu}\) is defined as follow:
 \begin{definition}
-  \[J_{\mu}= \sum_n\frac{\partial \mathcal{L}}{\partial(\partial_\mu \phi_n)}\frac{\delta\phi_n}{\delta \alpha}\]\\
+  \[J_{\mu}= \sum_n\frac{\p \mathcal{L}}{\p(\p_\mu \phi_n)}\frac{\delta\phi_n}{\delta \alpha}\]\\
   \(J_{\mu}\) is known as \textbf{Noether current} or \textbf{conserved current}
 \end{definition}
 
@@ -725,31 +812,31 @@ where \(J_{\mu}\) is defined as follow:
   For the above complex scalar field, we can calculate the conserved current:
   \bigskip
   \begin{align*}
-    J_{\mu}= & \sum_n\frac{\partial \mathcal{L}}{\partial(\partial_\mu \phi_n)}\frac{\delta\phi_n}{\delta \alpha} \\
-    =        & \frac{\partial \mathcal{L}}{\partial(\partial_\mu \phi)}\frac{\delta\phi}{\delta \alpha}
-    +\frac{\partial \mathcal{L}}{\partial(\partial_\mu \phi^*)}\frac{\delta\phi^*}{\delta \alpha}                 \\
-    =        & -i\left[\phi\partial_\mu\phi^*-\phi^* \partial_\mu\phi\right]
+    J_{\mu}= & \sum_n\frac{\p \mathcal{L}}{\p(\p_\mu \phi_n)}\frac{\delta\phi_n}{\delta \alpha} \\
+    =        & \frac{\p \mathcal{L}}{\p(\p_\mu \phi)}\frac{\delta\phi}{\delta \alpha}
+    +\frac{\p \mathcal{L}}{\p(\p_\mu \phi^*)}\frac{\delta\phi^*}{\delta \alpha}                 \\
+    =        & -i\left[\phi\p_\mu\phi^*-\phi^* \p_\mu\phi\right]
   \end{align*}
-  We can check that \(\partial_\mu J_{\mu}=0\) explicitly:
+  We can check that \(\p_\mu J_{\mu}=0\) explicitly:
   \begin{align*}
-    \partial_\mu J_{\mu}= & -i\left[\phi\square\phi^*-\phi^* \square\phi\right] \\
-    =                     & 0
+    \p_\mu J_{\mu}= & -i\left[\phi\square\phi^*-\phi^* \square\phi\right] \\
+    =               & 0
   \end{align*}
   Where we applied the equation of motion in the last step.
 \end{example}
 We call \(J_\mu\) conserved current because we can find conserved quantity by integral over its 0-component:
-\begin{definition}
+\begin{definition}[Conserved charge]
   \[Q=\int d^3x\;J_0\]
   Where the \(Q\) is called \textbf{conserved charge} or \textbf{Noether's charge}
-\end{definition}[Conserved charge]
+\end{definition}
 We say \(Q\) is conserved because
-\begin{cthm}
-  \[\partial_tQ=\int d^3x \; \partial_t J_0 = \int d^3x\;\vec{\nabla}\cdot \vec{J} = 0.\]
-\end{cthm}
+\begin{equation}
+  \p_tQ=\int d^3x \; \p_t J_0 = \int d^3x\;\vec{\nabla}\cdot \vec{J} = 0.
+\end{equation}
 The above argument is called \textbf{Noether's theorem}.
 \begin{theorem}[Noether's theorem]
   If a Lagrangian has a continuous symmetry,
-  then exists a current associated with that symmetry that is 
+  then exists a current associated with that symmetry that is
   conserved when the equations of motion are satisfied.
 \end{theorem}
 
@@ -758,11 +845,11 @@ The physics at spacetime point \(x\) should have same form at spacetime point \(
 this argument arises a symmetry called \textbf{specetime translational symmetry}.
 By Noether's theorem, we can find the four conserved currents for this symmetry for an infinitesimal
 spacetime translation \(\xi^\mu\):
-\begin{cthm}
- \[T_{\mu\nu}=\sum_n \frac{\partial \mathcal{L}}{\partial(\partial_{\mu}\phi_n)}\partial_\nu\phi_n-g_{\mu\nu}\mathcal{L}\]
- 
-\(T_{\mu\nu}\) is called \textbf{energy-momentum tensor}.
-\end{cthm}
+\begin{definition}[Energy-momentum tensor]
+  \[T_{\mu\nu}=\sum_n \frac{\p \mathcal{L}}{\p(\p_{\mu}\phi_n)}\p_\nu\phi_n-g_{\mu\nu}\mathcal{L}\]
+
+  \(T_{\mu\nu}\) is called \textbf{energy-momentum tensor}.
+\end{definition}
 Four conserved currents correspond to values of \(\nu\), and four conserved charges are energy and momentum.
 We can see that the energy density is the 00-component of \(T_{\mu\nu}\).
 
