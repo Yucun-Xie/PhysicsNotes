@@ -199,7 +199,7 @@ For example, the surface of the Earth is a 2-sphere $S^2$, but look at the groun
     \item a reversible mapping of each patch onto the unit volume of \(\mathbb{R}^n\). An n-tuple of numbers associated
           in this way are called the \textbf{coordinates} of each point.
   \end{enumerate}
-  More formally, an n-dimensional manifold is a topological space that is locally homeomorphic to the n-dimensional Euclidean space.
+  More formally, an n-dimensional manifold is a topological space that is locally \tbf{homeomorphic} to the n-dimensional Euclidean space.
   See the discussion of topological space for the definition of homeomorphism.\\
   If a manifold is differentiable for m times at each point, it is a \textbf{differentiable manifold}, denoted by \(C^m\).
   If a manifold is infinitely differentiable at each point, denote by \(C^\infty\), called a smooth manifold.\\
@@ -339,7 +339,7 @@ This is called \textbf{covariant derivative}, two non-tensorial parts added toge
   There is an extra term in the transformation of connection, so the connection is not a tensor.
 \end{proof}
 Our connection is metric compatible and torsion-free, which mean \[g_{\mu\nu;\alpha} = 0\] and\[S_{\mu\nu} = \Gamma_{[\mu\nu]}^{\lambda} = 0 \]
-Where \(S_{\mu\nu}\) is the torsion tensor.
+Where \(S_{\mu\nu}\) is the \tbf{torsion tensor}.
 
 \subsubsection{Parallel Transport}
 Recall we defined connection to allow us to transport vectors on the manifold.
@@ -405,12 +405,17 @@ We can recover the Riemann tensor from scalar curvature through metric tensor.
 From Bianchi identity \(\nabla_{\left[ \lambda \right.} R_{\left.\alpha\beta \right] \mu\nu} = 0\),
 we can find that \[\nabla_{\mu}(R^{\mu\nu}-\frac{1}{2}g^{\mu\nu}R) = 0\]
 We see the divergence of this tensor vanish. Therefore, we define a new tensor named \textbf{Einstein tensor},
-\[G^{\mu\nu}=R^{\mu\nu}-\frac{1}{2}g^{\mu\nu}R. \]
+\begin{definition}[Einstein tensor]
+  \[G^{\mu\nu}=R^{\mu\nu}-\frac{1}{2}g^{\mu\nu}R. \]
+  which has the property:\(\nabla_{\mu}G^{\mu\nu}=0\)
+\end{definition}
+
 The trace-free part of the Riemann tensor is called \textbf{Weyl tensor} and can be defined as follows.
 
 \begin{definition}[Weyl tensor]
-  @TODO
-  \[C_{\rho\sigma\mu\nu} = \]
+  \[C_{\rho\sigma\mu\nu} = R_{\rho\sigma\mu\nu}-\frac{2}{(n-2)}\left[g_{\rho\left[\mu\right.}R_{\nu\left.\right]\sigma}
+  -g_{\sigma\left[\mu\right.}R_{\nu\left.\right]\rho}\right]+
+  \frac{2}{(n-1)(n-2)}\left[g_{\rho\left[\mu\right.}g_{\nu\left.\right]\sigma}R\right]\]
 \end{definition}
 \subsection{Geodesics}
 
@@ -441,6 +446,11 @@ The symmetric property of spacetime is represented by \textbf{killing vector fie
 
 
 \subsection{Geodesic Deviation}
+
+\begin{definition}[Deodesic deviation equation]
+  \[A^{\mu}=\frac{D^2}{\id t^2}S^{\mu}=R_{\nu\rho\sigma}^{\mu}T^{\nu}T^{\rho}S^{\sigma}\]
+\end{definition}
+
 \newpage
 \section{Gravitation}
 
@@ -457,7 +467,7 @@ The Lorentzian manifold allows us to classify tangent vectors into timelike, spa
 
 \subsection{Equivalence Principle}
 \begin{definition}[Weak equivalence principle]
-  The weak equivalence principle is stated as follow:
+  The weak equivalence principle is stated as follows:
   \begin{enumerate}
     \item Inertial mass is defined through Newton's second law, \(m = F/a\).
     \item Gravitational mass is defined through Newton's law of gravity \(m = Fr^2/GM\).
