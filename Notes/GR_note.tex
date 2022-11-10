@@ -381,18 +381,15 @@ Then, the change on \(V^\rho\) can be express as \[\delta V^\rho = R^{\rho}_{\ \
 \end{definition}
 There is some property in the Riemann tensor.
 
-\begin{cthm}
-  \begin{align*}
-    \begin{split}
-      R_{\alpha\beta\mu\nu} &= -R_{\beta\alpha\mu\nu}\\
-      R_{\alpha\beta\mu\nu} &= -R_{\alpha\beta\nu\mu}\\
-      R_{\alpha\beta\mu\nu} &= R_{\mu\nu\alpha\beta}\\
-      R_{\alpha\beta\mu\nu} + R_{\alpha\nu\beta\mu} + R_{\alpha\mu\nu\beta} &= 0 \\
-      \nabla_{\left[ \lambda \right.} R_{\left.\alpha\beta \right] \mu\nu} &= 0 \\
-    \end{split}
-  \end{align*}
-  The last line above is called \textbf{Bianchi identity}.
-\end{cthm}
+
+\begin{align}
+  R_{\alpha\beta\mu\nu}                                                 & = -R_{\beta\alpha\mu\nu} \\
+  R_{\alpha\beta\mu\nu}                                                 & = -R_{\alpha\beta\nu\mu} \\
+  R_{\alpha\beta\mu\nu}                                                 & = R_{\mu\nu\alpha\beta}  \\
+  R_{\alpha\beta\mu\nu} + R_{\alpha\nu\beta\mu} + R_{\alpha\mu\nu\beta} & = 0                      \\
+  \nabla_{\left[ \lambda \right.} R_{\left.\alpha\beta \right] \mu\nu}  & = 0                      \\
+\end{align}
+The last line above is called \textbf{Bianchi identity}.
 
 \begin{definition}[Ricci tensor]
   From the Riemann tensor, we can construct a symmetric rank-2 tensor, \textbf{Ricci tensor}
@@ -412,7 +409,7 @@ We see the divergence of this tensor vanish. Therefore, we define a new tensor n
 The trace-free part of the Riemann tensor is called \textbf{Weyl tensor} and can be defined as follows.
 
 \begin{definition}[Weyl tensor]
-   @TODO
+  @TODO
   \[C_{\rho\sigma\mu\nu} = \]
 \end{definition}
 \subsection{Geodesics}
@@ -427,7 +424,7 @@ by tangent vector of the path \(\frac{dx^{\mu}}{d\lambda}\). We get
 This is famous \textbf{geodesic equation}, all path satisfy this equation is a geodesic.
 
 \begin{definition}[Geodesic equation]
-  
+
   \[\frac{d^2 x^{\mu}}{d\lambda^2}+ \Gamma^{\mu}_{\alpha\nu}\frac{dx^{\alpha}}{d\lambda}\frac{dx^{\nu}}{d\lambda} = 0\]
 \end{definition}
 
@@ -460,7 +457,7 @@ The Lorentzian manifold allows us to classify tangent vectors into timelike, spa
 
 \subsection{Equivalence Principle}
 \begin{definition}[Weak equivalence principle]
-The weak equivalence principle is stated as follow:
+  The weak equivalence principle is stated as follow:
   \begin{enumerate}
     \item Inertial mass is defined through Newton's second law, \(m = F/a\).
     \item Gravitational mass is defined through Newton's law of gravity \(m = Fr^2/GM\).
@@ -523,8 +520,7 @@ Rearrange Einstein equation, we get \(R_{\mu\nu} = c\left( T_{\mu\nu} - \frac{1}
 plug \(T_{00} = \rho\) in to field equation, we get \(R_{00}=\frac{1}{2}c\rho\). \\
 From the Riemann tensor in week field limit, we can see that \(R_{00}=-\frac{1}{2}\nabla^2 h_{00}\);
 Compared to the Poisson equation of Newtonian gravity, we know that \(c = 8\pi G\).
-\begin{cthm}
-  Einstein field equation.
+\begin{cthm}[Einstein field equation]
   \[R_{\mu\nu} -\frac{1}{2}Rg_{\mu\nu} = 8\pi GT_{\mu\nu}\]
 \end{cthm}
 \newpage
@@ -543,7 +539,7 @@ This solution is solved by imposing the following boundary conditions:
   \item Spherical symmetry, which means that, given a radius, the spacetime should be the same.
 \end{enumerate}
 
-\begin{cthm}
+\begin{cthm}[Schwarzschild line element]
   The line element takes the form
   \[ds^2 = -\left(1 - \frac{r_\mathrm{s}}{r} \right)\,dt^2 + \left(1-\frac{r_\mathrm{s}}{r}\right)^{-1} \,dr^2 + r^2 d\Omega^2\]\\
   which \(r_\mathrm{s} = 2GM\) and \(d\Omega^2 = \left(d\theta^2 + \sin^2\theta \, d\phi^2\right)\).
@@ -557,18 +553,45 @@ From this line element, we can notice a few properties of the Schwarzschild metr
 \end{enumerate}
 
 The surface at \(r = 2GM\) is known as \textbf{Schwarzschild horizon}; this radius is known as the Schwarzschild radius.
-This led to the idea of the black hole, in which nothing can escape from the horizon (at least in the classical limit, we will see a later discussion of Hawking radiation). 
+This led to the idea of the black hole, in which nothing can escape from the horizon (at least in the classical limit, we will see a later discussion of Hawking radiation).
 
 We can calculate the timelike geodesic from the metric, which implies planetary motion in general relativity, leading to the famous result of the precession of the perihelion of Mercury.
 We are also able to calculate the deflection of light by calculating lightlike geodesic from metric; this leads to the effect of \textbf{gravitational lensing}.
+
+
+\subsubsection{Geodesics of Schwarzschild}
+To calculate the geodesics of the Schwarzschild solution, we need all nan-vanished Christoffel symbols:
+\begin{align}
+   & \Gamma_{tt}^{r}=\frac{GM}{r^3}(r-2GM)       &  & \Gamma_{rr}^{r}=\frac{-GM}{r(r-2GM)}             &  & \Gamma_{tr}^{t}=\frac{GM}{r(r-2GM)}                      \\
+   & \Gamma_{r\theta}^{\theta}= \frac{1}{r}      &  & \Gamma_{\theta\theta}^{r}= -(r-2GM)              &  & \Gamma_{r\phi}^{\phi}=\frac{1}{r}                        \\
+   & \Gamma_{\phi\phi}^{r}= -(r-2GM)\sin^2\theta &  & \Gamma_{\phi\phi}^{\theta}=-\sin\theta\cos\theta &  & \Gamma_{\theta\phi}^{\phi}=\frac{\cos\theta}{\sin\theta}
+\end{align}
+and recall the geodesic equation:
+\begin{equation}
+  \frac{d^2 x^{\mu}}{d\lambda^2}+ \Gamma^{\mu}_{\alpha\nu}\frac{dx^{\alpha}}{d\lambda}\frac{dx^{\nu}}{d\lambda} = 0
+\end{equation}
+Then, the four geodesic correspond to \(t,r,\theta,\phi\) are:
+\begin{align}
+  \frac{d^2 t}{d\lambda^2}+ \frac{2GM}{r(r-2GM)}\frac{dr}{d\lambda}\frac{dr}{d\lambda} &= 0
+\end{align}
+
+
+
+
+
+
 
 \subsubsection{Interior Solution}
 
 Recall the Schwarzschild solution is only valid outside the spherical star, not the interior, so there is no singularity and horizon on our Earth.
 The interior solution can be solved by approximating the star by energy-momentum tensor of perfect fluid \(T_{\mu\nu} = (\rho + p)U_\mu U_\nu + pg_{\mu\nu}\),
-and match the exterior solution at the boundary. The interior solution of a spherical star read \[ds^{2} =
+and match the exterior solution at the boundary. The interior solution of a spherical star read:
+\begin{equation}
+  ds^{2} =
   -\frac{1}{4} \left( 3 \sqrt{1-\frac {r_s}{r_g}}-\sqrt{1-\frac{r^2 r_s}{r_g^3}} \right)^2 dt^2 +
-  \left( 1-\frac{r^2 r_s}{r_g^3} \right)^{-1} dr^2 + r^2 \mathrm{d}\Omega^2\]
+  \left( 1-\frac{r^2 r_s}{r_g^3} \right)^{-1} dr^2 + r^2 \mathrm{d}\Omega^2
+\end{equation}
+
 Where \(r_{g}\) is the radius of the surface.
 
 \subsubsection{Black hole}
@@ -584,11 +607,11 @@ Kerr solution is the vacuum solution to the axisymmetry rotating star by applyin
   \item Axissymmetry, which means for given \(r\) and \(\theta\), metric components are the same.
 \end{enumerate}
 Kerr metric can be expressed in Boyer-Lindquist coordinates.
-\begin{cthm}
+\begin{cthm}[Kerr line element]
   \[ds^{2} =
-    -\left( 1 - \frac{2GM\; r}{\Sigma} \right) dt^{2} + \frac{\Sigma}{\Delta} dr^{2} + \Sigma d\theta^{2}
-  \] \[+\left(r^2+ a^2 + \frac{2GM\; r a^{2}}{\Sigma} \sin^{2}\theta \right) \sin^{2}\theta \ d\phi^{2}\]
-  \[ -\frac{4GM\; ra \sin^{2} \theta}{\Sigma} dt \, d\phi\]\\
+    -\left( 1 - \frac{2GM\; r}{\Sigma} \right) \id t^{2} + \frac{\Sigma}{\Delta} \id r^{2} + \Sigma \id\theta^{2}
+  \]\bigskip \[+\left(r^2+ a^2 + \frac{2GM\; r a^{2}}{\Sigma} \sin^{2}\theta \right) \sin^{2}\theta \ \id\phi^{2}\]\bigskip
+  \[ -\frac{4GM\; ra \sin^{2} \theta}{\Sigma} \id t \, \id\phi\]\\
   Where \(a = \frac{J}{Mc}\), \(\Sigma = r^{2} + a^{2} \cos^{2}\theta\), and \(\Delta = r^{2} - r_{s} r + a^{2}\).
 \end{cthm}
 
@@ -716,12 +739,12 @@ Then the action
 \end{equation}
 By varying the action, just like what we did in classical mechanics, we can obtain the equation of motion of field:
 
-  \begin{align}
-    \delta S & = \int d^4x\left[\frac{\p\mathcal{L}}{\p \Phi^i}\delta\Phi^i+
-    \frac{\p\mathcal{L}}{\p(\p_\mu \Phi^i)}\p_\mu (\delta\Phi^i)\right]      \\
-             & =\int d^4x\left[\frac{\p\mathcal{L}}{\p \Phi^i}-\p_\mu
-      \frac{\p\mathcal{L}}{\p(\p_\mu \Phi^i)}\right]\delta\Phi^i
-  \end{align}
+\begin{align}
+  \delta S & = \int d^4x\left[\frac{\p\mathcal{L}}{\p \Phi^i}\delta\Phi^i+
+  \frac{\p\mathcal{L}}{\p(\p_\mu \Phi^i)}\p_\mu (\delta\Phi^i)\right]      \\
+           & =\int d^4x\left[\frac{\p\mathcal{L}}{\p \Phi^i}-\p_\mu
+    \frac{\p\mathcal{L}}{\p(\p_\mu \Phi^i)}\right]\delta\Phi^i
+\end{align}
 
 We have obtained the field version of \textbf{Euler-Lagrange equation}
 \begin{definition}[Euler-Lagrange equation]
@@ -742,9 +765,9 @@ We could combine them into a Lorentz-invariant Lagrange density:
 \end{equation}
 Apply the Euler-Lagrange equation; we then get the equation of motion:
 \begin{cthm}
-  \begin{align*}                & \eta^{\mu\nu}\p_{\mu}\p_{\nu}\phi+\frac{\mathrm{d}V(\phi)}{\mathrm{d}\phi} \\
-                          =\  & \square\phi+\frac{\mathrm{d}V(\phi)}{\mathrm{d}\phi}                       \\
-                          =\  & 0
+  \begin{align*}                            & \eta^{\mu\nu}\p_{\mu}\p_{\nu}\phi+\frac{\mathrm{d}V(\phi)}{\mathrm{d}\phi} \\
+                                      =\  & \square\phi+\frac{\mathrm{d}V(\phi)}{\mathrm{d}\phi}                       \\
+                                      =\  & 0
   \end{align*}
   Where \(\square\) is \textbf{d'Alembertian}.
 \end{cthm}
