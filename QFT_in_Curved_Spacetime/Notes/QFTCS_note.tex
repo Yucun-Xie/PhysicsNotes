@@ -1,0 +1,661 @@
+\documentclass[12pt]{article}
+%\usepackage[english]{babel}
+\usepackage{graphicx}
+%\usepackage{framed}
+%\usepackage[normalem]{ulem}
+\usepackage{indentfirst}
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\numberwithin{equation}{subsection}
+\usepackage[italicdiff]{physics}
+\usepackage[T1]{fontenc}
+\usepackage{wrapfig}
+\usepackage{lmodern,mathrsfs}
+\usepackage[inline,shortlabels]{enumitem}
+\setlist{topsep=2pt,itemsep=2pt,parsep=0pt,partopsep=0pt}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[utf8]{inputenc}
+%\usepackage[letterpaper, top=0.5in,bottom=0.2in, left=0.5in, right=0.5in, footskip=0.3in, includefoot]{geometry}
+\usepackage[letterpaper,left=0.5in, right=0.5in,top=0.7in,bottom=1in,footskip=0.3in,includefoot]{geometry}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz,tikz-3dplot,tikz-cd,tkz-tab,tkz-euclide,pgf,pgfplots}
+\pgfplotsset{compat=newest}
+\usepackage{multicol}
+\usepackage[bottom,multiple]{footmisc} 
+%\usepackage[backend=bibtex,style=numeric]{biblatex}
+%\addbibresource{bibliography}
+\usepackage{hyperref}
+\usepackage[nameinlink]{cleveref} 
+\usepackage[titletoc, toc, page]{appendix}
+
+
+
+
+
+\newtheoremstyle{mystyle}{}{}{}{}{\sffamily\bfseries}{.\\}{ }{}
+\newtheoremstyle{cstyle}{}{}{}{}{\sffamily\bfseries}{}{ }{\thmnote{#3}}
+
+\theoremstyle{mystyle}{\newtheorem{definition}{Definition}[subsection]}
+%\theoremstyle{mystyle}{\newtheorem{proposition}[definition]{Proposition}}
+\theoremstyle{mystyle}{\newtheorem{theorem}[definition]{Theorem}}
+%\theoremstyle{mystyle}{\newtheorem{lemma}[definition]{Lemma}}
+%\theoremstyle{mystyle}{\newtheorem{corollary}[definition]{Corollary}}
+\theoremstyle{mystyle}{\newtheorem*{remark}{Remark}}
+%\theoremstyle{mystyle}{\newtheorem*{remarks}{Remarks}}
+\theoremstyle{mystyle}{\newtheorem{example}{Example}[subsection]}
+\theoremstyle{mystyle}{\newtheorem{examples}{Examples}[subsection]}
+%\theoremstyle{definition}{\newtheorem*{exercise}{Exercise}}
+\theoremstyle{mystyle}{\newtheorem{cthm}{}[subsection]}
+
+
+\tcolorboxenvironment{definition}{boxrule=0pt,boxsep=0pt,colback={red!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{red},sharp corners,before skip=10pt,after skip=10pt,breakable}
+%\tcolorboxenvironment{proposition}{boxrule=0pt,boxsep=0pt,colback={Orange!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{Orange},sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{theorem}{boxrule=0pt,boxsep=0pt,colback={blue!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{blue},sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{example}{boxrule=0pt,boxsep=0pt,colback={Green!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{Green},sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{examples}{boxrule=0pt,boxsep=0pt,colback={violet!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{violet},sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{proof}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{CadetBlue!80!white},left=8pt,right=8pt,sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{remark}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{Cyan},left=8pt,right=8pt,before skip=10pt,after skip=10pt,breakable}
+%\tcolorboxenvironment{remarks}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{Green},left=8pt,right=8pt,before skip=10pt,after skip=10pt,breakable}
+%\tcolorboxenvironment{example}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{Black},left=8pt,right=8pt,sharp corners,before skip=10pt,after skip=10pt,breakable}
+%\tcolorboxenvironment{examples}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{Black},left=8pt,right=8pt,sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{cthm}{boxrule=0pt,boxsep=0pt,colback={orange!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{orange},sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{equation}{boxrule=0pt,boxsep=0pt,colback={Magenta!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{Magenta},sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{align}{boxrule=0pt,boxsep=0pt,colback={MidnightBlue!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{MidnightBlue},sharp corners,before skip=10pt,after skip=10pt,breakable}
+
+
+
+\usepackage[explicit]{titlesec}
+\titleformat{\section}{\fontsize{24}{30}\sffamily\bfseries}{\thesection}{20pt}{#1}
+\titleformat{\subsection}{\fontsize{16}{18}\sffamily\bfseries}{\thesubsection}{12pt}{#1}
+\titleformat{\subsubsection}{\fontsize{10}{12}\sffamily\large\bfseries}{\thesubsubsection}{8pt}{#1}
+
+\titlespacing*{\section}{0pt}{5pt}{5pt}
+\titlespacing*{\subsection}{0pt}{5pt}{5pt}
+\titlespacing*{\subsubsection}{0pt}{5pt}{5pt}
+
+\newcommand{\sectionbreak}{\clearpage} %Start every section on a new page
+\newcommand{\tbf}[1]{\textbf{#1}}
+\newcommand{\p}{\partial}
+\newcommand{\id}{\mathrm{d}}
+%\newcommand{\Disp}{\displaystyle}
+%\newcommand{\qe}{\hfill\(\bigtriangledown\)}
+%\DeclareMathAlphabet\mathbfcal{OMS}{cmsy}{b}{n}
+%\setlength{\parindent}{0.2in}
+%\setlength{\parskip}{0pt}
+%\setlength{\columnseprule}{0pt}
+
+\title{\huge\sffamily\bfseries Quantum Field Theory in/of Curved Spacetime}
+\author{\Large\sffamily Yucun Xie}
+\date{\sffamily \today}
+
+\begin{document}
+
+\setlength{\abovedisplayskip}{3pt}
+\setlength{\belowdisplayskip}{3pt}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{0pt}
+\maketitle
+
+%Custom colors for different environments
+\definecolor{contcol1}{HTML}{72E094}
+\definecolor{contcol2}{HTML}{24E2D6}
+\definecolor{convcol1}{HTML}{C0392B}
+\definecolor{convcol2}{HTML}{8E44AD}
+
+\begin{tcolorbox}[
+    title=Contents, fonttitle=\huge\sffamily\bfseries\selectfont,
+    interior style={left color=contcol1!40!white,right color=contcol2!40!white},
+    frame style={left color=contcol1!80!white,right color=contcol2!80!white},
+    coltitle=black,top=2mm,bottom=2mm,left=2mm,right=2mm,drop fuzzy shadow,enhanced,breakable]
+  \makeatletter
+  \@starttoc{toc}
+  \makeatother
+\end{tcolorbox}
+
+\newpage
+
+
+
+
+
+
+
+
+
+
+\begin{tcolorbox}[
+    title=Conventions, fonttitle=\large\sffamily\bfseries\selectfont,
+    interior style={left color=convcol1!40!white,right color=convcol2!40!white},
+    frame style={left color=convcol1!80!white,right color=convcol2!80!white},
+    coltitle=black,top=2mm,bottom=2mm,left=2mm,right=2mm,drop fuzzy shadow,enhanced,breakable]
+  \begin{enumerate}
+
+    \item Greek index (e.g. $\alpha, \beta, \mu, \nu$) take value from \{0, 1, 2, 3\}.
+          %\item Events denoted by cursive capitals  (e.g. $\mathscr{A}, \mathscr{B}, \mathscr{E}$).
+    \item $(x^0, x^1, x^2, x^3) \equiv (t, x, y, z) \equiv x^{\alpha}$.
+    \item Latin index (e.g.$ i, j, k$) take value from \{1, 2, 3\}.
+    \item Natural units ($c=1$).
+    \item Einstein summation convention. \[ds^2 = g_{\mu \nu} dx^{\mu} dx^{\nu}=
+            \sum_{\mu=0}^{3} \sum_{\nu=0}^{3}g_{\mu \nu} dx^{\mu} dx^{\nu}\]
+    \item Metric signature $(+, -, -, -)$.
+
+  \end{enumerate}
+\end{tcolorbox}
+
+\newpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%begin here ---------------------------------------------------------------------------------------------
+\section{QFT in Flat Spacetime Revisit}
+In this chapter, we will review the quantum field theory in flat spacetime and carefully distinguish
+the concepts only valid in flat spacetime and the concepts that could be generalized to curved spacetime.
+\subsection{Scalar Field Construction}
+
+Consider a massive scalar field \(\phi(t,x^{i})\) defined in spacetime point \((t,x^{i})\) satisfying the \textbf{Klein-Gordon equation}:
+\begin{equation}
+  (\Box + m^2) \phi = 0
+\end{equation}
+
+\begin{remark}
+  Here we use the metric sign convention \((+,-,-,-)\); if we used other sign convention, the Klein-Gordon equation
+  would read \((\Box - m^2) \phi = 0\).
+\end{remark}
+
+where the d'Alembertian \(\Box\) is defined as \(\Box = g^{\mu\nu}\p_{\mu}\p_{\nu}\).
+In this chapter, we assume the spacetime is flat, so \(g^{\mu\nu}=\eta^{\mu\nu}\).\par
+This equation could be obtained from the Lagrangian density
+\[\mathcal{L} = \frac{1}{2}(\eta^{\mu\nu} \phi_{,\mu} \phi_{,\nu}- m^2 \phi^2)\]
+by demanding the variations of the action \[S = \int \mathcal{L}(x) \mathrm{d}^{n}x\] vanish.
+\par
+The solution of the Klein-Gordon equation satisfying
+\[f_{\mathbf{k}}(t,\mathbf{x})= Ae^{i(\mathbf{k}\cdot \mathbf{x}-\omega t)}\]
+
+The dispersion relation is \[\omega = \sqrt{(\mathbf{|k|}^2 + m^2 )}.\]
+We can rewrite the above mode functions use four-wave vector \(k^{\mu}=(\omega,\mathbf{k})\):
+\begin{equation}\label{112}
+  f_{\mathbf{k}}(x^{\mu})= Ae^{i(k_\mu x^\mu)}
+\end{equation}
+The above solution is very similar to the solution of harmonic oscillators. However, there is a significant difference:
+A harmonic oscillator only has one independent solution because it has a fixed, unique frequency.
+This feature no longer holds for fields theory because we have an infinite number solution for each value of \(k\).
+Therefore, we should construct a general solution by constructing a complete, orthonormal set of modes that any solution
+can express as a linear combination of modes.
+To achieve this, first define the inner production of mode functions:
+\begin{definition}[Inner product]
+  \[(\phi_1,\phi_2)=-i\int_{\Sigma_t}\id^{n-1}x\;\left[\phi_1\p_t\phi^*_2-\phi_2^*\p_t\phi_1\right]\]
+  Which is integral over constant-time hypersurface \(\Sigma_t\).
+\end{definition}
+From generalized Stoke's theorem:\[\int_{M}\id\omega=\int_{\p M}\omega\]
+\hfill \break
+it is easy to check that the inner product is independent of choose of the hypersurface.
+By explicit calculate the inner product \(\left(f_{\mathbf{k}},f_{\mathbf{k}'}\right)\),
+we find that \(\left(f_{\mathbf{k}},f_{\mathbf{k}'}\right)=0\) for \(\mathbf{k}\neq\mathbf{k'}\).
+Furthermore, if we choose the normalization constant \(A\) in eq \ref{112} as
+\(\frac{1}{\sqrt{2\omega(2\pi)^{n-1}}}\), we find the mode function
+\begin{equation}
+  f_{\mathbf{k}}(x^{\mu})=\frac{e^{ik_{\mu}x^{\mu}}}{\sqrt{2\omega(2\pi)^{n-1}}}
+\end{equation}
+obey
+\begin{equation}
+  \left(f_{\mathbf{k}},f_{\mathbf{k}'}\right)=\delta^{(n-1)}(\mathbf{k}-\mathbf{k}').
+\end{equation}
+
+Given our dispersion relation, \(\mathbf{k}\) only determines the absolute value of frequency.
+However, we can require that all mode functions have positive frequency and still give a complete set of mode functions by
+including complex conjugates \(f^*_{\mathbf{k}}(x^{\mu})\).
+
+The positive frequency mode is defined as \[\frac{\p}{\p t}f_{\mathbf{k}}=-i\omega f_{\mathbf{k}}.\]
+And the mode with negative frequency is \[\frac{\p}{\p t}f^*_{\mathbf{k}}=i\omega f^*_{\mathbf{k}}.\]
+
+The negative frequency modes are orthogonal to the positive frequency modes:
+\begin{equation}
+  \left(f_{\mathbf{k}},f^*_{\mathbf{k}'}\right)=0.
+\end{equation}
+And they are orthonormal with each other with a negative norm:
+\begin{equation}
+  \left(f^*_{\mathbf{k}},f^*_{\mathbf{k}'}\right)=-\delta^{(n-1)}(\mathbf{k}-\mathbf{k'})
+\end{equation}
+Hence, modes \(f_{\mathbf{k}}\) and \(f^*_{\mathbf{k}}\) form a complete set, which any possible solution
+of Klein-Gordon equation can be expressed in terms of them.
+
+
+\subsection{Canonical Quantization}
+
+The system could be quantized in the canonical quantization scheme by treating the field \(\phi\) as an operator \(\hat{\phi}\),
+then impose the canonical commutation relations on equal-time hypersurface:
+\begin{definition}[Canonical commutation relation]\label{121}
+  \begin{align*}
+    \bigl[\hat{\phi}(t,\mathbf{x}),\hat{\phi}(t,\mathbf{x'})\bigr] & =0                                       \\
+    \bigl[\hat{\pi}(t,\mathbf{x}),\hat{\pi}(t,\mathbf{x'})\bigr]   & =0                                       \\
+    \bigl[\hat{\phi}(t,\mathbf{x}),\hat{\pi}(t,\mathbf{x'})\bigr]  & =i\delta^{(n-1)}(\mathbf{x}-\mathbf{x'})
+  \end{align*}
+\end{definition}
+The first two commutation relations come from the causality requirement, as those operators have spacelike separation.
+The delta function implies that field and momentum operators commute everywhere except the spacetime point they intersect.
+Just like the classical solution of the Klein-Gordon equation can be expanded in terms of mode,
+the field operator \(\hat{\phi}\) also can be expanded in term mode function and have coefficients \(\hat{a}_{\mathbf{k}}\) and
+\(\hat{a}^{\dagger}_{\mathbf{k}}\) respectively as shown below:
+\begin{definition}[Mode expansion]
+  \[\phi(t,\mathbf{x})=\int\id^{n-1}k\left[\hat{a}_{\mathbf{k}}f_{\mathbf{k}}(t,\mathbf{x})+
+    \hat{a}^{\dagger}_{\mathbf{k}}f^*_{\mathbf{k}}(t,\mathbf{x})\right]\]
+\end{definition}
+By using the commutation relation defined in \ref{121}, we can obtain the commutation relation of operator \(\hat{a}_{\mathbf{k}}\) and
+\(\hat{a}^{\dagger}_{\mathbf{k}}\):
+
+
+\begin{align}
+  \bigl[\hat{a}_{\mathbf{k}},\hat{a}_{\mathbf{k'}}\bigr]                     & =0                                      \\
+  \bigl[\hat{a}^{\dagger}_{\mathbf{k}},\hat{a}^{\dagger}_{\mathbf{k'}}\bigr] & =0                                      \\
+  \bigl[\hat{a}_{\mathbf{k}},\hat{a}^{\dagger}_{\mathbf{k'}}\bigr]           & =\delta^{(n-1)}(\mathbf{k}-\mathbf{k'})
+\end{align}
+
+
+Analog to harmonic oscillators, the operator \(\hat{a}_{\mathbf{k}}\) and
+\(\hat{a}^{\dagger}_{\mathbf{k}}\) are annihilation and creation operator respectively.
+The only difference is that we now have an infinite set of annihilation and creation operators corresponding to each spatial wave vector \(\mathbf{k}\).
+%We can use annihilation and creation operators to define a basis for Hilbert space where the basis state is an eigenstate of number operator \(\)
+
+\begin{remark}
+  The quantization process described above is sometimes referred to as \tbf{second quantization}. Historically, this name
+  comes from the fact that we first treat the mode as discrete and then have an integer number of excitation of each mode.
+  However, the name ``second quantization'' can be misleading because the discrete mode is a classical phenomenon.
+  We quantized the field exactly once.
+\end{remark}
+
+
+There is a single state \(\ket{0}\) that would be anihilated by all \(\hat{a}_{\mathbf{k}}\), called \tbf{vacuum}.
+\begin{definition}[Vacuum]
+  \[\forall \mathbf{k},\;\bigl[ \hat{a}_{\mathbf{k}}\ket{0}=0\bigr].\]
+\end{definition}
+
+A state with \(n\) particles with identical momentum \(\mathbf{k}\) can be constructed by repeat acting \(\hat{a}^{\dagger}_{\mathbf{k}}\)
+on the vacuum:
+\begin{equation}
+  \ket{n_{\mathbf{k}}}=\frac{1}{\sqrt{n_{\mathbf{k}}!}}\left(\hat{a}^{\dagger}_{\mathbf{k}}\right)^{n}\ket{0}
+\end{equation}
+
+Similarly, we can construct a state with \(n_{i}\) particle for momentum \(\mathbf{k}_i\):
+\begin{equation}
+  \ket{n_1,n_2,\cdots,n_j}=\frac{1}{\sqrt{n_1!n_2!\cdots n_j!}}\left(\hat{a}^{\dagger}_{\mathbf{k}_1}\right)^{n_1}
+  \left(\hat{a}^{\dagger}_{\mathbf{k}_2}\right)^{n_2}\cdots \left(\hat{a}^{\dagger}_{\mathbf{k}_j}\right)^{n_j}\ket{0}
+\end{equation}
+
+We can create or annihilate particles with certain momentum:
+\begin{example}
+  \begin{align*}
+    \hat{a}_{\mathbf{k}_i}\ket{n_1,n_2,\cdots,n_i,\cdots,n_j}=           & \sqrt{n_i}\ket{n_1,n_2,\cdots,n_i-1,\cdots,n_j}   \\
+    \hat{a}^{\dagger}_{\mathbf{k}_i}\ket{n_1,n_2,\cdots,n_i,\cdots,n_j}= & \sqrt{n_i+1}\ket{n_1,n_2,\cdots,n_i+1,\cdots,n_j} \\
+  \end{align*}
+\end{example}
+
+Furthermore, we can define \tbf{number operator}:
+\begin{definition}[Number operator]
+  \[\hat{n}_{\mathbf{k}}=\hat{a}^\dagger_{\mathbf{k}}\hat{a}_{\mathbf{k}}\]
+\end{definition}
+
+Which obeys:
+\begin{equation}
+  \hat{n}_{\mathbf{k}_i}\ket{n_1,n_2,\cdots,n_i,\cdots,n_j}=    n_i\ket{n_1,n_2,\cdots,n_i,\cdots,n_j}
+\end{equation}
+
+The eigenstates of the number operator form a basis span Hilbert space, known as \tbf{Fock basis}.
+The space span by this basis is called \tbf{Fock space}.
+
+To illustrate the essential difference between flat and curved spacetime, we will examine how the Fock basis behaves under Lorentz transformation.
+Consider a boost along \(x\) direction; the time derivative in the boosted frame is:
+\begin{align}
+  \p_{t'}f_{\mathbf{k}} & =\frac{\p x^{\mu}}{\p t'}\p_{\mu}f_{\mathbf{k}}                                   \\
+                        & =\gamma(-i\omega)f_{\mathbf{k}}+\gamma\mathbf{v}\cdot (i\mathbf{k})f_{\mathbf{k}} \\
+                        & =-i\omega'f_{\mathbf{k}}
+\end{align}
+where \[\omega'=\gamma\omega-\gamma\mathbf{v}\cdot \mathbf{k}\].
+Hence, a state describing a collection of particles in the boosted frame would describe the identical particles with boosted momentum.
+Therefore, the number operator in the boosted frame is identical to the original number operator; then, the vacuum will also be the same.
+This particular result is due to the existence of a timelike Killing vector in flat spacetime, a direct consequence of Poincare symmetry.
+With Poincare symmetry, our original choice of the inertial frame would be irrelevant.
+Therefore, all inertial observers agree with a unique, single vacuum state.
+
+\subsection{Vacuum Energy}
+The Hamiltonian operator can be obtained from the classical theory of field in the same manner.
+Recall the Hamiltonian of Klein-Gordon field is:
+\begin{equation}
+  H=\int\id^3x\;\mathcal{H}=\int\id^3x\left[\frac{1}{2}\pi^2+\frac{1}{2}(\nabla\phi)^2+\frac{1}{2}m^2\phi^2\right]
+\end{equation}
+By substituting the mode expansion of \(\hat{\phi}\), we obtained the expression of Hamiltonian of quantized K-G field:
+\begin{align}
+  \hat{H}=\frac{1}{2}\int \id^{n-1}k\left[\hat{a}^{\dagger}_{\mathbf{k}}\hat{a}_{\mathbf{k}}+\hat{a}_{\mathbf{k}}\hat{a}^{\dagger}_{\mathbf{k}}\right]\omega
+\end{align}
+Use the commutation relation of \(\hat{a}_{\mathbf{k}}\) and \(\hat{a}^{\dagger}_{\mathbf{k}}\), we can further simplify the Hamiltonian operator:
+\begin{align}\label{134}
+  \hat{H} & =\int \id^{n-1}k\left[\hat{a}^{\dagger}_{\mathbf{k}}\hat{a}_{\mathbf{k}}+\frac{1}{2}\delta^{(n-1)}(0)\right]\omega \\
+          & =\int \id^{n-1}k\left[\hat{a}^{\dagger}_{\mathbf{k}}\hat{a}_{\mathbf{k}}\omega\right]+
+  \int \id^{n-1}k\left[\frac{1}{2}\delta^{(n-1)}(0)\omega\right]
+\end{align}
+The problem has arisen: if we calculate the expectation value of Hamiltonian in the vacuum state, one would expect to get 0,
+however, we get infinite.
+The vacuum has infinite energy!
+The first reason we see infinite vacuum energy is that we are integral over all space. This is reasonable, analog
+to harmonic oscillator zero point energy,
+if we sum over infinite many ground state harmonic oscillators, we are expecting infinite energy.
+The divergences caused by infinitely large space are often referred to as \tbf{infrared divergences}.
+We can eliminate this kind of infinite through \tbf{regularization}.
+Let confine the field in a box with length \(L\) by imposing periodic boundary conditions, and rewrite the second term in \ref{134} as:
+\begin{equation}\label{135}
+  \int \id^{n-1}k\left[\frac{1}{2}\delta^{(n-1)}(0)\omega\right]\rightarrow\frac{1}{2}\left[\frac{L}{2\pi}\right]^{n-1}\sum_{\mathbf{k}}\omega
+\end{equation}
+We have used the Fourier transform of \(\delta\) function.
+
+However, after we restrict the vacuum in a finite region, the expression in \ref{135} is still divergent.
+Since the value of \(\omega=\sqrt{|\mathbf{k}|^2+m^2}\) can be arbitrarily large.
+This infinite arises because we assumed quantum field theory is valid for arbitrarily high frequency/energy
+which corresponds to arbitrarily short distance. We expect to see new physics at that energy scale!
+The divergences caused by infinitely high frequency are often referred to as \tbf{ultraviolet divergences}.
+We can eliminate this kind of infinite through \tbf{renormalization}.
+The simplified idea is just substrating off infinite from our expression.
+This is valid because what we can measure in the experiment is the energy difference,
+we can simply rescale the zero point of energy and not affect the observable.
+
+
+
+
+\subsection{Green Function}
+
+
+
+
+
+\newpage
+
+\section{QFT in Curved Spacetime}
+In the Minkowski spacetime, we have a ``privileged'' set of basis to construct our mode function; however, in general spacetime,
+due to the lack of Poincare symmetry, we do not have a set of mode functions that are preferred.
+
+
+\subsection{Construct QFT in Curved Spacetime}
+Let us start with the Lagrangian density of a scalar field:
+\[\mathcal{L} = \frac{1}{2}(\eta^{\mu\nu} \phi_{,\mu} \phi_{,\nu}- m^2 \phi^2)\]
+To obtain the curved spacetime expression,
+simply replace the Minkowski metric by \(g^{\mu\nu}\) and replace the partial derivative with the covariant derivative.
+To involve the coupling to curved spacetime background, we also introduce a coupling term
+\begin{equation}
+  \mathcal{L} = \frac{1}{2}\sqrt{g}(g^{\mu\nu} \phi_{;\mu} \phi_{;\nu}- m^2 \phi^2-\xi R \phi^2)
+\end{equation}
+Where the \(R\) is the Ricci scalar and \(\xi\) is the coupling constant.\par
+There are two favorite choices of coupling constant:
+\textbf{minimal coupling} which simply set \(\xi=0\) which turn off the coupling,
+while \textbf{conformal coupling} sets \[\xi = \frac{(n-2)}{4(n-1)}\]\\
+which makes the theory invariant under conformal transformation.
+
+
+\subsection{Vacuum Ambiguity}
+
+
+\subsection{Particle Detector and Unruh Effect}
+To see what is the meaning of particles in curved spacetime, consider an idealized particle detector,
+consisting of a point particle with internal energy level \(E\),
+coupled via a monopole interaction with a scalar field \(\phi\).
+Suppose the particle detector moves along the worldline described by parameterized function \(x^\mu(\tau)\),
+where \(\tau\) is the detector's proper time.
+\par The detector-field interaction is described by the interaction Lagrangian:
+\begin{equation}
+  L=\xi \hat{m}(\tau)\phi\left[x(\tau)\right]
+\end{equation}
+Where the \(\xi\) is the coupling constant and \(\hat{m}\) is the monopole moment of the detector.
+Suppose the field \(\phi\) is in the Minkowski vacuum \(\ket{0_{M}}\), defined by \(a_{\mathbf{p}}\ket{0}=0\).
+For the detector moves in a general trajectory,
+it will not remain in the ground state \(E_0\) but will transition to an excited state \(E_n\) for \(n>0\),
+while the field will transition to an excited state \(\ket{\psi}\). \par
+If the coupling constant \(\xi\) is sufficiently small, the amplitude of transition could be given by perturbation theory:
+\begin{equation}\label{TA1}
+  i\xi \bra{E,\psi}\int_{-\infty}^{\infty}d\tau\;\hat{m}(\tau)\phi\left[x(\tau)\right]\ket{0_{M},E_{0}}
+\end{equation}
+In the Heisenberg picture, the time evolution of the monopole moment operator is given by
+\[\hat{m}(\tau)= e^{iH_0\tau}\hat{m}(0)e^{-iH_0\tau}.\]
+Factorized the equation \ref{TA1},
+
+
+
+------------@TODO
+
+For an inertial detector in n-dimensional Minkowski spacetime, only the last term of xxx contributes to the detector response function:
+\begin{equation}
+  \frac{F(E)}{T}=(2\pi)^{1-n}\int^{\infty}_{-\infty}\id (\Delta \tau)\;e^{-iE\Delta\tau}
+  \int\frac{\id^{n-1}k}{2\omega}e^{i(\omega-\mathbf{k}\cdot\mathbf{v})\frac{\Delta\tau}{\sqrt{1-v^2}}}n_{\mathbf{k}}
+\end{equation}
+Where \(T\) is the duration of the detector switched on. If \(\mathbf{v}=0\) we can further perform the integration:
+\begin{align}
+  \frac{F(E)}{T} =& (2\pi)^{1-n}\int^{\infty}_{-\infty}\id (\Delta \tau)\;e^{-i\Delta\tau E}
+  \int\frac{\id^{n-1}k}{2\omega}e^{i\Delta\tau\frac{(\omega-\mathbf{k}\cdot\mathbf{v})}{\sqrt{1-v^2}}}n_{\mathbf{k}}       \\
+  =&(2\pi)^{1-n}\int\frac{\id^{n-1}k}{2\omega}\int^{\infty}_{-\infty}\id (\Delta \tau)\;e^{-i\Delta\tau E}
+  e^{i\Delta\tau\frac{(\omega-\mathbf{k}\cdot\mathbf{v})}{\sqrt{1-v^2}}}n_{\mathbf{k}}                                     \\
+  =&(2\pi)^{1-n}\int\frac{\id^{n-1}k}{2\omega}\int^{\infty}_{-\infty}\id (\Delta \tau)\;
+  e^{i\Delta\tau\frac{(\omega-\mathbf{k}\cdot\mathbf{v})}{\sqrt{1-v^2}}-i\Delta\tau E}n_{\mathbf{k}}                       \\
+  =&(2\pi)^{1-n}\int\frac{\id^{n-1}k}{2\omega}\int^{\infty}_{-\infty}\id (\Delta \tau)\;
+  e^{i\Delta\tau\left[\frac{(\omega-\mathbf{k}\cdot\mathbf{v})}{\sqrt{1-v^2}}-E\right]}n_{\mathbf{k}}                      \\
+  =&(2\pi)^{1-n}(2\pi)\int\frac{\id^{n-1}k}{2\omega}\;
+  \delta\left(\frac{(\omega-\mathbf{k}\cdot\mathbf{v})}{\sqrt{1-v^2}}-E\right)n_{\mathbf{k}}                               \\
+  =&(2\pi)^{1-n}(2\pi)\frac{2\pi^{\frac{n-1}{2}}}{\Gamma(\frac{n-1}{2})}\int\frac{k^{n-2}\id k}{2\omega}\;
+  \delta\left(\omega-E\right)n_{\mathbf{k}}                                                                                \\
+  =&\frac{2^{2-n}\pi^{\frac{3-n}{2}}}{\Gamma(\frac{n-1}{2})}\int\frac{k^{n-2}\id k}{\omega}\;
+  \delta\left(\omega-E\right)n_{\mathbf{k}}                                                                                \\
+  =&\frac{2^{2-n}\pi^{\frac{3-n}{2}}}{\Gamma(\frac{n-1}{2})}\int\frac{k^{n-2}\id k}{\sqrt{k^2+m^2}}\;
+  \delta\left(\sqrt{k^2+m^2}-E\right)n_{\sqrt{E^2-m^2}}                                                                    \\
+  =&\frac{2^{2-n}\pi^{\frac{3-n}{2}}}{\Gamma(\frac{n-1}{2})}\left(E^2-m^2\right)^{\frac{n-3}{2}}
+  \theta\left(E-m\right)n_{\sqrt{E^2-m^2}}
+\end{align}
+
+
+
+
+\section{Quantum Phenomena In Curved Spacetime}
+
+
+\subsection{Cosmological Particle Creation}
+
+
+
+\subsection{Moving Mirror}
+
+
+\subsection{Hawking Radiation}
+
+%\section{Renormalization}
+
+\newpage
+\appendix
+\addcontentsline{toc}{section}{Appendix~}
+
+
+
+
+
+\section{Classical Field Theory}
+Classical field theory is something students are supposed to know for QFT but is never formally taught, so we give a brief overview here.
+Field theory is very similar to Lagrangian mechanics; instead of the usual system,
+we now have a spacetime-dependent \textbf{fields} \(\Phi^i(x^\mu)\) (the \(i\) here is not tensor index),
+and the action becomes a \textbf{functional} of these fields. A functional is a ``function of function'', which map a function to a number,
+note that the functional is not simply a composition function, which maps number to number. \par
+In field theory, the Lagrangian is usually expressed as an integral over \textbf{Lagrange density},
+which are a function of the fields and their derivative.
+\begin{equation}
+  L=\int d^3x\;\mathcal{L}(\Phi^i,\p_{\mu}\Phi^i)
+\end{equation}
+Then the action
+\begin{equation}
+  S=\int dt\;L = \int d^4x\;\mathcal{L}(\Phi^i,\p_{\mu}\Phi^i)
+\end{equation}
+By varying the action, just like what we did in classical mechanics, we can obtain the equation of motion of field:
+
+\begin{align}
+  \delta S & = \int d^4x\left[\frac{\p\mathcal{L}}{\p \Phi^i}\delta\Phi^i+
+  \frac{\p\mathcal{L}}{\p(\p_\mu \Phi^i)}\p_\mu (\delta\Phi^i)\right]      \\
+           & =\int d^4x\left[\frac{\p\mathcal{L}}{\p \Phi^i}-\p_\mu
+    \frac{\p\mathcal{L}}{\p(\p_\mu \Phi^i)}\right]\delta\Phi^i
+\end{align}
+
+We have obtained the field version of \textbf{Euler-Lagrange equation}
+\begin{definition}[Euler-Lagrange equation]
+  \[\frac{\p\mathcal{L}}{\p \Phi^i}-\p_\mu
+    \frac{\p\mathcal{L}}{\p(\p_\mu \Phi^i)}=0\]
+\end{definition}
+Let's consider a simple example, the real scalar field \[\phi:\ x^{\mu} \rightarrow \mathbb{R}\].
+The contribution of action are
+
+\begin{enumerate}
+  \item Kinetic term: \(\frac{1}{2}\dot{\phi}^2\)
+  \item Gradient term: \(\frac{1}{2}(\nabla\phi)^2\)
+  \item potential term: \(V(\phi)\)
+\end{enumerate}
+We could combine them into a Lorentz-invariant Lagrange density:
+\begin{equation}
+  \mathcal{L}= \frac{1}{2}\eta^{\mu\nu}(\p_{\mu}\phi)(\p_{\nu}\phi)-V(\phi)
+\end{equation}
+Apply the Euler-Lagrange equation; we then get the equation of motion:
+\begin{cthm}
+  \begin{align*}                                & \eta^{\mu\nu}\p_{\mu}\p_{\nu}\phi+\frac{\mathrm{d}V(\phi)}{\mathrm{d}\phi} \\
+                                          =\  & \square\phi+\frac{\mathrm{d}V(\phi)}{\mathrm{d}\phi}                       \\
+                                          =\  & 0
+  \end{align*}
+  Where \(\square\) is \textbf{d'Alembertian}.
+\end{cthm}
+\subsection{Klein-Gordon Field}
+If the scalar field is massive, the potential \(V(\phi)=\frac{1}{2}m^2\phi^2\),
+we obtained the \textbf{Klein-Gordon equation}:
+\begin{definition}[Klein-Gordon equation]
+  \[(\square +m^2)\phi = 0\]
+\end{definition}
+You will see this equation again and again in quantum field theory.
+\begin{remark}
+  The Klein-Gordon field could be analog to infinite many coupled infinitesimal harmonic oscillators;
+  each ``mass'' is affected by neighboring springs and has its kinetic energy.
+\end{remark}
+
+
+
+\subsection{Hamiltonian Field Theory}
+The Lagrangian field theory is naturally Lorentz invariant. However, we also need Hamiltonian formalism for the field theory
+because it is easier to transition from quantum mechanics.
+Let's first consider the classical definition of Hamiltonian, \[H=\sum p\dot{q}-L\].
+From the definition of Lagrangian, we can derive the conjugate momentum as follow:
+\begin{cthm}
+  \begin{align*}
+    p(x^i)\equiv & \;\frac{\p L}{\p \dot{\phi}(x^i)}
+    =\frac{\p}{\p \dot{\phi}(x^i)}\int \mathrm{d}^3x' \mathcal{L} \\
+    \propto      & \;\pi(x^i) \mathrm{d}^3x
+  \end{align*}
+  \bigskip
+  Where \[\pi \equiv \frac{\p \mathcal{L}}{\p \dot{\phi}}\]
+  is called \textbf{momentum density}
+\end{cthm}
+Therefore, the Hamiltonian for field theory is:
+\begin{definition}[Hamiltonian]
+  \begin{align*}
+    H= & \sum p(x^i)\phi(x^i)-L                             \\
+    =  & \int \id^3x\left[\pi \dot{\phi}-\mathcal{L}\right] \\
+    =  & \int \id^3x\;\mathcal{H}
+  \end{align*}
+  Where \(\mathcal{H}\) is called \tbf{Hamiltonian density}.
+\end{definition}
+
+\begin{example}
+  As a simple example, the Hamiltonian for the K-G field is:
+  \[H=\int\id^3x\;\mathcal{H}=\int\id^3x\left[\frac{1}{2}\pi^2+\frac{1}{2}(\nabla\phi)^2+\frac{1}{2}m^2\phi^2\right]\]
+\end{example}
+
+\subsection{Noether's Theorem}
+A Lagrangian may be invariant under some special type of transformation.
+For example, a Lagrangian for a complex scalar field
+\[\mathcal{L}= |\p_\mu \phi|^2 -m^2|\phi|^2\]
+is invariant under transformation \(\phi \rightarrow e^{i\alpha}\phi\).
+We call this transformation a \textbf{symmetry} of the Lagrangian.
+When the parameter of transformation (\(\alpha\) for this case) can be taken infinitesimal,
+we say this symmetry is \textbf{continuous}.
+We can explicit see that \(\frac{\delta \mathcal{L}}{\delta \alpha}=0\).
+\par By applying the Euler-Lagrange equation, we can deduce that \(\p_\mu J_{\mu}=0\),
+where \(J_{\mu}\) is defined as follow:
+\begin{definition}
+  \[J_{\mu}= \sum_n\frac{\p \mathcal{L}}{\p(\p_\mu \phi_n)}\frac{\delta\phi_n}{\delta \alpha}\]\\
+  \(J_{\mu}\) is known as \textbf{Noether current} or \textbf{conserved current}
+\end{definition}
+
+\begin{example}
+  For the above complex scalar field, we can calculate the conserved current:
+  \bigskip
+  \begin{align*}
+    J_{\mu}= & \sum_n\frac{\p \mathcal{L}}{\p(\p_\mu \phi_n)}\frac{\delta\phi_n}{\delta \alpha} \\
+    =        & \frac{\p \mathcal{L}}{\p(\p_\mu \phi)}\frac{\delta\phi}{\delta \alpha}
+    +\frac{\p \mathcal{L}}{\p(\p_\mu \phi^*)}\frac{\delta\phi^*}{\delta \alpha}                 \\
+    =        & -i\left[\phi\p_\mu\phi^*-\phi^* \p_\mu\phi\right]
+  \end{align*}
+  We can check that \(\p_\mu J_{\mu}=0\) explicitly:
+  \begin{align*}
+    \p_\mu J_{\mu}= & -i\left[\phi\square\phi^*-\phi^* \square\phi\right] \\
+    =               & 0
+  \end{align*}
+  Where we applied the equation of motion in the last step.
+\end{example}
+We call \(J_\mu\) conserved current because we can find conserved quantity by integral over its 0-component:
+\begin{definition}[Conserved charge]
+  \[Q=\int d^3x\;J_0\]
+  Where the \(Q\) is called \textbf{conserved charge} or \textbf{Noether's charge}
+\end{definition}
+We say \(Q\) is conserved because
+\begin{equation}
+  \p_tQ=\int d^3x \; \p_t J_0 = \int d^3x\;\vec{\nabla}\cdot \vec{J} = 0.
+\end{equation}
+The above argument is called \textbf{Noether's theorem}.
+\begin{theorem}[Noether's theorem]
+  If a Lagrangian has a continuous symmetry,
+  then exists a current associated with that symmetry that is
+  conserved when the equations of motion are satisfied.
+\end{theorem}
+
+\subsection{Energy-momentum Tensor}
+The physics at spacetime point \(x\) should have same form at spacetime point \(y\),
+this argument arises a symmetry called \textbf{specetime translational symmetry}.
+By Noether's theorem, we can find the four conserved currents for this symmetry for an infinitesimal
+spacetime translation \(\xi^\mu\):
+\begin{definition}[Energy-momentum tensor]
+  \[T_{\mu\nu}=\sum_n \frac{\p \mathcal{L}}{\p(\p_{\mu}\phi_n)}\p_\nu\phi_n-g_{\mu\nu}\mathcal{L}\]
+
+  \(T_{\mu\nu}\) is called \textbf{energy-momentum tensor}.
+\end{definition}
+Four conserved currents correspond to values of \(\nu\), and four conserved charges are energy and momentum.
+We can see that the energy density is the 00-component of \(T_{\mu\nu}\).
+
+
+
+
+\newpage
+%\section{Driven Harmonic Oscillator}
+\newpage
+
+
+
+\end{document}

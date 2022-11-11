@@ -1,0 +1,19 @@
+\contentsline {section}{\numberline {1}QFT in Flat Spacetime Revisit}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Scalar Field Construction}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Canonical Quantization}{4}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Vacuum Energy}{7}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Green Function}{7}{subsection.1.4}%
+\contentsline {section}{\numberline {2}QFT in Curved Spacetime}{8}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Construct QFT in Curved Spacetime}{8}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Vacuum Ambiguity}{8}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Particle Detector and Unruh Effect}{8}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Quantum Phenomena In Curved Spacetime}{10}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Cosmological Particle Creation}{10}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Moving Mirror}{10}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Hawking Radiation}{10}{subsection.3.3}%
+\contentsline {section}{Appendix\nobreakspace {}}{11}{subsection.3.3}%
+\contentsline {section}{\numberline {A}Classical Field Theory}{11}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Klein-Gordon Field}{12}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Hamiltonian Field Theory}{12}{subsection.A.2}%
+\contentsline {subsection}{\numberline {A.3}Noether's Theorem}{13}{subsection.A.3}%
+\contentsline {subsection}{\numberline {A.4}Energy-momentum Tensor}{14}{subsection.A.4}%
