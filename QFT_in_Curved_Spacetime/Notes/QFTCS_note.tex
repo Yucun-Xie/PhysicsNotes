@@ -199,27 +199,47 @@ The solution of the Klein-Gordon equation satisfying
 The dispersion relation is \[\omega = \sqrt{(\mathbf{|k|}^2 + m^2 )}.\]
 We can rewrite the above mode functions use four-wave vector \(k^{\mu}=(\omega,\mathbf{k})\):
 \begin{equation}\label{112}
-  f_{\mathbf{k}}(x^{\mu})= Ae^{i(k_\mu x^\mu)}
+  f_{\mathbf{k}}(x^{\mu})= Ae^{-i(k_\mu x^\mu)}
 \end{equation}
 The above solution is very similar to the solution of harmonic oscillators. However, there is a significant difference:
 A harmonic oscillator only has one independent solution because it has a fixed, unique frequency.
 This feature no longer holds for fields theory because we have an infinite number solution for each value of \(k\).
 Therefore, we should construct a general solution by constructing a complete, orthonormal set of modes that any solution
 can express as a linear combination of modes.
-To achieve this, first define the inner production of mode functions:
-\begin{definition}[Inner product]
+To achieve this, first define the inner product of mode functions:
+\begin{definition}[Klein-Gordon inner product]
   \[(\phi_1,\phi_2)=-i\int_{\Sigma_t}\id^{n-1}x\;\left[\phi_1\p_t\phi^*_2-\phi_2^*\p_t\phi_1\right]\]
   Which is integral over constant-time hypersurface \(\Sigma_t\).
 \end{definition}
 From generalized Stoke's theorem:\[\int_{M}\id\omega=\int_{\p M}\omega\]
 \hfill \break
 it is easy to check that the inner product is independent of choose of the hypersurface.
-By explicit calculate the inner product \(\left(f_{\mathbf{k}},f_{\mathbf{k}'}\right)\),
+By explicitly calculating the inner product:
+\begin{align}
+  \left(f_{\mathbf{k}},f_{\mathbf{k}'}\right)\propto&\left(e^{-ik^{\mu}x_{\mu}},e^{-ik'^{\nu}x_{\nu}}\right)\\
+  =&-i\int_{\Sigma_t}\id^{n-1}x\;\left[e^{-i\omega t+\mathbf{k}\cdot\mathbf{x}}
+  \p_{t}e^{i\omega' t-\mathbf{k'}\cdot\mathbf{x}}-e^{i\omega' t-\mathbf{k'}\cdot\mathbf{x}}
+  \p_{t}e^{-i\omega t+\mathbf{k}\cdot\mathbf{x}}\right]\\
+  =&-i\int_{\Sigma_t}\id^{n-1}x\;\left[e^{-i\omega t} e^{\mathbf{k}\cdot\mathbf{x}}
+  \p_{t}e^{i\omega' t}e^{-\mathbf{k'}\cdot\mathbf{x}}-e^{i\omega' t}e^{-\mathbf{k'}\cdot\mathbf{x}}
+  \p_{t}e^{-i\omega t}e^{\mathbf{k}\cdot\mathbf{x}}\right]\\
+  =&\int_{\Sigma_t}\id^{n-1}x\;\left[e^{-i\omega t} e^{\mathbf{k}\cdot\mathbf{x}}
+  \omega' e^{i\omega' t}e^{-\mathbf{k'}\cdot\mathbf{x}}+e^{i\omega' t}e^{-\mathbf{k'}\cdot\mathbf{x}}
+  \omega e^{-i\omega t}e^{\mathbf{k}\cdot\mathbf{x}}\right]\\
+  =&e^{-i\omega t}e^{i\omega' t}(\omega'+\omega)\int_{\Sigma_t}\id^{n-1}x\;
+  \left[ e^{\mathbf{k}\cdot\mathbf{x}}e^{-\mathbf{k'}\cdot\mathbf{x}}\right]\\
+  =&e^{i(\omega'-\omega)t}(\omega'+\omega)\int_{\Sigma_t}\id^{n-1}x\;
+  \left[ e^{(\mathbf{k}-\mathbf{k'})\cdot\mathbf{x}}\right]\\
+  =&e^{i(\omega'-\omega)t}(\omega'+\omega)(2\pi)^{n-1}
+  \delta^{n-1}\left(\mathbf{k}-\mathbf{k'}\right)
+\end{align}
+
+
 we find that \(\left(f_{\mathbf{k}},f_{\mathbf{k}'}\right)=0\) for \(\mathbf{k}\neq\mathbf{k'}\).
 Furthermore, if we choose the normalization constant \(A\) in eq \ref{112} as
 \(\frac{1}{\sqrt{2\omega(2\pi)^{n-1}}}\), we find the mode function
 \begin{equation}
-  f_{\mathbf{k}}(x^{\mu})=\frac{e^{ik_{\mu}x^{\mu}}}{\sqrt{2\omega(2\pi)^{n-1}}}
+  f_{\mathbf{k}}(x^{\mu})=\frac{e^{-ik_{\mu}x^{\mu}}}{\sqrt{2\omega(2\pi)^{n-1}}}
 \end{equation}
 obey
 \begin{equation}
@@ -291,7 +311,7 @@ The only difference is that we now have an infinite set of annihilation and crea
 
 There is a single state \(\ket{0}\) that would be anihilated by all \(\hat{a}_{\mathbf{k}}\), called \tbf{vacuum}.
 \begin{definition}[Vacuum]
-  \[\forall \mathbf{k},\;\bigl[ \hat{a}_{\mathbf{k}}\ket{0}=0\bigr].\]
+  \[\forall\; \mathbf{k},\; \hat{a}_{\mathbf{k}}\ket{0}=0.\]
 \end{definition}
 
 A state with \(n\) particles with identical momentum \(\mathbf{k}\) can be constructed by repeat acting \(\hat{a}^{\dagger}_{\mathbf{k}}\)
