@@ -6,6 +6,7 @@
 \usepackage{indentfirst}
 \usepackage{amsmath,amsthm,amssymb,amsfonts}
 \numberwithin{equation}{subsection}
+\usepackage{mathtools}
 \usepackage[italicdiff]{physics}
 \usepackage[T1]{fontenc}
 \usepackage{wrapfig}
@@ -26,8 +27,7 @@
 \usepackage{hyperref}
 \usepackage[nameinlink]{cleveref} 
 \usepackage[titletoc, toc, page]{appendix}
-
-
+\usepackage{subfiles}
 
 
 
@@ -132,7 +132,7 @@
     \item Greek index (e.g. $\alpha, \beta, \mu, \nu$) take value from \{0, 1, 2, 3\}.
           %\item Events denoted by cursive capitals  (e.g. $\mathscr{A}, \mathscr{B}, \mathscr{E}$).
     \item $(x^0, x^1, x^2, x^3) \equiv (t, x, y, z) \equiv x^{\alpha}$.
-    \item Latin index (e.g.$ i, j, k$) take value from \{1, 2, 3\}.
+    \item Latin index (e.g. $ i, j, k$) take value from \{1, 2, 3\}.
     \item Natural units ($c=1$).
     \item Einstein summation convention. \[ds^2 = g_{\mu \nu} dx^{\mu} dx^{\nu}=
             \sum_{\mu=0}^{3} \sum_{\nu=0}^{3}g_{\mu \nu} dx^{\mu} dx^{\nu}\]
@@ -216,21 +216,22 @@ From generalized Stoke's theorem:\[\int_{M}\id\omega=\int_{\p M}\omega\]
 it is easy to check that the inner product is independent of choose of the hypersurface.
 By explicitly calculating the inner product:
 \begin{align}
-  \left(f_{\mathbf{k}},f_{\mathbf{k}'}\right)\propto&\left(e^{-ik^{\mu}x_{\mu}},e^{-ik'^{\nu}x_{\nu}}\right)\\
-  =&-i\int_{\Sigma_t}\id^{n-1}x\;\left[e^{-i\omega t+\mathbf{k}\cdot\mathbf{x}}
+  \left(f_{\mathbf{k}},f_{\mathbf{k}'}\right)\propto
+   & \left(e^{-ik^{\mu}x_{\mu}},e^{-ik'^{\nu}x_{\nu}}\right)                           \\
+   & =-i\int_{\Sigma_t}\id^{n-1}x\;\left[e^{-i\omega t+\mathbf{k}\cdot\mathbf{x}}
   \p_{t}e^{i\omega' t-\mathbf{k'}\cdot\mathbf{x}}-e^{i\omega' t-\mathbf{k'}\cdot\mathbf{x}}
-  \p_{t}e^{-i\omega t+\mathbf{k}\cdot\mathbf{x}}\right]\\
-  =&-i\int_{\Sigma_t}\id^{n-1}x\;\left[e^{-i\omega t} e^{\mathbf{k}\cdot\mathbf{x}}
+  \p_{t}e^{-i\omega t+\mathbf{k}\cdot\mathbf{x}}\right]                                \\
+   & = -i\int_{\Sigma_t}\id^{n-1}x\;\left[e^{-i\omega t} e^{\mathbf{k}\cdot\mathbf{x}}
   \p_{t}e^{i\omega' t}e^{-\mathbf{k'}\cdot\mathbf{x}}-e^{i\omega' t}e^{-\mathbf{k'}\cdot\mathbf{x}}
-  \p_{t}e^{-i\omega t}e^{\mathbf{k}\cdot\mathbf{x}}\right]\\
-  =&\int_{\Sigma_t}\id^{n-1}x\;\left[e^{-i\omega t} e^{\mathbf{k}\cdot\mathbf{x}}
+  \p_{t}e^{-i\omega t}e^{\mathbf{k}\cdot\mathbf{x}}\right]                             \\
+   & =\int_{\Sigma_t}\id^{n-1}x\;\left[e^{-i\omega t} e^{\mathbf{k}\cdot\mathbf{x}}
   \omega' e^{i\omega' t}e^{-\mathbf{k'}\cdot\mathbf{x}}+e^{i\omega' t}e^{-\mathbf{k'}\cdot\mathbf{x}}
-  \omega e^{-i\omega t}e^{\mathbf{k}\cdot\mathbf{x}}\right]\\
-  =&e^{-i\omega t}e^{i\omega' t}(\omega'+\omega)\int_{\Sigma_t}\id^{n-1}x\;
-  \left[ e^{\mathbf{k}\cdot\mathbf{x}}e^{-\mathbf{k'}\cdot\mathbf{x}}\right]\\
-  =&e^{i(\omega'-\omega)t}(\omega'+\omega)\int_{\Sigma_t}\id^{n-1}x\;
-  \left[ e^{(\mathbf{k}-\mathbf{k'})\cdot\mathbf{x}}\right]\\
-  =&e^{i(\omega'-\omega)t}(\omega'+\omega)(2\pi)^{n-1}
+  \omega e^{-i\omega t}e^{\mathbf{k}\cdot\mathbf{x}}\right]                            \\
+   & =  e^{-i\omega t}e^{i\omega' t}(\omega'+\omega)\int_{\Sigma_t}\id^{n-1}x\;
+  \left[ e^{\mathbf{k}\cdot\mathbf{x}}e^{-\mathbf{k'}\cdot\mathbf{x}}\right]           \\
+   & =   e^{i(\omega'-\omega)t}(\omega'+\omega)\int_{\Sigma_t}\id^{n-1}x\;
+  \left[ e^{(\mathbf{k}-\mathbf{k'})\cdot\mathbf{x}}\right]                            \\
+   & =  e^{i(\omega'-\omega)t}(\omega'+\omega)(2\pi)^{n-1}
   \delta^{n-1}\left(\mathbf{k}-\mathbf{k'}\right)
 \end{align}
 
@@ -362,10 +363,16 @@ With Poincare symmetry, our original choice of the inertial frame would be irrel
 Therefore, all inertial observers agree with a unique, single vacuum state.
 
 \subsection{Vacuum Energy}
+The energy-momentum tensor of scalar field theory can be constructed in a standard manner:
+\begin{align}
+  T_{\mu\nu} & =\frac{2}{\sqrt[]{-g}}\frac{\delta S}{\delta(g^{\mu\nu})}                                         \\
+             & =\phi_{,\mu}\phi_{,\nu}-\frac{1}{2}\eta_{\mu\nu}\eta^{\lambda\sigma}\phi_{,\lambda}\phi_{,\sigma}
+  +\frac{1}{2}m^2\phi^2\eta_{\mu\nu}
+\end{align}
 The Hamiltonian operator can be obtained from the classical theory of field in the same manner.
 Recall the Hamiltonian of Klein-Gordon field is:
 \begin{equation}
-  H=\int\id^3x\;\mathcal{H}=\int\id^3x\left[\frac{1}{2}\pi^2+\frac{1}{2}(\nabla\phi)^2+\frac{1}{2}m^2\phi^2\right]
+  H=\int\id^3x\;\mathcal{H}=\int\id^3x\;T_{tt}=\int\id^3x\left[\frac{1}{2}\pi^2+\frac{1}{2}(\nabla\phi)^2+\frac{1}{2}m^2\phi^2\right]
 \end{equation}
 By substituting the mode expansion of \(\hat{\phi}\), we obtained the expression of Hamiltonian of quantized K-G field:
 \begin{align}
@@ -405,6 +412,188 @@ we can simply rescale the zero point of energy and not affect the observable.
 
 
 \subsection{Green Function}
+Vacuum expectation values of various combinations of field operators can be treated with varous Green functions of the Klein-Gordon equation.
+
+For the K-G field, the expectation value of the commutator of the field operator can be represented by \tbf{Schwinger function} \(G(x,x')\):
+\begin{equation}
+  iG(x,x')=\expval{\left[\hat{\phi}(x),\hat{\phi}(x')\right]}{0}
+\end{equation}
+The anticommutator of field operator is defined as:
+\begin{definition}[Anticommutator]
+  \[\left\{\hat{\phi}(x),\hat{\phi}(x')\right\}=\hat{\phi}(x)\hat{\phi}(x')+\hat{\phi}(x')\hat{\phi}(x)\]
+\end{definition}
+The expectation value of anticommutator can be represented by \tbf{Hadamard's elementary function} \(G^{(1)}(x,x')\):
+\begin{equation}
+  G^{(1)}(x,x')=\expval{\left\{\hat{\phi}(x),\hat{\phi}(x')\right\}}{0}
+\end{equation}
+These Green functions can be split into positive and negative frequency parts:
+\begin{align}
+  iG(x,x')      & = G^+(x,x')-G^-(x,x') \\
+  G^{(1)}(x,x') & =G^+(x,x')+G^-(x,x')
+\end{align}
+where \(G^{\pm}\) are \tbf{Wightman functions}, given by 
+\begin{cthm}[Wightman functions]
+  \begin{align*}
+    G^+(x,x')&=\expval{\hat{\phi}(x)\hat{\phi}(x')}{0}\\
+    G^-(x,x')&=\expval{\hat{\phi}(x')\hat{\phi}(x)}{0}.
+  \end{align*}
+\end{cthm}
+
+Furthermore, the \tbf{Feynman propagator} \(G_{F}\) can be defined as the time-ordered product of fields operators:
+\begin{cthm}[Feynman propagator]
+  \begin{align*}
+    iG_{F}(x,x')&=\expval{T(\hat{\phi}(x)\hat{\phi}(x'))}{0}\\
+    &=\theta(t-t')G^+(x,x')+\theta(t'-t)G^-(x,x')
+  \end{align*}
+\end{cthm}
+Where \(\theta(t)\) is the \tbf{Heaviside step function}, defined as 
+\begin{definition}[Heaviside step function]
+  \begin{equation*}
+    \theta(t)=
+    \begin{cases}
+      1 & \text{if \(t>0\)}\\
+      0 & \text{if \(t<0\)}.
+    \end{cases}
+  \end{equation*}
+\end{definition}
+Using the step function, we can further define retarded and advanced Green functions:
+\begin{cthm}[Retarded/Advanced Green functions]
+  \begin{align*}
+    G_{R}(x,x')&=-\theta(t-t')G(x,x')\\
+    G_{A}(x,x')&=\theta(t-t')G(x,x')
+  \end{align*}
+\end{cthm}
+The average of retarded and advanced Green functions is denoted as 
+\begin{equation}
+  \bar{G}(x,x')=\frac{1}{2}\left[G_{R}(x,x')+G_{A}(x,x')\right].
+\end{equation}
+Then the Feynman propagator can be written as 
+\begin{equation}
+  G_{F}(x,x')=-\left[\bar{G}(x,x')+\frac{1}{2}iG^{(1)}(x,x')\right].
+\end{equation}
+The following relation are hold for those Green functions:
+\begin{equation}
+  (\Box+m^2)
+  \begin{bmatrix*}[l]
+    G(x,x')\\
+    G^{(1)}(x,x')\\
+    G^{\pm}(x,x')
+    \end{bmatrix*}
+    =0
+\end{equation}
+
+\begin{align}
+  (\Box+m^2)
+  \begin{bmatrix*}[l]
+    G_{F}(x,x')\\
+    G_{R}(x,x')\\
+    G_{A}(x,x')
+    \end{bmatrix*}
+    =
+    \begin{bmatrix*}[l]
+      -\delta^n(x-x')\\
+      \delta^n(x-x')\\
+      \delta^n(x-x')
+    \end{bmatrix*}
+\end{align}
+All of those Green functions can be obtained by evaluating the contour integral:
+\begin{equation}
+  (2\pi)^{-n}\int_{C}\id^nk\;\frac{e^{i\left[\mathbf{k}\cdot(\mathbf{x}-\mathbf{x'})-k^0(t-t')\right]}}{(k^0)^2-|\mathbf{k}|^2-m^2}.
+\end{equation}
+This contour integral has poles at \(k^0=\pm \sqrt{(|\mathbf{k}|^2)+m^2}\).
+The different Green functions take different contours, the contour for each Green function is shown in figure \ref{green}.
+
+The opened contours in the figure should be closed by infinite semicircles in the lower/upper complex plane depending on boundary conditions.
+For example, in the case that \(t'>t\), the contour for \(G_{R}(x,x')\) is closed by a semicircle in the upper complex plane.
+By residue theorem, this contour integral yields zero, which is expected. 
+
+
+
+\begin{figure}[ht]
+  \def\crosslen{0.1}
+  \begin{tikzpicture}[x=0.7cm, y=0.7cm,
+    >={Latex[length=2.1mm]},
+    cross/.pic={\draw[red] (-\crosslen, \crosslen)--(\crosslen,-\crosslen) (\crosslen, \crosslen)--(-\crosslen,-\crosslen);}]
+    \def\xlen{7}
+    \def\ylen{2.5}
+    \def\mcenter{4.5}
+    \def\mradius{1}
+    \def\mbradius{1.8}
+    \def\msradius{0.5}
+    \def\deltaAngle{20}
+    \def\mycolor{blue}
+
+    \draw[->] (-\xlen,0) -- (\xlen,0) node[right]{Re$(z)$};
+    \draw[->] (0, -\ylen)--(0,\ylen) node[above]{Im$(z)$};
+    \draw[SeaGreen] (\mcenter,0) circle[radius=\mradius] pic{cross};
+    \draw[\mycolor] (-\mcenter,0) circle[radius=\mradius] pic{cross};
+    \draw[->, SeaGreen] (\mcenter,\mradius) node[above, black]{$\textcolor{SeaGreen}{iG^+}$}
+    arc[radius=\mradius, start angle=90, delta angle=5];
+    \draw[-<, \mycolor] (-\mcenter,\mradius) node[above, black]{$\textcolor{blue}{iG^-}$}
+    arc[radius=\mradius, start angle=90, delta angle=5];
+
+    \begin{scope}[yshift=-4.8cm]
+      \draw[->] (-\xlen,0) -- (\xlen,0) node[right]{Re$(z)$};
+      \draw[->] (0, -\ylen)--(0,\ylen) node[above]{Im$(z)$};
+      \draw (\mcenter,0) pic{cross} (-\mcenter,0) pic{cross};
+      \draw[SeaGreen] (\mcenter, \mradius) coordinate(upper point) arc[radius=\mradius, start angle=90, delta angle=-180] -- (-\mcenter, \mradius) arc[radius=\mradius, start angle=90, delta angle=180] -- cycle;
+      \draw[\mycolor] (\mcenter, \mbradius) arc[radius=\mbradius, start angle=90, delta angle=-180] -- (-\mcenter, -\mbradius) arc[radius=\mbradius, start angle=-90, delta angle=-180] -- cycle;
+      \draw[>-, \mycolor] (0.2*\mcenter, \mbradius) -- +(0.3*\mcenter,0) node[above, black]{$\textcolor{blue}{G}$};
+      \draw[->, SeaGreen] (upper point) -- ($(upper point)!0.5!(0,0)$) node[above, black]{$\textcolor{SeaGreen}{iG^{(1)}}$};
+    \end{scope}
+
+    \begin{scope}[yshift=-9.6cm]
+      \draw[->] (-\xlen,0) coordinate(xEnd) -- (\xlen,0)  coordinate(xStart) node[right]{Re$(z)$};
+      \draw[->] (0, -\ylen)--(0,\ylen) node[above]{Im$(z)$};
+
+      \draw (\mcenter,0) coordinate(circA) pic{cross} (-\mcenter,0) coordinate(circB) pic{cross};
+      \draw[\mycolor] ($(circA)!1!\deltaAngle:(\msradius+\mcenter,0)$) coordinate(Spa)
+      arc[radius=\msradius, start angle=\deltaAngle, end angle=180-\deltaAngle] -- ($(circB)!1!\deltaAngle:(\msradius-\mcenter,0)$)
+      arc[radius=\msradius, start angle=\deltaAngle, end angle=180-\deltaAngle] -- (Spa -| xEnd) coordinate (myend);
+      \draw[\mycolor] (Spa)--(Spa -| xStart) coordinate (mystart);
+      \draw[->, \mycolor] ($(mystart)!0.4!(myend)$) node[above, black] {$\textcolor{blue}{G_R}$} -- ($(mystart)!0.56!(myend)$);
+
+      \draw[SeaGreen] ($(circA)!1!-\deltaAngle:(\msradius+\mcenter,0)$) coordinate(Spa)
+      arc[radius=\msradius, start angle=-\deltaAngle, end angle=-180+\deltaAngle] -- ($(circB)!1!-\deltaAngle:(\msradius-\mcenter,0)$)
+      arc[radius=\msradius, start angle=-\deltaAngle, end angle=-180+\deltaAngle] -- (Spa -| xEnd) coordinate (myend);
+      \draw[SeaGreen] (Spa)--(Spa -| xStart) coordinate (mystart);
+      \draw[->, SeaGreen] ($(mystart)!0.4!(myend)$) node[below, black] {$\textcolor{SeaGreen}{G_A}$} -- ($(mystart)!0.46!(myend)$);
+
+    \end{scope}
+
+
+    \begin{scope}[yshift=-15cm]
+      \draw[->] (-\xlen,0) coordinate(xEnd) -- (\xlen,0)  coordinate(xStart) node[right]{Re$(z)$};
+      \draw[->] (0, -\ylen)--(0,\ylen) node[above]{Im$(z)$};
+      \draw (\mcenter,0) coordinate(circA) pic{cross} (-\mcenter,0) coordinate(circB) pic{cross};
+      \draw[\mycolor] ($(circA)!1!\deltaAngle:(\msradius+\mcenter,0)$) coordinate(Spa)
+      arc[radius=\msradius, start angle=\deltaAngle, end angle=180-\deltaAngle] -- ($(circB)!1!\deltaAngle:(\msradius-\mcenter,0)$)
+      arc[radius=\msradius, start angle=\deltaAngle, end angle=-180+\deltaAngle] coordinate(Spc) -- (Spc -| xEnd);
+      \draw[\mycolor] (Spa)--(Spa -| xStart) coordinate (mystart);
+      \coordinate (myend) at (Spa -| xEnd);
+      \draw[-<, \mycolor] ($(mystart)!0.4!(myend)$) node[above, black] {$\textcolor{blue}{G_F}$} -- ($(mystart)!0.46!(myend)$);
+    \end{scope}
+
+
+  \end{tikzpicture}
+  \centering
+  \caption{Contour of different Green functions.}
+  \label{green}
+\end{figure}
+
+The contour integral can be explicitly performed.
+\begin{example}
+  The Feynman propagator can be evaluated as 
+  \begin{equation*}
+    G_F(x,x')=\frac{-\pi i}{(4\pi i)^{\frac{n}{2}}}\left[\frac{2m^2}{-\sigma+i\epsilon}\right]^{\frac{(n-2)}{4}}
+    H^{(2)}_{\frac{1}{2}n-1}\left(\sqrt{2m^2(\sigma-i\epsilon)}\right).
+  \end{equation*}
+
+  Where \(\sigma=\frac{1}{2}(\Delta s)^2=\frac{1}{2}\eta_{\mu\nu}(x^{\mu}-x'^{\mu})(x^{\nu}-x'^{\nu})\) and 
+  \(H^{(2)}\) is the Hankel function of the second kind.
+
+  The \(-i\epsilon\) is added to push the contour slightly down to the lower half complex plane, where the function is analytic. 
+\end{example}
 
 
 
@@ -470,23 +659,23 @@ For an inertial detector in n-dimensional Minkowski spacetime, only the last ter
 \end{equation}
 Where \(T\) is the duration of the detector switched on. If \(\mathbf{v}=0\) we can further perform the integration:
 \begin{align}
-  \frac{F(E)}{T} =& (2\pi)^{1-n}\int^{\infty}_{-\infty}\id (\Delta \tau)\;e^{-i\Delta\tau E}
-  \int\frac{\id^{n-1}k}{2\omega}e^{i\Delta\tau\frac{(\omega-\mathbf{k}\cdot\mathbf{v})}{\sqrt{1-v^2}}}n_{\mathbf{k}}       \\
-  =&(2\pi)^{1-n}\int\frac{\id^{n-1}k}{2\omega}\int^{\infty}_{-\infty}\id (\Delta \tau)\;e^{-i\Delta\tau E}
-  e^{i\Delta\tau\frac{(\omega-\mathbf{k}\cdot\mathbf{v})}{\sqrt{1-v^2}}}n_{\mathbf{k}}                                     \\
-  =&(2\pi)^{1-n}\int\frac{\id^{n-1}k}{2\omega}\int^{\infty}_{-\infty}\id (\Delta \tau)\;
-  e^{i\Delta\tau\frac{(\omega-\mathbf{k}\cdot\mathbf{v})}{\sqrt{1-v^2}}-i\Delta\tau E}n_{\mathbf{k}}                       \\
-  =&(2\pi)^{1-n}\int\frac{\id^{n-1}k}{2\omega}\int^{\infty}_{-\infty}\id (\Delta \tau)\;
-  e^{i\Delta\tau\left[\frac{(\omega-\mathbf{k}\cdot\mathbf{v})}{\sqrt{1-v^2}}-E\right]}n_{\mathbf{k}}                      \\
-  =&(2\pi)^{1-n}(2\pi)\int\frac{\id^{n-1}k}{2\omega}\;
-  \delta\left(\frac{(\omega-\mathbf{k}\cdot\mathbf{v})}{\sqrt{1-v^2}}-E\right)n_{\mathbf{k}}                               \\
-  =&(2\pi)^{1-n}(2\pi)\frac{2\pi^{\frac{n-1}{2}}}{\Gamma(\frac{n-1}{2})}\int\frac{k^{n-2}\id k}{2\omega}\;
-  \delta\left(\omega-E\right)n_{\mathbf{k}}                                                                                \\
-  =&\frac{2^{2-n}\pi^{\frac{3-n}{2}}}{\Gamma(\frac{n-1}{2})}\int\frac{k^{n-2}\id k}{\omega}\;
-  \delta\left(\omega-E\right)n_{\mathbf{k}}                                                                                \\
-  =&\frac{2^{2-n}\pi^{\frac{3-n}{2}}}{\Gamma(\frac{n-1}{2})}\int\frac{k^{n-2}\id k}{\sqrt{k^2+m^2}}\;
-  \delta\left(\sqrt{k^2+m^2}-E\right)n_{\sqrt{E^2-m^2}}                                                                    \\
-  =&\frac{2^{2-n}\pi^{\frac{3-n}{2}}}{\Gamma(\frac{n-1}{2})}\left(E^2-m^2\right)^{\frac{n-3}{2}}
+  \frac{F(E)}{T} & = (2\pi)^{1-n}\int^{\infty}_{-\infty}\id (\Delta \tau)\;e^{-i\Delta\tau E}
+  \int\frac{\id^{n-1}k}{2\omega}e^{i\Delta\tau\frac{(\omega-\mathbf{k}\cdot\mathbf{v})}{\sqrt{1-v^2}}}n_{\mathbf{k}}        \\
+                 & = (2\pi)^{1-n}\int\frac{\id^{n-1}k}{2\omega}\int^{\infty}_{-\infty}\id (\Delta \tau)\;e^{-i\Delta\tau E}
+  e^{i\Delta\tau\frac{(\omega-\mathbf{k}\cdot\mathbf{v})}{\sqrt{1-v^2}}}n_{\mathbf{k}}                                      \\
+                 & = (2\pi)^{1-n}\int\frac{\id^{n-1}k}{2\omega}\int^{\infty}_{-\infty}\id (\Delta \tau)\;
+  e^{i\Delta\tau\frac{(\omega-\mathbf{k}\cdot\mathbf{v})}{\sqrt{1-v^2}}-i\Delta\tau E}n_{\mathbf{k}}                        \\
+                 & = (2\pi)^{1-n}\int\frac{\id^{n-1}k}{2\omega}\int^{\infty}_{-\infty}\id (\Delta \tau)\;
+  e^{i\Delta\tau\left[\frac{(\omega-\mathbf{k}\cdot\mathbf{v})}{\sqrt{1-v^2}}-E\right]}n_{\mathbf{k}}                       \\
+                 & = (2\pi)^{1-n}(2\pi)\int\frac{\id^{n-1}k}{2\omega}\;
+  \delta\left(\frac{(\omega-\mathbf{k}\cdot\mathbf{v})}{\sqrt{1-v^2}}-E\right)n_{\mathbf{k}}                                \\
+                 & = (2\pi)^{1-n}(2\pi)\frac{2\pi^{\frac{n-1}{2}}}{\Gamma(\frac{n-1}{2})}\int\frac{k^{n-2}\id k}{2\omega}\;
+  \delta\left(\omega-E\right)n_{\mathbf{k}}                                                                                 \\
+                 & = \frac{2^{2-n}\pi^{\frac{3-n}{2}}}{\Gamma(\frac{n-1}{2})}\int\frac{k^{n-2}\id k}{\omega}\;
+  \delta\left(\omega-E\right)n_{\mathbf{k}}                                                                                 \\
+                 & = \frac{2^{2-n}\pi^{\frac{3-n}{2}}}{\Gamma(\frac{n-1}{2})}\int\frac{k^{n-2}\id k}{\sqrt{k^2+m^2}}\;
+  \delta\left(\sqrt{k^2+m^2}-E\right)n_{\sqrt{E^2-m^2}}                                                                     \\
+                 & = \frac{2^{2-n}\pi^{\frac{3-n}{2}}}{\Gamma(\frac{n-1}{2})}\left(E^2-m^2\right)^{\frac{n-3}{2}}
   \theta\left(E-m\right)n_{\sqrt{E^2-m^2}}
 \end{align}
 
@@ -516,161 +705,7 @@ Where \(T\) is the duration of the detector switched on. If \(\mathbf{v}=0\) we 
 
 
 \section{Classical Field Theory}
-Classical field theory is something students are supposed to know for QFT but is never formally taught, so we give a brief overview here.
-Field theory is very similar to Lagrangian mechanics; instead of the usual system,
-we now have a spacetime-dependent \textbf{fields} \(\Phi^i(x^\mu)\) (the \(i\) here is not tensor index),
-and the action becomes a \textbf{functional} of these fields. A functional is a ``function of function'', which map a function to a number,
-note that the functional is not simply a composition function, which maps number to number. \par
-In field theory, the Lagrangian is usually expressed as an integral over \textbf{Lagrange density},
-which are a function of the fields and their derivative.
-\begin{equation}
-  L=\int d^3x\;\mathcal{L}(\Phi^i,\p_{\mu}\Phi^i)
-\end{equation}
-Then the action
-\begin{equation}
-  S=\int dt\;L = \int d^4x\;\mathcal{L}(\Phi^i,\p_{\mu}\Phi^i)
-\end{equation}
-By varying the action, just like what we did in classical mechanics, we can obtain the equation of motion of field:
-
-\begin{align}
-  \delta S & = \int d^4x\left[\frac{\p\mathcal{L}}{\p \Phi^i}\delta\Phi^i+
-  \frac{\p\mathcal{L}}{\p(\p_\mu \Phi^i)}\p_\mu (\delta\Phi^i)\right]      \\
-           & =\int d^4x\left[\frac{\p\mathcal{L}}{\p \Phi^i}-\p_\mu
-    \frac{\p\mathcal{L}}{\p(\p_\mu \Phi^i)}\right]\delta\Phi^i
-\end{align}
-
-We have obtained the field version of \textbf{Euler-Lagrange equation}
-\begin{definition}[Euler-Lagrange equation]
-  \[\frac{\p\mathcal{L}}{\p \Phi^i}-\p_\mu
-    \frac{\p\mathcal{L}}{\p(\p_\mu \Phi^i)}=0\]
-\end{definition}
-Let's consider a simple example, the real scalar field \[\phi:\ x^{\mu} \rightarrow \mathbb{R}\].
-The contribution of action are
-
-\begin{enumerate}
-  \item Kinetic term: \(\frac{1}{2}\dot{\phi}^2\)
-  \item Gradient term: \(\frac{1}{2}(\nabla\phi)^2\)
-  \item potential term: \(V(\phi)\)
-\end{enumerate}
-We could combine them into a Lorentz-invariant Lagrange density:
-\begin{equation}
-  \mathcal{L}= \frac{1}{2}\eta^{\mu\nu}(\p_{\mu}\phi)(\p_{\nu}\phi)-V(\phi)
-\end{equation}
-Apply the Euler-Lagrange equation; we then get the equation of motion:
-\begin{cthm}
-  \begin{align*}                                & \eta^{\mu\nu}\p_{\mu}\p_{\nu}\phi+\frac{\mathrm{d}V(\phi)}{\mathrm{d}\phi} \\
-                                          =\  & \square\phi+\frac{\mathrm{d}V(\phi)}{\mathrm{d}\phi}                       \\
-                                          =\  & 0
-  \end{align*}
-  Where \(\square\) is \textbf{d'Alembertian}.
-\end{cthm}
-\subsection{Klein-Gordon Field}
-If the scalar field is massive, the potential \(V(\phi)=\frac{1}{2}m^2\phi^2\),
-we obtained the \textbf{Klein-Gordon equation}:
-\begin{definition}[Klein-Gordon equation]
-  \[(\square +m^2)\phi = 0\]
-\end{definition}
-You will see this equation again and again in quantum field theory.
-\begin{remark}
-  The Klein-Gordon field could be analog to infinite many coupled infinitesimal harmonic oscillators;
-  each ``mass'' is affected by neighboring springs and has its kinetic energy.
-\end{remark}
-
-
-
-\subsection{Hamiltonian Field Theory}
-The Lagrangian field theory is naturally Lorentz invariant. However, we also need Hamiltonian formalism for the field theory
-because it is easier to transition from quantum mechanics.
-Let's first consider the classical definition of Hamiltonian, \[H=\sum p\dot{q}-L\].
-From the definition of Lagrangian, we can derive the conjugate momentum as follow:
-\begin{cthm}
-  \begin{align*}
-    p(x^i)\equiv & \;\frac{\p L}{\p \dot{\phi}(x^i)}
-    =\frac{\p}{\p \dot{\phi}(x^i)}\int \mathrm{d}^3x' \mathcal{L} \\
-    \propto      & \;\pi(x^i) \mathrm{d}^3x
-  \end{align*}
-  \bigskip
-  Where \[\pi \equiv \frac{\p \mathcal{L}}{\p \dot{\phi}}\]
-  is called \textbf{momentum density}
-\end{cthm}
-Therefore, the Hamiltonian for field theory is:
-\begin{definition}[Hamiltonian]
-  \begin{align*}
-    H= & \sum p(x^i)\phi(x^i)-L                             \\
-    =  & \int \id^3x\left[\pi \dot{\phi}-\mathcal{L}\right] \\
-    =  & \int \id^3x\;\mathcal{H}
-  \end{align*}
-  Where \(\mathcal{H}\) is called \tbf{Hamiltonian density}.
-\end{definition}
-
-\begin{example}
-  As a simple example, the Hamiltonian for the K-G field is:
-  \[H=\int\id^3x\;\mathcal{H}=\int\id^3x\left[\frac{1}{2}\pi^2+\frac{1}{2}(\nabla\phi)^2+\frac{1}{2}m^2\phi^2\right]\]
-\end{example}
-
-\subsection{Noether's Theorem}
-A Lagrangian may be invariant under some special type of transformation.
-For example, a Lagrangian for a complex scalar field
-\[\mathcal{L}= |\p_\mu \phi|^2 -m^2|\phi|^2\]
-is invariant under transformation \(\phi \rightarrow e^{i\alpha}\phi\).
-We call this transformation a \textbf{symmetry} of the Lagrangian.
-When the parameter of transformation (\(\alpha\) for this case) can be taken infinitesimal,
-we say this symmetry is \textbf{continuous}.
-We can explicit see that \(\frac{\delta \mathcal{L}}{\delta \alpha}=0\).
-\par By applying the Euler-Lagrange equation, we can deduce that \(\p_\mu J_{\mu}=0\),
-where \(J_{\mu}\) is defined as follow:
-\begin{definition}
-  \[J_{\mu}= \sum_n\frac{\p \mathcal{L}}{\p(\p_\mu \phi_n)}\frac{\delta\phi_n}{\delta \alpha}\]\\
-  \(J_{\mu}\) is known as \textbf{Noether current} or \textbf{conserved current}
-\end{definition}
-
-\begin{example}
-  For the above complex scalar field, we can calculate the conserved current:
-  \bigskip
-  \begin{align*}
-    J_{\mu}= & \sum_n\frac{\p \mathcal{L}}{\p(\p_\mu \phi_n)}\frac{\delta\phi_n}{\delta \alpha} \\
-    =        & \frac{\p \mathcal{L}}{\p(\p_\mu \phi)}\frac{\delta\phi}{\delta \alpha}
-    +\frac{\p \mathcal{L}}{\p(\p_\mu \phi^*)}\frac{\delta\phi^*}{\delta \alpha}                 \\
-    =        & -i\left[\phi\p_\mu\phi^*-\phi^* \p_\mu\phi\right]
-  \end{align*}
-  We can check that \(\p_\mu J_{\mu}=0\) explicitly:
-  \begin{align*}
-    \p_\mu J_{\mu}= & -i\left[\phi\square\phi^*-\phi^* \square\phi\right] \\
-    =               & 0
-  \end{align*}
-  Where we applied the equation of motion in the last step.
-\end{example}
-We call \(J_\mu\) conserved current because we can find conserved quantity by integral over its 0-component:
-\begin{definition}[Conserved charge]
-  \[Q=\int d^3x\;J_0\]
-  Where the \(Q\) is called \textbf{conserved charge} or \textbf{Noether's charge}
-\end{definition}
-We say \(Q\) is conserved because
-\begin{equation}
-  \p_tQ=\int d^3x \; \p_t J_0 = \int d^3x\;\vec{\nabla}\cdot \vec{J} = 0.
-\end{equation}
-The above argument is called \textbf{Noether's theorem}.
-\begin{theorem}[Noether's theorem]
-  If a Lagrangian has a continuous symmetry,
-  then exists a current associated with that symmetry that is
-  conserved when the equations of motion are satisfied.
-\end{theorem}
-
-\subsection{Energy-momentum Tensor}
-The physics at spacetime point \(x\) should have same form at spacetime point \(y\),
-this argument arises a symmetry called \textbf{specetime translational symmetry}.
-By Noether's theorem, we can find the four conserved currents for this symmetry for an infinitesimal
-spacetime translation \(\xi^\mu\):
-\begin{definition}[Energy-momentum tensor]
-  \[T_{\mu\nu}=\sum_n \frac{\p \mathcal{L}}{\p(\p_{\mu}\phi_n)}\p_\nu\phi_n-g_{\mu\nu}\mathcal{L}\]
-
-  \(T_{\mu\nu}\) is called \textbf{energy-momentum tensor}.
-\end{definition}
-Four conserved currents correspond to values of \(\nu\), and four conserved charges are energy and momentum.
-We can see that the energy density is the 00-component of \(T_{\mu\nu}\).
-
-
-
+\subfile{Appendix/Classical_Field_Theory}
 
 \newpage
 %\section{Driven Harmonic Oscillator}
