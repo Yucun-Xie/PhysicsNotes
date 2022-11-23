@@ -206,7 +206,7 @@ This feature no longer holds for fields theory because we have an infinite numbe
 Therefore, we should construct a general solution by constructing a complete, orthonormal set of modes that any solution
 can express as a linear combination of modes.
 To achieve this, first define the inner product of mode functions:
-\begin{definition}[Klein-Gordon inner product]
+\begin{definition}[Klein-Gordon inner product]\label{kgi}
   \[(\phi_1,\phi_2)=-i\int_{\Sigma_t}\id^{n-1}x\;\left[\phi_1\p_t\phi^*_2-\phi_2^*\p_t\phi_1\right]\]
   Which is integral over constant-time hypersurface \(\Sigma_t\).
 \end{definition}
@@ -430,27 +430,27 @@ These Green functions can be split into positive and negative frequency parts:
   iG(x^{\mu},x'^{\mu})      & = G^+(x^{\mu},x'^{\mu})-G^-(x^{\mu},x'^{\mu}) \\
   G^{(1)}(x^{\mu},x'^{\mu}) & =G^+(x^{\mu},x'^{\mu})+G^-(x^{\mu},x'^{\mu})
 \end{align}
-where \(G^{\pm}\) are \tbf{Wightman functions}, given by 
+where \(G^{\pm}\) are \tbf{Wightman functions}, given by
 \begin{cthm}[Wightman functions]
   \begin{align*}
-    G^+(x^{\mu},x'^{\mu})&=\expval{\hat{\phi}(x^{\mu})\hat{\phi}(x'^{\mu})}{0}\\
-    G^-(x^{\mu},x'^{\mu})&=\expval{\hat{\phi}(x'^{\mu})\hat{\phi}(x^{\mu})}{0}.
+    G^+(x^{\mu},x'^{\mu}) & =\expval{\hat{\phi}(x^{\mu})\hat{\phi}(x'^{\mu})}{0}  \\
+    G^-(x^{\mu},x'^{\mu}) & =\expval{\hat{\phi}(x'^{\mu})\hat{\phi}(x^{\mu})}{0}.
   \end{align*}
 \end{cthm}
 
 Furthermore, the \tbf{Feynman propagator} \(G_{F}\) can be defined as the time-ordered product of fields operators:
 \begin{cthm}[Feynman propagator]
   \begin{align*}
-    iG_{F}(x^{\mu},x'^{\mu})&=\expval{T(\hat{\phi}(x^{\mu})\hat{\phi}(x'^{\mu}))}{0}\\
-    &=\theta(t-t')G^+(x^{\mu},x'^{\mu})+\theta(t'-t)G^-(x^{\mu},x'^{\mu})
+    iG_{F}(x^{\mu},x'^{\mu}) & =\expval{T(\hat{\phi}(x^{\mu})\hat{\phi}(x'^{\mu}))}{0}              \\
+                             & =\theta(t-t')G^+(x^{\mu},x'^{\mu})+\theta(t'-t)G^-(x^{\mu},x'^{\mu})
   \end{align*}
 \end{cthm}
-Where \(\theta(t)\) is the \tbf{Heaviside step function}, defined as 
+Where \(\theta(t)\) is the \tbf{Heaviside step function}, defined as
 \begin{definition}[Heaviside step function]
   \begin{equation*}
     \theta(t)=
     \begin{cases}
-      1 & \text{if \(t>0\)}\\
+      1 & \text{if \(t>0\)}  \\
       0 & \text{if \(t<0\)}.
     \end{cases}
   \end{equation*}
@@ -458,27 +458,27 @@ Where \(\theta(t)\) is the \tbf{Heaviside step function}, defined as
 Using the step function, we can further define retarded and advanced Green functions:
 \begin{cthm}[Retarded/Advanced Green functions]
   \begin{align*}
-    G_{R}(x^{\mu},x'^{\mu})&=-\theta(t-t')G(x^{\mu},x'^{\mu})\\
-    G_{A}(x^{\mu},x'^{\mu})&=\theta(t-t')G(x^{\mu},x'^{\mu})
+    G_{R}(x^{\mu},x'^{\mu}) & =-\theta(t-t')G(x^{\mu},x'^{\mu}) \\
+    G_{A}(x^{\mu},x'^{\mu}) & =\theta(t-t')G(x^{\mu},x'^{\mu})
   \end{align*}
 \end{cthm}
-The average of retarded and advanced Green functions is denoted as 
+The average of retarded and advanced Green functions is denoted as
 \begin{equation}
   \bar{G}(x^{\mu},x'^{\mu})=\frac{1}{2}\left[G_{R}(x^{\mu},x'^{\mu})+G_{A}(x^{\mu},x'^{\mu})\right].
 \end{equation}
-Then the Feynman propagator can be written as 
+Then the Feynman propagator can be written as
 \begin{equation}
   G_{F}(x^{\mu},x'^{\mu})=-\left[\bar{G}(x^{\mu},x'^{\mu})+\frac{1}{2}iG^{(1)}(x^{\mu},x'^{\mu})\right].
 \end{equation}
-The following relation are hold for those Green functions:
+The following relation holds for those Green functions:
 \begin{equation}
   (\Box+m^2)
   \begin{bmatrix*}[l]
     G(x^{\mu},x'^{\mu})\\
     G^{(1)}(x^{\mu},x'^{\mu})\\
     G^{\pm}(x^{\mu},x'^{\mu})
-    \end{bmatrix*}
-    =0
+  \end{bmatrix*}
+  =0
 \end{equation}
 
 \begin{equation}
@@ -487,13 +487,13 @@ The following relation are hold for those Green functions:
     G_{F}(x^{\mu},x'^{\mu})\\
     G_{R}(x^{\mu},x'^{\mu})\\
     G_{A}(x^{\mu},x'^{\mu})
-    \end{bmatrix*}
-    =
-    \begin{bmatrix*}[l]
-      -\delta^n(x^{\mu}-x'^{\mu})\\
-      \delta^n(x^{\mu}-x'^{\mu})\\
-      \delta^n(x^{\mu}-x'^{\mu})
-    \end{bmatrix*}
+  \end{bmatrix*}
+  =
+  \begin{bmatrix*}[l]
+    -\delta^n(x^{\mu}-x'^{\mu})\\
+    \delta^n(x^{\mu}-x'^{\mu})\\
+    \delta^n(x^{\mu}-x'^{\mu})
+  \end{bmatrix*}
 \end{equation}
 All of those Green functions can be obtained by evaluating the contour integral:
 \begin{equation}
@@ -504,7 +504,7 @@ The different Green functions take different contours, the contour for each Gree
 
 The opened contours in the figure should be closed by infinite semicircles in the lower/upper complex plane depending on boundary conditions.
 For example, in the case that \(t'>t\), the contour for \(G_{R}(x^{\mu},x'^{\mu})\) is closed by a semicircle in the upper complex plane.
-By residue theorem, this contour integral yields zero, which is expected. 
+By residue theorem, this contour integral yields zero, which is expected.
 
 
 
@@ -582,16 +582,16 @@ By residue theorem, this contour integral yields zero, which is expected.
 
 The contour integral can be explicitly performed.
 \begin{example}
-  The Feynman propagator can be evaluated as 
+  The Feynman propagator can be evaluated as
   \begin{equation*}
     G_F(x^{\mu},x'^{\mu})=\frac{-\pi i}{(4\pi i)^{\frac{n}{2}}}\left[\frac{2m^2}{-\sigma+i\epsilon}\right]^{\frac{(n-2)}{4}}
     H^{(2)}_{\frac{1}{2}n-1}\left(\sqrt{2m^2(\sigma-i\epsilon)}\right).
   \end{equation*}
 
-  Where \(\sigma=\frac{1}{2}(\Delta s)^2=\frac{1}{2}\eta_{\mu\nu}(x^{\mu}-x'^{\mu})(x^{\nu}-x'^{\nu})\) and 
+  Where \(\sigma=\frac{1}{2}(\Delta s)^2=\frac{1}{2}\eta_{\mu\nu}(x^{\mu}-x'^{\mu})(x^{\nu}-x'^{\nu})\) and
   \(H^{(2)}\) is the Hankel function of the second kind.
 
-  The \(-i\epsilon\) is added to push the contour slightly down to the lower half complex plane, where the function is analytic. 
+  The \(-i\epsilon\) is added to push the contour slightly down to the lower half complex plane, where the function is analytic.
 \end{example}
 
 
@@ -603,6 +603,9 @@ The contour integral can be explicitly performed.
 \section{QFT in Curved Spacetime}
 In the Minkowski spacetime, we have a ``privileged'' set of basis to construct our mode function; however, in general spacetime,
 due to the lack of Poincare symmetry, we do not have a set of mode functions that are preferred.
+The consequence of no preferred mode functions is that the concepts of vacuum and particle are ill-defined.
+The treatment in this chapter assumed that spacetime is globally hyperbolic.
+
 
 
 \subsection{Construct QFT in Curved Spacetime}
@@ -612,13 +615,81 @@ To obtain the curved spacetime expression,
 simply replace the Minkowski metric by \(g^{\mu\nu}\) and replace the partial derivative with the covariant derivative.
 To involve the coupling to curved spacetime background, we also introduce a coupling term
 \begin{equation}
-  \mathcal{L} = \frac{1}{2}\sqrt{g}(g^{\mu\nu} \phi_{;\mu} \phi_{;\nu}- m^2 \phi^2-\xi R \phi^2)
+  \mathcal{L} = \frac{1}{2}\sqrt{-g}(g^{\mu\nu} \phi_{;\mu} \phi_{;\nu}- m^2 \phi^2-\xi R \phi^2)
 \end{equation}
 Where the \(R\) is the Ricci scalar and \(\xi\) is the coupling constant.\par
 There are two favorite choices of coupling constant:
 \textbf{minimal coupling} which simply set \(\xi=0\) which turn off the coupling,
 while \textbf{conformal coupling} sets \[\xi = \frac{(n-2)}{4(n-1)}\]\\
-which makes the theory invariant under conformal transformation.
+which makes the theory invariant under conformal transformation when \(m=0\).
+
+
+The equation of motion obtained from the Euler-Lagrangian equation is
+\begin{equation}
+  \left[\Box+m^2+\xi R\right]\hat{\phi}=0
+\end{equation}
+The Klein-Gordon inner product \ref{kgi} in curved spacetime is generalized as
+\begin{definition}[Curved spacetime Klein-Gordon inner product]
+  \[(\phi_1,\phi_2)=-i\int_{\Sigma}\id^{n-1}x\;\sqrt{\gamma}n^{\mu}\left[\phi_1\nabla_\mu\phi^*_2-\phi_2^*\nabla_\mu\phi_1\right],\]
+  where \(\gamma\equiv \det(\gamma_{ij})\) is the determinant of induced metric of hypersurface \(\Sigma\),
+  and \(n^{\mu}\) is the unit normal vector of \(\Sigma\).
+\end{definition}
+
+We can proceed with the canonical quantization as in the previous chapter.
+The conjugate momentum is
+\begin{equation}
+  \pi=\frac{\p \mathcal{L}}{\p(\nabla_{0}\phi)}=\sqrt{-g}\nabla_{0}\phi.
+\end{equation}
+Impose canonical commutation relation:
+\begin{cthm}[Curved spacetime canonical commutation relation]\label{cccr}
+  \begin{align*}
+    \bigl[\hat{\phi}(t,\mathbf{x}),\hat{\phi}(t,\mathbf{x'})\bigr] & =0                                                          \\
+    \bigl[\hat{\pi}(t,\mathbf{x}),\hat{\pi}(t,\mathbf{x'})\bigr]   & =0                                                          \\
+    \bigl[\hat{\phi}(t,\mathbf{x}),\hat{\pi}(t,\mathbf{x'})\bigr]  & =\frac{i}{\sqrt{-g}}\delta^{(n-1)}(\mathbf{x}-\mathbf{x'}).
+  \end{align*}
+\end{cthm}
+We can just continue the precedue of constructing flat spacetime quantum field.
+
+There exists a complete orthonormal set of modes, satisfying
+\begin{align}
+  \left(f_{i},f_{j}\right)     & =\delta_{ij}   \\
+  \left(f_{i},f^*_{j}\right)   & =0             \\
+  \left(f^*_{i},f^*_{j}\right) & =-\delta_{ij}.
+\end{align}
+The index \(ij\) represents some quantities that label the modes.
+Because the set of modes is complete, we can expand our field as
+\begin{equation}
+  \hat{\phi}=\sum_i\left[\hat{a}_i f_i+\hat{a}_i^\dagger f_i^*\right].
+\end{equation}
+The coefficients of mode expansion have commutation relations
+\begin{align}
+  \bigl[\hat{a}_{i},\hat{a}_{j}\bigr]                     & =0           \\
+  \bigl[\hat{a}^{\dagger}_{i},\hat{a}^{\dagger}_{j}\bigr] & =0           \\
+  \bigl[\hat{a}_{i},\hat{a}^{\dagger}_{j}\bigr]           & =\delta_{ij}
+\end{align}
+We interpret those coefficients as creation and annihilation operator, which defines a new vacuum state:
+\begin{equation}
+  \forall\;i,\ \hat{a}_i\ket{0_f}=0
+\end{equation}
+Just like before, from this vacuum state, we can construct the Fock space.
+A state with \(n_i\) excitations could be create by repeated action of \(\hat{a}^dagger_i\),
+\begin{equation}
+  \ket{n_i}=\frac{1}{\sqrt{n_i!}}\left(\hat{a}_i^{\dagger}\ket{0_f}\right),
+\end{equation}
+and the number operator is 
+\begin{equation}
+  \hat{n}_{f_i}=\hat{a}_i^\dagger \hat{a}_i.
+\end{equation}
+
+
+
+
+
+
+
+
+
+
 
 
 \subsection{Vacuum Ambiguity}
