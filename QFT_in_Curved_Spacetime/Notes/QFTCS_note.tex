@@ -129,13 +129,12 @@
     coltitle=black,top=2mm,bottom=2mm,left=2mm,right=2mm,drop fuzzy shadow,enhanced,breakable]
   \begin{enumerate}
 
-    \item Greek index (e.g. $\alpha, \beta, \mu, \nu$) take value from \{0, 1, 2, 3\}.
+    \item Greek index (e.g. $\alpha, \beta, \mu, \nu$) run over time and space.
           %\item Events denoted by cursive capitals  (e.g. $\mathscr{A}, \mathscr{B}, \mathscr{E}$).
-    \item $(x^0, x^1, x^2, x^3) \equiv (t, x, y, z) \equiv x^{\alpha}$.
-    \item Latin index (e.g. $ i, j, k$) take value from \{1, 2, 3\}.
+    \item Latin index (e.g. $ i, j, k$) run over space.
     \item Natural units ($c=1$).
     \item Einstein summation convention. \[ds^2 = g_{\mu \nu} dx^{\mu} dx^{\nu}=
-            \sum_{\mu=0}^{3} \sum_{\nu=0}^{3}g_{\mu \nu} dx^{\mu} dx^{\nu}\]
+            \sum_{\mu=0}^{n-1} \sum_{\nu=0}^{n-1}g_{\mu \nu} dx^{\mu} dx^{\nu}\]
     \item Metric signature $(+, -, -, -)$.
 
   \end{enumerate}
@@ -412,38 +411,38 @@ we can simply rescale the zero point of energy and not affect the observable.
 
 
 \subsection{Green Function}
-Vacuum expectation values of various combinations of field operators can be treated with varous Green functions of the Klein-Gordon equation.
+Vacuum expectation values of various combinations of field operators can be treated with various Green functions of the Klein-Gordon equation.
 
-For the K-G field, the expectation value of the commutator of the field operator can be represented by \tbf{Schwinger function} \(G(x,x')\):
+For the K-G field, the expectation value of the commutator of the field operator can be represented by \tbf{Schwinger function} \(G(x^{\mu},x'^{\mu})\):
 \begin{equation}
-  iG(x,x')=\expval{\left[\hat{\phi}(x),\hat{\phi}(x')\right]}{0}
+  iG(x^{\mu},x'^{\mu})=\expval{\left[\hat{\phi}(x^{\mu}),\hat{\phi}(x'^{\mu})\right]}{0}
 \end{equation}
 The anticommutator of field operator is defined as:
 \begin{definition}[Anticommutator]
-  \[\left\{\hat{\phi}(x),\hat{\phi}(x')\right\}=\hat{\phi}(x)\hat{\phi}(x')+\hat{\phi}(x')\hat{\phi}(x)\]
+  \[\left\{\hat{\phi}(x^{\mu}),\hat{\phi}(x'^{\mu})\right\}=\hat{\phi}(x^{\mu})\hat{\phi}(x'^{\mu})+\hat{\phi}(x'^{\mu})\hat{\phi}(x^{\mu})\]
 \end{definition}
-The expectation value of anticommutator can be represented by \tbf{Hadamard's elementary function} \(G^{(1)}(x,x')\):
+The expectation value of anticommutator can be represented by \tbf{Hadamard's elementary function} \(G^{(1)}(x^{\mu},x'^{\mu})\):
 \begin{equation}
-  G^{(1)}(x,x')=\expval{\left\{\hat{\phi}(x),\hat{\phi}(x')\right\}}{0}
+  G^{(1)}(x^{\mu},x'^{\mu})=\expval{\left\{\hat{\phi}(x^{\mu}),\hat{\phi}(x'^{\mu})\right\}}{0}
 \end{equation}
 These Green functions can be split into positive and negative frequency parts:
 \begin{align}
-  iG(x,x')      & = G^+(x,x')-G^-(x,x') \\
-  G^{(1)}(x,x') & =G^+(x,x')+G^-(x,x')
+  iG(x^{\mu},x'^{\mu})      & = G^+(x^{\mu},x'^{\mu})-G^-(x^{\mu},x'^{\mu}) \\
+  G^{(1)}(x^{\mu},x'^{\mu}) & =G^+(x^{\mu},x'^{\mu})+G^-(x^{\mu},x'^{\mu})
 \end{align}
 where \(G^{\pm}\) are \tbf{Wightman functions}, given by 
 \begin{cthm}[Wightman functions]
   \begin{align*}
-    G^+(x,x')&=\expval{\hat{\phi}(x)\hat{\phi}(x')}{0}\\
-    G^-(x,x')&=\expval{\hat{\phi}(x')\hat{\phi}(x)}{0}.
+    G^+(x^{\mu},x'^{\mu})&=\expval{\hat{\phi}(x^{\mu})\hat{\phi}(x'^{\mu})}{0}\\
+    G^-(x^{\mu},x'^{\mu})&=\expval{\hat{\phi}(x'^{\mu})\hat{\phi}(x^{\mu})}{0}.
   \end{align*}
 \end{cthm}
 
 Furthermore, the \tbf{Feynman propagator} \(G_{F}\) can be defined as the time-ordered product of fields operators:
 \begin{cthm}[Feynman propagator]
   \begin{align*}
-    iG_{F}(x,x')&=\expval{T(\hat{\phi}(x)\hat{\phi}(x'))}{0}\\
-    &=\theta(t-t')G^+(x,x')+\theta(t'-t)G^-(x,x')
+    iG_{F}(x^{\mu},x'^{\mu})&=\expval{T(\hat{\phi}(x^{\mu})\hat{\phi}(x'^{\mu}))}{0}\\
+    &=\theta(t-t')G^+(x^{\mu},x'^{\mu})+\theta(t'-t)G^-(x^{\mu},x'^{\mu})
   \end{align*}
 \end{cthm}
 Where \(\theta(t)\) is the \tbf{Heaviside step function}, defined as 
@@ -459,43 +458,43 @@ Where \(\theta(t)\) is the \tbf{Heaviside step function}, defined as
 Using the step function, we can further define retarded and advanced Green functions:
 \begin{cthm}[Retarded/Advanced Green functions]
   \begin{align*}
-    G_{R}(x,x')&=-\theta(t-t')G(x,x')\\
-    G_{A}(x,x')&=\theta(t-t')G(x,x')
+    G_{R}(x^{\mu},x'^{\mu})&=-\theta(t-t')G(x^{\mu},x'^{\mu})\\
+    G_{A}(x^{\mu},x'^{\mu})&=\theta(t-t')G(x^{\mu},x'^{\mu})
   \end{align*}
 \end{cthm}
 The average of retarded and advanced Green functions is denoted as 
 \begin{equation}
-  \bar{G}(x,x')=\frac{1}{2}\left[G_{R}(x,x')+G_{A}(x,x')\right].
+  \bar{G}(x^{\mu},x'^{\mu})=\frac{1}{2}\left[G_{R}(x^{\mu},x'^{\mu})+G_{A}(x^{\mu},x'^{\mu})\right].
 \end{equation}
 Then the Feynman propagator can be written as 
 \begin{equation}
-  G_{F}(x,x')=-\left[\bar{G}(x,x')+\frac{1}{2}iG^{(1)}(x,x')\right].
+  G_{F}(x^{\mu},x'^{\mu})=-\left[\bar{G}(x^{\mu},x'^{\mu})+\frac{1}{2}iG^{(1)}(x^{\mu},x'^{\mu})\right].
 \end{equation}
 The following relation are hold for those Green functions:
 \begin{equation}
   (\Box+m^2)
   \begin{bmatrix*}[l]
-    G(x,x')\\
-    G^{(1)}(x,x')\\
-    G^{\pm}(x,x')
+    G(x^{\mu},x'^{\mu})\\
+    G^{(1)}(x^{\mu},x'^{\mu})\\
+    G^{\pm}(x^{\mu},x'^{\mu})
     \end{bmatrix*}
     =0
 \end{equation}
 
-\begin{align}
+\begin{equation}
   (\Box+m^2)
   \begin{bmatrix*}[l]
-    G_{F}(x,x')\\
-    G_{R}(x,x')\\
-    G_{A}(x,x')
+    G_{F}(x^{\mu},x'^{\mu})\\
+    G_{R}(x^{\mu},x'^{\mu})\\
+    G_{A}(x^{\mu},x'^{\mu})
     \end{bmatrix*}
     =
     \begin{bmatrix*}[l]
-      -\delta^n(x-x')\\
-      \delta^n(x-x')\\
-      \delta^n(x-x')
+      -\delta^n(x^{\mu}-x'^{\mu})\\
+      \delta^n(x^{\mu}-x'^{\mu})\\
+      \delta^n(x^{\mu}-x'^{\mu})
     \end{bmatrix*}
-\end{align}
+\end{equation}
 All of those Green functions can be obtained by evaluating the contour integral:
 \begin{equation}
   (2\pi)^{-n}\int_{C}\id^nk\;\frac{e^{i\left[\mathbf{k}\cdot(\mathbf{x}-\mathbf{x'})-k^0(t-t')\right]}}{(k^0)^2-|\mathbf{k}|^2-m^2}.
@@ -504,7 +503,7 @@ This contour integral has poles at \(k^0=\pm \sqrt{(|\mathbf{k}|^2)+m^2}\).
 The different Green functions take different contours, the contour for each Green function is shown in figure \ref{green}.
 
 The opened contours in the figure should be closed by infinite semicircles in the lower/upper complex plane depending on boundary conditions.
-For example, in the case that \(t'>t\), the contour for \(G_{R}(x,x')\) is closed by a semicircle in the upper complex plane.
+For example, in the case that \(t'>t\), the contour for \(G_{R}(x^{\mu},x'^{\mu})\) is closed by a semicircle in the upper complex plane.
 By residue theorem, this contour integral yields zero, which is expected. 
 
 
@@ -585,7 +584,7 @@ The contour integral can be explicitly performed.
 \begin{example}
   The Feynman propagator can be evaluated as 
   \begin{equation*}
-    G_F(x,x')=\frac{-\pi i}{(4\pi i)^{\frac{n}{2}}}\left[\frac{2m^2}{-\sigma+i\epsilon}\right]^{\frac{(n-2)}{4}}
+    G_F(x^{\mu},x'^{\mu})=\frac{-\pi i}{(4\pi i)^{\frac{n}{2}}}\left[\frac{2m^2}{-\sigma+i\epsilon}\right]^{\frac{(n-2)}{4}}
     H^{(2)}_{\frac{1}{2}n-1}\left(\sqrt{2m^2(\sigma-i\epsilon)}\right).
   \end{equation*}
 
