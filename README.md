@@ -1,7 +1,7 @@
 # Physics Notes
- These are my study notes and solution to some textbooks for some interesting areas of physics.
+ These are my study notes for some interesting areas of physics.
 
-1. [General Relativity](/PhysicsNotes/General_Relativity/)
-2. [Quantum Field Theory](/PhysicsNotes/Quantum_Field_Theory/)
-3. [Quantum Field Theory in Curved Spacetime](/PhysicsNotes/QFT_in_Curved_Spacetime/)
+* [General Relativity](/PhysicsNotes/General_Relativity/) (Roughly done)
+* [Quantum Field Theory](/PhysicsNotes/Quantum_Field_Theory/) (Haven't started)
+* [Quantum Field Theory in Curved Spacetime](/PhysicsNotes/QFT_in_Curved_Spacetime/) (Half done)
 
