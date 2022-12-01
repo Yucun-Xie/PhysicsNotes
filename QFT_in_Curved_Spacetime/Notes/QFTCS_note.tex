@@ -349,7 +349,7 @@ The space span by this basis is called \tbf{Fock space}.
 
 To illustrate the essential difference between flat and curved spacetime, we will examine how the Fock basis behaves under Lorentz transformation.
 Consider a boost along \(x\) direction; the time derivative in the boosted frame is:
-\begin{align}
+\begin{align}\label{pg}
   \p_{t'}f_{\mathbf{k}} & =\frac{\p x^{\mu}}{\p t'}\p_{\mu}f_{\mathbf{k}}                                   \\
                         & =\gamma(-i\omega)f_{\mathbf{k}}+\gamma\mathbf{v}\cdot (i\mathbf{k})f_{\mathbf{k}} \\
                         & =-i\omega'f_{\mathbf{k}}
@@ -603,10 +603,10 @@ We denote the massless limit case Green function by \(\mathcal{G}\) instead of \
   \[\mathcal{G}^{(1)}(x^{\mu},x^{\mu'})=-\frac{1}{4\pi^2\sigma}\]
 \end{example}
 
-All the Green functions above are calculated as expectation values of field operators in a pure state, 
-which are suitable for describing systems at zero temperature. 
+All the Green functions above are calculated as expectation values of field operators in a pure state,
+which are suitable for describing systems at zero temperature.
 However, the system at non-zero temperature is described by a state that is statistically distributed over all pure states.
-The Green functions for a non-zero temperature system are given by the average of 
+The Green functions for a non-zero temperature system are given by the average of
 all pure states of the expectation value of the products of field operators in those pure states.
 
 Suppose \(\ket{\psi_i}\) is a pure state and eigenstate of the Hamiltonian operator, then it will also be an eigenstate of the number operator.
@@ -618,12 +618,12 @@ The probability of the system in the state \(\ket{\psi_i}\) is given by grand pa
   where \(\beta=\frac{1}{k_BT}\), \(\mu\) is chemical potential, \(Z=\sum_je^{-\beta(E_j-\mu n_j)}=e^{-\beta\Omega}\) is grand partition function,
   and \(\Omega\) is thermodynamic potential.
 \end{cthm}
-The ensemble average at a temperature given by \(\beta\) pf arbitrary operator \(\mathcal{\hat{O}}\) is given by 
+The \tbf{ensemble average} at a temperature given by \(\beta\) pf arbitrary operator \(\mathcal{\hat{O}}\) is given by
 \begin{equation}\label{ea}
   \expval{\mathcal{\hat{O}}}_{\beta}=\sum_i\rho_i\expval{\mathcal{\hat{O}}}{\psi_i}.
 \end{equation}
 Define quantum density operator:
-\begin{definition}[density operator]
+\begin{definition}[Density operator]
   \[\rho=e^{\beta(\Omega+\mu N-H)}\]
 \end{definition}
 then the probability of the system in the state \(\ket{\psi_i}\) is given by matrix element:
@@ -634,21 +634,55 @@ The probability should be normalized to 1:
 \begin{equation}
   \tr\rho=\sum_i \expval{\rho}{\psi_i}=1
 \end{equation}
-eq \ref{ea} is reduced to 
+eq \ref{ea} is reduced to
 \begin{equation}
   \expval{\mathcal{\hat{O}}}_\beta=\tr \left(\rho\mathcal{\hat{O}}\right)
 \end{equation}
 
+Now we can define \tbf{thermal Green functions} by replacing the vacuum expectation values with the ensemble average.
 
+\begin{example}[Thermal Wightman functions]
+  \begin{align*}
+    G^{+}_{\beta}(x^{\mu},x'^{\mu}) & =\expval{\hat{\phi}(x^{\mu})\hat{\phi}(x'^{\mu})}_{\beta}  \\
+    G^{-}_{\beta}(x^{\mu},x'^{\mu}) & =\expval{\hat{\phi}(x'^{\mu})\hat{\phi}(x^{\mu})}_{\beta}.
+  \end{align*}
+\end{example}
 
+When the chemical potential vanishes, we find an important property of thermal Green functions:
+\begin{align}
+  G^{+}_{\beta}(t,\mathbf{x};t',\mathbf{x'}) & =\frac{\tr\left[e^{-\beta H}\hat{\phi}(t,\mathbf{x})\hat{\phi}(t',\mathbf{x'})\right]}
+  {\tr\left(e^{-\beta H}\right)}                                                                                                                             \\
+                                             & =\frac{\tr\left[e^{-\beta H}\hat{\phi}(t,\mathbf{x})e^{\beta H}e^{-\beta H}\hat{\phi}(t',\mathbf{x'})\right]}
+  {\tr\left(e^{-\beta H}\right)}                                                                                                                             \\
+                                             & =\frac{\tr\left[\hat{\phi}(t+i\beta,\mathbf{x})e^{-\beta H}\hat{\phi}(t',\mathbf{x'})\right]}
+  {\tr\left(e^{-\beta H}\right)}\label{he}                                                                                                                   \\
+                                             & =\frac{\tr\left[e^{-\beta H}\hat{\phi}(t',\mathbf{x'})\hat{\phi}(t+i\beta,\mathbf{x})\right]}
+  {\tr\left(e^{-\beta H}\right)}                                                                                                                             \\
+                                             & =G^{-}_{\beta}(t+i\beta,\mathbf{x};t',\mathbf{x'})
+\end{align}
+In step \ref{he}, we have to use Heisenberg equations of motion
+\begin{equation}
+  \hat{\phi}(t,\mathbf{x})=e^{iH(t-t_0)}\hat{\phi}(t_0,\mathbf{x})e^{-i H(t-t_0)},
+\end{equation}
+and property of the trace
+\begin{equation}
+  \tr(AB)=\tr(BA)
+\end{equation}
 
+A similar property also holds for other Green functions.
+\begin{example}[Wightman functions]
+  \[G^{\pm}_{\beta}(t,\mathbf{x};t',\mathbf{x'})=G^{\mp}_{\beta}(t+i\beta,\mathbf{x};t',\mathbf{x'})\]
+\end{example}
 
-
-
-
-
-
-
+\begin{example}[Hadamard elementary function]
+  \[G_{\beta}^{(1)}(t,\mathbf{x};t',\mathbf{x'})=G_{\beta}^{(1)}(t+i\beta,\mathbf{x};t',\mathbf{x'})\]
+\end{example}
+However, we should note that
+\begin{equation}
+  iG_{\beta}(t,\mathbf{x};t',\mathbf{x'})=iG(t,\mathbf{x};t',\mathbf{x'})=\left[\hat{\phi}(x^{\mu}),\hat{\phi}(x'^{\mu})\right].
+\end{equation}
+This property is due to the commutator of the free scalar field is not an operator but a number.
+This does not usually hold for the interacting field.
 
 
 
@@ -658,12 +692,10 @@ eq \ref{ea} is reduced to
 \newpage
 
 \section{QFT in Curved Spacetime}
-In the Minkowski spacetime, we have a ``privileged'' set of basis to construct our mode function; however, in general spacetime,
-due to the lack of Poincare symmetry, we do not have a set of mode functions that are preferred.
+In the Minkowski spacetime, we have a ``privileged'' set of basis related to Poincare symmetry which allows us to construct our mode function.
+However, in general spacetime, the Poincare group no longer is the symmetry group, we do not have a set of mode functions that are preferred.
 The consequence of no preferred mode functions is that the concepts of vacuum and particle are ill-defined.
 The treatment in this chapter assumed that spacetime is globally hyperbolic.
-
-
 
 \subsection{Construct QFT in Curved Spacetime}
 Let us start with the Lagrangian density of a scalar field:
@@ -715,9 +747,9 @@ There exists a complete orthonormal set of modes, satisfying
 \end{align}
 The index \(ij\) represents some quantities that label the modes.
 Because the set of modes is complete, we can expand our field as
-\begin{equation}
-  \hat{\phi}=\sum_i\left[\hat{a}_i f_i+\hat{a}_i^\dagger f_i^*\right].
-\end{equation}
+\begin{cthm}[Mode expansion in curved spacetime]
+  \[\hat{\phi}=\sum_i\left[\hat{a}_i f_i+\hat{a}_i^\dagger f_i^*\right].\]
+\end{cthm}
 The coefficients of mode expansion have commutation relations
 \begin{align}
   \bigl[\hat{a}_{i},\hat{a}_{j}\bigr]                     & =0           \\
@@ -725,31 +757,61 @@ The coefficients of mode expansion have commutation relations
   \bigl[\hat{a}_{i},\hat{a}^{\dagger}_{j}\bigr]           & =\delta_{ij}
 \end{align}
 We interpret those coefficients as creation and annihilation operator, which defines a new vacuum state:
-\begin{equation}
-  \forall\;i,\ \hat{a}_i\ket{0_f}=0
-\end{equation}
+\begin{cthm}[\(f_i\) vacuum]
+  \[\forall\;i,\ \hat{a}_i\ket{0_f}=0\]
+\end{cthm}
 Just like before, from this vacuum state, we can construct the Fock space.
-A state with \(n_i\) excitations could be create by repeated action of \(\hat{a}^dagger_i\),
+A state with \(n_i\) excitations could be create by repeated action of \(\hat{a}^\dagger_i\),
 \begin{equation}
   \ket{n_i}=\frac{1}{\sqrt{n_i!}}\left(\hat{a}_i^{\dagger}\ket{0_f}\right),
 \end{equation}
-and the number operator is 
-\begin{equation}
-  \hat{n}_{f_i}=\hat{a}_i^\dagger \hat{a}_i.
-\end{equation}
+and the number operator is
+\begin{cthm}[Number operator of \(f_i\)]
+  \[\hat{n}_{f_i}=\hat{a}_i^\dagger \hat{a}_i.\]
+\end{cthm}
 
-
-
-
-
-
-
-
-
-
+All the above constructions of Fock space and vacuum state are built for the set of modes \(f_i\).
 
 
 \subsection{Vacuum Ambiguity}
+We should notice that our choice of mode function \(f_i\) is non-unique, and we can always construct another set of modes function
+\(g_i\) and follow the procedure in the previous chapter, to construct the Fock space and vacuum state for the mode \(g_i\).
+
+Before we discuss the issue of this ambiguity of mode in curved spacetime,
+we first think about how this problem was avoided in Minkowski spacetime.
+
+In Minkowski spacetime, the natural set of modes is associated with the Cartesian coordinate system \((t,x,y,z)\).
+These coordinates are associated with the Killing vectors and Poincare group.
+We have shown that the Fock space and vacuum state are invariant under the action of the Poincare group (c.f \ref{pg}).
+
+More specifically, the positive frequency mode in Minkowski spacetime is defined through the Lie derivative along the 
+timelike Killing vector, \(\mathcal{L}_{\p t}f_{\mathbf{k}}=-i\omega f_{\mathbf{k}}\), and this timelike Killing vector
+are associated with the Poincare group, so that we are always able to distinguish positive frequency and negative frequency modes in 
+flat spacetime.  
+
+Let's consider another set of modes \(g_i\), we can expand the field operator in term of \(g_i\):
+\begin{cthm}[Alternative mode expansion]
+  \[\hat{\phi}=\sum_i\left[\hat{\bar{a}}_i g_i+\hat{\bar{a}}_i^\dagger g_i^*\right].\]
+\end{cthm}
+Follow all procedures for mode \(f_i\), the commutation relation is imposed:
+\begin{align}
+  \bigl[\hat{\bar{a}}_{i},\hat{\bar{a}}_{j}\bigr]                     & =0           \\
+  \bigl[\hat{\bar{a}}^{\dagger}_{i},\hat{\bar{a}}^{\dagger}_{j}\bigr] & =0           \\
+  \bigl[\hat{\bar{a}}_{i},\hat{\bar{a}}^{\dagger}_{j}\bigr]           & =\delta_{ij}
+\end{align}
+
+The vacuum state of this set of annihilation operators is 
+\begin{cthm}[\(g_i\) vacuum]
+  \[\forall\;i,\ \hat{\bar{a}}_i\ket{0_g}=0\]
+\end{cthm}
+The Fock basis is constructed by repeated action of creation operators on this vacuum, and the number operator is defined as
+\begin{cthm}[Number operator of \(g_i\)]
+  \[\hat{n}_{g_i}=\hat{\bar{a}}_i^\dagger \hat{\bar{a}}_i.\]
+\end{cthm}
+
+
+
+
 
 
 \subsection{Particle Detector and Unruh Effect}
