@@ -497,7 +497,7 @@ The following relation holds for those Green functions:
 \end{equation}
 All of those Green functions can be obtained by evaluating the contour integral:
 \begin{equation}
-  (2\pi)^{-n}\int_{C}\id^nk\;\frac{e^{i\left[\mathbf{k}\cdot(\mathbf{x}-\mathbf{x'})-k^0(t-t')\right]}}{(k^0)^2-|\mathbf{k}|^2-m^2}.
+  G_{all}=(2\pi)^{-n}\int_{C}\id^nk\;\frac{e^{i\left[\mathbf{k}\cdot(\mathbf{x}-\mathbf{x'})-k^0(t-t')\right]}}{(k^0)^2-|\mathbf{k}|^2-m^2}.
 \end{equation}
 This contour integral has poles at \(k^0=\pm \sqrt{(|\mathbf{k}|^2)+m^2}\).
 The different Green functions take different contours, the contour for each Green function is shown in figure \ref{green}.
@@ -581,7 +581,7 @@ By residue theorem, this contour integral yields zero, which is expected.
 \end{figure}
 
 The contour integral can be explicitly performed.
-\begin{example}
+\begin{example}[Feynman propagator]
   The Feynman propagator can be evaluated as
   \begin{equation*}
     G_F(x^{\mu},x'^{\mu})=\frac{-\pi i}{(4\pi i)^{\frac{n}{2}}}\left[\frac{2m^2}{-\sigma+i\epsilon}\right]^{\frac{(n-2)}{4}}
@@ -594,7 +594,14 @@ The contour integral can be explicitly performed.
   The \(-i\epsilon\) is added to push the contour slightly down to the lower half complex plane, where the function is analytic.
 \end{example}
 
+We denote the massless limit case Green function by \(\mathcal{G}\) instead of \(G\).
 
+\begin{example}[4-dimensional massless Feynman propagator]
+  \[\mathcal{G}_F(x^{\mu},x^{\mu'})=\frac{i}{8\pi^2\sigma}-\frac{\delta(\sigma)}{8\pi}\]
+\end{example}
+\begin{example}[4-deimensional massless Hadamard's elementary function]
+  \[\mathcal{G}^{(1)}(x^{\mu},x^{\mu'})=-\frac{1}{4\pi^2\sigma}\]
+\end{example}
 
 
 
@@ -648,7 +655,7 @@ Impose canonical commutation relation:
     \bigl[\hat{\phi}(t,\mathbf{x}),\hat{\pi}(t,\mathbf{x'})\bigr]  & =\frac{i}{\sqrt{-g}}\delta^{(n-1)}(\mathbf{x}-\mathbf{x'}).
   \end{align*}
 \end{cthm}
-We can just continue the precedue of constructing flat spacetime quantum field.
+We can just continue the procedure of constructing flat spacetime quantum field.
 
 There exists a complete orthonormal set of modes, satisfying
 \begin{align}
