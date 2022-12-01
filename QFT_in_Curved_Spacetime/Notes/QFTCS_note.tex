@@ -603,7 +603,41 @@ We denote the massless limit case Green function by \(\mathcal{G}\) instead of \
   \[\mathcal{G}^{(1)}(x^{\mu},x^{\mu'})=-\frac{1}{4\pi^2\sigma}\]
 \end{example}
 
+All the Green functions above are calculated as expectation values of field operators in a pure state, 
+which are suitable for describing systems at zero temperature. 
+However, the system at non-zero temperature is described by a state that is statistically distributed over all pure states.
+The Green functions for a non-zero temperature system are given by the average of 
+all pure states of the expectation value of the products of field operators in those pure states.
 
+Suppose \(\ket{\psi_i}\) is a pure state and eigenstate of the Hamiltonian operator, then it will also be an eigenstate of the number operator.
+Because both numbers of particles and energy are variable, an equilibrium system at temperature \(T\) should be described by a grand canonical ensemble of states.
+The probability of the system in the state \(\ket{\psi_i}\) is given by grand partition function:
+\begin{cthm}
+  \[\rho_i=\frac{e^{-\beta (E_i-\mu n_i)}}{Z}\]
+  \\
+  where \(\beta=\frac{1}{k_BT}\), \(\mu\) is chemical potential, \(Z=\sum_je^{-\beta(E_j-\mu n_j)}=e^{-\beta\Omega}\) is grand partition function,
+  and \(\Omega\) is thermodynamic potential.
+\end{cthm}
+The ensemble average at a temperature given by \(\beta\) pf arbitrary operator \(\mathcal{\hat{O}}\) is given by 
+\begin{equation}\label{ea}
+  \expval{\mathcal{\hat{O}}}_{\beta}=\sum_i\rho_i\expval{\mathcal{\hat{O}}}{\psi_i}.
+\end{equation}
+Define quantum density operator:
+\begin{definition}[density operator]
+  \[\rho=e^{\beta(\Omega+\mu N-H)}\]
+\end{definition}
+then the probability of the system in the state \(\ket{\psi_i}\) is given by matrix element:
+\begin{equation}
+  \rho_i=\expval{\rho}{\psi_i}
+\end{equation}
+The probability should be normalized to 1:
+\begin{equation}
+  \tr\rho=\sum_i \expval{\rho}{\psi_i}=1
+\end{equation}
+eq \ref{ea} is reduced to 
+\begin{equation}
+  \expval{\mathcal{\hat{O}}}_\beta=\tr \left(\rho\mathcal{\hat{O}}\right)
+\end{equation}
 
 \newpage
 
