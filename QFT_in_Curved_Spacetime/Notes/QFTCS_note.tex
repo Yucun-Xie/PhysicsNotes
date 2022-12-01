@@ -264,7 +264,7 @@ And they are orthonormal with each other with a negative norm:
 Hence, modes \(f_{\mathbf{k}}\) and \(f^*_{\mathbf{k}}\) form a complete set, which any possible solution
 of Klein-Gordon equation can be expressed in terms of them.
 
-
+\newpage
 \subsection{Canonical Quantization}
 
 The system could be quantized in the canonical quantization scheme by treating the field \(\phi\) as an operator \(\hat{\phi}\),
@@ -360,7 +360,7 @@ Therefore, the number operator in the boosted frame is identical to the original
 This particular result is due to the existence of a timelike Killing vector in flat spacetime, a direct consequence of Poincare symmetry.
 With Poincare symmetry, our original choice of the inertial frame would be irrelevant.
 Therefore, all inertial observers agree with a unique, single vacuum state.
-
+\newpage
 \subsection{Vacuum Energy}
 The energy-momentum tensor of scalar field theory can be constructed in a standard manner:
 \begin{align}
@@ -408,7 +408,7 @@ This is valid because what we can measure in the experiment is the energy differ
 we can simply rescale the zero point of energy and not affect the observable.
 
 
-
+\newpage
 
 \subsection{Green Function}
 Vacuum expectation values of various combinations of field operators can be treated with various Green functions of the Klein-Gordon equation.
@@ -740,14 +740,14 @@ Impose canonical commutation relation:
 We can just continue the procedure of constructing flat spacetime quantum field.
 
 There exists a complete orthonormal set of modes, satisfying
-\begin{align}
+\begin{align}\label{orf}
   \left(f_{i},f_{j}\right)     & =\delta_{ij}   \\
   \left(f_{i},f^*_{j}\right)   & =0             \\
   \left(f^*_{i},f^*_{j}\right) & =-\delta_{ij}.
 \end{align}
 The index \(ij\) represents some quantities that label the modes.
 Because the set of modes is complete, we can expand our field as
-\begin{cthm}[Mode expansion in curved spacetime]
+\begin{cthm}[Mode expansion in curved spacetime]\label{cme}
   \[\hat{\phi}=\sum_i\left[\hat{a}_i f_i+\hat{a}_i^\dagger f_i^*\right].\]
 \end{cthm}
 The coefficients of mode expansion have commutation relations
@@ -772,7 +772,7 @@ and the number operator is
 
 All the above constructions of Fock space and vacuum state are built for the set of modes \(f_i\).
 
-
+\newpage
 \subsection{Vacuum Ambiguity}
 We should notice that our choice of mode function \(f_i\) is non-unique, and we can always construct another set of modes function
 \(g_i\) and follow the procedure in the previous chapter, to construct the Fock space and vacuum state for the mode \(g_i\).
@@ -784,13 +784,13 @@ In Minkowski spacetime, the natural set of modes is associated with the Cartesia
 These coordinates are associated with the Killing vectors and Poincare group.
 We have shown that the Fock space and vacuum state are invariant under the action of the Poincare group (c.f \ref{pg}).
 
-More specifically, the positive frequency mode in Minkowski spacetime is defined through the Lie derivative along the 
+More specifically, the positive frequency mode in Minkowski spacetime is defined through the Lie derivative along the
 timelike Killing vector, \(\mathcal{L}_{\p t}f_{\mathbf{k}}=-i\omega f_{\mathbf{k}}\), and this timelike Killing vector
-are associated with the Poincare group, so that we are always able to distinguish positive frequency and negative frequency modes in 
-flat spacetime.  
+are associated with the Poincare group, so that we are always able to distinguish positive frequency and negative frequency modes in
+flat spacetime.
 
 Let's consider another set of modes \(g_i\), we can expand the field operator in term of \(g_i\):
-\begin{cthm}[Alternative mode expansion]
+\begin{cthm}[Alternative mode expansion]\label{ame}
   \[\hat{\phi}=\sum_i\left[\hat{\bar{a}}_i g_i+\hat{\bar{a}}_i^\dagger g_i^*\right].\]
 \end{cthm}
 Follow all procedures for mode \(f_i\), the commutation relation is imposed:
@@ -800,7 +800,7 @@ Follow all procedures for mode \(f_i\), the commutation relation is imposed:
   \bigl[\hat{\bar{a}}_{i},\hat{\bar{a}}^{\dagger}_{j}\bigr]           & =\delta_{ij}
 \end{align}
 
-The vacuum state of this set of annihilation operators is 
+The vacuum state of this set of annihilation operators is
 \begin{cthm}[\(g_i\) vacuum]
   \[\forall\;i,\ \hat{\bar{a}}_i\ket{0_g}=0\]
 \end{cthm}
@@ -809,10 +809,58 @@ The Fock basis is constructed by repeated action of creation operators on this v
   \[\hat{n}_{g_i}=\hat{\bar{a}}_i^\dagger \hat{\bar{a}}_i.\]
 \end{cthm}
 
+Both sets of modes are constructed in an equal way, and we don't know which one defined a vacuum that is more close to the physical vacuum.
 
+Now, since both sets are complete, we can express one in terms of another, known as \tbf{Bogolubov transformation}.
+\begin{definition}[Bogolubov transformation]\label{bt}
+  \begin{align*}
+    f_i & =\sum_j\left[\alpha^*_{ji}g_j-\beta_{ji}g^*_j\right] \\
+    g_i & =\sum_j\left[\alpha_{ij}f_j+\beta_{ij}f_j^*\right]
+  \end{align*}
+  The matrix element \(\alpha_{ij}\) and \(\beta_{ij}\) are called \tbf{Bogolubov coefficients}
+\end{definition}
+Using the orthogonality of mode functions, \ref{orf}, we can compute the Bogolubov coefficients:
+\begin{align}
+  \alpha_{ij}&=(g_i,f_j)\\
+\beta_{ij}&= -(g_i,f_j^*)
+\end{align}
+To make a physical mode function, the Bogolubov coefficients should be normalized:
+\begin{align}
+  \sum_j\bigl[\alpha_{ik}\alpha^*_{jk}-\beta_{ik}\beta^*_{jk}\bigr]&=\delta_{ij}\\
+  \sum_j\bigl[\alpha_{ik}\beta_{jk}-\beta_{ik}\alpha_{jk}\bigr]&=0
+\end{align}
+To obtain the relation of creation/annihilation operators of set \(f_i\) and \(g_i\), 
+we first equating the mode expansions \ref{cme} and \ref{ame}, and use Bogolubov transformation \ref{bt}.
+\begin{equation}
+  \sum_i\left[\hat{a}_i f_i+\hat{a}_i^\dagger f_i^*\right]=\sum_i\left[\hat{\bar{a}}_i g_i+\hat{\bar{a}}_i^\dagger g_i^*\right]
+\end{equation}
+We obtain 
+\begin{align}
+  \hat{a}_i &=\sum_j\left[\alpha_{ji}\hat{\bar{a}}_j+\beta^*_{ji}\hat{\bar{a}}^{\dagger}_j\right]\\
+  \hat{\bar{a}}_i &=\sum_j\left[\alpha^*_{ij}\hat{a}_j-\beta^*_{ij}\hat{a}^{\dagger}_j\right]
+\end{align}
 
+Now imagine an observer in the vacuum state defined by mode \(f_i\), we want to know how many particles are there if the state is defined by \(g_i\) mode.
+We should exam the expectation value of number operator of \(g_i\), \(\hat{n}_{g_i}\) in \(f_i\)-vacuum:
+\begin{align}
+  \expval{\hat{n}_{g_i}}{0_{f_i}}&=\expval{\hat{\bar{a}}_i^\dagger \hat{\bar{a}}_i}{0_{f_i}}\\
+  &=\expval{\sum_{jk}\left(\alpha_{ij}\hat{a}^{\dagger}_j-\beta_{ij}\hat{a}_j\right)\left(\alpha^*_{ik}\hat{a}_k-\beta^*_{ik}\hat{a}^{\dagger}_k\right)}{0_{f_i}}\\
+  &=\sum_{jk}\left(-\beta_{ij}\right)\left(-\beta^*_{ik}\right)\expval{\hat{a}_j\hat{a}^{\dagger}_k}{0_{f_i}}\\
+  &=\sum_{jk}\left(\beta_{ij}\beta^*_{ik}\right)\expval{\hat{a}^{\dagger}_k\hat{a}_j+\delta_{jk}}{0_{f_i}}\\
+  &=\sum_{jk}\left(\beta_{ij}\beta^*_{ik}\right)\delta_{jk}\braket{0_{f_i}}{0_{f_i}}\\
+  &=\sum_{j}\beta_{ij}\beta^*_{ij}\\
+  &=\sum_{j}|\beta_{ij}|^2\\
+\end{align}
+Hence, the number of particle in mode \(g_i\) in the \(f_i\)-vacuum is equal to \(\sum_{j}|\beta_{ij}|^2\).
 
-
+Note that in some static spacetime, exist a timelike Killing vector \(\eta\), and if the modes \(f_i\) are positive frequency
+modes satisfying
+\begin{equation}
+  \mathcal{L}_{\eta}f_i=-i\omega f_i,\quad \omega>0
+\end{equation}
+and Bogolubov coefficients \(\beta_{ij}\) vanish, i.e. the modes \(g_i\) are linear combination of \(f_i\) alone, 
+two sets of modes share a common vacuum state.
+\newpage
 
 \subsection{Particle Detector and Unruh Effect}
 To see what is the meaning of particles in curved spacetime, consider an idealized particle detector,
