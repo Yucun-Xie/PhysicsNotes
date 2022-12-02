@@ -848,7 +848,7 @@ We should exam the expectation value of number operator of \(g_i\), \(\hat{n}_{g
   &=\sum_{jk}\left(\beta_{ij}\beta^*_{ik}\right)\expval{\hat{a}^{\dagger}_k\hat{a}_j+\delta_{jk}}{0_{f_i}}\\
   &=\sum_{jk}\left(\beta_{ij}\beta^*_{ik}\right)\delta_{jk}\braket{0_{f_i}}{0_{f_i}}\\
   &=\sum_{j}\beta_{ij}\beta^*_{ij}\\
-  &=\sum_{j}|\beta_{ij}|^2\\
+  &=\sum_{j}|\beta_{ij}|^2
 \end{align}
 Hence, the number of particle in mode \(g_i\) in the \(f_i\)-vacuum is equal to \(\sum_{j}|\beta_{ij}|^2\).
 
@@ -914,18 +914,38 @@ If the coupling constant \(\mathfrak{c}\) is sufficiently small, the transition 
 If we want to calculate the transition probability to all possible states, we could square the expression \ref{TA1} and 
 summing over the complete set of \(\ket{\psi_i}\), with resulting 
 \begin{align}
-  &\sum_{\psi}|\braket{\psi,E_1}{0,E_0}|^2\\
+  &\sum_{j}|\braket{\psi_j,E_1}{0,E_0}|^2\\
   &=\mathfrak{c}^2|\bra{E_1}m(0)\ket{E_0}|^2\int_{\tau_0}^{\tau_1}\id \tau
   \int_{\tau_0}^{\tau_1}\id \tau'e^{-i(E_1-E_0)(\tau-\tau')}\sum_{j}\bra{0}\hat{\phi}(x^{\mu}(\tau))\ket{\psi_j}\bra{\psi_j}\hat{\phi}(x^{\mu}(\tau'))\ket{0}\\
   &=\mathfrak{c}^2|\bra{E_1}m(0)\ket{E_0}|^2\int_{\tau_0}^{\tau_1}\id \tau
   \int_{\tau_0}^{\tau_1}\id \tau'e^{-i(E_1-E_0)(\tau-\tau')}\expval{\hat{\phi}(x^{\mu}(\tau))\hat{\phi}(x^{\mu}(\tau'))}{0}\\
-  &=\mathfrak{c}^2|\bra{E_1}m(0)\ket{E_0}|^2\int_{\tau_0}^{\tau_1}\id \tau
-  \int_{\tau_0}^{\tau_1}\id \tau'e^{-i(E_1-E_0)(\tau-\tau')}G^+(x^{\mu}(\tau),x^{\mu}(\tau'))
+  &=\underbrace{\mathfrak{c}^2|\bra{E_1}m(0)\ket{E_0}|^2}_{\text{sensitivity}}\underbrace{\int_{\tau_0}^{\tau_1}\id \tau
+  \int_{\tau_0}^{\tau_1}\id \tau'e^{-i(E_1-E_0)(\tau-\tau')}G^+(x^{\mu}(\tau),x^{\mu}(\tau'))}_{\text{response function}}\label{det}
 \end{align}
+The equation \ref{det} contains two parts, sensitivity and response function. 
+The sensitivity depends on the internal detail of the detector, and the response function does not. 
+Therefore the response function is a general property for all such detectors.
+
+Rewrite the \(E_1-E_0\) as \(\omega\), we may express the response function as 
+\begin{cthm}[Response function]
+  \[\mathcal{F}(\omega)=\int_{\tau_0}^{\tau_1}\id \tau\int_{\tau_0}^{\tau_1}\id \tau'e^{-i\omega(\tau-\tau')}G^+(x^{\mu}(\tau),x^{\mu}(\tau')) \]
+\end{cthm}
+In the special case in which the system is invariant under time translation in the detector's frame, the Wightman function could be written as 
+\begin{equation}
+  G^+(x^{\mu}(\tau),x^{\mu}(\tau'))=G^+(\tau-\tau')=G^+(\Delta \tau)
+\end{equation}
+This corresponds to the equilibrium between the detector and the field. 
+In this case, the number of quanta absorbed or emitted by the detector per unit of proper time is constant. 
+If these rates are nonzero, and we integrate over an infinite time interval, the transition probability will diverge.
+Therefore, we should consider the transition probability per unit of proper time, given by 
+\begin{equation}
+  \mathfrak{c}^2|\bra{E_1}m(0)\ket{E_0}|^2\int_{-\infty}^{\infty}\id \Delta\tau e^{-i\omega\Delta \tau}G^+(\Delta \tau).
+\end{equation}
+%and demanding \(\tau_0 \rightarrow -\infty\) and \(\tau_1 \rightarrow \infty\)
 
 %Factorized the equation \ref{TA1},
 
-
+Let us now consider a few examples that the transition probability can be exactly evaluated. 
 
 
 
@@ -944,7 +964,7 @@ For an inertial detector in n-dimensional Minkowski spacetime, only the last ter
 \end{equation}
 Where \(T\) is the duration of the detector switched on. If \(\mathbf{v}=0\) we can further perform the integration:
 \begin{align}
-  \frac{F(E)}{T} & = (2\pi)^{1-n}\int^{\infty}_{-\infty}\id (\Delta \tau)\;e^{-i\Delta\tau E}
+  \frac{\mathcal{F}(E)}{T} & = (2\pi)^{1-n}\int^{\infty}_{-\infty}\id (\Delta \tau)\;e^{-i\Delta\tau E}
   \int\frac{\id^{n-1}k}{2\omega}e^{i\Delta\tau\frac{(\omega-\mathbf{k}\cdot\mathbf{v})}{\sqrt{1-v^2}}}n_{\mathbf{k}}        \\
                  & = (2\pi)^{1-n}\int\frac{\id^{n-1}k}{2\omega}\int^{\infty}_{-\infty}\id (\Delta \tau)\;e^{-i\Delta\tau E}
   e^{i\Delta\tau\frac{(\omega-\mathbf{k}\cdot\mathbf{v})}{\sqrt{1-v^2}}}n_{\mathbf{k}}                                      \\
