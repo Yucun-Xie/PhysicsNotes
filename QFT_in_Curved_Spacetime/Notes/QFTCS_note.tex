@@ -911,10 +911,16 @@ If the coupling constant \(\mathfrak{c}\) is sufficiently small, the transition 
   &=i\mathfrak{c}\bra{E_1}m(0)\ket{E_0}\int_{\tau_0}^{\tau_1}\id \tau\;e^{i(E_1-E_0)\tau}\bra{\psi}\phi(x^{\mu}(\tau))\ket{0}.
 \end{align}
 
-If we want to calculate the transition probability to all possible states, we could squaring the expression \ref{TA1} and 
-summing over the complete set of \(\ket{\psi}\), with resulting 
+If we want to calculate the transition probability to all possible states, we could square the expression \ref{TA1} and 
+summing over the complete set of \(\ket{\psi_i}\), with resulting 
 \begin{align}
-  \sum_{\psi}|\braket{\psi,E_1}{0,E_0}|^2&=
+  &\sum_{\psi}|\braket{\psi,E_1}{0,E_0}|^2\\
+  &=\mathfrak{c}^2|\bra{E_1}m(0)\ket{E_0}|^2\int_{\tau_0}^{\tau_1}\id \tau
+  \int_{\tau_0}^{\tau_1}\id \tau'e^{-i(E_1-E_0)(\tau-\tau')}\sum_{j}\bra{0}\hat{\phi}(x^{\mu}(\tau))\ket{\psi_j}\bra{\psi_j}\hat{\phi}(x^{\mu}(\tau'))\ket{0}\\
+  &=\mathfrak{c}^2|\bra{E_1}m(0)\ket{E_0}|^2\int_{\tau_0}^{\tau_1}\id \tau
+  \int_{\tau_0}^{\tau_1}\id \tau'e^{-i(E_1-E_0)(\tau-\tau')}\expval{\hat{\phi}(x^{\mu}(\tau))\hat{\phi}(x^{\mu}(\tau'))}{0}\\
+  &=\mathfrak{c}^2|\bra{E_1}m(0)\ket{E_0}|^2\int_{\tau_0}^{\tau_1}\id \tau
+  \int_{\tau_0}^{\tau_1}\id \tau'e^{-i(E_1-E_0)(\tau-\tau')}G^+(x^{\mu}(\tau),x^{\mu}(\tau'))
 \end{align}
 
 %Factorized the equation \ref{TA1},
