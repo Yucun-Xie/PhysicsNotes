@@ -49,8 +49,8 @@
 
 \tcolorboxenvironment{definition}{boxrule=0pt,boxsep=0pt,colback={red!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{red},sharp corners,before skip=10pt,after skip=10pt,breakable}
 %\tcolorboxenvironment{proposition}{boxrule=0pt,boxsep=0pt,colback={Orange!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{Orange},sharp corners,before skip=10pt,after skip=10pt,breakable}
-\tcolorboxenvironment{theorem}{boxrule=0pt,boxsep=0pt,colback={blue!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{blue},sharp corners,before skip=10pt,after skip=10pt,breakable}
-\tcolorboxenvironment{example}{boxrule=0pt,boxsep=0pt,colback={Green!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{Green},sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{theorem}{boxrule=0pt,boxsep=0pt,colback={MidnightBlue!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{MidnightBlue},sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{example}{boxrule=0pt,boxsep=0pt,colback={Magenta!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{Magenta},sharp corners,before skip=10pt,after skip=10pt,breakable}
 \tcolorboxenvironment{examples}{boxrule=0pt,boxsep=0pt,colback={violet!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{violet},sharp corners,before skip=10pt,after skip=10pt,breakable}
 \tcolorboxenvironment{proof}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{CadetBlue!80!white},left=8pt,right=8pt,sharp corners,before skip=10pt,after skip=10pt,breakable}
 \tcolorboxenvironment{remark}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{Cyan},left=8pt,right=8pt,before skip=10pt,after skip=10pt,breakable}
@@ -58,9 +58,8 @@
 %\tcolorboxenvironment{example}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{Black},left=8pt,right=8pt,sharp corners,before skip=10pt,after skip=10pt,breakable}
 %\tcolorboxenvironment{examples}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{Black},left=8pt,right=8pt,sharp corners,before skip=10pt,after skip=10pt,breakable}
 \tcolorboxenvironment{cthm}{boxrule=0pt,boxsep=0pt,colback={orange!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{orange},sharp corners,before skip=10pt,after skip=10pt,breakable}
-\tcolorboxenvironment{equation}{boxrule=0pt,boxsep=0pt,colback={Magenta!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{Magenta},sharp corners,before skip=10pt,after skip=10pt,breakable}
-\tcolorboxenvironment{align}{boxrule=0pt,boxsep=0pt,colback={MidnightBlue!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{MidnightBlue},sharp corners,before skip=10pt,after skip=10pt,breakable}
-
+\tcolorboxenvironment{equation}{boxrule=0pt,boxsep=0pt,colback={Green!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{Green},sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{align}{boxrule=0pt,boxsep=0pt,colback={blue!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{blue},sharp corners,before skip=10pt,after skip=10pt,breakable}
 
 
 \usepackage[explicit]{titlesec}
@@ -734,7 +733,7 @@ Impose canonical commutation relation:
   \begin{align*}
     \bigl[\hat{\phi}(t,\mathbf{x}),\hat{\phi}(t,\mathbf{x'})\bigr] & =0                                                          \\
     \bigl[\hat{\pi}(t,\mathbf{x}),\hat{\pi}(t,\mathbf{x'})\bigr]   & =0                                                          \\
-    \bigl[\hat{\phi}(t,\mathbf{x}),\hat{\pi}(t,\mathbf{x'})\bigr]  & =\frac{i}{\sqrt{-g}}\delta^{(n-1)}(\mathbf{x}-\mathbf{x'}).
+    \bigl[\hat{\phi}(t,\mathbf{x}),\hat{\pi}(t,\mathbf{x'})\bigr]  & =\frac{i}{\sqrt{g}}\delta^{(n-1)}(\mathbf{x}-\mathbf{x'}).
   \end{align*}
 \end{cthm}
 We can just continue the procedure of constructing flat spacetime quantum field.
@@ -860,34 +859,77 @@ modes satisfying
 \end{equation}
 and Bogolubov coefficients \(\beta_{ij}\) vanish, i.e. the modes \(g_i\) are linear combination of \(f_i\) alone, 
 two sets of modes share a common vacuum state.
+
 \newpage
 
-\subsection{Particle Detector and Unruh Effect}
-To see what is the meaning of particles in curved spacetime, consider an idealized particle detector,
+\subsection{Particle Detector}
+To see what is the meaning of particles in curved spacetime, we consider the model of particle detector given by Unruh and Dewitt.
+
+The \tbf{Unruh-Dewitt detector} is an idealized particle detector,
 consisting of a point particle with internal energy level \(E\),
 coupled via a monopole interaction with a scalar field \(\phi\).
 Suppose the particle detector moves along the worldline described by parameterized function \(x^\mu(\tau)\),
 where \(\tau\) is the detector's proper time.
+The detector is point-like so the interaction only takes place at a point along the trajectory.
+
 \par The detector-field interaction is described by the interaction Lagrangian:
 \begin{equation}
-  \mathcal{L}=\mathfrak{c} \hat{m}(\tau)\phi\left[x(\tau)\right]
+  \mathcal{L}=\mathfrak{c} \hat{m}(\tau)\phi\left(x^{\mu}(\tau)\right)
 \end{equation}
+
 Where the \(\mathfrak{c}\) is the coupling constant and \(\hat{m}\) is the monopole moment of the detector.
-Suppose the field \(\phi\) is in the Minkowski vacuum \(\ket{0_{M}}\), defined by \(a_{\mathbf{p}}\ket{0}=0\).
+In the Heisenberg picture, the time evolution of the monopole moment operator is governed by the Hamiltonian operator of the detector
+\begin{equation}
+  \hat{m}(\tau)= e^{i\hat{H}_d\tau}\hat{m}(0)e^{-i\hat{H}_d\tau}.
+\end{equation}
+where \(\hat{H}_d\ket{E}=E\ket{E}\).
+
+Suppose the field \(\phi\) is in the Minkowski vacuum \(\ket{0}\), defined by \(a_{\mathbf{p}}\ket{0}=0\).
 For the detector moves in a general trajectory,
 it will not remain in the ground state \(E_0\) but will transition to an excited state \(E_n\) for \(n>0\),
-while the field will transition to an excited state \(\ket{\psi}\). \par
-If the coupling constant \(\mathfrak{c}\) is sufficiently small, the amplitude of transition could be given by perturbation theory:
-\begin{equation}\label{TA1}
-  i\mathfrak{c} \bra{E,\psi}\int_{-\infty}^{\infty}d\tau\;\hat{m}(\tau)\phi\left[x(\tau)\right]\ket{0_{M},E_{0}}
+while the field will transition to an excited state \(\ket{\psi}\). 
+
+We assume that at initial time \(\tau_0\) the detector and field are in the product state \(\ket{0,E_0}=\ket{0}\otimes\ket{E_0}\).
+In the interaction picture, the time evolution of this product state \(\ket{\psi}\) is governed by interaction Hamiltonian:
+\begin{align}
+  i\frac{\id }{\id \tau}\ket{\psi(\tau)}&=H_{int}\ket{\psi(\tau)}\\
+  i\frac{\id }{\id \tau}\ket{\psi(\tau)}&=-\mathcal{L}_{int}\ket{\psi(\tau)}\\
+  i\frac{\id }{\id \tau}\ket{\psi(\tau)}&=-\mathfrak{c} \hat{m}(\tau)\phi\left(x^{\mu}(\tau)\right)\ket{\psi(\tau)}
+\end{align}
+
+The transition amplitude from state \(\ket{0,E_0}\) at \(\tau=\tau_0\)
+to state \(\ket{\psi,E_1}\) at \(\tau=\tau_1\) could be given by 
+\begin{equation}
+  \braket{\psi,E_1}{0,E_0}=\bra{\psi,E_1}\hat{T}\left[e^{-i\int_{\tau_0}^{\tau_1}\id \tau\;H_{int}(\tau)}\right]\ket{0,E_0}
 \end{equation}
-In the Heisenberg picture, the time evolution of the monopole moment operator is given by
-\[\hat{m}(\tau)= e^{iH_0\tau}\hat{m}(0)e^{-iH_0\tau}.\]
-Factorized the equation \ref{TA1},
+where \(\hat{T}\) is the time order operator.
+
+If the coupling constant \(\mathfrak{c}\) is sufficiently small, the transition amplitude can be given by first-order perturbation theory:
+\begin{align}\label{TA1}
+  \braket{\psi,E_1}{0,E_0}&=i\mathfrak{c} \bra{\psi,E_1}\int_{\tau_0}^{\tau_1}d\tau\;
+  \hat{m}(\tau)\phi\left(x^{\mu}(\tau)\right)\ket{0,E_{0}}\\
+  &=i\mathfrak{c}\bra{E_1}m(0)\ket{E_0}\int_{\tau_0}^{\tau_1}\id \tau\;e^{i(E_1-E_0)\tau}\bra{\psi}\phi(x^{\mu}(\tau))\ket{0}.
+\end{align}
+
+If we want to calculate the transition probability to all possible states, we could squaring the expression \ref{TA1} and 
+summing over the complete set of \(\ket{\psi}\), with resulting 
+\begin{align}
+  \sum_{\psi}|\braket{\psi,E_1}{0,E_0}|^2&=
+\end{align}
+
+%Factorized the equation \ref{TA1},
 
 
 
-------------@TODO
+
+
+----------------------------
+
+
+
+
+
+
 
 For an inertial detector in n-dimensional Minkowski spacetime, only the last term of xxx contributes to the detector response function:
 \begin{equation}
@@ -919,7 +961,7 @@ Where \(T\) is the duration of the detector switched on. If \(\mathbf{v}=0\) we 
 
 
 
-\section{Quantum Phenomena In Curved Spacetime}
+\section{Quantum Phenomena in Spacetime}
 
 
 \subsection{Cosmological Particle Creation}
@@ -929,6 +971,7 @@ Where \(T\) is the duration of the detector switched on. If \(\mathbf{v}=0\) we 
 \subsection{Moving Mirror}
 
 
+\subsection{Unruh Effect Revisit}
 \subsection{Hawking Radiation}
 
 %\section{Renormalization}
