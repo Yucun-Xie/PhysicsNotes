@@ -604,7 +604,7 @@ We denote the massless limit case Green function by \(\mathcal{G}\) instead of \
 \begin{example}[4-dimensional massless Feynman propagator]
   \[\mathcal{G}_F(x^{\mu},x^{\mu'})=\frac{i}{8\pi^2\sigma}-\frac{\delta(\sigma)}{8\pi}\]
 \end{example}
-\begin{example}[4-deimensional massless Hadamard's elementary function]
+\begin{example}[4-deimensional massless Hadamard's elementary function]\label{mlhef}
   \[\mathcal{G}^{(1)}(x^{\mu},x^{\mu'})=-\frac{1}{4\pi^2\sigma}\]
 \end{example}
 
@@ -628,7 +628,7 @@ The \tbf{ensemble average} at a temperature given by \(\beta\) pf arbitrary oper
   \expval{\mathcal{\hat{O}}}_{\beta}=\sum_i\rho_i\expval{\mathcal{\hat{O}}}{\psi_i}.
 \end{equation}
 Define quantum density operator:
-\begin{definition}[Density operator]
+\begin{definition}[Density operator]\label{dOp}
   \[\rho=e^{\beta(\Omega+\mu N-H)}\]
 \end{definition}
 then the probability of the system in the state \(\ket{\psi_i}\) is given by matrix element:
@@ -679,7 +679,7 @@ A similar property also holds for other Green functions.
   \[G^{\pm}_{\beta}(t,\mathbf{x};t',\mathbf{x'})=G^{\mp}_{\beta}(t+i\beta,\mathbf{x};t',\mathbf{x'})\]
 \end{example}
 
-\begin{example}[Hadamard elementary function]
+\begin{example}[Hadamard elementary function]\label{thef}
   \[G_{\beta}^{(1)}(t,\mathbf{x};t',\mathbf{x'})=G_{\beta}^{(1)}(t+i\beta,\mathbf{x};t',\mathbf{x'})\]
 \end{example}
 However, we should note that
@@ -874,8 +874,18 @@ then two sets of modes share a common vacuum state.
 To see what is the meaning of particles in curved spacetime, we consider the model of particle detector given by Unruh and Dewitt.
 
 The \tbf{Unruh-Dewitt detector} is an idealized particle detector,
-consisting of a point particle with internal energy level \(E\),
+consisting of a point particle with the spectrum
+\begin{equation}
+  \ket{E_0},\quad \ket{E_1},\quad \ket{E_2,} \cdots
+\end{equation}
 coupled via a monopole interaction with a scalar field \(\phi\).
+The whole system is described by action
+\begin{equation}
+  S=S_{\phi}\left[\phi\right]+S_{\text{detector}}\left[\Psi\right]+S_{\text{int}}\left[\phi,\Psi\right]
+\end{equation}
+
+
+
 Suppose the particle detector moves along the worldline described by parameterized function \(x^\mu(\tau)\),
 where \(\tau\) is the detector's proper time.
 The detector is point-like so the interaction only takes place at a point along the trajectory.
@@ -906,29 +916,29 @@ In the interaction picture, the time evolution of this product state \(\ket{\psi
 \end{align}
 
 The transition amplitude from state \(\ket{0,E_0}\) at \(\tau=\tau_0\)
-to state \(\ket{\psi,E_1}\) at \(\tau=\tau_1\) could be given by
+to state \(\ket{\psi,E_n}\) at \(\tau=\tau_1\) could be given by
 \begin{equation}
-  \braket{\psi,E_1}{0,E_0}=\bra{\psi,E_1}\hat{T}\left[e^{-i\int_{\tau_0}^{\tau_1}\id \tau\;H_{int}(\tau)}\right]\ket{0,E_0}
+  \braket{\psi,E_n}{0,E_0}=\bra{\psi,E_n}\hat{T}\left[e^{-i\int_{\tau_0}^{\tau_1}\id \tau\;H_{int}(\tau)}\right]\ket{0,E_0}
 \end{equation}
 where \(\hat{T}\) is the time order operator.
 
 If the coupling constant \(\mathfrak{c}\) is sufficiently small, the transition amplitude can be given by first-order perturbation theory:
 \begin{align}\label{TA1}
-  \braket{\psi,E_1}{0,E_0} & =i\mathfrak{c} \bra{\psi,E_1}\int_{\tau_0}^{\tau_1}d\tau\;
+  \braket{\psi,E_n}{0,E_0} & =i\mathfrak{c} \bra{\psi,E_n}\int_{\tau_0}^{\tau_1}d\tau\;
   \hat{m}(\tau)\phi\left(x^{\mu}(\tau)\right)\ket{0,E_{0}}                                                                                               \\
-                           & =i\mathfrak{c}\bra{E_1}m(0)\ket{E_0}\int_{\tau_0}^{\tau_1}\id \tau\;e^{i(E_1-E_0)\tau}\bra{\psi}\phi(x^{\mu}(\tau))\ket{0}.
+                           & =i\mathfrak{c}\bra{E_n}m(0)\ket{E_0}\int_{\tau_0}^{\tau_1}\id \tau\;e^{i(E_n-E_0)\tau}\bra{\psi}\phi(x^{\mu}(\tau))\ket{0}.
 \end{align}
 
 If we want to calculate the transition probability to all possible states, we could square the expression \ref{TA1} and
 summing over the complete set of \(\ket{\psi_i}\), with resulting
 \begin{align}
-   & \sum_{j}|\braket{\psi_j,E_1}{0,E_0}|^2                                                                                                                   \\
-   & =\mathfrak{c}^2|\bra{E_1}m(0)\ket{E_0}|^2\int_{\tau_0}^{\tau_1}\id \tau
-  \int_{\tau_0}^{\tau_1}\id \tau'e^{-i(E_1-E_0)(\tau-\tau')}\sum_{j}\bra{0}\hat{\phi}(x^{\mu}(\tau))\ket{\psi_j}\bra{\psi_j}\hat{\phi}(x^{\mu}(\tau'))\ket{0} \\
-   & =\mathfrak{c}^2|\bra{E_1}m(0)\ket{E_0}|^2\int_{\tau_0}^{\tau_1}\id \tau
-  \int_{\tau_0}^{\tau_1}\id \tau'e^{-i(E_1-E_0)(\tau-\tau')}\expval{\hat{\phi}(x^{\mu}(\tau))\hat{\phi}(x^{\mu}(\tau'))}{0}                                   \\
-   & =\underbrace{\mathfrak{c}^2|\bra{E_1}m(0)\ket{E_0}|^2}_{\text{sensitivity}}\underbrace{\int_{\tau_0}^{\tau_1}\id \tau
-  \int_{\tau_0}^{\tau_1}\id \tau'e^{-i(E_1-E_0)(\tau-\tau')}G^+(x^{\mu}(\tau),x^{\mu}(\tau'))}_{\text{response function}}\label{det}
+   & \sum_{j}|\braket{\psi_j,E_n}{0,E_0}|^2                                                                                                                   \\
+   & =\mathfrak{c}^2|\bra{E_n}m(0)\ket{E_0}|^2\int_{\tau_0}^{\tau_1}\id \tau
+  \int_{\tau_0}^{\tau_1}\id \tau'e^{-i(E_n-E_0)(\tau-\tau')}\sum_{j}\bra{0}\hat{\phi}(x^{\mu}(\tau))\ket{\psi_j}\bra{\psi_j}\hat{\phi}(x^{\mu}(\tau'))\ket{0} \\
+   & =\mathfrak{c}^2|\bra{E_n}m(0)\ket{E_0}|^2\int_{\tau_0}^{\tau_1}\id \tau
+  \int_{\tau_0}^{\tau_1}\id \tau'e^{-i(E_n-E_0)(\tau-\tau')}\expval{\hat{\phi}(x^{\mu}(\tau))\hat{\phi}(x^{\mu}(\tau'))}{0}                                   \\
+   & =\underbrace{\mathfrak{c}^2|\bra{E_n}m(0)\ket{E_0}|^2}_{\text{sensitivity}}\underbrace{\int_{\tau_0}^{\tau_1}\id \tau
+  \int_{\tau_0}^{\tau_1}\id \tau'e^{-i(E_n-E_0)(\tau-\tau')}G^+(x^{\mu}(\tau),x^{\mu}(\tau'))}_{\text{response function}}\label{det}
 \end{align}
 The equation \ref{det} contains two parts, sensitivity and response function.
 The sensitivity depends on the internal detail of the detector, and the response function does not.
@@ -947,7 +957,7 @@ In this case, the number of quanta absorbed or emitted by the detector per unit 
 If these rates are nonzero, and we integrate over an infinite time interval, the transition probability will diverge.
 Therefore, we should consider the transition probability per unit of proper time, given by
 \begin{equation}
-  \mathfrak{c}^2|\bra{E}m(0)\ket{E_0}|^2\int_{-\infty}^{\infty}\id \Delta\tau e^{-i(E-E_0)\Delta \tau}G^+(\Delta \tau).
+  \mathfrak{c}^2|\bra{E_n}m(0)\ket{E_0}|^2\int_{-\infty}^{\infty}\id \Delta\tau e^{-i(E_n-E_0)\Delta \tau}G^+(\Delta \tau).
 \end{equation}
 %and demanding \(\tau_0 \rightarrow -\infty\) and \(\tau_1 \rightarrow \infty\)
 
@@ -965,20 +975,21 @@ The positive frequency Wightman function is given by explicitly evaluating the c
 
 For the inertial trajectory, we have the following relation:
 \begin{equation}
-  \mathbf{x}=\mathbf{x}_0+\mathbf{v}t=\mathbf{x}_0+\frac{\mathbf{v}\tau}{\sqrt{1-|\mathbf{v}|^2}}
+  \mathbf{x}=\mathbf{x}_0+\mathbf{v}t=\mathbf{x}_0+\frac{\mathbf{v}\tau}{\sqrt{1-|\mathbf{v}|^2}}=
+  \mathbf{x}_0+\mathbf{v}\tau\gamma
 \end{equation}
 
 in this case, the positive frequency Wightman function becomes
 \begin{equation}
-  \mathcal{G}^+(x^{\mu},x'^{\mu})=-\frac{1}{4\pi^2}\left(\frac{\Delta\tau}{\sqrt{1-|\mathbf{v}|^2}} -i\epsilon\right).
+  \mathcal{G}^+(x^{\mu},x'^{\mu})=-\frac{1}{4\pi^2}\left(\frac{\Delta\tau}{\gamma} -i\epsilon\right).
 \end{equation}
 Therefore, we can calculate the transition probability per unit of time:
 \begin{align}
    & ~~~~\mathfrak{c}^2|\bra{E}m(0)\ket{E_0}|^2\int_{-\infty}^{\infty}\id \Delta\tau e^{-i(E-E_0)\Delta \tau}G^+(\Delta \tau) \\
    & = \mathfrak{c}^2|\bra{E}m(0)\ket{E_0}|^2\int_{-\infty}^{\infty}\id \Delta\tau e^{-i(E-E_0)\Delta \tau}
-  \left[-\frac{1}{4\pi^2}\left(\frac{\Delta\tau}{\sqrt{1-|\mathbf{v}|^2}} -i\epsilon\right)\right]                            \\
+  \left[-\frac{1}{4\pi^2}\left(\frac{\Delta\tau}{\gamma} -i\epsilon\right)\right]                                             \\
    & = \mathfrak{c}^2|\bra{E}m(0)\ket{E_0}|^2\int_{\mathcal{C}}\id \Delta\tau e^{-i(E-E_0)\Delta \tau}
-  \left[-\frac{1}{4\pi^2}\left(\frac{\Delta\tau}{\sqrt{1-|\mathbf{v}|^2}} -i\epsilon\right)\right]                            \\
+  \left[-\frac{1}{4\pi^2}\left(\frac{\Delta\tau}{\gamma} -i\epsilon\right)\right]                                             \\
    & = 0
 \end{align}
 The contour is chosen as an infinitely large semicircle closed in the lower half plane, and when the \(E>E_0\),
@@ -990,14 +1001,58 @@ Hence, no transition happens for the detector moves along the inertial trajector
 It is also interesting to examine the case that the detector moves with constant acceleration.
 In this case, the detector move along a hyperbolic trajectory in the \((t,x)\) plane:
 \begin{equation}
-  y=z=0, \quad x=\sqrt{t+\alpha} \quad \alpha=\text{constant}
+  x^{\mu}=\left(\alpha\sinh(\frac{\tau}{\alpha}),\alpha \cosh(\frac{\tau}{\alpha}),0,0 \right)
 \end{equation}
-This represents a detector that accelerates uniformly with acceleration \(\alpha^{-1}\) in the detector's frame, i.e. Rinder frame.
+This represents a detector that accelerates uniformly with acceleration \(a=\alpha^{-1}\) in the detector's frame, i.e. Rinder frame.
 
-The detector's proper time \(\tau\) is related to \(t\) by
-\begin{equation}
-  t=\alpha \sinh(\frac{\tau}{\alpha})
+
+Evaluate the Wightman function in this case, we find
+\begin{equation}\label{2325}
+  \mathcal{G}^+(\Delta\tau)=-\left[16\pi^2\alpha^2\sinh^2\left(\frac{\Delta\tau}{2\alpha}-\frac{i\epsilon}{\alpha}\right)\right]^{-1}
 \end{equation}
+
+To see what is special, recall the thermal Green function we discussed before, plug the conditions for the inertial detector
+\begin{equation}
+  \mathbf{x}=\mathbf{x'}=0,\quad t=\tau,\quad t'=\tau'
+\end{equation}
+into \ref{mlhef}, and use \ref{thef}, we have
+\begin{equation}
+  \mathcal{G}^{(1)}_{\beta}(\Delta\tau)=-\frac{1}{2\pi^2}\sum_{k=-\infty}^{\infty}\left[\Delta\tau+ik\beta\right]^{-2}.
+\end{equation}
+Now, we could further simplify the equation \ref{2325}:
+\begin{align}
+  \mathcal{G}^+(\Delta\tau) & =-\left[16\pi^2\alpha^2\sinh^2\left(\frac{\Delta\tau}{2\alpha}-\frac{i\epsilon}{\alpha}\right)\right]^{-1}                    \\
+                            & =-\left[16\pi^2\alpha^2(-i)^2\sin^2\left(i\left[\frac{\Delta\tau}{2\alpha}-\frac{i\epsilon}{\alpha}\right]\right)\right]^{-1} \\
+                            & =\left[16\pi^2\alpha^2\right]^{-1}\csc^2\left(i\left[\frac{\Delta\tau}{2\alpha}-\frac{i\epsilon}{\alpha}\right]\right)        \\
+                            & =-\frac{1}{4\pi^2}\sum_{k=-\infty}^{\infty}\left[\Delta\tau-2i\epsilon+2\pi i\alpha k\right]^{-2}                             \\
+                            & =-\frac{1}{4\pi^2}\sum_{k=-\infty}^{\infty}\left[\Delta\tau+ik(2\pi\alpha)\right]^{-2}
+\end{align}
+and notice that
+\begin{align}
+  \mathcal{G}^{(1)}(\Delta\tau) & =\mathcal{G}^{+}(\Delta\tau)+\mathcal{G}^{-}(\Delta\tau)  \\
+                                & =\mathcal{G}^{+}(\Delta\tau)+\mathcal{G}^{+}(-\Delta\tau).
+\end{align}
+Therefore, the thermal Green function of the inertial detector is equal to the vacuum Green of the uniformly accelerating detector.
+\begin{align}
+  \mathcal{G}^{(1)}(\Delta\tau)&=\mathcal{G}^{+}(\Delta\tau)+\mathcal{G}^{+}(-\Delta\tau)\\
+  &=-\frac{1}{2\pi^2}\sum_{k=-\infty}^{\infty}\left[\Delta\tau+ik(2\pi\alpha)\right]^{-2}\\
+  &=\mathcal{G}^{(1)}_{\beta}(\Delta\tau)
+\end{align}
+Where \(\beta=2\pi\alpha=\frac{1}{k_BT},\quad T=\frac{1}{2\pi\alpha k_B}=\frac{a}{2\pi k_B}\).
+This result means that a uniformly accelerated observer will detect thermal radiation with temperature \(T=\frac{1}{2\pi k_B}\),
+even though the field \(\phi\) is in the vacuum state, known as \tbf{Unruh effect}.
+
+
+
+
+
+
+
+
+
+
+
+
 
 \newpage
 ----------------------------
