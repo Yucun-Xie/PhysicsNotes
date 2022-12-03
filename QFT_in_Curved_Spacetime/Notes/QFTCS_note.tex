@@ -737,8 +737,8 @@ The conjugate momentum is
 Impose canonical commutation relation:
 \begin{cthm}[Curved spacetime canonical commutation relation]\label{cccr}
   \begin{align*}
-    \bigl[\hat{\phi}(t,\mathbf{x}),\hat{\phi}(t,\mathbf{x'})\bigr] & =0                                                          \\
-    \bigl[\hat{\pi}(t,\mathbf{x}),\hat{\pi}(t,\mathbf{x'})\bigr]   & =0                                                          \\
+    \bigl[\hat{\phi}(t,\mathbf{x}),\hat{\phi}(t,\mathbf{x'})\bigr] & =0                                                         \\
+    \bigl[\hat{\pi}(t,\mathbf{x}),\hat{\pi}(t,\mathbf{x'})\bigr]   & =0                                                         \\
     \bigl[\hat{\phi}(t,\mathbf{x}),\hat{\pi}(t,\mathbf{x'})\bigr]  & =\frac{i}{\sqrt{g}}\delta^{(n-1)}(\mathbf{x}-\mathbf{x'}).
   \end{align*}
 \end{cthm}
@@ -826,35 +826,35 @@ Now, since both sets are complete, we can express one in terms of another, known
 \end{definition}
 Using the orthogonality of mode functions, \ref{orf}, we can compute the Bogolubov coefficients:
 \begin{align}
-  \alpha_{ij}&=(g_i,f_j)\\
-\beta_{ij}&= -(g_i,f_j^*)
+  \alpha_{ij} & =(g_i,f_j)     \\
+  \beta_{ij}  & = -(g_i,f_j^*)
 \end{align}
 To make a physical mode function, the Bogolubov coefficients should be normalized:
 \begin{align}
-  \sum_j\bigl[\alpha_{ik}\alpha^*_{jk}-\beta_{ik}\beta^*_{jk}\bigr]&=\delta_{ij}\\
-  \sum_j\bigl[\alpha_{ik}\beta_{jk}-\beta_{ik}\alpha_{jk}\bigr]&=0
+  \sum_j\bigl[\alpha_{ik}\alpha^*_{jk}-\beta_{ik}\beta^*_{jk}\bigr] & =\delta_{ij} \\
+  \sum_j\bigl[\alpha_{ik}\beta_{jk}-\beta_{ik}\alpha_{jk}\bigr]     & =0
 \end{align}
-To obtain the relation of creation/annihilation operators of set \(f_i\) and \(g_i\), 
+To obtain the relation of creation/annihilation operators of set \(f_i\) and \(g_i\),
 we first equating the mode expansions \ref{cme} and \ref{ame}, and use Bogolubov transformation \ref{bt}.
 \begin{equation}
   \sum_i\left[\hat{a}_i f_i+\hat{a}_i^\dagger f_i^*\right]=\sum_i\left[\hat{\bar{a}}_i g_i+\hat{\bar{a}}_i^\dagger g_i^*\right]
 \end{equation}
-We obtain 
+We obtain
 \begin{align}
-  \hat{a}_i &=\sum_j\left[\alpha_{ji}\hat{\bar{a}}_j+\beta^*_{ji}\hat{\bar{a}}^{\dagger}_j\right]\\
-  \hat{\bar{a}}_i &=\sum_j\left[\alpha^*_{ij}\hat{a}_j-\beta^*_{ij}\hat{a}^{\dagger}_j\right]
+  \hat{a}_i       & =\sum_j\left[\alpha_{ji}\hat{\bar{a}}_j+\beta^*_{ji}\hat{\bar{a}}^{\dagger}_j\right] \\
+  \hat{\bar{a}}_i & =\sum_j\left[\alpha^*_{ij}\hat{a}_j-\beta^*_{ij}\hat{a}^{\dagger}_j\right]
 \end{align}
 
 Now imagine an observer in the vacuum state defined by mode \(f_i\), we want to know how many particles are there if the state is defined by \(g_i\) mode.
 We should exam the expectation value of number operator of \(g_i\), \(\hat{n}_{g_i}\) in \(f_i\)-vacuum:
 \begin{align}
-  \expval{\hat{n}_{g_i}}{0_{f_i}}&=\expval{\hat{\bar{a}}_i^\dagger \hat{\bar{a}}_i}{0_{f_i}}\\
-  &=\expval{\sum_{jk}\left(\alpha_{ij}\hat{a}^{\dagger}_j-\beta_{ij}\hat{a}_j\right)\left(\alpha^*_{ik}\hat{a}_k-\beta^*_{ik}\hat{a}^{\dagger}_k\right)}{0_{f_i}}\\
-  &=\sum_{jk}\left(-\beta_{ij}\right)\left(-\beta^*_{ik}\right)\expval{\hat{a}_j\hat{a}^{\dagger}_k}{0_{f_i}}\\
-  &=\sum_{jk}\left(\beta_{ij}\beta^*_{ik}\right)\expval{\hat{a}^{\dagger}_k\hat{a}_j+\delta_{jk}}{0_{f_i}}\\
-  &=\sum_{jk}\left(\beta_{ij}\beta^*_{ik}\right)\delta_{jk}\braket{0_{f_i}}{0_{f_i}}\\
-  &=\sum_{j}\beta_{ij}\beta^*_{ij}\\
-  &=\sum_{j}|\beta_{ij}|^2
+  \expval{\hat{n}_{g_i}}{0_{f_i}} & =\expval{\hat{\bar{a}}_i^\dagger \hat{\bar{a}}_i}{0_{f_i}}                                                                                                     \\
+                                  & =\expval{\sum_{jk}\left(\alpha_{ij}\hat{a}^{\dagger}_j-\beta_{ij}\hat{a}_j\right)\left(\alpha^*_{ik}\hat{a}_k-\beta^*_{ik}\hat{a}^{\dagger}_k\right)}{0_{f_i}} \\
+                                  & =\sum_{jk}\left(-\beta_{ij}\right)\left(-\beta^*_{ik}\right)\expval{\hat{a}_j\hat{a}^{\dagger}_k}{0_{f_i}}                                                     \\
+                                  & =\sum_{jk}\left(\beta_{ij}\beta^*_{ik}\right)\expval{\hat{a}^{\dagger}_k\hat{a}_j+\delta_{jk}}{0_{f_i}}                                                        \\
+                                  & =\sum_{jk}\left(\beta_{ij}\beta^*_{ik}\right)\delta_{jk}\braket{0_{f_i}}{0_{f_i}}                                                                              \\
+                                  & =\sum_{j}\beta_{ij}\beta^*_{ij}                                                                                                                                \\
+                                  & =\sum_{j}|\beta_{ij}|^2
 \end{align}
 Hence, the number of particle in mode \(g_i\) in the \(f_i\)-vacuum is equal to \(\sum_{j}|\beta_{ij}|^2\).
 
@@ -863,7 +863,7 @@ modes satisfying
 \begin{equation}
   \mathcal{L}_{\eta}f_i=-i\omega f_i,\quad \omega>0
 \end{equation}
-and Bogolubov coefficients \(\beta_{ij}\) vanish, i.e. the modes \(g_i\) are linear combination of \(f_i\) alone, 
+and Bogolubov coefficients \(\beta_{ij}\) vanish, i.e. the modes \(g_i\) are linear combination of \(f_i\) alone,
 then two sets of modes share a common vacuum state.
 
 
@@ -895,18 +895,18 @@ where \(\hat{H}_d\ket{E}=E\ket{E}\).
 Suppose the field \(\phi\) is in the Minkowski vacuum \(\ket{0}\), defined by \(a_{\mathbf{p}}\ket{0}=0\).
 For the detector moves in a general trajectory,
 it will not remain in the ground state \(E_0\) but will transition to an excited state \(E_n\) for \(n>0\),
-while the field will transition to an excited state \(\ket{\psi}\). 
+while the field will transition to an excited state \(\ket{\psi}\).
 
 We assume that at initial time \(\tau_0\) the detector and field are in the product state \(\ket{0,E_0}=\ket{0}\otimes\ket{E_0}\).
 In the interaction picture, the time evolution of this product state \(\ket{\psi}\) is governed by interaction Hamiltonian:
 \begin{align}
-  i\frac{\id }{\id \tau}\ket{\psi(\tau)}&=H_{int}\ket{\psi(\tau)}\\
-  i\frac{\id }{\id \tau}\ket{\psi(\tau)}&=-\mathcal{L}_{int}\ket{\psi(\tau)}\\
-  i\frac{\id }{\id \tau}\ket{\psi(\tau)}&=-\mathfrak{c} \hat{m}(\tau)\phi\left(x^{\mu}(\tau)\right)\ket{\psi(\tau)}
+  i\frac{\id }{\id \tau}\ket{\psi(\tau)} & =H_{int}\ket{\psi(\tau)}                                                   \\
+  i\frac{\id }{\id \tau}\ket{\psi(\tau)} & =-\mathcal{L}_{int}\ket{\psi(\tau)}                                        \\
+  i\frac{\id }{\id \tau}\ket{\psi(\tau)} & =-\mathfrak{c} \hat{m}(\tau)\phi\left(x^{\mu}(\tau)\right)\ket{\psi(\tau)}
 \end{align}
 
 The transition amplitude from state \(\ket{0,E_0}\) at \(\tau=\tau_0\)
-to state \(\ket{\psi,E_1}\) at \(\tau=\tau_1\) could be given by 
+to state \(\ket{\psi,E_1}\) at \(\tau=\tau_1\) could be given by
 \begin{equation}
   \braket{\psi,E_1}{0,E_0}=\bra{\psi,E_1}\hat{T}\left[e^{-i\int_{\tau_0}^{\tau_1}\id \tau\;H_{int}(\tau)}\right]\ket{0,E_0}
 \end{equation}
@@ -914,38 +914,38 @@ where \(\hat{T}\) is the time order operator.
 
 If the coupling constant \(\mathfrak{c}\) is sufficiently small, the transition amplitude can be given by first-order perturbation theory:
 \begin{align}\label{TA1}
-  \braket{\psi,E_1}{0,E_0}&=i\mathfrak{c} \bra{\psi,E_1}\int_{\tau_0}^{\tau_1}d\tau\;
-  \hat{m}(\tau)\phi\left(x^{\mu}(\tau)\right)\ket{0,E_{0}}\\
-  &=i\mathfrak{c}\bra{E_1}m(0)\ket{E_0}\int_{\tau_0}^{\tau_1}\id \tau\;e^{i(E_1-E_0)\tau}\bra{\psi}\phi(x^{\mu}(\tau))\ket{0}.
+  \braket{\psi,E_1}{0,E_0} & =i\mathfrak{c} \bra{\psi,E_1}\int_{\tau_0}^{\tau_1}d\tau\;
+  \hat{m}(\tau)\phi\left(x^{\mu}(\tau)\right)\ket{0,E_{0}}                                                                                               \\
+                           & =i\mathfrak{c}\bra{E_1}m(0)\ket{E_0}\int_{\tau_0}^{\tau_1}\id \tau\;e^{i(E_1-E_0)\tau}\bra{\psi}\phi(x^{\mu}(\tau))\ket{0}.
 \end{align}
 
-If we want to calculate the transition probability to all possible states, we could square the expression \ref{TA1} and 
-summing over the complete set of \(\ket{\psi_i}\), with resulting 
+If we want to calculate the transition probability to all possible states, we could square the expression \ref{TA1} and
+summing over the complete set of \(\ket{\psi_i}\), with resulting
 \begin{align}
-  &\sum_{j}|\braket{\psi_j,E_1}{0,E_0}|^2\\
-  &=\mathfrak{c}^2|\bra{E_1}m(0)\ket{E_0}|^2\int_{\tau_0}^{\tau_1}\id \tau
-  \int_{\tau_0}^{\tau_1}\id \tau'e^{-i(E_1-E_0)(\tau-\tau')}\sum_{j}\bra{0}\hat{\phi}(x^{\mu}(\tau))\ket{\psi_j}\bra{\psi_j}\hat{\phi}(x^{\mu}(\tau'))\ket{0}\\
-  &=\mathfrak{c}^2|\bra{E_1}m(0)\ket{E_0}|^2\int_{\tau_0}^{\tau_1}\id \tau
-  \int_{\tau_0}^{\tau_1}\id \tau'e^{-i(E_1-E_0)(\tau-\tau')}\expval{\hat{\phi}(x^{\mu}(\tau))\hat{\phi}(x^{\mu}(\tau'))}{0}\\
-  &=\underbrace{\mathfrak{c}^2|\bra{E_1}m(0)\ket{E_0}|^2}_{\text{sensitivity}}\underbrace{\int_{\tau_0}^{\tau_1}\id \tau
+   & \sum_{j}|\braket{\psi_j,E_1}{0,E_0}|^2                                                                                                                   \\
+   & =\mathfrak{c}^2|\bra{E_1}m(0)\ket{E_0}|^2\int_{\tau_0}^{\tau_1}\id \tau
+  \int_{\tau_0}^{\tau_1}\id \tau'e^{-i(E_1-E_0)(\tau-\tau')}\sum_{j}\bra{0}\hat{\phi}(x^{\mu}(\tau))\ket{\psi_j}\bra{\psi_j}\hat{\phi}(x^{\mu}(\tau'))\ket{0} \\
+   & =\mathfrak{c}^2|\bra{E_1}m(0)\ket{E_0}|^2\int_{\tau_0}^{\tau_1}\id \tau
+  \int_{\tau_0}^{\tau_1}\id \tau'e^{-i(E_1-E_0)(\tau-\tau')}\expval{\hat{\phi}(x^{\mu}(\tau))\hat{\phi}(x^{\mu}(\tau'))}{0}                                   \\
+   & =\underbrace{\mathfrak{c}^2|\bra{E_1}m(0)\ket{E_0}|^2}_{\text{sensitivity}}\underbrace{\int_{\tau_0}^{\tau_1}\id \tau
   \int_{\tau_0}^{\tau_1}\id \tau'e^{-i(E_1-E_0)(\tau-\tau')}G^+(x^{\mu}(\tau),x^{\mu}(\tau'))}_{\text{response function}}\label{det}
 \end{align}
-The equation \ref{det} contains two parts, sensitivity and response function. 
-The sensitivity depends on the internal detail of the detector, and the response function does not. 
+The equation \ref{det} contains two parts, sensitivity and response function.
+The sensitivity depends on the internal detail of the detector, and the response function does not.
 Therefore the response function is a general property for all such detectors.
 
 We denote the response function as \(\mathcal{F}\).
 \begin{cthm}[Response function]
   \[\mathcal{F}(E)=\int_{\tau_0}^{\tau_1}\id \tau\int_{\tau_0}^{\tau_1}\id \tau'e^{-i(E-E_0)(\tau-\tau')}G^+(x^{\mu}(\tau),x^{\mu}(\tau')) \]
 \end{cthm}
-In the special case in which the system is in the Minkowski  vacuum and invariant under time translation in the detector's frame, the Wightman function could be written as 
+In the special case in which the system is in the Minkowski  vacuum and invariant under time translation in the detector's frame, the Wightman function could be written as
 \begin{equation}
   G^+(x^{\mu}(\tau),x^{\mu}(\tau'))=G^+(\tau-\tau')=G^+(\Delta \tau)
 \end{equation}
-This corresponds to the equilibrium between the detector and the field. 
-In this case, the number of quanta absorbed or emitted by the detector per unit of proper time is constant. 
+This corresponds to the equilibrium between the detector and the field.
+In this case, the number of quanta absorbed or emitted by the detector per unit of proper time is constant.
 If these rates are nonzero, and we integrate over an infinite time interval, the transition probability will diverge.
-Therefore, we should consider the transition probability per unit of proper time, given by 
+Therefore, we should consider the transition probability per unit of proper time, given by
 \begin{equation}
   \mathfrak{c}^2|\bra{E}m(0)\ket{E_0}|^2\int_{-\infty}^{\infty}\id \Delta\tau e^{-i(E-E_0)\Delta \tau}G^+(\Delta \tau).
 \end{equation}
@@ -953,10 +953,10 @@ Therefore, we should consider the transition probability per unit of proper time
 
 %Factorized the equation \ref{TA1},
 
-Let us now consider a few examples that the transition probability can be exactly evaluated. 
+Let us now consider a few examples that the transition probability can be exactly evaluated.
 
 \bigskip
-We start with the detector moving along the inertial trajectory. 
+We start with the detector moving along the inertial trajectory.
 For simplicity, we restrict our attention to massless scalar filed in 4-dimensional Minkowski spacetime.
 The positive frequency Wightman function is given by explicitly evaluating the contour integral in equation \ref{greenContour}.
 \begin{equation}
@@ -968,21 +968,36 @@ For the inertial trajectory, we have the following relation:
   \mathbf{x}=\mathbf{x}_0+\mathbf{v}t=\mathbf{x}_0+\frac{\mathbf{v}\tau}{\sqrt{1-|\mathbf{v}|^2}}
 \end{equation}
 
-in this case, the positive frequency Wightman function becomes 
+in this case, the positive frequency Wightman function becomes
 \begin{equation}
   \mathcal{G}^+(x^{\mu},x'^{\mu})=-\frac{1}{4\pi^2}\left(\frac{\Delta\tau}{\sqrt{1-|\mathbf{v}|^2}} -i\epsilon\right).
 \end{equation}
 Therefore, we can calculate the transition probability per unit of time:
 \begin{align}
-  \mathfrak{c}^2|\bra{E}m(0)\ket{E_0}|^2&\int_{-\infty}^{\infty}\id \Delta\tau e^{-i(E-E_0)\Delta \tau}G^+(\Delta \tau)\\
-  =\mathfrak{c}^2|\bra{E}m(0)\ket{E_0}|^2&\int_{-\infty}^{\infty}\id \Delta\tau e^{-i(E-E_0)\Delta \tau}
-  \left[-\frac{1}{4\pi^2}\left(\frac{\Delta\tau}{\sqrt{1-|\mathbf{v}|^2}} -i\epsilon\right)\right]\\
-  =\mathfrak{c}^2|\bra{E}m(0)\ket{E_0}|^2&\int_{C}\id \Delta\tau e^{-i(E-E_0)\Delta \tau}
-  \left[-\frac{1}{4\pi^2}\left(\frac{\Delta\tau}{\sqrt{1-|\mathbf{v}|^2}} -i\epsilon\right)\right]\\
-  =0&
+   & ~~~~\mathfrak{c}^2|\bra{E}m(0)\ket{E_0}|^2\int_{-\infty}^{\infty}\id \Delta\tau e^{-i(E-E_0)\Delta \tau}G^+(\Delta \tau) \\
+   & = \mathfrak{c}^2|\bra{E}m(0)\ket{E_0}|^2\int_{-\infty}^{\infty}\id \Delta\tau e^{-i(E-E_0)\Delta \tau}
+  \left[-\frac{1}{4\pi^2}\left(\frac{\Delta\tau}{\sqrt{1-|\mathbf{v}|^2}} -i\epsilon\right)\right]                            \\
+   & = \mathfrak{c}^2|\bra{E}m(0)\ket{E_0}|^2\int_{\mathcal{C}}\id \Delta\tau e^{-i(E-E_0)\Delta \tau}
+  \left[-\frac{1}{4\pi^2}\left(\frac{\Delta\tau}{\sqrt{1-|\mathbf{v}|^2}} -i\epsilon\right)\right]                            \\
+   & = 0
 \end{align}
+The contour is chosen as an infinitely large semicircle closed in the lower half plane, and when the \(E>E_0\),
+the pole is located at the upper half plane, so this integral is equal to \(0\).
+Hence, no transition happens for the detector moves along the inertial trajectory.
 
+\bigskip
 
+It is also interesting to examine the case that the detector moves with constant acceleration.
+In this case, the detector move along a hyperbolic trajectory in the \((t,x)\) plane:
+\begin{equation}
+  y=z=0, \quad x=\sqrt{t+\alpha} \quad \alpha=\text{constant}
+\end{equation}
+This represents a detector that accelerates uniformly with acceleration \(\alpha^{-1}\) in the detector's frame, i.e. Rinder frame.
+
+The detector's proper time \(\tau\) is related to \(t\) by
+\begin{equation}
+  t=\alpha \sinh(\frac{\tau}{\alpha})
+\end{equation}
 
 \newpage
 ----------------------------
@@ -1001,22 +1016,22 @@ For an inertial detector in n-dimensional Minkowski spacetime, only the last ter
 Where \(T\) is the duration of the detector switched on. If \(\mathbf{v}=0\) we can further perform the integration:
 \begin{align}
   \frac{\mathcal{F}(E)}{T} & = (2\pi)^{1-n}\int^{\infty}_{-\infty}\id (\Delta \tau)\;e^{-i\Delta\tau E}
-  \int\frac{\id^{n-1}k}{2\omega}e^{i\Delta\tau\frac{(\omega-\mathbf{k}\cdot\mathbf{v})}{\sqrt{1-v^2}}}n_{\mathbf{k}}        \\
-                 & = (2\pi)^{1-n}\int\frac{\id^{n-1}k}{2\omega}\int^{\infty}_{-\infty}\id (\Delta \tau)\;e^{-i\Delta\tau E}
-  e^{i\Delta\tau\frac{(\omega-\mathbf{k}\cdot\mathbf{v})}{\sqrt{1-v^2}}}n_{\mathbf{k}}                                      \\
-                 & = (2\pi)^{1-n}\int\frac{\id^{n-1}k}{2\omega}\int^{\infty}_{-\infty}\id (\Delta \tau)\;
-  e^{i\Delta\tau\frac{(\omega-\mathbf{k}\cdot\mathbf{v})}{\sqrt{1-v^2}}-i\Delta\tau E}n_{\mathbf{k}}                        \\
-                 & = (2\pi)^{1-n}\int\frac{\id^{n-1}k}{2\omega}\int^{\infty}_{-\infty}\id (\Delta \tau)\;
-  e^{i\Delta\tau\left[\frac{(\omega-\mathbf{k}\cdot\mathbf{v})}{\sqrt{1-v^2}}-E\right]}n_{\mathbf{k}}                       \\
-                 & = (2\pi)^{1-n}(2\pi)\int\frac{\id^{n-1}k}{2\omega}\;
-  \delta\left(\frac{(\omega-\mathbf{k}\cdot\mathbf{v})}{\sqrt{1-v^2}}-E\right)n_{\mathbf{k}}                                \\
-                 & = (2\pi)^{1-n}(2\pi)\frac{2\pi^{\frac{n-1}{2}}}{\Gamma(\frac{n-1}{2})}\int\frac{k^{n-2}\id k}{2\omega}\;
-  \delta\left(\omega-E\right)n_{\mathbf{k}}                                                                                 \\
-                 & = \frac{2^{2-n}\pi^{\frac{3-n}{2}}}{\Gamma(\frac{n-1}{2})}\int\frac{k^{n-2}\id k}{\omega}\;
-  \delta\left(\omega-E\right)n_{\mathbf{k}}                                                                                 \\
-                 & = \frac{2^{2-n}\pi^{\frac{3-n}{2}}}{\Gamma(\frac{n-1}{2})}\int\frac{k^{n-2}\id k}{\sqrt{k^2+m^2}}\;
-  \delta\left(\sqrt{k^2+m^2}-E\right)n_{\sqrt{E^2-m^2}}                                                                     \\
-                 & = \frac{2^{2-n}\pi^{\frac{3-n}{2}}}{\Gamma(\frac{n-1}{2})}\left(E^2-m^2\right)^{\frac{n-3}{2}}
+  \int\frac{\id^{n-1}k}{2\omega}e^{i\Delta\tau\frac{(\omega-\mathbf{k}\cdot\mathbf{v})}{\sqrt{1-v^2}}}n_{\mathbf{k}}                  \\
+                           & = (2\pi)^{1-n}\int\frac{\id^{n-1}k}{2\omega}\int^{\infty}_{-\infty}\id (\Delta \tau)\;e^{-i\Delta\tau E}
+  e^{i\Delta\tau\frac{(\omega-\mathbf{k}\cdot\mathbf{v})}{\sqrt{1-v^2}}}n_{\mathbf{k}}                                                \\
+                           & = (2\pi)^{1-n}\int\frac{\id^{n-1}k}{2\omega}\int^{\infty}_{-\infty}\id (\Delta \tau)\;
+  e^{i\Delta\tau\frac{(\omega-\mathbf{k}\cdot\mathbf{v})}{\sqrt{1-v^2}}-i\Delta\tau E}n_{\mathbf{k}}                                  \\
+                           & = (2\pi)^{1-n}\int\frac{\id^{n-1}k}{2\omega}\int^{\infty}_{-\infty}\id (\Delta \tau)\;
+  e^{i\Delta\tau\left[\frac{(\omega-\mathbf{k}\cdot\mathbf{v})}{\sqrt{1-v^2}}-E\right]}n_{\mathbf{k}}                                 \\
+                           & = (2\pi)^{1-n}(2\pi)\int\frac{\id^{n-1}k}{2\omega}\;
+  \delta\left(\frac{(\omega-\mathbf{k}\cdot\mathbf{v})}{\sqrt{1-v^2}}-E\right)n_{\mathbf{k}}                                          \\
+                           & = (2\pi)^{1-n}(2\pi)\frac{2\pi^{\frac{n-1}{2}}}{\Gamma(\frac{n-1}{2})}\int\frac{k^{n-2}\id k}{2\omega}\;
+  \delta\left(\omega-E\right)n_{\mathbf{k}}                                                                                           \\
+                           & = \frac{2^{2-n}\pi^{\frac{3-n}{2}}}{\Gamma(\frac{n-1}{2})}\int\frac{k^{n-2}\id k}{\omega}\;
+  \delta\left(\omega-E\right)n_{\mathbf{k}}                                                                                           \\
+                           & = \frac{2^{2-n}\pi^{\frac{3-n}{2}}}{\Gamma(\frac{n-1}{2})}\int\frac{k^{n-2}\id k}{\sqrt{k^2+m^2}}\;
+  \delta\left(\sqrt{k^2+m^2}-E\right)n_{\sqrt{E^2-m^2}}                                                                               \\
+                           & = \frac{2^{2-n}\pi^{\frac{3-n}{2}}}{\Gamma(\frac{n-1}{2})}\left(E^2-m^2\right)^{\frac{n-3}{2}}
   \theta\left(E-m\right)n_{\sqrt{E^2-m^2}}
 \end{align}
 
