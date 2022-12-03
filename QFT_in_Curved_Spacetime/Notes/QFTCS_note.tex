@@ -513,7 +513,7 @@ By residue theorem, this contour integral yields zero, which is expected.
 
 
 
-\begin{figure}[ht]
+\begin{figure}[t]
   \def\crosslen{0.1}
   \begin{tikzpicture}[x=0.7cm, y=0.7cm,
     >={Latex[length=2.1mm]},
@@ -679,7 +679,7 @@ A similar property also holds for other Green functions.
   \[G^{\pm}_{\beta}(t,\mathbf{x};t',\mathbf{x'})=G^{\mp}_{\beta}(t+i\beta,\mathbf{x};t',\mathbf{x'})\]
 \end{example}
 
-\begin{example}[Hadamard elementary function]\label{thef}
+\begin{example}[Hadamard elementary function]
   \[G_{\beta}^{(1)}(t,\mathbf{x};t',\mathbf{x'})=G_{\beta}^{(1)}(t+i\beta,\mathbf{x};t',\mathbf{x'})\]
 \end{example}
 However, we should note that
@@ -689,6 +689,10 @@ However, we should note that
 This property is due to the commutator of the free scalar field is not an operator but a number.
 This does not usually hold for the interacting field.
 
+By using Fourier transform, we find that the thermal Green function can be written in terms of the vacuum Green function:
+\begin{example}[Thermal Hadamard elementary function in terms of Hadamard elementary function]\label{thef}
+  \[G_{\beta}^{(1)}(t,\mathbf{x};t',\mathbf{x'})=\sum_{k=-\infty}^{\infty}G^{(1)}(t+ik\beta,\mathbf{x};t',\mathbf{x'})\]
+\end{example}
 
 
 
