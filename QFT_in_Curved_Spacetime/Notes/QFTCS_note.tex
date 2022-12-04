@@ -5,7 +5,7 @@
 %\usepackage[normalem]{ulem}
 \usepackage{indentfirst}
 \usepackage{amsmath,amsthm,amssymb,amsfonts}
-\numberwithin{equation}{subsection}
+\numberwithin{equation}{section}
 \usepackage{mathtools}
 \usepackage[italicdiff]{physics}
 \usepackage[T1]{fontenc}
@@ -37,35 +37,59 @@
 
 
 
-\newtheoremstyle{mystyle}{}{}{}{}{\sffamily\bfseries}{.\\}{ }{}
-\newtheoremstyle{cstyle}{}{}{}{}{\sffamily\bfseries}{}{ }{\thmnote{#3}}
+\newtheoremstyle{1style}{}{}{}{}{\sffamily\bfseries}{.\\}{ }{}
+\newtheoremstyle{2style}{}{}{}{}{\sffamily\bfseries}{\\}{ }{}
+%\newtheoremstyle{cstyle}{}{}{}{}{\sffamily\bfseries}{}{ }{\thmnote{#3}}
 
-\theoremstyle{mystyle}{\newtheorem{definition}{Definition}[subsection]}
+\theoremstyle{1style}
+\newtheorem{definition}[equation]{Definition}
+\newtheorem{theorem}[equation]{Theorem}
+\newtheorem{example}[equation]{Example}
+\newtheorem{cthm}[equation]{}
+\newtheorem*{remark}{Remark}
+
+
 %\theoremstyle{mystyle}{\newtheorem{proposition}[definition]{Proposition}}
-\theoremstyle{mystyle}{\newtheorem{theorem}[definition]{Theorem}}
 %\theoremstyle{mystyle}{\newtheorem{lemma}[definition]{Lemma}}
 %\theoremstyle{mystyle}{\newtheorem{corollary}[definition]{Corollary}}
-\theoremstyle{mystyle}{\newtheorem*{remark}{Remark}}
 %\theoremstyle{mystyle}{\newtheorem*{remarks}{Remarks}}
-\theoremstyle{mystyle}{\newtheorem{example}{Example}[subsection]}
-\theoremstyle{mystyle}{\newtheorem{examples}{Examples}[subsection]}
+%\newtheorem{examples}{Examples}[equation]
 %\theoremstyle{definition}{\newtheorem*{exercise}{Exercise}}
-\theoremstyle{mystyle}{\newtheorem{cthm}{}[subsection]}
 
 
-\tcolorboxenvironment{definition}{boxrule=0pt,boxsep=0pt,colback={red!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{red},sharp corners,before skip=10pt,after skip=10pt,breakable}
+
+\tcolorboxenvironment{definition}
+{boxrule=0pt,boxsep=0pt,colback={red!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{red},
+sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{theorem}
+{boxrule=0pt,boxsep=0pt,colback={MidnightBlue!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{MidnightBlue},
+sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{example}
+{boxrule=0pt,boxsep=0pt,colback={Magenta!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{Magenta},
+sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{proof}
+{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{CadetBlue!80!white},left=8pt,right=8pt,
+sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{cthm}
+{boxrule=0pt,boxsep=0pt,colback={orange!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{orange},
+sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{equation}
+{boxrule=0pt,boxsep=0pt,colback={Green!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{Green},
+sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{align}
+{boxrule=0pt,boxsep=0pt,colback={blue!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{blue},
+sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{remark}
+{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{Cyan},left=8pt,right=8pt,before skip=10pt,after skip=10pt,breakable}
+
 %\tcolorboxenvironment{proposition}{boxrule=0pt,boxsep=0pt,colback={Orange!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{Orange},sharp corners,before skip=10pt,after skip=10pt,breakable}
-\tcolorboxenvironment{theorem}{boxrule=0pt,boxsep=0pt,colback={MidnightBlue!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{MidnightBlue},sharp corners,before skip=10pt,after skip=10pt,breakable}
-\tcolorboxenvironment{example}{boxrule=0pt,boxsep=0pt,colback={Magenta!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{Magenta},sharp corners,before skip=10pt,after skip=10pt,breakable}
-\tcolorboxenvironment{examples}{boxrule=0pt,boxsep=0pt,colback={violet!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{violet},sharp corners,before skip=10pt,after skip=10pt,breakable}
-\tcolorboxenvironment{proof}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{CadetBlue!80!white},left=8pt,right=8pt,sharp corners,before skip=10pt,after skip=10pt,breakable}
-\tcolorboxenvironment{remark}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{Cyan},left=8pt,right=8pt,before skip=10pt,after skip=10pt,breakable}
+%\tcolorboxenvironment{examples}{boxrule=0pt,boxsep=0pt,colback={violet!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{violet},sharp corners,before skip=10pt,after skip=10pt,breakable}
 %\tcolorboxenvironment{remarks}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{Green},left=8pt,right=8pt,before skip=10pt,after skip=10pt,breakable}
 %\tcolorboxenvironment{example}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{Black},left=8pt,right=8pt,sharp corners,before skip=10pt,after skip=10pt,breakable}
 %\tcolorboxenvironment{examples}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{Black},left=8pt,right=8pt,sharp corners,before skip=10pt,after skip=10pt,breakable}
-\tcolorboxenvironment{cthm}{boxrule=0pt,boxsep=0pt,colback={orange!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{orange},sharp corners,before skip=10pt,after skip=10pt,breakable}
-\tcolorboxenvironment{equation}{boxrule=0pt,boxsep=0pt,colback={Green!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{Green},sharp corners,before skip=10pt,after skip=10pt,breakable}
-\tcolorboxenvironment{align}{boxrule=0pt,boxsep=0pt,colback={blue!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{blue},sharp corners,before skip=10pt,after skip=10pt,breakable}
+
+
+
 
 
 \usepackage[explicit]{titlesec}
@@ -335,7 +359,7 @@ We can create or annihilate particles with certain momentum:
 \begin{example}
   \begin{align*}
     \hat{a}_{\mathbf{k}_i}\ket{n_1,n_2,\cdots,n_i,\cdots,n_j}=           & \sqrt{n_i}\ket{n_1,n_2,\cdots,n_i-1,\cdots,n_j}   \\
-    \hat{a}^{\dagger}_{\mathbf{k}_i}\ket{n_1,n_2,\cdots,n_i,\cdots,n_j}= & \sqrt{n_i+1}\ket{n_1,n_2,\cdots,n_i+1,\cdots,n_j} \\
+    \hat{a}^{\dagger}_{\mathbf{k}_i}\ket{n_1,n_2,\cdots,n_i,\cdots,n_j}= & \sqrt{n_i+1}\ket{n_1,n_2,\cdots,n_i+1,\cdots,n_j}
   \end{align*}
 \end{example}
 
@@ -359,7 +383,8 @@ Consider a boost along \(x\) direction; the time derivative in the boosted frame
                         & =\gamma(-i\omega)f_{\mathbf{k}}+\gamma\mathbf{v}\cdot (i\mathbf{k})f_{\mathbf{k}} \\
                         & =-i\omega'f_{\mathbf{k}}
 \end{align}
-where \[\omega'=\gamma\omega-\gamma\mathbf{v}\cdot \mathbf{k}\].
+where \(\omega'=\gamma\omega-\gamma\mathbf{v}\cdot \mathbf{k}.\)
+
 Hence, a state describing a collection of particles in the boosted frame would describe the identical particles with boosted momentum.
 Therefore, the number operator in the boosted frame is identical to the original number operator; then, the vacuum will also be the same.
 This particular result is due to the existence of a timelike Killing vector in flat spacetime, a direct consequence of Poincare symmetry.
@@ -1005,7 +1030,7 @@ Hence, no transition happens for the detector moves along the inertial trajector
 It is also interesting to examine the case that the detector moves with constant acceleration.
 In this case, the detector move along a hyperbolic trajectory in the \((t,x)\) plane:
 \begin{equation}
-  x^{\mu}=\left(\alpha\sinh(\frac{\tau}{\alpha}),\alpha \cosh(\frac{\tau}{\alpha}),0,0 \right)
+  x^{\mu}(\tau)=\left(\alpha\sinh(\frac{\tau}{\alpha}),\alpha \cosh(\frac{\tau}{\alpha}),0,0 \right)
 \end{equation}
 This represents a detector that accelerates uniformly with acceleration \(a=\alpha^{-1}\) in the detector's frame, i.e. Rinder frame.
 
@@ -1040,7 +1065,7 @@ Therefore, the thermal Green function of the inertial detector is equal to the v
 \begin{align}
   \mathcal{G}^{(1)}(\Delta\tau) & =\mathcal{G}^{+}(\Delta\tau)+\mathcal{G}^{+}(-\Delta\tau)                                                                                                                    \\
                                 & =-\frac{1}{4\pi^2}\sum_{k=-\infty}^{\infty}\left[\Delta\tau+ik(2\pi\alpha)\right]^{-2}-\frac{1}{4\pi^2}\sum_{k=-\infty}^{\infty}\left[-\Delta\tau-ik(2\pi\alpha)\right]^{-2} \\
-                                & =-\frac{1}{2\pi^2}\sum_{k=-\infty}^{\infty}\left[\Delta\tau+ik(2\pi\alpha)\right]^{-2}\\
+                                & =-\frac{1}{2\pi^2}\sum_{k=-\infty}^{\infty}\left[\Delta\tau+ik(2\pi\alpha)\right]^{-2}                                                                                       \\
                                 & =\mathcal{G}^{(1)}_{\beta}(\Delta\tau)
 \end{align}
 Where \(\beta=2\pi\alpha=\frac{1}{k_BT},\quad T=\frac{1}{2\pi\alpha k_B}=\frac{a}{2\pi k_B}\).
