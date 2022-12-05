@@ -161,7 +161,7 @@ sharp corners,before skip=10pt,after skip=10pt,breakable}
     \item Greek index (e.g. $\alpha, \beta, \mu, \nu$) run over time and space.
           %\item Events denoted by cursive capitals  (e.g. $\mathscr{A}, \mathscr{B}, \mathscr{E}$).
     \item Latin index (e.g. $ i, j, k$) run over space.
-    \item Natural units ($c=1$).
+    \item Natural units ($c=\hbar=1$).
     \item Einstein summation convention. \[ds^2 = g_{\mu \nu} dx^{\mu} dx^{\nu}=
             \sum_{\mu=0}^{n-1} \sum_{\nu=0}^{n-1}g_{\mu \nu} dx^{\mu} dx^{\nu}\]
     \item Metric signature $(+, -, -, -)$.
@@ -990,7 +990,7 @@ Therefore, we should consider the transition probability per unit of proper time
 \end{equation}
 %and demanding \(\tau_0 \rightarrow -\infty\) and \(\tau_1 \rightarrow \infty\)
 
-%Factorized the equation \ref{TA1},
+%Factorized the equation \ref{TA1}, 
 
 Let us now consider a few examples that the transition probability can be exactly evaluated.
 
@@ -998,8 +998,37 @@ Let us now consider a few examples that the transition probability can be exactl
 We start with the detector moving along the inertial trajectory.
 For simplicity, we restrict our attention to massless scalar filed in 4-dimensional Minkowski spacetime.
 The positive frequency Wightman function is given by explicitly evaluating the contour integral in equation \ref{greenContour}.
+
+\begin{align}
+  i\mathcal{G}^+(x^{\mu},x'^{\mu}) & =(2\pi)^{-n}\int_{C}\id^nk\;\frac{e^{i\left[\mathbf{k}\cdot(\mathbf{x}-\mathbf{x'})-k^0(t-t')\right]}}{(k^0)^2-|\mathbf{k}|^2-m^2}                                                                          \\
+                                   & =(2\pi)^{-4}\int_{C}\id^4k\;\frac{e^{i\left[\mathbf{k}\cdot(\mathbf{x}-\mathbf{x'})-k^0(t-t')\right]}}{(k^0)^2-|\mathbf{k}|^2}                                                                              \\
+                                   & =\frac{1}{(2\pi)^4}\int_{C}\id k^0 \int\id^3k\;\frac{e^{i\left[\mathbf{k}\cdot(\mathbf{x}-\mathbf{x'})-k^0(t-t')\right]}}{(k^0)^2-|\mathbf{k}|^2}                                                           \\
+                                   & =\frac{1}{(2\pi)^4}(2\pi i)\int\id^3k\;\frac{e^{i\left[\mathbf{k}\cdot(\mathbf{x}-\mathbf{x'})-|\mathbf{k}|(t-t')\right]}}{2|\mathbf{k}|}                                                                   \\
+                                   & =\frac{i}{(2\pi)^3}\int_{0}^{2\pi}\id\phi\int_{-1}^{1}\id(\cos\theta)\int_{0}^{\infty}\id|\mathbf{k}|\;|\mathbf{k}|^2\frac{e^{i\left[\mathbf{k}\cdot(\mathbf{x}-\mathbf{x'})-|\mathbf{k}|(t-t')\right]}}{2|\mathbf{k}|}                \\
+                                   & =\frac{i}{(2\pi)^2}\int_{-1}^{1}\id(\cos\theta)\int_{0}^{\infty}\id|\mathbf{k}|\;\frac{|\mathbf{k}|}{2}e^{i \left\{ \left|\mathbf{k}\right| \left|\mathbf{x}-\mathbf{x'}\right| \cos\theta - |\mathbf{k}|(t-t')\right\}} 
+  %&\text{add \(-i\epsilon\) to \(t\) so integral converge:}\nonumber\\
+\end{align}
+add \(-i\epsilon\) to \(t\) so integral converge:
+\begin{align}
+   &=\frac{i}{(2\pi)^2}\int_{-1}^{1}\id(\cos\theta)\int_{0}^{\infty}\id|\mathbf{k}|\;\frac{|\mathbf{k}|}{2}
+   e^{i \left\{ \left|\mathbf{k}\right| \left|\mathbf{x}-\mathbf{x'}\right| \cos\theta - |\mathbf{k}|(t-t'-i\epsilon)\right\}}\\
+   &=\frac{i}{(2\pi)^2}\int_{0}^{\infty}\id|\mathbf{k}|\;\frac{|\mathbf{k}|}{2i\left|\mathbf{k}\right| \left|\mathbf{x}-\mathbf{x'}\right|}\left[
+   e^{i \left\{ \left|\mathbf{k}\right| \left|\mathbf{x}-\mathbf{x'}\right|  - |\mathbf{k}|(t-t'-i\epsilon)\right\}}-
+   e^{-i \left\{ \left|\mathbf{k}\right| \left|\mathbf{x}-\mathbf{x'}\right|  - |\mathbf{k}|(t-t'-i\epsilon)\right\}}\right]\\
+   &=\frac{i}{8\pi^2}\frac{1}{i|\mathbf{x}-\mathbf{x'}|}\int_{0}^{\infty}\id|\mathbf{k}|\;\left[
+   e^{i \left\{ \left|\mathbf{k}\right| \left|\mathbf{x}-\mathbf{x'}\right|  - |\mathbf{k}|(t-t'-i\epsilon)\right\}}-
+   e^{-i \left\{\left|\mathbf{k}\right| \left|\mathbf{x}-\mathbf{x'}\right|  + |\mathbf{k}|(t-t'-i\epsilon)\right\}}\right]\\
+   &=\frac{1}{8\pi^2}\frac{1}{|\mathbf{x}-\mathbf{x'}|}\int_{0}^{\infty}\id|\mathbf{k}|\;\left[
+   e^{i  \left|\mathbf{k}\right| \left|\mathbf{x}-\mathbf{x'}\right| }e^{-i|\mathbf{k}|(t-t'-i\epsilon)}-
+   e^{-i \left|\mathbf{k}\right| \left|\mathbf{x}-\mathbf{x'}\right|}e^{-i|\mathbf{k}|(t-t'-i\epsilon)}\right]\\
+   &=\frac{1}{8\pi^2}\frac{1}{|\mathbf{x}-\mathbf{x'}|}\left[\frac{1}{i\left[(t-t'-i\epsilon)-|\mathbf{x}-\mathbf{x'}|\right]}-\frac{1}{i\left[(t-t'-i\epsilon)+|\mathbf{x}-\mathbf{x'}|\right]}\right]\\
+   &=-\frac{i}{8\pi^2}\frac{1}{|\mathbf{x}-\mathbf{x'}|}\left[\frac{1}{(t-t'-i\epsilon)-|\mathbf{x}-\mathbf{x'}|}-\frac{1}{(t-t'-i\epsilon)+|\mathbf{x}-\mathbf{x'}|}\right]\\
+   &=-\frac{i}{8\pi^2}\frac{1}{|\mathbf{x}-\mathbf{x'}|}\left[\frac{2|\mathbf{x}-\mathbf{x'}|}{(t-t'-i\epsilon)^2-|\mathbf{x}-\mathbf{x'}|^2}\right]\\
+   &=-\frac{i}{4\pi^2}\left[\frac{1}{(t-t'-i\epsilon)^2-|\mathbf{x}-\mathbf{x'}|^2}\right]
+\end{align}
+
 \begin{equation}
-  \mathcal{G}^+(x^{\mu},x'^{\mu})=-\frac{1}{4\pi^2}\left[(t-t'-i\epsilon)^2-|\mathbf{x}-\mathbf{x'}|^2\right]
+  \mathcal{G}^+(x^{\mu},x'^{\mu})=-\frac{1}{4\pi^2\left[(t-t'-i\epsilon)^2-|\mathbf{x}-\mathbf{x'}|^2\right]}
 \end{equation}
 
 For the inertial trajectory, we have the following relation:
@@ -1010,15 +1039,15 @@ For the inertial trajectory, we have the following relation:
 
 in this case, the positive frequency Wightman function becomes
 \begin{equation}
-  \mathcal{G}^+(x^{\mu},x'^{\mu})=-\frac{1}{4\pi^2}\left(\frac{\Delta\tau}{\gamma} -i\epsilon\right).
+  \mathcal{G}^+(x^{\mu},x'^{\mu})=-\frac{1}{4\pi^2\left(\Delta\tau -i\epsilon\right)}.
 \end{equation}
 Therefore, we can calculate the transition probability per unit of time:
 \begin{align}
    & ~~~~\mathfrak{c}^2|\bra{E}m(0)\ket{E_0}|^2\int_{-\infty}^{\infty}\id \Delta\tau e^{-i(E-E_0)\Delta \tau}G^+(\Delta \tau) \\
    & = \mathfrak{c}^2|\bra{E}m(0)\ket{E_0}|^2\int_{-\infty}^{\infty}\id \Delta\tau e^{-i(E-E_0)\Delta \tau}
-  \left[-\frac{1}{4\pi^2}\left(\frac{\Delta\tau}{\gamma} -i\epsilon\right)\right]                                             \\
+  \left[-\frac{1}{4\pi^2\left(\Delta\tau -i\epsilon\right)}\right]                                                            \\
    & = \mathfrak{c}^2|\bra{E}m(0)\ket{E_0}|^2\int_{\mathcal{C}}\id \Delta\tau e^{-i(E-E_0)\Delta \tau}
-  \left[-\frac{1}{4\pi^2}\left(\frac{\Delta\tau}{\gamma} -i\epsilon\right)\right]                                             \\
+  \left[-\frac{1}{4\pi^2\left(\Delta\tau -i\epsilon\right)}\right]                                                            \\
    & = 0
 \end{align}
 The contour is chosen as an infinitely large semicircle closed in the lower half plane, and when the \(E>E_0\),
