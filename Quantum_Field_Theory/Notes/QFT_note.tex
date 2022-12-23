@@ -161,7 +161,7 @@ sharp corners,before skip=10pt,after skip=10pt,breakable}
     \item Greek index (e.g. $\alpha, \beta, \mu, \nu$) run over time and space.
           %\item Events denoted by cursive capitals  (e.g. $\mathscr{A}, \mathscr{B}, \mathscr{E}$).
     \item Latin index (e.g. $ i, j, k$) run over space.
-    \item Natural units ($c=\hbar=1$).
+    \item Natural units ($c=\hbar=1$) (so that \(p=\hbar k=k\)).
     \item Einstein summation convention. \[ds^2 = g_{\mu \nu} dx^{\mu} dx^{\nu}=
             \sum_{\mu=0}^{n-1} \sum_{\nu=0}^{n-1}g_{\mu \nu} dx^{\mu} dx^{\nu}\]
     \item Metric signature $(+, -, -, -)$.
@@ -217,76 +217,18 @@ The classical solution of the Klein-Gordon equation is the plane wave:
 \[f_{\mathbf{k}}(t,\mathbf{x})=  A(k)e^{i(\mathbf{k}\cdot \mathbf{x}-\omega t)}\]
 
 The dispersion relation is \[\omega = \sqrt{(\mathbf{|k|}^2 + m^2 )}.\]
-We can rewrite the above mode functions use four-wave vector \(k^{\mu}=(\omega,\mathbf{k})\):
-\begin{equation}\label{112}
-  f_{\mathbf{k}}(x^{\mu})= A(k)e^{-i(k_\mu x^\mu)}
-\end{equation}
+
 The above solution is very similar to the solution of harmonic oscillators. However, there is a significant difference:
 A harmonic oscillator only has one independent solution because it has a fixed, unique frequency.
 This feature no longer holds for fields theory because we have an infinite number solution for each value of \(k\).
 Therefore, we should construct a general solution by constructing a complete, orthonormal set of modes that any solution
 can express as a linear combination of modes.
-To achieve this, first define the inner product of mode functions:
-\begin{definition}[Klein-Gordon inner product]\label{kgi}
-  \[(\phi_1,\phi_2)=-i\int_{\Sigma_t}\id^{n-1}x\;\left[\phi_1\p_t\phi^*_2-\phi_2^*\p_t\phi_1\right]\]
-  Which is integral over constant-time hypersurface \(\Sigma_t\).
-\end{definition}
-From generalized Stoke's theorem:\[\int_{M}\id\omega=\int_{\p M}\omega\]
-\hfill \break
-it is easy to check that the inner product is independent of choose of the hypersurface.
-By explicitly calculating the inner product:
-\begin{align}
-  \left(f_{\mathbf{k}},f_{\mathbf{k}'}\right)\propto
-   & \left(e^{-ik^{\mu}x_{\mu}},e^{-ik'^{\nu}x_{\nu}}\right)                           \\
-   & =-i\int_{\Sigma_t}\id^{n-1}x\;\left[e^{-i\omega t+\mathbf{k}\cdot\mathbf{x}}
-  \p_{t}e^{i\omega' t-\mathbf{k'}\cdot\mathbf{x}}-e^{i\omega' t-\mathbf{k'}\cdot\mathbf{x}}
-  \p_{t}e^{-i\omega t+\mathbf{k}\cdot\mathbf{x}}\right]                                \\
-   & = -i\int_{\Sigma_t}\id^{n-1}x\;\left[e^{-i\omega t} e^{\mathbf{k}\cdot\mathbf{x}}
-  \p_{t}e^{i\omega' t}e^{-\mathbf{k'}\cdot\mathbf{x}}-e^{i\omega' t}e^{-\mathbf{k'}\cdot\mathbf{x}}
-  \p_{t}e^{-i\omega t}e^{\mathbf{k}\cdot\mathbf{x}}\right]                             \\
-   & =\int_{\Sigma_t}\id^{n-1}x\;\left[e^{-i\omega t} e^{\mathbf{k}\cdot\mathbf{x}}
-  \omega' e^{i\omega' t}e^{-\mathbf{k'}\cdot\mathbf{x}}+e^{i\omega' t}e^{-\mathbf{k'}\cdot\mathbf{x}}
-  \omega e^{-i\omega t}e^{\mathbf{k}\cdot\mathbf{x}}\right]                            \\
-   & =  e^{-i\omega t}e^{i\omega' t}(\omega'+\omega)\int_{\Sigma_t}\id^{n-1}x\;
-  \left[ e^{\mathbf{k}\cdot\mathbf{x}}e^{-\mathbf{k'}\cdot\mathbf{x}}\right]           \\
-   & =   e^{i(\omega'-\omega)t}(\omega'+\omega)\int_{\Sigma_t}\id^{n-1}x\;
-  \left[ e^{(\mathbf{k}-\mathbf{k'})\cdot\mathbf{x}}\right]                            \\
-   & =  e^{i(\omega'-\omega)t}(\omega'+\omega)(2\pi)^{n-1}
-  \delta^{n-1}\left(\mathbf{k}-\mathbf{k'}\right)
-\end{align}
 
 
-we find that \(\left(f_{\mathbf{k}},f_{\mathbf{k}'}\right)=0\) for \(\mathbf{k}\neq\mathbf{k'}\).
-Furthermore, if we choose the normalization constant \(A(k)\) in eq \ref{112} as
-\(\frac{1}{\sqrt{2\omega(2\pi)^{n-1}}}\), we find the mode function
-\begin{equation}
-  f_{\mathbf{k}}(x^{\mu})=\frac{e^{-ik_{\mu}x^{\mu}}}{\sqrt{2\omega(2\pi)^{n-1}}}
-\end{equation}
-obey
-\begin{equation}
-  \left(f_{\mathbf{k}},f_{\mathbf{k}'}\right)=\delta^{(n-1)}(\mathbf{k}-\mathbf{k}').
-\end{equation}
 
-Given our dispersion relation, \(\mathbf{k}\) only determines the absolute value of frequency.
-However, we can require that all mode functions have positive frequency and still give a complete set of mode functions by
-including complex conjugates \(f^*_{\mathbf{k}}(x^{\mu})\).
 
-The positive frequency mode is defined as \[\frac{\p}{\p t}f_{\mathbf{k}}=-i\omega f_{\mathbf{k}}.\]
-And the mode with negative frequency is \[\frac{\p}{\p t}f^*_{\mathbf{k}}=i\omega f^*_{\mathbf{k}}.\]
-
-The negative frequency modes are orthogonal to the positive frequency modes:
-\begin{equation}
-  \left(f_{\mathbf{k}},f^*_{\mathbf{k}'}\right)=0.
-\end{equation}
-And they are orthonormal with each other with a negative norm:
-\begin{equation}
-  \left(f^*_{\mathbf{k}},f^*_{\mathbf{k}'}\right)=-\delta^{(n-1)}(\mathbf{k}-\mathbf{k'})
-\end{equation}
-Hence, modes \(f_{\mathbf{k}}\) and \(f^*_{\mathbf{k}}\) form a complete set, which any possible solution
-of the Klein-Gordon equation can be expressed in terms of them.
-\bigskip
-
-The system could be quantized in the canonical quantization scheme by treating the field \(\phi\) as an operator \(\hat{\phi}\),
+The natural generalizations of the commutation relation of the quantum harmonic oscillator are equal-time commutation relations.
+We could quantize the field by canonical quantization scheme, which treats the field \(\phi\) as an operator \(\hat{\phi}\),
 then impose the canonical commutation relations on equal-time hypersurface:
 \begin{definition}[Canonical commutation relation]\label{121}
   \begin{align*}
@@ -306,14 +248,14 @@ the field operator \(\hat{\phi}\) also can be expanded in term mode function and
     \hat{a}^{\dagger}_{\mathbf{k}}e^{-i\mathbf{k}\cdot \mathbf{x}}\right]\]
 \end{cthm}
 By using the commutation relation defined in \ref{121}, we can obtain the commutation relation of operator \(\hat{a}_{\mathbf{k}}\) and
-\(\hat{a}^{\dagger}_{\mathbf{k}}\):
-
+\(\hat{a}^{\dagger}_{\mathbf{k}}\)\footnote{The factor of \(2\pi\) come from the convention of Fourier transformation.}:
 
 \begin{align}
   \bigl[\hat{a}_{\mathbf{k}},\hat{a}_{\mathbf{k'}}\bigr]                     & =0                                      \\
   \bigl[\hat{a}^{\dagger}_{\mathbf{k}},\hat{a}^{\dagger}_{\mathbf{k'}}\bigr] & =0                                      \\
   \bigl[\hat{a}_{\mathbf{k}},\hat{a}^{\dagger}_{\mathbf{k'}}\bigr]           & =(2\pi)^3\delta^{(3)}(\mathbf{k}-\mathbf{k'})
 \end{align}
+
 
 
 Analog to harmonic oscillators, the operator \(\hat{a}_{\mathbf{k}}\) and
