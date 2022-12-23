@@ -69,13 +69,13 @@ We could combine them into a Lorentz-invariant Lagrange density:
   \mathcal{L}= \frac{1}{2}\eta^{\mu\nu}(\p_{\mu}\phi)(\p_{\nu}\phi)-V(\phi)
 \end{equation}
 Apply the Euler-Lagrange equation; we then get the equation of motion:
-\begin{cthm}
-  \begin{align*}                                    & \eta^{\mu\nu}\p_{\mu}\p_{\nu}\phi+\frac{\mathrm{d}V(\phi)}{\mathrm{d}\phi} \\
-                                              =\  & \square\phi+\frac{\mathrm{d}V(\phi)}{\mathrm{d}\phi}                       \\
-                                              =\  & 0
-  \end{align*}
-  Where \(\square\) is \textbf{d'Alembertian}.
-\end{cthm}
+
+\begin{align}                                            & \eta^{\mu\nu}\p_{\mu}\p_{\nu}\phi+\frac{\mathrm{d}V(\phi)}{\mathrm{d}\phi} \\
+                                                     =\  & \square\phi+\frac{\mathrm{d}V(\phi)}{\mathrm{d}\phi}                       \\
+                                                     =\  & 0
+\end{align}
+Where \(\square\) is \textbf{d'Alembertian}.
+
 \subsection{Klein-Gordon Field}
 If the scalar field is massive, the potential \(V(\phi)=\frac{1}{2}m^2\phi^2\),
 we obtained the \textbf{Klein-Gordon equation}:
@@ -85,7 +85,7 @@ we obtained the \textbf{Klein-Gordon equation}:
 You will see this equation again and again in quantum field theory.
 \begin{remark}
   The Klein-Gordon field could be analog to infinite many coupled infinitesimal harmonic oscillators;
-  each ``mass'' is affected by neighboring springs and has its kinetic energy. 
+  each ``mass'' is affected by neighboring springs and has its kinetic energy.
   It is an idealized model used to study the massive scalar particle.
 \end{remark}
 
@@ -94,18 +94,18 @@ You will see this equation again and again in quantum field theory.
 \subsection{Hamiltonian Field Theory}
 The Lagrangian field theory is naturally Lorentz invariant. However, we also need Hamiltonian formalism for the field theory
 because it is easier to transition from quantum mechanics.
-Let's first consider the classical definition of Hamiltonian, \[H=\sum p\dot{q}-L\].
+Let's first consider the classical definition of Hamiltonian, \[H=\sum p\dot{q}-L.\]
 From the definition of Lagrangian, we can derive the conjugate momentum as follow:
-\begin{cthm}
-  \begin{align*}
-    p(x^i)\equiv & \;\frac{\p L}{\p \dot{\phi}(x^i)}
-    =\frac{\p}{\p \dot{\phi}(x^i)}\int \mathrm{d}^3x' \mathcal{L} \\
-    \propto      & \;\pi(x^i) \mathrm{d}^3x
-  \end{align*}
-  \bigskip
-  Where \[\pi \equiv \frac{\p \mathcal{L}}{\p \dot{\phi}}\]
-  is called \textbf{momentum density}
-\end{cthm}
+
+\begin{align}
+  p(x^i)\equiv & \;\frac{\p L}{\p \dot{\phi}(x^i)}
+  =\frac{\p}{\p \dot{\phi}(x^i)}\int \mathrm{d}^3x' \mathcal{L} \\
+  \propto      & \;\pi(x^i) \mathrm{d}^3x
+\end{align}
+\bigskip
+Where \[\pi \equiv \frac{\p \mathcal{L}}{\p \dot{\phi}}\]
+is called \textbf{momentum density}
+
 Therefore, the Hamiltonian for field theory is:
 \begin{definition}[Hamiltonian]
   \begin{align*}
@@ -182,10 +182,10 @@ spacetime translation \(\xi^\mu\):
 Four conserved currents correspond to values of \(\nu\), and four conserved charges are energy and momentum.
 We can see that the energy density is the 00-component of \(T_{\mu\nu}\).
 \begin{remark}
-    In fact, the conservation of energy is a direct consequence of \tbf{homogeneity of time}, or in the language of general relativity, the existence of the timelike Killing vector. 
-We can see that in Roberson-Walker spacetime, in which the time is not homogeneous, the energy is no longer conserved. 
+  In fact, the conservation of energy is a direct consequence of \tbf{homogeneity of time}, or in the language of general relativity, the existence of the timelike Killing vector.
+  We can see that in Roberson-Walker spacetime, in which the time is not homogeneous, the energy is no longer conserved.
 
-The conservation of linear momentum and angular momentum are consequences of homogeneity and isotropic of space respectively.
+  The conservation of linear momentum and angular momentum are consequences of homogeneity and isotropic of space respectively.
 \end{remark}
 
 
