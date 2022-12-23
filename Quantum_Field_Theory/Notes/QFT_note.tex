@@ -381,13 +381,13 @@ Recall the Hamiltonian of Klein-Gordon field is:
 \end{equation}
 By substituting the mode expansion of \(\hat{\phi}\), we obtained the expression of Hamiltonian of quantized K-G field:
 \begin{align}
-  \hat{H}=\frac{1}{2}\int \id^{n-1}k\left[\hat{a}^{\dagger}_{\mathbf{k}}\hat{a}_{\mathbf{k}}+\hat{a}_{\mathbf{k}}\hat{a}^{\dagger}_{\mathbf{k}}\right]\omega
+  \hat{H}=\frac{1}{2}\int \frac{\id^{3}k}{(2\pi)^3}\left[\hat{a}^{\dagger}_{\mathbf{k}}\hat{a}_{\mathbf{k}}+\hat{a}_{\mathbf{k}}\hat{a}^{\dagger}_{\mathbf{k}}\right]\omega_{k}
 \end{align}
 Use the commutation relation of \(\hat{a}_{\mathbf{k}}\) and \(\hat{a}^{\dagger}_{\mathbf{k}}\), we can further simplify the Hamiltonian operator:
 \begin{align}\label{134}
-  \hat{H} & =\int \id^{n-1}k\left[\hat{a}^{\dagger}_{\mathbf{k}}\hat{a}_{\mathbf{k}}+\frac{1}{2}\delta^{(n-1)}(0)\right]\omega \\
-          & =\int \id^{n-1}k\left[\hat{a}^{\dagger}_{\mathbf{k}}\hat{a}_{\mathbf{k}}\omega\right]+
-  \int \id^{n-1}k\left[\frac{1}{2}\delta^{(n-1)}(0)\omega\right]
+  \hat{H} & =\int \frac{\id^{3}k}{(2\pi)^3}\left[\hat{a}^{\dagger}_{\mathbf{k}}\hat{a}_{\mathbf{k}}+\frac{1}{2}\delta^{(3)}(0)\right]\omega_{k} \\
+          & =\int \frac{\id^{3}k}{(2\pi)^3}\left[\hat{a}^{\dagger}_{\mathbf{k}}\hat{a}_{\mathbf{k}}\omega_{k}\right]+
+  \int \id^{3}k\left[\frac{1}{2}\delta^{(3)}(0)\omega_{k}\right]
 \end{align}
 The problem has arisen: if we calculate the expectation value of Hamiltonian in the vacuum state, one would expect to get 0,
 however, we get infinite.
