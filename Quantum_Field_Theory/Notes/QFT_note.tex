@@ -181,15 +181,243 @@ sharp corners,before skip=10pt,after skip=10pt,breakable}
 Quantum field theory is the combination of quantum mechanics and relativistic field theory, 
 instead of studying the dynamics of particles, we study the dynamics of the field.
 To see why we can't simply stick with relativistic quantum mechanics, consider the relativistic 
-wave equation, for example, \tbf{Klein-Gordon equation}:
-\begin{equation}
+wave equation, for example, \tbf{Klein-Gordon equation}\footnote{
+  Here we use the metric sign convention \((+,-,-,-)\); if we used another sign convention, the Klein-Gordon equation
+  would read \((\Box - m^2) \phi = 0\). The d'Alembertian \(\Box\) is defined as \(\Box = g^{\mu\nu}\p_{\mu}\p_{\nu}\).
+  In this note, we assume the spacetime is flat, so \(g^{\mu\nu}=\eta^{\mu\nu}\).
+}:
+\begin{equation}\label{kg}
   (\Box +m^2)\phi=0
 \end{equation}
-
+The solution of the Klein-Gordon equation carries negative energy states and other inconsistencies.
+Another reason relativistic quantum mechanics does not work is related to causality.
+In quantum mechanics, the amplitude to propagate from a point \(\vec{x}_0\) to a point \(\vec{x}\) in time \(t\)
+is governed by the unitary operator \(e^{-iHt}\), where \(H\) is the Hamiltonian.
+In relativistic case, we have \(E=\sqrt{\vec{p}^2+m^2}\), so 
+\begin{align}
+  \bra{\vec{x}}e^{-itH}\ket{\vec{x}_0}&=\bra{\vec{x}}e^{-it\sqrt{p^2+m^2}}\ket{\vec{x}_0}\\
+  &=\int\frac{\id^3p}{(2\pi)^3}e^{-it\sqrt{\vec{p}^2+m^2}}e^{i\vec{p}\cdot(\vec{x}-\vec{x}_0)}\\
+  &=\frac{1}{2\pi^2|\vec{x}-\vec{x}_0|}\int_{0}^{\infty}\id p\;p\sin(p|\vec{x}-\vec{x}_0|)e^{-it\sqrt{\vec{p}^2+m^2}}
+\end{align}
+We can evaluate integral explicitly in terms of Bessel functions, or we can look for asymptotic behavior using the method of steepest descent.
+The amplitude are asymptotically exponential, \(\bra{\vec{x}}e^{-itH}\ket{\vec{x}_0}\sim e^{m\sqrt{x^2-t^2}}\), however, dose not vanish for spacelike separation.
+All the above issues could be solved from the field viewpoint, for example, the causality problem is solved by introducing the antiparticle. 
+Quantum field theory not only provides a natural way to handle the multiparticle state but also transitions between the states
+with different particle numbers. It provides the tools to calculate innumerable experimental observables like scattering cross-section,
+with incredible precision\footnote{See \url{https://en.wikipedia.org/wiki/Precision_tests_of_QED}}. 
 
 
 \subsection{Canonical Quantization}
+Consider a massive scalar field \(\phi(t,x^{i})\) defined in spacetime point \((t,x^{i})\) satisfying the Klein-Gordon equation \ref{kg},
+obtained from the Lagrangian density
+\[\mathcal{L} = \frac{1}{2}(\eta^{\mu\nu} \phi_{,\mu} \phi_{,\nu}- m^2 \phi^2)\]
+by demanding the variations of the action \[S = \int \mathcal{L}(x) \mathrm{d}^{n}x\] vanish.
+\par
+The classical solution of the Klein-Gordon equation is the plane wave:
+\[f_{\mathbf{k}}(t,\mathbf{x})=  A(k)e^{i(\mathbf{k}\cdot \mathbf{x}-\omega t)}\]
 
+The dispersion relation is \[\omega = \sqrt{(\mathbf{|k|}^2 + m^2 )}.\]
+We can rewrite the above mode functions use four-wave vector \(k^{\mu}=(\omega,\mathbf{k})\):
+\begin{equation}\label{112}
+  f_{\mathbf{k}}(x^{\mu})= A(k)e^{-i(k_\mu x^\mu)}
+\end{equation}
+The above solution is very similar to the solution of harmonic oscillators. However, there is a significant difference:
+A harmonic oscillator only has one independent solution because it has a fixed, unique frequency.
+This feature no longer holds for fields theory because we have an infinite number solution for each value of \(k\).
+Therefore, we should construct a general solution by constructing a complete, orthonormal set of modes that any solution
+can express as a linear combination of modes.
+To achieve this, first define the inner product of mode functions:
+\begin{definition}[Klein-Gordon inner product]\label{kgi}
+  \[(\phi_1,\phi_2)=-i\int_{\Sigma_t}\id^{n-1}x\;\left[\phi_1\p_t\phi^*_2-\phi_2^*\p_t\phi_1\right]\]
+  Which is integral over constant-time hypersurface \(\Sigma_t\).
+\end{definition}
+From generalized Stoke's theorem:\[\int_{M}\id\omega=\int_{\p M}\omega\]
+\hfill \break
+it is easy to check that the inner product is independent of choose of the hypersurface.
+By explicitly calculating the inner product:
+\begin{align}
+  \left(f_{\mathbf{k}},f_{\mathbf{k}'}\right)\propto
+   & \left(e^{-ik^{\mu}x_{\mu}},e^{-ik'^{\nu}x_{\nu}}\right)                           \\
+   & =-i\int_{\Sigma_t}\id^{n-1}x\;\left[e^{-i\omega t+\mathbf{k}\cdot\mathbf{x}}
+  \p_{t}e^{i\omega' t-\mathbf{k'}\cdot\mathbf{x}}-e^{i\omega' t-\mathbf{k'}\cdot\mathbf{x}}
+  \p_{t}e^{-i\omega t+\mathbf{k}\cdot\mathbf{x}}\right]                                \\
+   & = -i\int_{\Sigma_t}\id^{n-1}x\;\left[e^{-i\omega t} e^{\mathbf{k}\cdot\mathbf{x}}
+  \p_{t}e^{i\omega' t}e^{-\mathbf{k'}\cdot\mathbf{x}}-e^{i\omega' t}e^{-\mathbf{k'}\cdot\mathbf{x}}
+  \p_{t}e^{-i\omega t}e^{\mathbf{k}\cdot\mathbf{x}}\right]                             \\
+   & =\int_{\Sigma_t}\id^{n-1}x\;\left[e^{-i\omega t} e^{\mathbf{k}\cdot\mathbf{x}}
+  \omega' e^{i\omega' t}e^{-\mathbf{k'}\cdot\mathbf{x}}+e^{i\omega' t}e^{-\mathbf{k'}\cdot\mathbf{x}}
+  \omega e^{-i\omega t}e^{\mathbf{k}\cdot\mathbf{x}}\right]                            \\
+   & =  e^{-i\omega t}e^{i\omega' t}(\omega'+\omega)\int_{\Sigma_t}\id^{n-1}x\;
+  \left[ e^{\mathbf{k}\cdot\mathbf{x}}e^{-\mathbf{k'}\cdot\mathbf{x}}\right]           \\
+   & =   e^{i(\omega'-\omega)t}(\omega'+\omega)\int_{\Sigma_t}\id^{n-1}x\;
+  \left[ e^{(\mathbf{k}-\mathbf{k'})\cdot\mathbf{x}}\right]                            \\
+   & =  e^{i(\omega'-\omega)t}(\omega'+\omega)(2\pi)^{n-1}
+  \delta^{n-1}\left(\mathbf{k}-\mathbf{k'}\right)
+\end{align}
+
+
+we find that \(\left(f_{\mathbf{k}},f_{\mathbf{k}'}\right)=0\) for \(\mathbf{k}\neq\mathbf{k'}\).
+Furthermore, if we choose the normalization constant \(A(k)\) in eq \ref{112} as
+\(\frac{1}{\sqrt{2\omega(2\pi)^{n-1}}}\), we find the mode function
+\begin{equation}
+  f_{\mathbf{k}}(x^{\mu})=\frac{e^{-ik_{\mu}x^{\mu}}}{\sqrt{2\omega(2\pi)^{n-1}}}
+\end{equation}
+obey
+\begin{equation}
+  \left(f_{\mathbf{k}},f_{\mathbf{k}'}\right)=\delta^{(n-1)}(\mathbf{k}-\mathbf{k}').
+\end{equation}
+
+Given our dispersion relation, \(\mathbf{k}\) only determines the absolute value of frequency.
+However, we can require that all mode functions have positive frequency and still give a complete set of mode functions by
+including complex conjugates \(f^*_{\mathbf{k}}(x^{\mu})\).
+
+The positive frequency mode is defined as \[\frac{\p}{\p t}f_{\mathbf{k}}=-i\omega f_{\mathbf{k}}.\]
+And the mode with negative frequency is \[\frac{\p}{\p t}f^*_{\mathbf{k}}=i\omega f^*_{\mathbf{k}}.\]
+
+The negative frequency modes are orthogonal to the positive frequency modes:
+\begin{equation}
+  \left(f_{\mathbf{k}},f^*_{\mathbf{k}'}\right)=0.
+\end{equation}
+And they are orthonormal with each other with a negative norm:
+\begin{equation}
+  \left(f^*_{\mathbf{k}},f^*_{\mathbf{k}'}\right)=-\delta^{(n-1)}(\mathbf{k}-\mathbf{k'})
+\end{equation}
+Hence, modes \(f_{\mathbf{k}}\) and \(f^*_{\mathbf{k}}\) form a complete set, which any possible solution
+of the Klein-Gordon equation can be expressed in terms of them.
+\bigskip
+
+The system could be quantized in the canonical quantization scheme by treating the field \(\phi\) as an operator \(\hat{\phi}\),
+then impose the canonical commutation relations on equal-time hypersurface:
+\begin{definition}[Canonical commutation relation]\label{121}
+  \begin{align*}
+    \bigl[\hat{\phi}(t,\mathbf{x}),\hat{\phi}(t,\mathbf{x'})\bigr] & =0                                       \\
+    \bigl[\hat{\pi}(t,\mathbf{x}),\hat{\pi}(t,\mathbf{x'})\bigr]   & =0                                       \\
+    \bigl[\hat{\phi}(t,\mathbf{x}),\hat{\pi}(t,\mathbf{x'})\bigr]  & =i\delta^{(3)}(\mathbf{x}-\mathbf{x'})
+  \end{align*}
+\end{definition}
+The first two commutation relations come from the causality requirement, as those operators have spacelike separation.
+The delta function implies that field and momentum operators commute everywhere except the spacetime point they intersect.
+
+Just like the classical solution of the Klein-Gordon equation can be expanded in terms of mode,
+the field operator \(\hat{\phi}\) also can be expanded in term mode function and have coefficients \(\hat{a}_{\mathbf{k}}\) and
+\(\hat{a}^{\dagger}_{\mathbf{k}}\) respectively as shown below:
+\begin{cthm}[Mode expansion]
+  \[\phi(t,\mathbf{x})=\int\frac{\id^{3}k}{(2\pi)^3\sqrt{2\omega_{k}}}\left[\hat{a}_{\mathbf{k}}e^{i\mathbf{k}\cdot \mathbf{x}}+
+    \hat{a}^{\dagger}_{\mathbf{k}}e^{-i\mathbf{k}\cdot \mathbf{x}}\right]\]
+\end{cthm}
+By using the commutation relation defined in \ref{121}, we can obtain the commutation relation of operator \(\hat{a}_{\mathbf{k}}\) and
+\(\hat{a}^{\dagger}_{\mathbf{k}}\):
+
+
+\begin{align}
+  \bigl[\hat{a}_{\mathbf{k}},\hat{a}_{\mathbf{k'}}\bigr]                     & =0                                      \\
+  \bigl[\hat{a}^{\dagger}_{\mathbf{k}},\hat{a}^{\dagger}_{\mathbf{k'}}\bigr] & =0                                      \\
+  \bigl[\hat{a}_{\mathbf{k}},\hat{a}^{\dagger}_{\mathbf{k'}}\bigr]           & =(2\pi)^3\delta^{(3)}(\mathbf{k}-\mathbf{k'})
+\end{align}
+
+
+Analog to harmonic oscillators, the operator \(\hat{a}_{\mathbf{k}}\) and
+\(\hat{a}^{\dagger}_{\mathbf{k}}\) are annihilation and creation operator respectively.
+The only difference is that we now have an infinite set of annihilation and creation operators corresponding to each spatial wave vector \(\mathbf{k}\).
+%We can use annihilation and creation operators to define a basis for Hilbert space where the basis state is an eigenstate of number operator \(\)
+
+\begin{remark}
+  The quantization process described above is sometimes referred to as \tbf{second quantization}. Historically, this name
+  comes from the fact that we first treat the mode as discrete and then have an integer number of excitation of each mode.
+  However, the name ``second quantization'' can be misleading because the discrete mode is a classical phenomenon.
+  We quantized the field exactly once.
+\end{remark}
+
+
+There is a single state \(\ket{0}\) that would be anihilated by all \(\hat{a}_{\mathbf{k}}\), called \tbf{vacuum}.
+\begin{definition}[Vacuum]
+  \[\forall\; \mathbf{k},\; \hat{a}_{\mathbf{k}}\ket{0}=0.\]
+\end{definition}
+
+A state with \(n\) particles with identical momentum \(\mathbf{k}\) can be constructed by repeat acting \(\hat{a}^{\dagger}_{\mathbf{k}}\)
+on the vacuum:
+\begin{equation}
+  \ket{n_{\mathbf{k}}}=\frac{1}{\sqrt{n_{\mathbf{k}}!}}\left(\hat{a}^{\dagger}_{\mathbf{k}}\right)^{n}\ket{0}
+\end{equation}
+
+Similarly, we can construct a state with \(n_{i}\) particle for momentum \(\mathbf{k}_i\):
+\begin{equation}
+  \ket{n_1,n_2,\cdots,n_j}=\frac{1}{\sqrt{n_1!n_2!\cdots n_j!}}\left(\hat{a}^{\dagger}_{\mathbf{k}_1}\right)^{n_1}
+  \left(\hat{a}^{\dagger}_{\mathbf{k}_2}\right)^{n_2}\cdots \left(\hat{a}^{\dagger}_{\mathbf{k}_j}\right)^{n_j}\ket{0}
+\end{equation}
+
+We can create or annihilate particles with certain momentum:
+\begin{example}
+  \begin{align*}
+    \hat{a}_{\mathbf{k}_i}\ket{n_1,n_2,\cdots,n_i,\cdots,n_j}=           & \sqrt{n_i}\ket{n_1,n_2,\cdots,n_i-1,\cdots,n_j}   \\
+    \hat{a}^{\dagger}_{\mathbf{k}_i}\ket{n_1,n_2,\cdots,n_i,\cdots,n_j}= & \sqrt{n_i+1}\ket{n_1,n_2,\cdots,n_i+1,\cdots,n_j}
+  \end{align*}
+\end{example}
+
+Furthermore, we can define \tbf{number operator}:
+\begin{definition}[Number operator]
+  \[\hat{n}_{\mathbf{k}}=\hat{a}^\dagger_{\mathbf{k}}\hat{a}_{\mathbf{k}}\]
+\end{definition}
+
+Which obeys:
+\begin{equation}
+  \hat{n}_{\mathbf{k}_i}\ket{n_1,n_2,\cdots,n_i,\cdots,n_j}=    n_i\ket{n_1,n_2,\cdots,n_i,\cdots,n_j}
+\end{equation}
+
+The eigenstates of the number operator form a basis span Hilbert space, known as \tbf{Fock basis}.
+The space span by this basis is called \tbf{Fock space}.
+
+
+The energy-momentum tensor of scalar field theory can be constructed in a standard manner:
+\begin{align}
+  T_{\mu\nu} & =\frac{2}{\sqrt[]{-g}}\frac{\delta S}{\delta(g^{\mu\nu})}                                         \\
+             & =\phi_{,\mu}\phi_{,\nu}-\frac{1}{2}\eta_{\mu\nu}\eta^{\lambda\sigma}\phi_{,\lambda}\phi_{,\sigma}
+  +\frac{1}{2}m^2\phi^2\eta_{\mu\nu}
+\end{align}
+The Hamiltonian operator can be obtained from the classical theory of field in the same manner.
+Recall the Hamiltonian of Klein-Gordon field is:
+\begin{equation}
+  H=\int\id^3x\;\mathcal{H}=\int\id^3x\;T_{tt}=\int\id^3x\left[\frac{1}{2}\pi^2+\frac{1}{2}(\nabla\phi)^2+\frac{1}{2}m^2\phi^2\right]
+\end{equation}
+By substituting the mode expansion of \(\hat{\phi}\), we obtained the expression of Hamiltonian of quantized K-G field:
+\begin{align}
+  \hat{H}=\frac{1}{2}\int \id^{n-1}k\left[\hat{a}^{\dagger}_{\mathbf{k}}\hat{a}_{\mathbf{k}}+\hat{a}_{\mathbf{k}}\hat{a}^{\dagger}_{\mathbf{k}}\right]\omega
+\end{align}
+Use the commutation relation of \(\hat{a}_{\mathbf{k}}\) and \(\hat{a}^{\dagger}_{\mathbf{k}}\), we can further simplify the Hamiltonian operator:
+\begin{align}\label{134}
+  \hat{H} & =\int \id^{n-1}k\left[\hat{a}^{\dagger}_{\mathbf{k}}\hat{a}_{\mathbf{k}}+\frac{1}{2}\delta^{(n-1)}(0)\right]\omega \\
+          & =\int \id^{n-1}k\left[\hat{a}^{\dagger}_{\mathbf{k}}\hat{a}_{\mathbf{k}}\omega\right]+
+  \int \id^{n-1}k\left[\frac{1}{2}\delta^{(n-1)}(0)\omega\right]
+\end{align}
+The problem has arisen: if we calculate the expectation value of Hamiltonian in the vacuum state, one would expect to get 0,
+however, we get infinite.
+The vacuum has infinite energy!
+The first reason we see infinite vacuum energy is that we are integral over all space. This is reasonable, analog
+to harmonic oscillator zero point energy,
+if we sum over infinite many ground state harmonic oscillators, we are expecting infinite energy.
+The divergences caused by infinitely large space are often referred to as \tbf{infrared divergences}.
+We can eliminate this kind of infinite by confining our field in a box.
+Let confine the field in a box with length \(L\) by imposing periodic boundary conditions, and rewrite the second term in \ref{134} as:
+\begin{equation}\label{135}
+  \int \id^{n-1}k\left[\frac{1}{2}\delta^{(n-1)}(0)\omega\right]\rightarrow\frac{1}{2}\left[\frac{L}{2\pi}\right]^{n-1}\sum_{\mathbf{k}}\omega
+\end{equation}
+We have used the Fourier transform of \(\delta\) function.
+
+However, after we restrict the vacuum in a finite region, the expression in \ref{135} is still divergent.
+Since the value of \(\omega=\sqrt{|\mathbf{k}|^2+m^2}\) can be arbitrarily large.
+This infinite arises because we assumed quantum field theory is valid for arbitrarily high frequency/energy
+which corresponds to arbitrarily short distance. We expect to see new physics at that energy scale!
+The divergences caused by infinitely high frequency are often referred to as \tbf{ultraviolet divergences}.
+We can eliminate this kind of infinite through \tbf{renormalization}.
+The simplified idea is just substrating off infinite from our expression.
+This is valid because what we can measure in the experiment is the energy difference,
+we can simply rescale the zero point of energy and not affect the observable\footnote{This is not correct when we introduce general relativity, 
+because the cosmological constant will depend on the vacuum energy and it is observable; however, 
+the observations do not agree with physics prediction,
+this is still an unsolved issue in physics, called cosmological constant problem}.
+
+
+\newpage
 \section{Quantum Electrodynamics}
 
 %\section{Renormalization}
