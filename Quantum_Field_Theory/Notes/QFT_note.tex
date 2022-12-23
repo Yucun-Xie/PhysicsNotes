@@ -5,11 +5,11 @@
 %\usepackage[normalem]{ulem}
 \usepackage{indentfirst}
 \usepackage{amsmath,amsthm,amssymb,amsfonts}
-\numberwithin{equation}{subsection}
+\numberwithin{equation}{section}
+\usepackage{mathtools}
 \usepackage[italicdiff]{physics}
 \usepackage[T1]{fontenc}
-\usepackage{wrapfig}
-\usepackage{lmodern,mathrsfs}
+\usepackage{lmodern,mathrsfs}%font
 \usepackage[inline,shortlabels]{enumitem}
 \setlist{topsep=2pt,itemsep=2pt,parsep=0pt,partopsep=0pt}
 \usepackage[dvipsnames]{xcolor}
@@ -24,42 +24,71 @@
 %\usepackage[backend=bibtex,style=numeric]{biblatex}
 %\addbibresource{bibliography}
 \usepackage{hyperref}
-\usepackage[nameinlink]{cleveref} 
+\hypersetup{
+    colorlinks=true,
+    linkcolor=magenta,
+    filecolor=pink,      
+    urlcolor=cyan,
+    pdftitle={QFTCS Note},
+    pdfpagemode=FullScreen,
+    }
 \usepackage[titletoc, toc, page]{appendix}
+\usepackage{subfiles}
 
 
 
+\newtheoremstyle{1style}{}{}{}{}{\sffamily\bfseries}{.\\}{ }{}
+\newtheoremstyle{2style}{}{}{}{}{\sffamily\bfseries}{\\}{ }{}
+%\newtheoremstyle{cstyle}{}{}{}{}{\sffamily\bfseries}{}{ }{\thmnote{#3}}
+
+\theoremstyle{1style}
+\newtheorem{definition}[equation]{Definition}
+\newtheorem{theorem}[equation]{Theorem}
+\newtheorem{example}[equation]{Example}
+\newtheorem{cthm}[equation]{}
+\newtheorem*{remark}{Remark}
 
 
-\newtheoremstyle{mystyle}{}{}{}{}{\sffamily\bfseries}{.\\}{ }{}
-\newtheoremstyle{cstyle}{}{}{}{}{\sffamily\bfseries}{}{ }{\thmnote{#3}}
-
-\theoremstyle{mystyle}{\newtheorem{definition}{Definition}[subsection]}
 %\theoremstyle{mystyle}{\newtheorem{proposition}[definition]{Proposition}}
-\theoremstyle{mystyle}{\newtheorem{theorem}[definition]{Theorem}}
 %\theoremstyle{mystyle}{\newtheorem{lemma}[definition]{Lemma}}
 %\theoremstyle{mystyle}{\newtheorem{corollary}[definition]{Corollary}}
-\theoremstyle{mystyle}{\newtheorem*{remark}{Remark}}
 %\theoremstyle{mystyle}{\newtheorem*{remarks}{Remarks}}
-\theoremstyle{mystyle}{\newtheorem{example}{Example}[subsection]}
-\theoremstyle{mystyle}{\newtheorem{examples}{Examples}[subsection]}
+%\newtheorem{examples}{Examples}[equation]
 %\theoremstyle{definition}{\newtheorem*{exercise}{Exercise}}
-\theoremstyle{mystyle}{\newtheorem{cthm}{}[subsection]}
 
 
-\tcolorboxenvironment{definition}{boxrule=0pt,boxsep=0pt,colback={red!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{red},sharp corners,before skip=10pt,after skip=10pt,breakable}
+
+\tcolorboxenvironment{definition}
+{boxrule=0pt,boxsep=0pt,colback={red!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{red},
+sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{theorem}
+{boxrule=0pt,boxsep=0pt,colback={MidnightBlue!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{MidnightBlue},
+sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{example}
+{boxrule=0pt,boxsep=0pt,colback={Magenta!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{Magenta},
+sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{proof}
+{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{CadetBlue!80!white},left=8pt,right=8pt,
+sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{cthm}
+{boxrule=0pt,boxsep=0pt,colback={orange!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{orange},
+sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{equation}
+{boxrule=0pt,boxsep=0pt,colback={Green!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{Green},
+sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{align}
+{boxrule=0pt,boxsep=0pt,colback={blue!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{blue},
+sharp corners,before skip=10pt,after skip=10pt,breakable}
+\tcolorboxenvironment{remark}
+{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{Cyan},left=8pt,right=8pt,before skip=10pt,after skip=10pt,breakable}
+
 %\tcolorboxenvironment{proposition}{boxrule=0pt,boxsep=0pt,colback={Orange!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{Orange},sharp corners,before skip=10pt,after skip=10pt,breakable}
-\tcolorboxenvironment{theorem}{boxrule=0pt,boxsep=0pt,colback={blue!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{blue},sharp corners,before skip=10pt,after skip=10pt,breakable}
-\tcolorboxenvironment{example}{boxrule=0pt,boxsep=0pt,colback={Green!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{Green},sharp corners,before skip=10pt,after skip=10pt,breakable}
-\tcolorboxenvironment{examples}{boxrule=0pt,boxsep=0pt,colback={violet!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{violet},sharp corners,before skip=10pt,after skip=10pt,breakable}
-\tcolorboxenvironment{proof}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{CadetBlue!80!white},left=8pt,right=8pt,sharp corners,before skip=10pt,after skip=10pt,breakable}
-\tcolorboxenvironment{remark}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{Cyan},left=8pt,right=8pt,before skip=10pt,after skip=10pt,breakable}
+%\tcolorboxenvironment{examples}{boxrule=0pt,boxsep=0pt,colback={violet!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{violet},sharp corners,before skip=10pt,after skip=10pt,breakable}
 %\tcolorboxenvironment{remarks}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{Green},left=8pt,right=8pt,before skip=10pt,after skip=10pt,breakable}
 %\tcolorboxenvironment{example}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{Black},left=8pt,right=8pt,sharp corners,before skip=10pt,after skip=10pt,breakable}
 %\tcolorboxenvironment{examples}{boxrule=0pt,boxsep=0pt,blanker,borderline west={2pt}{0pt}{Black},left=8pt,right=8pt,sharp corners,before skip=10pt,after skip=10pt,breakable}
-\tcolorboxenvironment{cthm}{boxrule=0pt,boxsep=0pt,colback={orange!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{orange},sharp corners,before skip=10pt,after skip=10pt,breakable}
-\tcolorboxenvironment{equation}{boxrule=0pt,boxsep=0pt,colback={Magenta!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{Magenta},sharp corners,before skip=10pt,after skip=10pt,breakable}
-\tcolorboxenvironment{align}{boxrule=0pt,boxsep=0pt,colback={Cyan!10},left=8pt,right=8pt,enhanced jigsaw, borderline west={2pt}{0pt}{Cyan},sharp corners,before skip=10pt,after skip=10pt,breakable}
+
+
 
 
 
@@ -72,7 +101,7 @@
 \titlespacing*{\subsection}{0pt}{5pt}{5pt}
 \titlespacing*{\subsubsection}{0pt}{5pt}{5pt}
 
-%\newcommand{\sectionbreak}{\clearpage} %Start every section on a new page
+\newcommand{\sectionbreak}{\clearpage} %Start every section on a new page
 \newcommand{\tbf}[1]{\textbf{#1}}
 \newcommand{\p}{\partial}
 \newcommand{\id}{\mathrm{d}}
@@ -112,6 +141,16 @@
 \end{tcolorbox}
 
 \newpage
+
+
+
+
+
+
+
+
+
+
 \begin{tcolorbox}[
     title=Conventions, fonttitle=\large\sffamily\bfseries\selectfont,
     interior style={left color=convcol1!40!white,right color=convcol2!40!white},
@@ -119,13 +158,12 @@
     coltitle=black,top=2mm,bottom=2mm,left=2mm,right=2mm,drop fuzzy shadow,enhanced,breakable]
   \begin{enumerate}
 
-    \item Greek index (e.g. $\alpha, \beta, \mu, \nu$) take value from \{0, 1, 2, 3\}.
+    \item Greek index (e.g. $\alpha, \beta, \mu, \nu$) run over time and space.
           %\item Events denoted by cursive capitals  (e.g. $\mathscr{A}, \mathscr{B}, \mathscr{E}$).
-    \item $(x^0, x^1, x^2, x^3) \equiv (t, x, y, z) \equiv x^{\alpha}$.
-    \item Latin index (e.g.$ i, j, k$) take value from \{1, 2, 3\}.
-    \item Natural units ($c=1$).
+    \item Latin index (e.g. $ i, j, k$) run over space.
+    \item Natural units ($c=\hbar=1$).
     \item Einstein summation convention. \[ds^2 = g_{\mu \nu} dx^{\mu} dx^{\nu}=
-            \sum_{\mu=0}^{3} \sum_{\nu=0}^{3}g_{\mu \nu} dx^{\mu} dx^{\nu}\]
+            \sum_{\mu=0}^{n-1} \sum_{\nu=0}^{n-1}g_{\mu \nu} dx^{\mu} dx^{\nu}\]
     \item Metric signature $(+, -, -, -)$.
 
   \end{enumerate}
@@ -133,8 +171,22 @@
 
 \newpage
 
+
+
+
+
 %begin here ---------------------------------------------------------------------------------------------
-\section{Scalar Field Theory}
+\section{Field Theory}
+\subsection{Necessity of Field}
+Quantum field theory is the combination of quantum mechanics and relativistic field theory, 
+instead of studying the dynamics of particles, we study the dynamics of the field.
+To see why we can't simply stick with relativistic quantum mechanics, consider the relativistic 
+wave equation, for example, \tbf{Klein-Gordon equation}:
+\begin{equation}
+  (\Box +m^2)\phi=0
+\end{equation}
+
+
 
 \subsection{Canonical Quantization}
 
@@ -145,160 +197,9 @@
 \newpage
 \appendix
 \addcontentsline{toc}{section}{Appendix~}
+
 \section{Classical Field Theory}
-Classical field theory is something you are supposed to know for QFT but is never formally taught, so I give a brief overview here.
-Field theory is very similar to Lagrangian mechanics; instead of the usual system,
-we now have a spacetime-dependent \textbf{fields} \(\Phi^i(x^\mu)\) (the \(i\) here is not tensor index),
-and the action becomes a \textbf{functional} of these fields. A functional is a ``function of function'', which map a function to a number,
-note that the functional is not simply a composition function, which maps number to number. \par
-In field theory, the Lagrangian is usually expressed as an integral over \textbf{Lagrange density},
-which are a function of the fields and their derivative.
-\begin{cthm}
-  \[L=\int d^3x\;\mathcal{L}(\Phi^i,\p_{\mu}\Phi^i)\]
-\end{cthm}
-Then the action
-\begin{cthm}
-  \[S=\int dt\;L = \int d^4x\;\mathcal{L}(\Phi^i,\p_{\mu}\Phi^i)\]
-\end{cthm}
-By varying the action, just like what we did in classical mechanics, we can obtain the equation of motion of field:
-\begin{cthm}
-  \begin{align*}
-    \delta S & = \int d^4x\left[\frac{\p\mathcal{L}}{\p \Phi^i}\delta\Phi^i+
-    \frac{\p\mathcal{L}}{\p(\p_\mu \Phi^i)}\p_\mu (\delta\Phi^i)\right]      \\
-             & =\int d^4x\left[\frac{\p\mathcal{L}}{\p \Phi^i}-\p_\mu
-      \frac{\p\mathcal{L}}{\p(\p_\mu \Phi^i)}\right]\delta\Phi^i
-  \end{align*}
-\end{cthm}
-We have obtained the field version of \textbf{Euler-Lagrange equation}
-\begin{cthm}
-  \[\frac{\p\mathcal{L}}{\p \Phi^i}-\p_\mu
-    \frac{\p\mathcal{L}}{\p(\p_\mu \Phi^i)}=0\]
-\end{cthm}
-Let's consider a simple example, the real scalar field \[\phi:\ x^{\mu} \rightarrow \mathbb{R}\].
-The contribution of action are
-
-\begin{enumerate}
-  \item Kinetic term: \(\frac{1}{2}\dot{\phi}^2\)
-  \item Gradient term: \(\frac{1}{2}(\nabla\phi)^2\)
-  \item potential term: \(V(\phi)\)
-\end{enumerate}
-We could combine them into a Lorentz-invariant Lagrange density:
-\begin{cthm}
-  \[\mathcal{L}= \frac{1}{2}\eta^{\mu\nu}(\p_{\mu}\phi)(\p_{\nu}\phi)-V(\phi)\]
-\end{cthm}
-Apply the Euler-Lagrange equation; we then get the equation of motion:
-\begin{cthm}
-  \begin{align*}            & \eta^{\mu\nu}\p_{\mu}\p_{\nu}\phi+\frac{\mathrm{d}V(\phi)}{\mathrm{d}\phi} \\
-                      =\  & \square\phi+\frac{\mathrm{d}V(\phi)}{\mathrm{d}\phi}                       \\
-                      =\  & 0
-  \end{align*}
-  Where \(\square\) is \textbf{d'Alembertian}.
-\end{cthm}
-\subsection{Klein-Gordon Field}
-If the scalar field is massive, the potential \(V(\phi)=\frac{1}{2}m^2\phi^2\),
-we obtained the \textbf{Klein-Gordon equation}:
-\begin{cthm}
-  \[(\square +m^2)\phi = 0\]
-\end{cthm}
-You will see this equation again and again in quantum field theory.
-\begin{remark}
-  The Klein-Gordon field could be analog to infinite many coupled infinitesimal harmonic oscillators;
-  each ``mass'' is affected by neighboring springs and has its kinetic energy.
-\end{remark}
-
-
-
-\subsection{Hamiltonian Field Theory}
-The Lagrangian field theory is naturally Lorentz invariant. However, we also need Hamiltonian formalism for the field theory
-because it is easier to transition from quantum mechanics.
-Let's first consider the classical definition of Hamiltonian, \[H=\sum p\dot{q}-L\].
-From the definition of Lagrangian, we can derive the conjugate momentum as follow:
-\begin{cthm}
-  \begin{align*}
-    p(x^i)\equiv & \;\frac{\p L}{\p \dot{\phi}(x^i)}
-    =\frac{\p}{\p \dot{\phi}(x^i)}\int \mathrm{d}^3x' \mathcal{L} \\
-    \propto      & \;\pi(x^i) \mathrm{d}^3x
-  \end{align*}
-  \bigskip
-  Where \[\pi \equiv \frac{\p \mathcal{L}}{\p \dot{\phi}}\]
-  is called \textbf{momentum density}
-\end{cthm}
-Therefore, the Hamiltonian for field theory is:
-\begin{definition}
-  \begin{align*}
-    H=&\sum p(x^i)\phi(x^i)-L\\
-    =& \int \id^3x\left[\pi \dot{\phi}-\mathcal{L}\right]\\
-    =& \int \id^3x\;\mathcal{H}
-  \end{align*}
-  Where \(\mathcal{H}\) is called \tbf{Hamiltonian density}.
-\end{definition}
-
-\begin{example}
-  As a simple example, the Hamiltonian for K-G field is:
-  \[H=\int\id^3x\;\mathcal{H}=\int\id^3x\left[\frac{1}{2}\pi^2+\frac{1}{2}(\nabla\phi)^2+\frac{1}{2}m^2\phi^2\right]\]
-\end{example}
-
-\subsection{Noether's Theorem}
-A Lagrangian may be invariant under some special type of transformation.
-For example, a Lagrangian for a complex scalar field
-\[\mathcal{L}= |\p_\mu \phi|^2 -m^2|\phi|^2\]
-is invariant under transformation \(\phi \rightarrow e^{i\alpha}\phi\).
-We call this transformation a \textbf{symmetry} of the Lagrangian.
-When the parameter of transformation (\(\alpha\) for this case) can be taken infinitesimal,
-we say this symmetry is \textbf{continuous}.
-We can explicit see that \(\frac{\delta \mathcal{L}}{\delta \alpha}=0\).
-\par By applying the Euler-Lagrange equation, we can deduce that \(\p_\mu J_{\mu}=0\),
-where \(J_{\mu}\) is defined as follow:
-\begin{definition}
-  \[J_{\mu}= \sum_n\frac{\p \mathcal{L}}{\p(\p_\mu \phi_n)}\frac{\delta\phi_n}{\delta \alpha}\]\\
-  \(J_{\mu}\) is known as \textbf{Noether current} or \textbf{conserved current}
-\end{definition}
-
-\begin{example}
-  For the above complex scalar field, we can calculate the conserved current:
-  \bigskip
-  \begin{align*}
-    J_{\mu}= & \sum_n\frac{\p \mathcal{L}}{\p(\p_\mu \phi_n)}\frac{\delta\phi_n}{\delta \alpha} \\
-    =        & \frac{\p \mathcal{L}}{\p(\p_\mu \phi)}\frac{\delta\phi}{\delta \alpha}
-    +\frac{\p \mathcal{L}}{\p(\p_\mu \phi^*)}\frac{\delta\phi^*}{\delta \alpha}                 \\
-    =        & -i\left[\phi\p_\mu\phi^*-\phi^* \p_\mu\phi\right]
-  \end{align*}
-  We can check that \(\p_\mu J_{\mu}=0\) explicitly:
-  \begin{align*}
-    \p_\mu J_{\mu}= & -i\left[\phi\square\phi^*-\phi^* \square\phi\right] \\
-    =               & 0
-  \end{align*}
-  Where we applied the equation of motion in the last step.
-\end{example}
-We call \(J_\mu\) conserved current because we can find conserved quantity by integral over its 0-component:
-\begin{definition}
-  \[Q=\int d^3x\;J_0\]
-  Where the \(Q\) is called \textbf{conserved charge} or \textbf{Noether's charge}
-\end{definition}[Conserved charge]
-We say \(Q\) is conserved because
-\begin{cthm}
-  \[\p_tQ=\int d^3x \; \p_t J_0 = \int d^3x\;\vec{\nabla}\cdot \vec{J} = 0.\]
-\end{cthm}
-The above argument is called \textbf{Noether's theorem}.
-\begin{theorem}[Noether's theorem]
-  If a Lagrangian has a continuous symmetry,
-  then exists a current associated with that symmetry that is
-  conserved when the equations of motion are satisfied.
-\end{theorem}
-
-\subsection{Energy-momentum Tensor}
-The physics at spacetime point \(x\) should have same form at spacetime point \(y\),
-this argument arises a symmetry called \textbf{specetime translational symmetry}.
-By Noether's theorem, we can find the four conserved currents for this symmetry for an infinitesimal
-spacetime translation \(\xi^\mu\):
-\begin{cthm}
-  \[T_{\mu\nu}=\sum_n \frac{\p \mathcal{L}}{\p(\p_{\mu}\phi_n)}\p_\nu\phi_n-g_{\mu\nu}\mathcal{L}\]
-
-  \(T_{\mu\nu}\) is called \textbf{energy-momentum tensor}.
-\end{cthm}
-Four conserved currents correspond to values of \(\nu\), and four conserved charges are energy and momentum.
-We can see that the energy density is the 00-component of \(T_{\mu\nu}\).
-
+\subfile{Appendix/Classical_Field_Theory}
 
 
 \newpage
