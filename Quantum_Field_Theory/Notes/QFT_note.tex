@@ -367,6 +367,7 @@ Which obeys:
 The eigenstates of the number operator form a basis span Hilbert space, known as \tbf{Fock basis}.
 The space span by this basis is called \tbf{Fock space}.
 
+\subsection{Vacuum}
 
 The energy-momentum tensor of scalar field theory can be constructed in a standard manner:
 \begin{align}
@@ -399,9 +400,8 @@ The divergences caused by infinitely large space are often referred to as \tbf{i
 We can eliminate this kind of infinite by confining our field in a box.
 Let confine the field in a box with length \(L\) by imposing periodic boundary conditions, and rewrite the second term in \ref{134} as:
 \begin{equation}\label{135}
-  \int \id^{n-1}k\left[\frac{1}{2}\delta^{(n-1)}(0)\omega\right]\rightarrow\frac{1}{2}\left[\frac{L}{2\pi}\right]^{n-1}\sum_{\mathbf{k}}\omega
+  \int \id^{3}k\left[\frac{1}{2}\delta^{(3)}(0)\omega_{k}\right]\rightarrow\frac{1}{2}\left[\frac{L}{2\pi}\right]^{3}\sum_{\mathbf{k}}\omega_{k}
 \end{equation}
-We have used the Fourier transform of \(\delta\) function.
 
 However, after we restrict the vacuum in a finite region, the expression in \ref{135} is still divergent.
 Since the value of \(\omega=\sqrt{|\mathbf{k}|^2+m^2}\) can be arbitrarily large.
