@@ -205,15 +205,11 @@ In this chapter, we will review the quantum field theory in flat spacetime and c
 the concepts only valid in flat spacetime and the concepts that could be generalized to curved spacetime.
 \subsection{Scalar Field Construction}
 
-Consider a massive scalar field \(\phi(t,x^{i})\) defined in spacetime point \((t,x^{i})\) satisfying the \textbf{Klein-Gordon equation}:
+Consider a massive scalar field \(\phi(t,x^{i})\) defined in spacetime point \((t,x^{i})\) satisfying the \textbf{Klein-Gordon equation}\footnote{Here we use the metric sign convention \((+,-,-,-)\); if we used other sign convention, the Klein-Gordon equation
+would read \((\Box - m^2) \phi = 0\).}:
 \begin{equation}
   (\Box + m^2) \phi = 0
 \end{equation}
-
-\begin{remark}
-  Here we use the metric sign convention \((+,-,-,-)\); if we used other sign convention, the Klein-Gordon equation
-  would read \((\Box - m^2) \phi = 0\).
-\end{remark}
 
 where the d'Alembertian \(\Box\) is defined as \(\Box = g^{\mu\nu}\p_{\mu}\p_{\nu}\).
 In this chapter, we assume the spacetime is flat, so \(g^{\mu\nu}=\eta^{\mu\nu}\).\par
@@ -307,6 +303,7 @@ then impose the canonical commutation relations on equal-time hypersurface:
 \end{definition}
 The first two commutation relations come from the causality requirement, as those operators have spacelike separation.
 The delta function implies that field and momentum operators commute everywhere except the spacetime point they intersect.
+
 Just like the classical solution of the Klein-Gordon equation can be expanded in terms of mode,
 the field operator \(\hat{\phi}\) also can be expanded in term mode function and have coefficients \(\hat{a}_{\mathbf{k}}\) and
 \(\hat{a}^{\dagger}_{\mathbf{k}}\) respectively as shown below:
@@ -420,7 +417,7 @@ The first reason we see infinite vacuum energy is that we are integral over all 
 to harmonic oscillator zero point energy,
 if we sum over infinite many ground state harmonic oscillators, we are expecting infinite energy.
 The divergences caused by infinitely large space are often referred to as \tbf{infrared divergences}.
-We can eliminate this kind of infinite through \tbf{regularization}.
+We can eliminate this kind of infinite by confining our field in a box.
 Let confine the field in a box with length \(L\) by imposing periodic boundary conditions, and rewrite the second term in \ref{134} as:
 \begin{equation}\label{135}
   \int \id^{n-1}k\left[\frac{1}{2}\delta^{(n-1)}(0)\omega\right]\rightarrow\frac{1}{2}\left[\frac{L}{2\pi}\right]^{n-1}\sum_{\mathbf{k}}\omega
@@ -435,7 +432,10 @@ The divergences caused by infinitely high frequency are often referred to as \tb
 We can eliminate this kind of infinite through \tbf{renormalization}.
 The simplified idea is just substrating off infinite from our expression.
 This is valid because what we can measure in the experiment is the energy difference,
-we can simply rescale the zero point of energy and not affect the observable.
+we can simply rescale the zero point of energy and not affect the observable\footnote{This is not correct when we introduce general relativity, 
+because the cosmological constant will depend on the vacuum energy and it is observable; however, 
+the observation do not agree with physics prediction,
+this is still an unsolved issue in physics, called cosmological constant problem}.
 
 
 
