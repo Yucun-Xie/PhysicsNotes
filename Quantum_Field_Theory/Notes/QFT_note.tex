@@ -334,38 +334,7 @@ There is a single state \(\ket{0}\) that would be anihilated by all \(\hat{a}_{\
   \[\forall\; \mathbf{k},\; \hat{a}_{\mathbf{k}}\ket{0}=0.\]
 \end{definition}
 
-A state with \(n\) particles with identical momentum \(\mathbf{k}\) can be constructed by repeat acting \(\hat{a}^{\dagger}_{\mathbf{k}}\)
-on the vacuum:
-\begin{equation}
-  \ket{n_{\mathbf{k}}}=\frac{1}{\sqrt{n_{\mathbf{k}}!}}\left(\hat{a}^{\dagger}_{\mathbf{k}}\right)^{n}\ket{0}
-\end{equation}
 
-Similarly, we can construct a state with \(n_{i}\) particle for momentum \(\mathbf{k}_i\):
-\begin{equation}
-  \ket{n_1,n_2,\cdots,n_j}=\frac{1}{\sqrt{n_1!n_2!\cdots n_j!}}\left(\hat{a}^{\dagger}_{\mathbf{k}_1}\right)^{n_1}
-  \left(\hat{a}^{\dagger}_{\mathbf{k}_2}\right)^{n_2}\cdots \left(\hat{a}^{\dagger}_{\mathbf{k}_j}\right)^{n_j}\ket{0}
-\end{equation}
-
-We can create or annihilate particles with certain momentum:
-\begin{example}
-  \begin{align*}
-    \hat{a}_{\mathbf{k}_i}\ket{n_1,n_2,\cdots,n_i,\cdots,n_j}=           & \sqrt{n_i}\ket{n_1,n_2,\cdots,n_i-1,\cdots,n_j}   \\
-    \hat{a}^{\dagger}_{\mathbf{k}_i}\ket{n_1,n_2,\cdots,n_i,\cdots,n_j}= & \sqrt{n_i+1}\ket{n_1,n_2,\cdots,n_i+1,\cdots,n_j}
-  \end{align*}
-\end{example}
-
-Furthermore, we can define \tbf{number operator}:
-\begin{definition}[Number operator]
-  \[\hat{n}_{\mathbf{k}}=\hat{a}^\dagger_{\mathbf{k}}\hat{a}_{\mathbf{k}}\]
-\end{definition}
-
-Which obeys:
-\begin{equation}
-  \hat{n}_{\mathbf{k}_i}\ket{n_1,n_2,\cdots,n_i,\cdots,n_j}=    n_i\ket{n_1,n_2,\cdots,n_i,\cdots,n_j}
-\end{equation}
-
-The eigenstates of the number operator form a basis span Hilbert space, known as \tbf{Fock basis}.
-The space span by this basis is called \tbf{Fock space}.
 
 \subsection{Vacuum}
 
@@ -415,6 +384,77 @@ we can simply rescale the zero point of energy and not affect the observable\foo
 because the cosmological constant will depend on the vacuum energy and it is observable; however, 
 the observations do not agree with physics prediction,
 this is still an unsolved issue in physics, called cosmological constant problem}.
+After all, the redefined Hamiltonian read 
+\begin{equation}
+  H=\int\frac{\id^3k}{(2\pi)^3}\omega_{k}a_{\vec{p}}^{\dagger}a_{\vec{p}}
+\end{equation}
+
+\subsection{Particle}
+
+A state with \(n\) particles with identical momentum \(\mathbf{k}\) can be constructed by repeat acting \(\hat{a}^{\dagger}_{\mathbf{k}}\)
+on the vacuum:
+\begin{equation}
+  \ket{n_{\mathbf{k}}}=\frac{1}{\sqrt{n_{\mathbf{k}}!}}\left(\hat{a}^{\dagger}_{\mathbf{k}}\right)^{n}\ket{0}
+\end{equation}
+
+Similarly, we can construct a state with \(n_{i}\) particle for momentum \(\mathbf{k}_i\):
+\begin{equation}
+  \ket{n_1,n_2,\cdots,n_j}=\frac{1}{\sqrt{n_1!n_2!\cdots n_j!}}\left(\hat{a}^{\dagger}_{\mathbf{k}_1}\right)^{n_1}
+  \left(\hat{a}^{\dagger}_{\mathbf{k}_2}\right)^{n_2}\cdots \left(\hat{a}^{\dagger}_{\mathbf{k}_j}\right)^{n_j}\ket{0}
+\end{equation}
+
+We can create or annihilate particles with certain momentum:
+\begin{example}
+  \begin{align*}
+    \hat{a}_{\mathbf{k}_i}\ket{n_1,n_2,\cdots,n_i,\cdots,n_j}=           & \sqrt{n_i}\ket{n_1,n_2,\cdots,n_i-1,\cdots,n_j}   \\
+    \hat{a}^{\dagger}_{\mathbf{k}_i}\ket{n_1,n_2,\cdots,n_i,\cdots,n_j}= & \sqrt{n_i+1}\ket{n_1,n_2,\cdots,n_i+1,\cdots,n_j}
+  \end{align*}
+\end{example}
+
+Furthermore, we can define \tbf{number operator}:
+\begin{definition}[Number operator]
+  \[\hat{n}_{\mathbf{k}}=\hat{a}^\dagger_{\mathbf{k}}\hat{a}_{\mathbf{k}}\]
+\end{definition}
+
+Which obeys:
+\begin{equation}
+  \hat{n}_{\mathbf{k}_i}\ket{n_1,n_2,\cdots,n_i,\cdots,n_j}=    n_i\ket{n_1,n_2,\cdots,n_i,\cdots,n_j}
+\end{equation}
+
+The eigenstates of the number operator form a basis span Hilbert space, known as \tbf{Fock basis}.
+The space span by this basis is called \tbf{Fock space}.
+
+From the classical expression of angular momentum, we can obtain the angular momentum operator:
+\begin{equation}
+  J^{i}=\epsilon^{ijk}\int\id^3x(\mathcal{J}^0)^{jk}.
+\end{equation}
+By acting it into the one particle state, we can see that the angular momentum of a scalar particle is 0.
+We should also notice that the creation operators commute among themselves, this means we have created \tbf{boson}.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \newpage
