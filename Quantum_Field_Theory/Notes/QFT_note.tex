@@ -16,9 +16,12 @@
 \usepackage[utf8]{inputenc}
 %\usepackage[letterpaper, top=0.5in,bottom=0.2in, left=0.5in, right=0.5in, footskip=0.3in, includefoot]{geometry}
 \usepackage[letterpaper,left=0.5in, right=0.5in,top=0.7in,bottom=1in,footskip=0.3in,includefoot]{geometry}
+
 \usepackage[most]{tcolorbox}
-\usepackage{tikz,tikz-3dplot,tikz-cd,tkz-tab,tkz-euclide,pgf,pgfplots}
+\usepackage{tikz,tikz-3dplot,tikz-cd,tkz-tab,tkz-euclide,pgf,pgfplots,tikz-feynman}
 \pgfplotsset{compat=newest}
+
+
 \usepackage{multicol}
 \usepackage[bottom,multiple]{footmisc} 
 %\usepackage[backend=bibtex,style=numeric]{biblatex}
@@ -178,9 +181,9 @@ sharp corners,before skip=10pt,after skip=10pt,breakable}
 %begin here ---------------------------------------------------------------------------------------------
 \section{Field Theory}
 \subsection{Necessity of Field}
-Quantum field theory is the combination of quantum mechanics and relativistic field theory, 
+Quantum field theory is the combination of quantum mechanics and relativistic field theory,
 instead of studying the dynamics of particles, we study the dynamics of the field.
-To see why we can't simply stick with relativistic quantum mechanics, consider the relativistic 
+To see why we can't simply stick with relativistic quantum mechanics, consider the relativistic
 wave equation, for example, \tbf{Klein-Gordon equation}\footnote{
   Here we use the metric sign convention \((+,-,-,-)\); if we used another sign convention, the Klein-Gordon equation
   would read \((\Box - m^2) \phi = 0\). The d'Alembertian \(\Box\) is defined as \(\Box = g^{\mu\nu}\p_{\mu}\p_{\nu}\).
@@ -193,18 +196,18 @@ The solution of the Klein-Gordon equation carries negative energy states and oth
 Another reason relativistic quantum mechanics does not work is related to causality.
 In quantum mechanics, the amplitude to propagate from a point \(\vec{x}_0\) to a point \(\vec{x}\) in time \(t\)
 is governed by the unitary operator \(e^{-iHt}\), where \(H\) is the Hamiltonian.
-In relativistic case, we have \(E=\sqrt{\vec{p}^2+m^2}\), so 
+In relativistic case, we have \(E=\sqrt{\vec{p}^2+m^2}\), so
 \begin{align}
-  \bra{\vec{x}}e^{-itH}\ket{\vec{x}_0}&=\bra{\vec{x}}e^{-it\sqrt{p^2+m^2}}\ket{\vec{x}_0}\\
-  &=\int\frac{\id^3p}{(2\pi)^3}e^{-it\sqrt{\vec{p}^2+m^2}}e^{i\vec{p}\cdot(\vec{x}-\vec{x}_0)}\\
-  &=\frac{1}{2\pi^2|\vec{x}-\vec{x}_0|}\int_{0}^{\infty}\id p\;p\sin(p|\vec{x}-\vec{x}_0|)e^{-it\sqrt{\vec{p}^2+m^2}}
+  \bra{\vec{x}}e^{-itH}\ket{\vec{x}_0} & =\bra{\vec{x}}e^{-it\sqrt{p^2+m^2}}\ket{\vec{x}_0}                                                                 \\
+                                       & =\int\frac{\id^3p}{(2\pi)^3}e^{-it\sqrt{\vec{p}^2+m^2}}e^{i\vec{p}\cdot(\vec{x}-\vec{x}_0)}                        \\
+                                       & =\frac{1}{2\pi^2|\vec{x}-\vec{x}_0|}\int_{0}^{\infty}\id p\;p\sin(p|\vec{x}-\vec{x}_0|)e^{-it\sqrt{\vec{p}^2+m^2}}
 \end{align}
 We can evaluate integral explicitly in terms of Bessel functions, or we can look for asymptotic behavior using the method of steepest descent.
 The amplitude are asymptotically exponential, \(\bra{\vec{x}}e^{-itH}\ket{\vec{x}_0}\sim e^{m\sqrt{x^2-t^2}}\), however, dose not vanish for spacelike separation.
-All the above issues could be solved from the field viewpoint, for example, the causality problem is solved by introducing the antiparticle. 
+All the above issues could be solved from the field viewpoint, for example, the causality problem is solved by introducing the antiparticle.
 Quantum field theory not only provides a natural way to handle the multiparticle state but also transitions between the states
 with different particle numbers. It provides the tools to calculate innumerable experimental observables like scattering cross-section,
-with incredible precision\footnote{See \url{https://en.wikipedia.org/wiki/Precision_tests_of_QED}}. 
+with incredible precision\footnote{See \url{https://en.wikipedia.org/wiki/Precision_tests_of_QED}}.
 
 
 \subsection{Canonical Quantization}
@@ -232,8 +235,8 @@ We could quantize the field by canonical quantization scheme, which treats the f
 then impose the canonical commutation relations on equal-time hypersurface:
 \begin{definition}[Canonical commutation relation]\label{121}
   \begin{align*}
-    \bigl[\hat{\phi}(t,\mathbf{x}),\hat{\phi}(t,\mathbf{x'})\bigr] & =0                                       \\
-    \bigl[\hat{\pi}(t,\mathbf{x}),\hat{\pi}(t,\mathbf{x'})\bigr]   & =0                                       \\
+    \bigl[\hat{\phi}(t,\mathbf{x}),\hat{\phi}(t,\mathbf{x'})\bigr] & =0                                     \\
+    \bigl[\hat{\pi}(t,\mathbf{x}),\hat{\pi}(t,\mathbf{x'})\bigr]   & =0                                     \\
     \bigl[\hat{\phi}(t,\mathbf{x}),\hat{\pi}(t,\mathbf{x'})\bigr]  & =i\delta^{(3)}(\mathbf{x}-\mathbf{x'})
   \end{align*}
 \end{definition}
@@ -243,7 +246,7 @@ The delta function implies that field and momentum operators commute everywhere 
 Just like the classical solution of the Klein-Gordon equation can be expanded in terms of mode,
 the field operator \(\hat{\phi}\) also can be expanded in term mode function and have coefficients \(\hat{a}_{\mathbf{k}}\) and
 \(\hat{a}^{\dagger}_{\mathbf{k}}\) respectively as shown below:
-\begin{cthm}[Mode expansion]
+\begin{cthm}[Mode expansion]\label{ME}
   \[\phi(t,\mathbf{x})=\int\frac{\id^{3}k}{(2\pi)^3\sqrt{2\omega_{k}}}\left[\hat{a}_{\mathbf{k}}e^{i\mathbf{k}\cdot \mathbf{x}}+
     \hat{a}^{\dagger}_{\mathbf{k}}e^{-i\mathbf{k}\cdot \mathbf{x}}\right]\]
 \end{cthm}
@@ -251,8 +254,8 @@ By using the commutation relation defined in \ref{121}, we can obtain the commut
 \(\hat{a}^{\dagger}_{\mathbf{k}}\)\footnote{The factor of \(2\pi\) come from the convention of Fourier transformation.}:
 
 \begin{align}
-  \bigl[\hat{a}_{\mathbf{k}},\hat{a}_{\mathbf{k'}}\bigr]                     & =0                                      \\
-  \bigl[\hat{a}^{\dagger}_{\mathbf{k}},\hat{a}^{\dagger}_{\mathbf{k'}}\bigr] & =0                                      \\
+  \bigl[\hat{a}_{\mathbf{k}},\hat{a}_{\mathbf{k'}}\bigr]                     & =0                                            \\
+  \bigl[\hat{a}^{\dagger}_{\mathbf{k}},\hat{a}^{\dagger}_{\mathbf{k'}}\bigr] & =0                                            \\
   \bigl[\hat{a}_{\mathbf{k}},\hat{a}^{\dagger}_{\mathbf{k'}}\bigr]           & =(2\pi)^3\delta^{(3)}(\mathbf{k}-\mathbf{k'})
 \end{align}
 
@@ -322,11 +325,11 @@ The divergences caused by infinitely high frequency are often referred to as \tb
 We can eliminate this kind of infinite through \tbf{renormalization}.
 The simplified idea is just substrating off infinite from our expression.
 This is valid because what we can measure in the experiment is the energy difference,
-we can simply rescale the zero point of energy and not affect the observable\footnote{This is not correct when we introduce general relativity, 
-because the cosmological constant will depend on the vacuum energy and it is observable; however, 
-the observations do not agree with physics prediction,
-this is still an unsolved issue in physics, called cosmological constant problem}.
-After all, the redefined Hamiltonian read 
+we can simply rescale the zero point of energy and not affect the observable\footnote{This is not correct when we introduce general relativity,
+  because the cosmological constant will depend on the vacuum energy and it is observable; however,
+  the observations do not agree with physics prediction,
+  this is still an unsolved issue in physics, called cosmological constant problem}.
+After all, the redefined Hamiltonian read
 \begin{equation}
   H=\int\frac{\id^3k}{(2\pi)^3}\omega_{k}a_{\vec{p}}^{\dagger}a_{\vec{p}}
 \end{equation}
@@ -375,9 +378,29 @@ We should also notice that the creation operators commute among themselves, this
 
 
 
+\subsection{Causality}
+The propagation of particle should satisfy \tbf{causality}, which means that the commutator
+\[\left[\hat{\phi}(x),\hat{\phi}(y)\right]=0\]
+if the point \(x\) and \(y\) are separated spacelike.
 
+We can use mode expansion \ref{ME} to calculate this commutator explicitly:
+\begin{align}
+  \left[\hat{\phi}(x),\hat{\phi}(y)\right] & =\int \frac{\id^3p}{(2\pi)^3}\frac{1}{2E_{p}}
+  \left(e^{-ip\cdot(x-y)}-e^{ip\cdot(x-y)}\right)                                          \\
+                                           & =D(x-y)-D(y-x) \footnotemark
+\end{align}
+\footnotetext{{\(D(x-y)=\expval{\phi(x)\phi(y)}{0}\)}}
+We should notice that when \((x-y)^2<0\), \(D(x-y)=D(y-x)\), therefore the causality is satisfied.
 
+An important quantity that describes the amplitude of particle propagation, is called \tbf{propagator}.
 
+\feynmandiagram [horizontal=a to b] {
+  i1 -- [fermion] a -- [fermion] i2,
+  a -- [photon] b,
+  f1 -- [fermion] b -- [fermion] f2,
+};\label{PE}
+
+For example, the tildes line in figure \ref{PE} is the propagator of a virtue photon.
 
 
 
