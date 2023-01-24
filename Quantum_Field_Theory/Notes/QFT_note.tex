@@ -389,21 +389,49 @@ We can use mode expansion \ref{ME} to calculate this commutator explicitly:
   \left(e^{-ip\cdot(x-y)}-e^{ip\cdot(x-y)}\right)                                          \\
                                            & =D(x-y)-D(y-x) \footnotemark
 \end{align}
-\footnotetext{{\(D(x-y)=\expval{\phi(x)\phi(y)}{0}\)}}
+\footnotetext{Wightman function: {\(D(x-y)=\expval{\phi(x)\phi(y)}{0}\)}}
 We should notice that when \((x-y)^2<0\), \(D(x-y)=D(y-x)\), therefore the causality is satisfied.
 
 An important quantity that describes the amplitude of particle propagation, is called \tbf{propagator}.
+\begin{figure}[ht]
+  \centering
+\begin{tikzpicture}
+  \begin{feynman}
+    \vertex (a) ;
+    \vertex [below left=of a] (f2);
+    \vertex [above left=of a] (f1);
+    \vertex [right=of a] (b);
+    \vertex [above right=of b] (f3) ;
+    \vertex [below right=of b] (f4) ;
 
-\feynmandiagram [horizontal=a to b] {
-  i1 -- [fermion] a -- [fermion] i2,
-  a -- [photon] b,
-  f1 -- [fermion] b -- [fermion] f2,
-};\label{PE}
-
+    \diagram* {
+      (f1) -- [fermion] (a) -- [fermion] (f2),
+      (a) -- [photon] (b),
+      (b) -- [anti fermion] (f3),
+      (b) -- [fermion] (f4),
+    };
+  \end{feynman}
+\end{tikzpicture}
+\caption{Feynman diagram}\label{PE}
+\end{figure}
 For example, the tildes line in figure \ref{PE} is the propagator of a virtue photon.
 
-
-
+The most important propagator is \tbf{Feynman propagator}:
+\begin{definition}[Feynman propagator]
+  \begin{equation*}
+    D_{F}(x-y)=\int \frac{\id^4p}{(2\pi)^4}\frac{i}{p^2-m^2+i\epsilon}e^{-ip\cdot(x-y)}
+  \end{equation*}
+\end{definition}
+Feynman propagator can be written in terms of the Wightman function,
+\begin{align}
+  D_{F}(x-y)&=\int \frac{\id^4p}{(2\pi)^4}\frac{i}{p^2-m^2+i\epsilon}e^{-ip\cdot(x-y)}\\
+&=\int \frac{\id^4p}{(2\pi)^4}\frac{i}{(p^0+E_p-i\epsilon)(p^0-E_p+i\epsilon)}e^{-ip\cdot(x-y)}\\
+&=\int\frac{\id^3p}{(2\pi)^3}\frac{1}{E_p}e^{-ip\cdot(x-y)}\theta(x^0-y^0)+\int\frac{\id^3p}{(2\pi)^3}\frac{1}{E_p}e^{-ip\cdot(y-x)}\theta(y^0-x^0)\\
+&=D(x-y)\theta(x^0-y^0)+D(y-x)\theta(y^0-x^0)\\
+&=\expval{T\phi(x)\phi(y)}{0}\footnotemark
+\end{align}
+\footnotetext{\(T\) is the time ordering operator that indicates the operator in late time located on the left side.}
+Feynman propagator will be used frequently in the real calculation, it corresponds to amplitude for free particle propagation.
 
 
 
