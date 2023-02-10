@@ -1153,7 +1153,137 @@ Where \(T\) is the duration of the detector switched on. If \(\mathbf{v}=0\) we 
 
 \subsection{Conformal Vacuum}
 
-\section{Quantum Phenomena in Spacetime}
+\newpage
+
+\section{Renormalization of Stress-energy Tensor}
+\subsection{Adiabatic Regularization}
+
+To illustrate the method so-called \textbf{adiabatic regularization}, let's consider a massless conformal coupled scalar field propagate 
+in a two-dimensional Roberson-Walker-type spacetime. The metric of spacetime is given by:
+\begin{equation}
+  \id s^2 = dt^2 -a(t)^2 dx^2
+\end{equation}
+Define conformal time 
+\begin{equation}
+    d\eta= \frac{dt}{a(t)},
+\end{equation}
+Then the metric could be written as 
+\begin{align}
+    \id s^2 &= a(t(\eta))^2\id\eta^2 -a(t(\eta))^2 \id x^2\\
+    &=a(\eta)^2(\id\eta^2 - \id x^2)\\
+    &=C(\eta)(\id \eta^2 - \id x^2).
+\end{align}
+The metric can also be expressed in the lightcone coordinate, \(\eta+x=\nu, \eta-x=\mu\):
+\begin{equation}
+    \id s^2 = C(\eta)\id\mu \id\nu
+\end{equation}
+
+The normalized positive-frequency mode function \(f_{k}\) define through conformal Killing vector is given by 
+\begin{equation}
+  f_k = \frac{1}{\sqrt{4\pi k}}\left[e^{-ik\nu} +e^{-ik\mu}\right] 
+\end{equation} 
+These terms represent right-moving and left-moving waves respectively.
+The energy-momentum tensor is given by:
+\begin{equation}
+    T_{\mu\nu}=(\partial_{\mu}\phi)(\partial_{\nu}\phi)-\frac{1}{2}g_{\mu\nu}g^{\rho\sigma}(\partial_{\rho}\phi)(\partial_{\sigma}\phi)+\frac{1}{2}g_{\mu\nu}m^2\phi^2.
+\end{equation}
+Let's now compute the divergent expression of the stress-energy tensor component, the components in the lightcone coordinate are given as:
+\begin{align}
+  T_{\mu\mu}&=\left(\frac{\p \phi}{\p\mu}\right)^2\\
+T_{\nu\nu}&= \left(\frac{\p \phi}{\p\nu}\right)^2\\
+T_{\mu\nu}&= \frac{Cm^2}{4}\phi^2
+\end{align}
+Using the conformal vacuum, we can obtain the divergent expression  of the vacuum expectation value of the energy-momentum tensor:
+\begin{align}
+  \expval{T_{\mu\mu}}&=\int_0^\infty \id k\frac{\p f_k}{\p \mu}\frac{\p f_k^*}{\p \mu}=\frac{1}{4\pi}\int_0^\infty \id k\; k\label{dT1}\\
+  \expval{T_{\nu\nu}}&=\expval{T_{\mu\mu}}\\
+  \expval{T_{\mu\nu}}&=0.\label{dT3}
+\end{align}
+The above expression contains ultraviolet divergent as \(k \rightarrow \infty\).
+
+To obtain a finite expression of the energy-momentum tensor, we will use an adiabatic expansion of massive conformal coupled 
+scalar field to construct the subtraction term, up to the order of spacetime dimensions.
+We start with the general expression of the massive scalar field in Roberson-Walker spacetime.
+\begin{equation}
+  \hat{\phi}(\eta,x)=\sum_{k}\left[\hat{A}_{k}f_{k}(\eta,x)+\hat{A}^\dagger_{k}f^*_{k}(\eta,x)\right].
+\end{equation}
+Because the space is homogeneous, the mode functions are separable and take the form
+\begin{equation}\label{mode}
+  f_{k}(\eta,x)=(2\pi)^{-1/2}e^{ikx}\chi_{k}(\eta).
+\end{equation}
+Plug \ref{mode} into the Klein-Gordon equation
+%\footnote{\(\left(\frac{\partial^2}{\partial \eta^2}-\frac{\partial^2}{\partial x^2}+\mu^2(\eta)\right)\phi(\eta,x)\)=0} 
+yield that 
+\begin{equation}\label{tm}
+  \frac{d^2\chi_{k}(\eta)}{d\eta^2} + \omega^2\chi_{k}(\eta)=0,
+\end{equation}
+where \(\omega_{k}=\sqrt{k^2+\mu^2(\eta)}\) and \(\mu=m\sqrt{C(\eta)}\)
+The normalization condition become 
+\begin{equation}
+  \chi_{k}\partial_{\eta}\chi_{k}^*-\chi_{k}^*\partial_{\eta}\chi_{k}=i.
+\end{equation}
+The WKB type solution of \ref{tm} is given by 
+\begin{align}\label{wkb}
+  \chi_k&=(2W_{k})^{-1/2}\exp{-i\int^{\eta}W_k(\eta')d\eta'}\\
+  W_k&=\omega_k(1+\epsilon_2)^{1/2}\approx\omega_k(1+\frac{1}{2}\epsilon_2)\\
+  \epsilon_2&=-\omega^{-3/2}\frac{d}{d\eta}\left[ \omega^{-1}_{k}\frac{d}{d\eta}\omega^{1/2} \right]
+\end{align}
+By using this WKB-type solution, we are able to define adiabatic vacuum to any order. 
+For this case, since the dimension of spacetime is 2, we need to obtain the \(W_{k}\) to the adiabatic order of 2 as our subtraction term.
+By using \ref{wkb}, 
+\begin{align}\label{A2}
+  W_k^{(2)}&=\omega_{k}-\frac{C''m^2}{8\omega^3_k}+\frac{5C'^2m^4}{32\omega^5_k}.
+\end{align}
+The expectation values of stress-energy tensor components in the adiabatic vacuum are 
+\begin{align}
+  \expval{T_{\mu\mu}}{0_A}&=\frac{1}{8\pi}\int_{0}^{\infty} \frac{dk}{W_k}\left[W_k^2+k^2+\frac{1}{4}\left(\frac{W'_{k}}{W_k}\right)^2\right]\\
+  \expval{T_{\nu\nu}}{0_A}&=\frac{1}{8\pi}\int_{0}^{\infty} \frac{dk}{W_k}\left[W_k^2+k^2+\frac{1}{4}\left(\frac{W'_{k}}{W_k}\right)^2\right]\\
+  \expval{T_{\mu\nu}}{0_A}&=\frac{Cm^2}{8\pi}\int_{0}^{\infty}\frac{dk}{W_k}.
+\end{align}
+\(T_{\mu\mu}=T_{\nu\nu}\) because \(W_k=W_{-k}\).
+The adiabatic subtraction terms are obtained by plug \ref{A2} into \ref{T1}-\ref{T3}:
+\begin{align}
+  &\expval{T_{\mu\mu}}{0^{(2)}}=\expval{T_{\nu\nu}}{0^{(2)}}\\\label{T1}
+  &=\frac{1}{8\pi}\int_{0}^{\infty}dk\left[\omega_k+\frac{k^2}{\omega_k}-\frac{C''m^2}{8\omega_k^3}+\frac{C''k^2m^2}{8\omega_k^5}+\frac{7C'^2m^4}{32\omega^5_k}-\frac{5C'^2k^2m^4}{4\omega_k^7}\right]\\
+  &\expval{T_{\mu\nu}}{0^{(2)}}=\expval{T_{\nu\mu}}{0^{(2)}}\\
+  &=\frac{CC''m^4}{64\pi}\int^{\infty}_{0}\frac{dk}{\omega_k^5}-\frac{5CC'^2m^6}{256\pi}\int^{k}_0\frac{dk}{\omega_k^7}.\label{T3}
+\end{align}
+Note that in the above calculation, we have discarded the adiabatic order terms higher than 2.
+
+
+
+Subtract \ref{T1}-\ref{T3} from \ref{dT1}-\ref{dT3} and take the limit \(m\rightarrow 0\), we have obtained renormalized stress-energy tensor components:
+\begin{align}
+    \expval{T_{\mu\mu}}_{ren}&= \expval{T_{\mu\mu}}-\expval{T_{\mu\mu}}{0^{(2)}}\\
+    &=\frac{1}{4\pi}\int_0^\infty \id k\; k-\expval{T_{\mu\mu}}{0^{(2)}}\label{T1re}\\
+    \expval{T_{\mu\nu}}_{ren}&= \expval{T_{\mu\nu}}-\expval{T_{\mu\nu}}{0^{(2)}}\\
+    &=-\expval{T_{\mu\nu}}{0^{(2)}}
+\end{align}
+Notice that the expression \ref{T1re} can be spilt into two part\footnote{prime denote derivative respect to conformal time.}:
+\begin{align}
+    \expval{T_{\mu\mu}}{0^{(2)}}&=\frac{1}{8\pi}\int_{0}^{\infty}dk\left[\omega_k+\frac{k^2}{\omega_k}\right]\\
+    &+\frac{1}{8\pi}\int_{0}^{\infty}dk\left[-\frac{C''m^2}{8\omega_k^3}+\frac{C''k^2m^2}{8\omega_k^5}+\frac{7C'^2m^4}{32\omega^5_k}-\frac{5C'^2k^2m^4}{4\omega_k^7}\right]
+\end{align}
+By substitute \(k=m\sqrt{C}\tan\theta\), the second integral is shown to be independent of \(m\):
+\begin{align}
+    &~~~~~\frac{1}{8\pi}\int_{0}^{\infty}dk\left[-\frac{C''m^2}{8\omega_k^3}+\frac{C''k^2m^2}{8\omega_k^5}+\frac{7C'^2m^4}{32\omega^5_k}-\frac{5C'^2k^2m^4}{4\omega_k^7}\right]\\
+    &=\frac{1}{8\pi}\int_{0}^{\pi/2}\frac{d\theta}{\cos^2\theta}\left[-\frac{C''}{8C(\tan^2\theta+1)^{3/2}}+\frac{C''}{8C(\tan^2\theta+1)^{5/2}}+\frac{7C'^2}{32C^2(\tan^2\theta+1)^{5/2}}-\frac{5C'^2}{4C^2(\tan^2\theta+1)^{7/2}}\right]\\
+    &=\frac{1}{96\pi}\left(\frac{3C'^2}{2C^2}-\frac{C''}{C}\right)
+\end{align}
+In the massless limit,
+\begin{align}
+  \expval{T_{\mu\mu}}_{ren}&=\frac{1}{4\pi}\int_0^\infty \id k\; k- \frac{1}{8\pi}\int_{0}^{\infty}dk\left[\omega_k+\frac{k^2}{\omega_k}\right]-\frac{1}{96\pi}\left(\frac{3C'^2}{2C^2}-\frac{C''}{C}\right)\\
+  &=\frac{1}{96\pi}\left(\frac{C''}{C}-\frac{3C'^2}{2C^2}\right).
+\end{align}
+Similar to other stress-energy tensor components:
+\begin{align}
+    \expval{T_{\mu\nu}}_{ren}&= \expval{T_{\mu\nu}}-\expval{T_{\mu\nu}}{0^{(2)}}\\
+    &=-\expval{T_{\mu\nu}}{0^{(2)}}\\
+    &=-\frac{1}{96\pi}\left(\frac{C''}{C}-\frac{C'^2}{C^2}\right)
+\end{align}
+
+
+\section{Quantum Phenomena in Gravity}
 
 
 \subsection{Cosmological Particle Creation Revisit}
